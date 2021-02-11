@@ -5,7 +5,7 @@
     private static $vars = [];
 
     public static function CreateView($view_name) {
-      self::Auth();
+      Auth::login();
       
       $data = [
         "name" => "Bo9al",
