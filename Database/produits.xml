@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<produits>
+  <produit>
+    <id>1</id>
+    <libellee>libellee1</libellee>
+    <prix>100</prix>
+  </produit>
+  <produit>
+    <id>2</id>
+    <libellee>libellee2</libellee>
+    <prix>200</prix>
+  </produit>
+  <produit>
+    <id>3</id>
+    <libellee>libellee3</libellee>
+    <prix>300</prix>
+  </produit>
+</produits>

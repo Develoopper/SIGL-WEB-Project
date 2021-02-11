@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ligneComs>
+  <ligneCom>
+    <idProduit>1</idProduit>
+    <idCommande>2</idCommande>
+    <qte>1</qte>
+  </ligneCom>
+  <ligneCom>
+    <idProduit>2</idProduit>
+    <idCommande>3</idCommande>
+    <qte>2</qte>
+  </ligneCom>
+  <ligneCom>
+    <idProduit>1</idProduit>
+    <idCommande>2</idCommande>
+    <qte>3</qte>
+  </ligneCom>
+</ligneComs>

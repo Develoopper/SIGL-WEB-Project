@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<users>
+  <user>
+    <id>1</id>
+    <nom>nom1</nom>
+    <sexe>homme</sexe>
+  </user>
+  <user>
+    <id>2</id>
+    <nom>nom2</nom>
+    <sexe>femme</sexe>
+  </user>
+  <user>
+    <id>3</id>
+    <nom>nom3</nom>
+    <sexe>femme</sexe>
+  </user>
+</users>
