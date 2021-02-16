@@ -118,12 +118,15 @@
       $doc->load($_SERVER['DOCUMENT_ROOT']."/Database/produits.xml");
       $allProducts = $doc->getElementsByTagName("produit");
       for($i = 0; $i < count($allProducts); $i++){
-        if($allProducts->item($i)->firstChild);
+        if($allProducts->item($i)->firstChild->nodeValue == $this->id){
+          $exist = true;
+        }
       }
-      $produitsList = $doc->getElementsByTagName("produits");
-      $doc->formatOutput = true;
-      $produits = $produitsList->item(0);
-      $produit = $doc->createElement("produit");
+      if(!$exist){
+        $produitsList = $doc->getElementsByTagName("produits");
+        $doc->formatOutput = true;
+        $produits = $produitsList->item(0);
+        $produit = $doc->createElement("produit");
         $id = $doc->createElement("id", $this->id);
         $description = $doc->createElement("description", $this->description);
         $libelle = $doc->createElement("libelle", $this->libelle);
@@ -132,8 +135,12 @@
         $produit->appendChild($libelle);
         $produit->appendChild($prix);
         $produit->appendChild($description);
-      $produits->appendChild($produit);
-      echo $doc->save($_SERVER['DOCUMENT_ROOT']."/Database/produits.xml");
+        $produits->appendChild($produit);
+        echo $doc->save($_SERVER['DOCUMENT_ROOT']."/Database/produits.xml");
+        return $doc->save($_SERVER['DOCUMENT_ROOT']."/Database/produits.xml");
+      }else{
+        return "un produit avec le meme identifiant existe déjà";
+      }
     }
 
     public function update($oldProduct, $newproduit) {
