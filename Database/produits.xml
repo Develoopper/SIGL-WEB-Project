@@ -2,17 +2,47 @@
 <produits>
   <produit>
     <id>1</id>
-    <libellee>libellee1</libellee>
+    <libelle>libellee1</libelle>
     <prix>100</prix>
   </produit>
   <produit>
     <id>2</id>
-    <libellee>libellee2</libellee>
+    <libelle>libellee2</libelle>
     <prix>200</prix>
   </produit>
   <produit>
     <id>3</id>
-    <libellee>libellee3</libellee>
+    <libelle>libellee3</libelle>
     <prix>300</prix>
+  </produit>
+  <produit>
+    <id>4</id>
+    <libelle>makidadssaboun</libelle>
+    <prix>5000</prix>
+    <description>ghaliya3liya</description>
+  </produit>
+  <produit>
+    <id>4</id>
+    <libelle>makidadssaboun</libelle>
+    <prix>5000</prix>
+    <description>ghaliya3liya</description>
+  </produit>
+  <produit>
+    <id>4</id>
+    <libelle>makidadssaboun</libelle>
+    <prix>5000</prix>
+    <description>ghaliya3liya</description>
+  </produit>
+  <produit>
+    <id>4</id>
+    <libelle>makidadssaboun</libelle>
+    <prix>5000</prix>
+    <description>ghaliya3liya</description>
+  </produit>
+  <produit>
+    <id>4</id>
+    <libelle>makidadssaboun</libelle>
+    <prix>5000</prix>
+    <description>ghaliya3liya</description>
   </produit>
 </produits>

@@ -11,7 +11,7 @@
     }
 
     public static function getAll() {
-      $xml = self::load_xml("utilisateurs");
+      $xml = parent::load_xml("utilisateurs");
 
       foreach($xml->children() as $user)
         $users_list[] = new UserModel($user->id, $user->nom, $user->sexe);
@@ -21,7 +21,7 @@
 
     public static function getOne($id) {
       $xml = self::load_xml("utilisateurs");
-      
+
       foreach($xml->children() as $user)
         if ($id == $user->id)
           return new UserModel($user->id, $user->nom, $user->sexe);

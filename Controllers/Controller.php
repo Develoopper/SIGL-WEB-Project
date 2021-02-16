@@ -6,7 +6,7 @@
 
     public static function CreateView($view_name) {
       Auth::login();
-      
+
       $data = [
         "name" => "Bo9al",
         "sex" => "homme",

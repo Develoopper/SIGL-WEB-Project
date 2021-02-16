@@ -6,7 +6,7 @@
   <title>Accueil</title>
   <style>
     <?php include "accueil.css"; ?>
-    <?php include "Views/assets/materialize/css/materialize.min.css"; ?>
+    <?php include "assets/materialize/css/materialize.min.css"; ?>
   </style>
 </head>
 <body>
@@ -16,7 +16,7 @@
       <a href="#" class="brand-logo center">
         <img class="logo" src="assets/img/logo.png" style="margin-top: 5px;">
       </a>
-      
+
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><a href="#">Femmes</a></li>
         <li><a href="#">Hommes</a></li>
@@ -31,7 +31,7 @@
       </a>
     </div>
   </nav>
-        
+
   <!-- Content -->
   <div class="row content s12 m10">
     <?php echo $users->nom; ?><br>
