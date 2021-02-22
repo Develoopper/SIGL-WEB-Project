@@ -1,0 +1,14 @@
+$produitsList = $doc->getElementsByTagName("produits");
+        $produits = $produitsList->item(0);
+        $produit = $doc->createElement("produit");
+        $id = $doc->createElement("id", $this->id);
+        $description = $doc->createElement("description", $this->description);
+        $libelle = $doc->createElement("libelle", $this->libelle);
+        $prix = $doc->createElement("prix", $this->prix);
+        $produit->appendChild($id);
+        $produit->appendChild($libelle);
+        $produit->appendChild($prix);
+        $produit->appendChild($description);
+        $produits->appendChild($produit);
+        echo $doc->save($_SERVER['DOCUMENT_ROOT']."/Database/produits.xml");
+        return $doc->save($_SERVER['DOCUMENT_ROOT']."/Database/produits.xml");

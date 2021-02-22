@@ -1,6 +1,6 @@
 <?php
   include "./Model.php";
-  class ProduitModel extends Model{
+  class ProduitModel extends Model {
     private $id;
     private $libelle;
     private $prix;
@@ -33,7 +33,7 @@
           $operator = $filter["opt"];
           $filterValue = $filter["filterValue"];
 
-          if($operator == "like" && str_contains($product->{$filterBy}, $filterValue)){
+          if($operator == "like" && str_contains($product->libelle, $filterValue)){
             $products_list[] = new ProduitModel($product->id, $product->libelle,  $product->prix,  $product->description);
             for($i = array_key_first($products_list); $i < count($products_list); $i++){
               if(!str_contains($product->{$filterBy}, $filterValue)){
@@ -95,56 +95,62 @@
       return $products_list;
     }
 
-    public function create() {
-    /*  $productString = "<produit>
-                          <id>$this->id</id>
-                          <libelle>$this->libelle</libelle>
-                          <prix>$this->prix</prix>
-                          <description>$this->description</description>
-                        </produit>";*/
-      //$xml = simplexml_load_string($productString);
-      /*$xml = new XMLWriter();
-      $xml->openUri($_SERVER['DOCUMENT_ROOT']."/Database/produits.xml");
-      $xml->startDocument(); //create the document tag, you can specify the version and encoding here
-      $xml->startElement("Produit"); //Create an element
-        $xml->writeElement("id", $this->id);
-        $xml->writeElement("libelle", $this->libelle);
-        $xml->writeElement("prix", $this->prix);
-        $xml->writeElement("description", $this->description);
-      $xml->endElement(); //End the element
-      return $xml->flush();*/
-      $doc = new DOMDocument();
-      $doc->preserveWhiteSpace = false;
-      $doc->load($_SERVER['DOCUMENT_ROOT']."/Database/produits.xml");
-      $allProducts = $doc->getElementsByTagName("produit");
-      for($i = 0; $i < count($allProducts); $i++){
-        if($allProducts->item($i)->firstChild->nodeValue == $this->id){
+    private static function searchProductInXML($produit, $xml){
+      $exist = false;
+      foreach($xml->children() as $product){
+        if($product->id == $produit->id){
           $exist = true;
         }
       }
+      return [$exist, $produit];
+    }
+
+    public function create() {
+      $xml = parent::load_xml("produits");
+      $exist = self::searchProductInXML($this, $xml)[0];
       if(!$exist){
-        $produitsList = $doc->getElementsByTagName("produits");
-        $doc->formatOutput = true;
-        $produits = $produitsList->item(0);
-        $produit = $doc->createElement("produit");
-        $id = $doc->createElement("id", $this->id);
-        $description = $doc->createElement("description", $this->description);
-        $libelle = $doc->createElement("libelle", $this->libelle);
-        $prix = $doc->createElement("prix", $this->prix);
-        $produit->appendChild($id);
-        $produit->appendChild($libelle);
-        $produit->appendChild($prix);
-        $produit->appendChild($description);
-        $produits->appendChild($produit);
-        echo $doc->save($_SERVER['DOCUMENT_ROOT']."/Database/produits.xml");
-        return $doc->save($_SERVER['DOCUMENT_ROOT']."/Database/produits.xml");
-      }else{
+        $produit = $xml->addChild("produit");
+        $produit->addChild("id", $this->id);
+        $produit->addChild("libelle", $this->libelle);
+        $produit->addChild("prix", $this->prix);
+        $produit->addChild("description", $this->description);
+        echo $xml->saveXML();
+        return $xml->saveXML();
+      }
+      else
+      {
         return "un produit avec le meme identifiant existe déjà";
       }
     }
 
-    public function update($oldProduct, $newproduit) {
-      return;
+    public static function update($oldProduct, $newProduit) {
+      $xml = parent::load_xml("produits");
+      [$exist, $oldProduct] = self::searchProductInXML($oldProduct, $xml);
+
+      if($exist){
+        echo $oldProduct->id ."</br>";
+        [$existNew, $newProduct] = self::searchProductInXML($newProduit, $xml);
+
+        if(!$existNew){
+          echo $newProduct->id . "</br>";
+          //foreach ($xml->xpath("//produit[@id=$oldProduct->id]") as $produit) {
+          foreach($xml->children() as $product) {
+            if($product->id == $oldProduct->id) {
+              $product->id = $newProduit->id;
+              $product->libelle = $newProduit->libelle;
+              $product->description = $newProduit->description;
+              $product->prix = $newProduit->prix;
+            }
+          }
+
+          return $xml->saveXML();
+
+        }else{
+          return "Le nouveau produit existe déjà";
+        }
+      }else{
+        return "Le produit n'existe pas.";
+      }
     }
 
     public function delete($product) {
@@ -155,7 +161,11 @@
   $where = array(["filterBy" => "id", "opt" => "equal", "filterValue" => 1], ["filterBy" => "prix", "opt" => "gtE", "filterValue" => 200]);
   $products_list = ProduitModel::getOne($where);
   $p = new ProduitModel("4", "makidadssaboun", 5000, "ghaliya3liya");
+  $p1 = ProduitModel::getOne(array(["filterBy" => "id", "opt" => "equal", "filterValue" => 1]))[0];
+  $p2 = new ProduitModel("5", "chiproduit", 5000, "l'innovation dans les produits.");
   $result = $p->create();
+  $resultModif = ProduitModel::update($p, $p2);
+  print_r($resultModif);
   print_r($result);
   print_r($products_list);
 ?>

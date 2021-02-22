@@ -6,7 +6,6 @@
       return $xml;
     }
 
-
     public function join() {
       # code...
     }
