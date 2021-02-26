@@ -126,10 +126,10 @@
           echo $newProduct->id . "</br>";
           $product = $xml->xpath("//produit[@id='$oldProduct->id']");
 
-          $product->id = $newProduit->id;
+          /*$product->id = $newProduit->id;
           $product->libelle = $newProduit->libelle;
           $product->description = $newProduit->description;
-          $product->prix = $newProduit->prix;
+          $product->prix = $newProduit->prix;*/
 
           return $xml->saveXML();
 
