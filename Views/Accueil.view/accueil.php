@@ -78,12 +78,13 @@
 
     .shadow-effect:hover { 
       box-shadow: 0px 0px 5px grey;
-      -webkit-transition: box-shadow .1.7s ease-in;
+      -webkit-transition: box-shadow .12s ease-in;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
+  <!-- Nav bar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid mx-3">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -156,6 +157,7 @@
     </div>
   </nav>
 
+  <!-- Slider -->
   <div id="carouselExampleCaptions" data-bs-interval="3000" class="carousel carousel-dark slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -163,9 +165,9 @@
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner mb-4">
-      <?php
-        foreach ($slider as $index => $item) {
-          echo '
+    <?php
+      foreach ($slider as $index => $item) {
+        echo '
           <div class="carousel-item '.($index == 0 ? "active" : "").'">
             <img src="'.$item["img"].'" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
@@ -173,9 +175,9 @@
               <p>Some representative placeholder content for the third slide.</p>
             </div>
           </div>
-          ';
-        }
-      ?>
+        ';
+      }
+    ?>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"  data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -187,67 +189,68 @@
     </button>
   </div>
 
+  <!-- Meilleures ventes -->
   <div class="mx-3 px-3 py-3 bg-light" style="border-radius: 10px; font-size: 13px;">
     <h3 class="mb-3">Meilleur ventes</h3>
 
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
+    <div id="carouselExampleControls" data-bs-interval="0" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner px-5">
         <div class="carousel-item active">
-          <div class="row">
+          <div class="row d-flex justify-content-around my-1">
           <?php
             foreach ($meilleursVentes as $item) {
               echo '
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                <div class="card-body p-2">
-                <p class="card-text cut-text">'.$item["libellee"].'</p>
-                <p class="card-text cut-text">'.$item["prix"].' DH</p>
-                </div>
+                  <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                  <div class="card-body p-2">
+                    <p class="card-text cut-text">'.$item["libellee"].'</p>
+                    <p class="card-text cut-text">'.$item["prix"].' DH</p>
+                  </div>
                 </div>
               ';
             }
-            ?>
+          ?>
           </div>
         </div>
         <div class="carousel-item">
-          <div class="row">
+          <div class="row mx-6 d-flex justify-content-around">
           <?php
             foreach ($meilleursVentes as $item) {
               echo '
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                <div class="card-body p-2">
-                <p class="card-text cut-text">'.$item["libellee"].'</p>
-                <p class="card-text cut-text">'.$item["prix"].' DH</p>
-                </div>
+                  <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                  <div class="card-body p-2">
+                    <p class="card-text cut-text">'.$item["libellee"].'</p>
+                    <p class="card-text cut-text">'.$item["prix"].' DH</p>
+                  </div>
                 </div>
               ';
             }
-            ?>
+          ?>
           </div>
         </div>
         <div class="carousel-item">
-          <div class="row">
+          <div class="row mx-6 d-flex justify-content-around">
           <?php
             foreach ($meilleursVentes as $item) {
               echo '
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                <div class="card-body p-2">
-                <p class="card-text cut-text">'.$item["libellee"].'</p>
-                <p class="card-text cut-text">'.$item["prix"].' DH</p>
-                </div>
+                  <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                  <div class="card-body p-2">
+                    <p class="card-text cut-text">'.$item["libellee"].'</p>
+                    <p class="card-text cut-text">'.$item["prix"].' DH</p>
+                  </div>
                 </div>
               ';
             }
-            ?>
+          ?>
           </div>
         </div>
       </div>
-      <button class="carousel-control-prev" style="width: 30px;" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
+      <button class="carousel-control-prev ms-3" style="width: 0px;" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
         <i class="material-icons text-dark" style="font-size: 50px;">keyboard_arrow_left</i>
       </button>
-      <button class="carousel-control-next" style="width: 30px;" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
+      <button class="carousel-control-next me-3" style="width: 0px;" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
         <i class="material-icons text-dark" style="font-size: 50px;">keyboard_arrow_right</i>
       </button>
     </div>
