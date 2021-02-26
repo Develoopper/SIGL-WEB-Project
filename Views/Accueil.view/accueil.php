@@ -5,8 +5,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <title>Accueil</title>
   <style>
-    <?php include "accueil.css"; ?>
-    <?php include "assets/materialize/css/materialize.min.css"; ?>
+    <?php include "./accueil.css"; ?>
+    <?php include "../assets/materialize/css/materialize.min.css"; ?>
   </style>
 </head>
 <body>
