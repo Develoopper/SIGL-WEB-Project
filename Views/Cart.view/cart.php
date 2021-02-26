@@ -99,67 +99,6 @@
 		</div>
 	</nav>
 
-	<div class="d-flex justify-content-center align-items-center mt-3">
-		<div class="d-flex flex-column align-items-center me-5 p-4 bg-light" style="border-radius: 10px;">
-			<h3 class="mb-5">S'inscrire</h3>
-			<form action="" method="post">
-				<div class="d-flex justify-content-between">
-					<div class="mb-3">
-						<label for="exampleFormControlInput1" class="form-label">Nom</label>
-						<input type="email" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-					</div>
-					<div class="mb-3">
-						<label for="exampleFormControlInput1" class="form-label">Prénom</label>
-						<input type="email" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-					</div>
-				</div>
-				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">E-mail</label>
-					<input type="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-				</div>
-				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">Téléphone</label>
-					<input type="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-				</div>
-				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
-					<input type="password" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-				</div>
-				<div class="form-check mb-4">
-					<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-					<label class="form-check-label" for="flexCheckDefault">
-						J'ai lu et j'accepte les <a href="#" class="link-dark">Conditions générales de vente</a>
-					</label>
-				</div>
-				<button type="button" class="btn btn-dark" style="width: 100%">S'inscrire</button>
-			</form>
-		</div>
-
-		<div class="d-flex flex-column align-items-center p-4 bg-light" style="border-radius: 10px;">
-			<h3 class="mb-5">Se connecter</h3>
-			<form action="" method="post">
-				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">E-mail</label>
-					<input type="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-				</div>
-				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
-					<input type="password" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-				</div>
-				<div class="d-flex justify-content-between">
-					<div class="form-check mb-4">
-						<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-						<label class="form-check-label" for="flexCheckDefault">
-							Rester connecté
-						</label>
-					</div>
-					<a href="#" class="link-dark">Mot de passe oublié ?</a>
-				</div>
-				<button type="button" class="btn btn-dark" style="width: 100%">Se connecter</button>
-			</form>
-		</div>
-	</div>
-
 	<!-- Footer -->
 	<footer class="bg-dark text-center text-light">
 		<!-- Grid container -->
