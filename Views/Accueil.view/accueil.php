@@ -65,22 +65,7 @@
   <link rel="stylesheet" href="accueil.css">
   <title>Document</title>
   <style>
-    body {
-      font-family: Montserrat;
-      font-size: 15px;
-    }
-
-    .shadow-effect {
-      /* box-shadow: 0px 0px 0px grey; */
-      -webkit-transition: box-shadow .2s ease-out;
-      box-shadow: .0px .0px 1px grey;
-    }
-
-    .shadow-effect:hover { 
-      box-shadow: 0px 0px 5px grey;
-      -webkit-transition: box-shadow .12s ease-in;
-      cursor: pointer;
-    }
+    
   </style>
 </head>
 <body>
@@ -145,7 +130,7 @@
             <button class="btn btn-outline-dark" style="font-size: 14px;" type="submit">Rechercher</button>
           </form>
             <a href="#" class="d-flex align-items-center mx-3 text-dark" style="text-decoration: none;">
-              <i class= material-icons mx-1" style="font-size: 30px;">account_circle</i>
+              <i class= "material-icons mx-1" style="font-size: 30px;">account_circle</i>
               Compte
             </a>
             <a href="#" class="d-flex align-items-center text-dark" style="text-decoration: none;">
@@ -258,10 +243,10 @@
 
   <!-- Ads row -->
   <div class="d-flex justify-content-evenly mx-3 my-4 px-3 py-3 ">
-    <div class="bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
+    <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
       <img src="https://ma.jumia.is/cms/000_2021/Week08/DoubleBanners/MA_W08_DB_montres.png" style="border-radius: 5px" alt="" srcset="">
     </div>
-    <div class="bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
+    <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
       <img src="https://ma.jumia.is/cms/000_2021/Week08/DoubleBanners/MA_W08_DB_Beaute.png" style="border-radius: 5px" alt="" srcset="">
     </div>
   </div>
@@ -335,10 +320,10 @@
 
   <!-- Ads row -->
   <div class="d-flex justify-content-evenly mx-3 my-4 px-3 py-3 ">
-    <div class="bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
+    <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
       <img src="https://ma.jumia.is/cms/000_2021/Week07/DB/MA_W07_DB_ModeFemme.png" style="border-radius: 5px" alt="" srcset="">
     </div>
-    <div class="bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
+    <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
       <img src="https://ma.jumia.is/cms/000_2021/Week07/DB/MA_W07_DB_ModeHomme.png" style="border-radius: 5px" alt="" srcset="">
     </div>
   </div>
@@ -555,11 +540,10 @@
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright
+      © 2021 Copyright
     </div>
     <!-- Copyright -->
   </footer>
-  <!-- Footer -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <!-- <script src="accueil.js"></script> -->
