@@ -99,7 +99,9 @@
 		</div>
 	</nav>
 
+	<!-- Formulaires -->
 	<div class="d-flex justify-content-center align-items-center mt-3">
+		<!-- S'inscrire -->
 		<div class="d-flex flex-column align-items-center me-5 p-4 bg-light" style="border-radius: 10px;">
 			<h3 class="mb-5">S'inscrire</h3>
 			<form action="" method="post">
@@ -135,6 +137,7 @@
 			</form>
 		</div>
 
+		<!-- Se connecter -->
 		<div class="d-flex flex-column align-items-center p-4 bg-light" style="border-radius: 10px;">
 			<h3 class="mb-5">Se connecter</h3>
 			<form action="" method="post">
