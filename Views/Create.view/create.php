@@ -24,7 +24,7 @@
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<a class="navbar-brand" style="font-family: 'Dancing Script'; font-size: 35px;" href="">Elegance</a>
+			<a class="navbar-brand" style="font-family: 'Dancing Script'; font-size: 35px;" href="#">Elegance</a>
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item dropdown">
@@ -83,10 +83,10 @@
 
 				<div class="d-flex align-items-center justify-content-between" style="font-size: 15px;">
 					<form class="d-flex me-2">
-						<input class="form-control me-2" style="font-size: 14px; width: 200px" type="search" placeholder="Chercher un produit" aria-label="Search">
+						<input class="form-control me-2" style="font-size: 14px;" type="search" placeholder="Chercher un produit" aria-label="Search">
 						<button class="btn btn-outline-dark" style="font-size: 14px;" type="submit">Rechercher</button>
 					</form>
-					<a href="login" class="d-flex align-items-center mx-3 text-dark" style="text-decoration: none;">
+					<a href="#" class="d-flex align-items-center mx-3 text-dark" style="text-decoration: none;">
 						<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
 						Compte
 					</a>
@@ -99,63 +99,32 @@
 		</div>
 	</nav>
 
-	<div class="d-flex justify-content-center align-items-center mt-3">
-		<div class="d-flex flex-column align-items-center me-5 p-4 bg-light" style="border-radius: 10px;">
+	<div class="d-flex justify-content-evenly mt-5">
+		<div class="d-flex flex-column align-items-center">
 			<h3 class="mb-5">S'inscrire</h3>
 			<form action="" method="post">
 				<div class="d-flex justify-content-between">
 					<div class="mb-3">
 						<label for="exampleFormControlInput1" class="form-label">Nom</label>
-						<input type="email" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+						<input type="email" style="width: 190px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
 					</div>
 					<div class="mb-3">
 						<label for="exampleFormControlInput1" class="form-label">Prénom</label>
-						<input type="email" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+						<input type="email" style="width: 190px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
 					</div>
 				</div>
 				<div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">E-mail</label>
-					<input type="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+					<input type="email" style="width: 400px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
 				</div>
 				<div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">Téléphone</label>
-					<input type="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+					<input type="email" style="width: 400px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
 				</div>
 				<div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
-					<input type="password" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+					<input type="password" style="width: 400px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
 				</div>
-				<div class="form-check mb-4">
-					<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-					<label class="form-check-label" for="flexCheckDefault">
-						J'ai lu et j'accepte les <a href="#" class="link-dark">Conditions générales de vente</a>
-					</label>
-				</div>
-				<button type="button" class="btn btn-dark" style="width: 100%">S'inscrire</button>
-			</form>
-		</div>
-
-		<div class="d-flex flex-column align-items-center p-4 bg-light" style="border-radius: 10px;">
-			<h3 class="mb-5">Se connecter</h3>
-			<form action="" method="post">
-				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">E-mail</label>
-					<input type="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-				</div>
-				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
-					<input type="password" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-				</div>
-				<div class="d-flex justify-content-between">
-					<div class="form-check mb-4">
-						<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-						<label class="form-check-label" for="flexCheckDefault">
-							Rester connecté
-						</label>
-					</div>
-					<a href="#" class="link-dark">Mot de passe oublié ?</a>
-				</div>
-				<button type="button" class="btn btn-dark" style="width: 100%">Se connecter</button>
 			</form>
 		</div>
 	</div>

@@ -14,9 +14,3 @@ body {
   box-shadow: 0px 0px 5px grey;
   -webkit-transition: box-shadow .05s ease-in;
 }
-
-.cut-text {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}

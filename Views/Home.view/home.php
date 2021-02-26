@@ -65,7 +65,7 @@
   <link rel="stylesheet" href="accueil.css">
   <title>Document</title>
   <style>
-    
+    <?php include "accueil.css"; ?>
   </style>
 </head>
 <body>
@@ -75,7 +75,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" style="font-family: 'Dancing Script'; font-size: 35px;" href="#">Elegance</a>
+      <a class="navbar-brand" style="font-family: 'Dancing Script'; font-size: 35px;" href="">Elegance</a>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown">
@@ -126,10 +126,10 @@
         
         <div class="d-flex align-items-center justify-content-between" style="font-size: 15px;">
           <form class="d-flex me-2">
-            <input class="form-control me-2" style="font-size: 14px;"  type="search" placeholder="Chercher un produit" aria-label="Search">
+            <input class="form-control me-2" style="font-size: 14px; width: 200px" type="search" placeholder="Chercher un produit" aria-label="Search">
             <button class="btn btn-outline-dark" style="font-size: 14px;" type="submit">Rechercher</button>
           </form>
-            <a href="#" class="d-flex align-items-center mx-3 text-dark" style="text-decoration: none;">
+            <a href="login" class="d-flex align-items-center mx-3 text-dark" style="text-decoration: none;">
               <i class= "material-icons mx-1" style="font-size: 30px;">account_circle</i>
               Compte
             </a>
@@ -188,8 +188,8 @@
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
                   <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
                   <div class="card-body p-2">
-                    <p class="card-text cut-text">'.$item["libellee"].'</p>
-                    <p class="card-text cut-text">'.$item["prix"].' DH</p>
+                    <p class="card-text text-truncate">'.$item["libellee"].'</p>
+                    <p class="card-text text-truncate">'.$item["prix"].' DH</p>
                   </div>
                 </div>
               ';
@@ -265,8 +265,8 @@
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
                   <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
                   <div class="card-body p-2">
-                    <p class="card-text cut-text">'.$item["libellee"].'</p>
-                    <p class="card-text cut-text">'.$item["prix"].' DH</p>
+                    <p class="card-text text-truncate">'.$item["libellee"].'</p>
+                    <p class="card-text text-truncate">'.$item["prix"].' DH</p>
                   </div>
                 </div>
               ';
@@ -342,8 +342,8 @@
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
                   <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
                   <div class="card-body p-2">
-                    <p class="card-text cut-text">'.$item["libellee"].'</p>
-                    <p class="card-text cut-text">'.$item["prix"].' DH</p>
+                    <p class="card-text text-truncate">'.$item["libellee"].'</p>
+                    <p class="card-text text-truncate">'.$item["prix"].' DH</p>
                   </div>
                 </div>
               ';
@@ -546,7 +546,9 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-  <!-- <script src="accueil.js"></script> -->
+  <script>
+    <?php include "accueil.js"; ?>
+  </script>
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->
 
