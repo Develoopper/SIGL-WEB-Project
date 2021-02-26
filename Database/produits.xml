@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <produits>
-  <produit>
+  <produit categorie="">
     <id>1</id>
     <libelle>libellee1</libelle>
     <prix>100</prix>

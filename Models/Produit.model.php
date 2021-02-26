@@ -49,14 +49,6 @@
               }
             }
           }
-          if($operator == "equalP" && $product->prix == $filterValue){
-            $products_list[] = new ProduitModel($product->id, $product->libelle,  $product->prix,  $product->description);
-             for($i = array_key_first($products_list); $i < count($products_list); $i++){
-              if($products_list[$i]->prix != $filterValue){
-                unset($products_list[$i]);
-              }
-            }
-          }
           if($operator == "gt" && $product->prix > $filterValue){
             $products_list[] = new ProduitModel($product->id, $product->libelle,  $product->prix,  $product->description);
             for($i = array_key_first($products_list); $i < count($products_list); $i++){
@@ -114,7 +106,6 @@
         $produit->addChild("libelle", $this->libelle);
         $produit->addChild("prix", $this->prix);
         $produit->addChild("description", $this->description);
-        echo $xml->saveXML();
         return $xml->saveXML();
       }
       else
@@ -133,15 +124,12 @@
 
         if(!$existNew){
           echo $newProduct->id . "</br>";
-          //foreach ($xml->xpath("//produit[@id=$oldProduct->id]") as $produit) {
-          foreach($xml->children() as $product) {
-            if($product->id == $oldProduct->id) {
-              $product->id = $newProduit->id;
-              $product->libelle = $newProduit->libelle;
-              $product->description = $newProduit->description;
-              $product->prix = $newProduit->prix;
-            }
-          }
+          $product = $xml->xpath("//produit[@id='$oldProduct->id']");
+
+          $product->id = $newProduit->id;
+          $product->libelle = $newProduit->libelle;
+          $product->description = $newProduit->description;
+          $product->prix = $newProduit->prix;
 
           return $xml->saveXML();
 
@@ -153,8 +141,23 @@
       }
     }
 
-    public function delete($product) {
-      return;
+    public static function delete($product) {
+      $xml = parent::load_xml("produits");
+      [$exist, $oldProduct] = self::searchProductInXML($product, $xml);
+
+      if($exist) {
+        $product = $xml->xpath("//produit[@id='$oldProduct->id']");
+        if (!empty($product)) {
+          unset($product[0][0]);
+        }
+      }
+
+      $formatted = $xml->asXML();
+      $file = fopen ("../Database/produits.xml", "w");
+      fwrite($file, $formatted);
+      fclose ($file);
+
+      return $xml->saveXML();
     }
 
   }
@@ -162,9 +165,10 @@
   $products_list = ProduitModel::getOne($where);
   $p = new ProduitModel("4", "makidadssaboun", 5000, "ghaliya3liya");
   $p1 = ProduitModel::getOne(array(["filterBy" => "id", "opt" => "equal", "filterValue" => 1]))[0];
-  $p2 = new ProduitModel("5", "chiproduit", 5000, "l'innovation dans les produits.");
+  $p2 = new ProduitModel("5", "chiproduit", 6000, "l'innovation dans les produits.");
   $result = $p->create();
-  $resultModif = ProduitModel::update($p, $p2);
+  //$resultModif = ProduitModel::update($p, $p2);
+  $resultSuppre = ProduitModel::delete($p);
   print_r($resultModif);
   print_r($result);
   print_r($products_list);
