@@ -65,7 +65,7 @@
   <link rel="stylesheet" href="accueil.css">
   <title>Document</title>
   <style>
-    <?php include "accueil.css"; ?>
+    <?php include "home.css"; ?>
   </style>
 </head>
 <body>

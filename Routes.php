@@ -7,8 +7,8 @@
     Produits::CreateView("Login");
   });
   
-  Route::set("create", function() {
-    Produits::CreateView("Create");
+  Route::set("cart", function() {
+    Produits::CreateView("Cart");
   });
 
   Route::set("produits", function() {
