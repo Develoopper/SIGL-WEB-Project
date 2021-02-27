@@ -76,7 +76,7 @@
       box-shadow: .0px .0px 1px grey;
     }
 
-    .shadow-effect:hover { 
+    .shadow-effect:hover {
       box-shadow: 0px 0px 5px grey;
       -webkit-transition: box-shadow .12s ease-in;
       cursor: pointer;
@@ -138,7 +138,7 @@
             </ul>
           </li>
         </ul>
-        
+
         <div class="d-flex align-items-center justify-content-between" style="font-size: 15px;">
           <form class="d-flex me-2">
             <input class="form-control me-2" style="font-size: 14px;"  type="search" placeholder="Chercher un produit" aria-label="Search">
