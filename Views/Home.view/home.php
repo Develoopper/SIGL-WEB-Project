@@ -75,7 +75,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" style="font-family: 'Dancing Script'; font-size: 35px;" href="">Elegance</a>
+      <a class="navbar-brand" style="font-family: 'Dancing Script'; font-size: 35px;" href="index.php">Elegance</a>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown">
@@ -133,7 +133,7 @@
               <i class= "material-icons mx-1" style="font-size: 30px;">account_circle</i>
               Compte
             </a>
-            <a href="#" class="d-flex align-items-center text-dark" style="text-decoration: none;">
+            <a href="cart" class="d-flex align-items-center text-dark" style="text-decoration: none;">
               <i class="large material-icons mx-1" style="font-size: 30px;">shopping_cart</i>
               Panier
             </a>
