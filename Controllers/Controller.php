@@ -7,15 +7,15 @@
     public static function CreateView($view_name) {
       Auth::login();
 
-      $data = [
-        "name" => "Bo9al",
-        "sex" => "homme",
-        "users" => UserModel::getOne(2),
-        "user" => $_SESSION["user"]
-      ];
+      // $data = [
+      //   "name" => "Bo9al",
+      //   "sex" => "homme",
+      //   "users" => UserModel::getOne(2),
+      //   "user" => $_SESSION["user"]
+      // ];
 
-      foreach($data as $key => $val)
-        self::$vars[$key] = $val;
+      // foreach($data as $key => $val)
+      //   self::$vars[$key] = $val;
 
       extract(self::$vars);
 

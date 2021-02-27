@@ -65,22 +65,7 @@
   <link rel="stylesheet" href="accueil.css">
   <title>Document</title>
   <style>
-    body {
-      font-family: Montserrat;
-      font-size: 15px;
-    }
-
-    .shadow-effect {
-      /* box-shadow: 0px 0px 0px grey; */
-      -webkit-transition: box-shadow .2s ease-out;
-      box-shadow: .0px .0px 1px grey;
-    }
-
-    .shadow-effect:hover {
-      box-shadow: 0px 0px 5px grey;
-      -webkit-transition: box-shadow .12s ease-in;
-      cursor: pointer;
-    }
+    <?php include "home.css"; ?>
   </style>
 </head>
 <body>
@@ -90,7 +75,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" style="font-family: 'Dancing Script'; font-size: 35px;" href="#">Elegance</a>
+      <a class="navbar-brand" style="font-family: 'Dancing Script'; font-size: 35px;" href="">Elegance</a>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown">
@@ -141,11 +126,11 @@
 
         <div class="d-flex align-items-center justify-content-between" style="font-size: 15px;">
           <form class="d-flex me-2">
-            <input class="form-control me-2" style="font-size: 14px;"  type="search" placeholder="Chercher un produit" aria-label="Search">
+            <input class="form-control me-2" style="font-size: 14px; width: 200px" type="search" placeholder="Chercher un produit" aria-label="Search">
             <button class="btn btn-outline-dark" style="font-size: 14px;" type="submit">Rechercher</button>
           </form>
-            <a href="#" class="d-flex align-items-center mx-3 text-dark" style="text-decoration: none;">
-              <i class= material-icons mx-1" style="font-size: 30px;">account_circle</i>
+            <a href="login" class="d-flex align-items-center mx-3 text-dark" style="text-decoration: none;">
+              <i class= "material-icons mx-1" style="font-size: 30px;">account_circle</i>
               Compte
             </a>
             <a href="#" class="d-flex align-items-center text-dark" style="text-decoration: none;">
@@ -203,8 +188,8 @@
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
                   <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
                   <div class="card-body p-2">
-                    <p class="card-text cut-text">'.$item["libellee"].'</p>
-                    <p class="card-text cut-text">'.$item["prix"].' DH</p>
+                    <p class="card-text text-truncate">'.$item["libellee"].'</p>
+                    <p class="card-text text-truncate">'.$item["prix"].' DH</p>
                   </div>
                 </div>
               ';
@@ -258,10 +243,10 @@
 
   <!-- Ads row -->
   <div class="d-flex justify-content-evenly mx-3 my-4 px-3 py-3 ">
-    <div class="bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
+    <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
       <img src="https://ma.jumia.is/cms/000_2021/Week08/DoubleBanners/MA_W08_DB_montres.png" style="border-radius: 5px" alt="" srcset="">
     </div>
-    <div class="bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
+    <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
       <img src="https://ma.jumia.is/cms/000_2021/Week08/DoubleBanners/MA_W08_DB_Beaute.png" style="border-radius: 5px" alt="" srcset="">
     </div>
   </div>
@@ -280,8 +265,8 @@
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
                   <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
                   <div class="card-body p-2">
-                    <p class="card-text cut-text">'.$item["libellee"].'</p>
-                    <p class="card-text cut-text">'.$item["prix"].' DH</p>
+                    <p class="card-text text-truncate">'.$item["libellee"].'</p>
+                    <p class="card-text text-truncate">'.$item["prix"].' DH</p>
                   </div>
                 </div>
               ';
@@ -335,10 +320,10 @@
 
   <!-- Ads row -->
   <div class="d-flex justify-content-evenly mx-3 my-4 px-3 py-3 ">
-    <div class="bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
+    <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
       <img src="https://ma.jumia.is/cms/000_2021/Week07/DB/MA_W07_DB_ModeFemme.png" style="border-radius: 5px" alt="" srcset="">
     </div>
-    <div class="bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
+    <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
       <img src="https://ma.jumia.is/cms/000_2021/Week07/DB/MA_W07_DB_ModeHomme.png" style="border-radius: 5px" alt="" srcset="">
     </div>
   </div>
@@ -357,8 +342,8 @@
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
                   <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
                   <div class="card-body p-2">
-                    <p class="card-text cut-text">'.$item["libellee"].'</p>
-                    <p class="card-text cut-text">'.$item["prix"].' DH</p>
+                    <p class="card-text text-truncate">'.$item["libellee"].'</p>
+                    <p class="card-text text-truncate">'.$item["prix"].' DH</p>
                   </div>
                 </div>
               ';
@@ -555,14 +540,15 @@
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright
+      © 2021 Copyright
     </div>
     <!-- Copyright -->
   </footer>
-  <!-- Footer -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-  <!-- <script src="accueil.js"></script> -->
+  <script>
+    <?php include "accueil.js"; ?>
+  </script>
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->
 
