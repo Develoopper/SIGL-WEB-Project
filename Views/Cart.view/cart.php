@@ -24,7 +24,7 @@
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<a class="navbar-brand" style="font-family: 'Dancing Script'; font-size: 35px;" href="">Elegance</a>
+			<a class="navbar-brand" style="font-family: 'Dancing Script'; font-size: 35px;" href="index.php">Elegance</a>
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item dropdown">
@@ -90,7 +90,7 @@
 						<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
 						Compte
 					</a>
-					<a href="#" class="d-flex align-items-center text-dark" style="text-decoration: none;">
+					<a href="cart" class="d-flex align-items-center text-dark" style="text-decoration: none;">
 						<i class="large material-icons mx-1" style="font-size: 30px;">shopping_cart</i>
 						Panier
 					</a>
@@ -98,6 +98,107 @@
 			</div>
 		</div>
 	</nav>
+
+	<!-- Panier -->
+	<!-- <div class="d-flex flex-column align-items-center me-5 p-4 bg-light" style="border-radius: 10px;"> -->
+	<div class="d-flex justify-content-center">
+		<div class="mx-3 my-4 px-3 py-3 bg-light" style="border-radius: 10px; font-size: 13px;">
+			<h3 class="mb-3 ms-4">Panier</h3>
+			
+			<div class="d-flex justify-content-between align-items-center p-2 mx-5">
+				<h6>
+					Articles
+				</h6>
+
+				<div class="d-flex">
+					<h6 class="me-5">
+						Quantité
+					</h6>
+					<h6 class="ms-5">
+						Sous total
+					</h6>
+				</div>
+			</div>
+			
+			<div class="d-flex justify-content-between align-items-center rounded p-2 mx-5 bg-dark text-light mb-3" style="width: 900px">
+				<div class="d-flex align-items-center">
+					<img src="https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/24/177193/1.jpg?3360" class="me-3 rounded" style="height: 70px; width: 70px" alt="...">
+					<div>
+						<h6 class="text-truncate">Montre water-proof taille standard</h6>
+						<span style="font-size: 15px">579 DH</span>
+					</div>
+				</div>
+
+				<div class="d-flex justify-content-between align-items-center">
+					<div class="bg-light" style="height: 60px; width: 1px;"></div>
+
+					<div class="d-flex mx-3">
+						<a href="#" style=""><i class= "material-icons mx-1 text-light" style="font-size: 20px;">remove</i></a>
+						<h6 class="mx-4 mb-0">1</h6>
+						<a href="#" style=""><i class= "material-icons mx-1 text-light" style="font-size: 20px;">add</i></a>
+					</div>
+
+					<div class="bg-light" style="height: 60px; width: 1px;"></div>
+
+					<div>
+						<h6 class="mx-5 mb-0">1158 DH</h6>
+					</div>
+				</div>
+			</div>
+
+			<div class="d-flex justify-content-between align-items-center rounded p-2 mx-5 bg-dark text-light mb-3" style="width: 900px">
+				<div class="d-flex align-items-center">
+					<img src="https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/24/177193/1.jpg?3360" class="me-3 rounded" style="height: 70px; width: 70px" alt="...">
+					<div>
+						<h6 class="text-truncate">Montre water-proof taille standard</h6>
+						<span style="font-size: 15px">579 DH</span>
+					</div>
+				</div>
+
+				<div class="d-flex justify-content-between align-items-center">
+					<div class="bg-light" style="height: 60px; width: 1px;"></div>
+
+					<div class="d-flex mx-3">
+						<a href="#" style=""><i class= "material-icons mx-1 text-light" style="font-size: 20px;">remove</i></a>
+						<h6 class="mx-4 mb-0">1</h6>
+						<a href="#" style=""><i class= "material-icons mx-1 text-light" style="font-size: 20px;">add</i></a>
+					</div>
+
+					<div class="bg-light" style="height: 60px; width: 1px;"></div>
+
+					<div>
+						<h6 class="mx-5 mb-0">1158 DH</h6>
+					</div>
+				</div>
+			</div>
+
+			<div class="d-flex justify-content-between align-items-center rounded p-2 mx-5 bg-dark text-light mb-3" style="width: 900px">
+				<div class="d-flex align-items-center">
+					<img src="https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/24/177193/1.jpg?3360" class="me-3 rounded" style="height: 70px; width: 70px" alt="...">
+					<div>
+						<h6 class="text-truncate">Montre water-proof taille standard</h6>
+						<span style="font-size: 15px">579 DH</span>
+					</div>
+				</div>
+
+				<div class="d-flex justify-content-between align-items-center">
+					<div class="bg-light" style="height: 60px; width: 1px;"></div>
+
+					<div class="d-flex mx-3">
+						<a href="#" style=""><i class= "material-icons mx-1 text-light" style="font-size: 20px;">remove</i></a>
+						<h6 class="mx-4 mb-0">1</h6>
+						<a href="#" style=""><i class= "material-icons mx-1 text-light" style="font-size: 20px;">add</i></a>
+					</div>
+
+					<div class="bg-light" style="height: 60px; width: 1px;"></div>
+
+					<div>
+						<h6 class="mx-5 mb-0">1158 DH</h6>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- Footer -->
 	<footer class="bg-dark text-center text-light">
