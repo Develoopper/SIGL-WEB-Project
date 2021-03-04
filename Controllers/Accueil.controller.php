@@ -1,5 +1,5 @@
 <?php
-  class Accueil extends Controller {
+  class Accueil_Controller extends Controller {
 
   }
 ?>

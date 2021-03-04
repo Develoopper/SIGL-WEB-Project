@@ -1,5 +1,5 @@
 <?php
-  class Produits extends Controller {
+  class Produits_Controller extends Controller {
     
   }
 ?>

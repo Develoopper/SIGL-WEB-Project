@@ -2,11 +2,19 @@
   class Route {
     public static $valideRoutes = array();
 
-    public static function set($route, $callback) {
-      self::$valideRoutes[] = $route;
+    public static function set() {
+      // self::$valideRoutes[] = $route;
+      $args = func_get_args();
 
-      if ($_GET["url"] == $route)
-        $callback->__invoke();
+      if ($_GET["url"] != $args[0])
+        return;
+
+      foreach ($args as $i => $func) {
+        if ($i == 0)
+          continue;
+        if (@!$func())
+          break;
+      }
     }
   }
 ?>
