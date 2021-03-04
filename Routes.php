@@ -1,17 +1,17 @@
 <?php
   Route::set("index.php", function() {
-    Accueil::CreateView("Home");
+    Controller::CreateView("Home");
   });
 
   Route::set("login", function() {
-    Produits::CreateView("Login");
+    Controller::CreateView("Login");
   });
   
   Route::set("cart", function() {
-    Produits::CreateView("Cart");
+    Controller::CreateView("Cart");
   });
 
   Route::set("produits", function() {
-    Produits::CreateView("Produits");
+    Controller::CreateView("Produits");
   });
 ?>

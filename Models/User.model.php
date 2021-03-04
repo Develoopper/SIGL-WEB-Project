@@ -1,5 +1,5 @@
 <?php
-  class UserModel extends Model {
+  class User_Model extends Model {
     public $id;
     public $nom;
     public $sexe;
@@ -14,7 +14,7 @@
       $xml = parent::load_xml("utilisateurs");
 
       foreach($xml->children() as $user)
-        $users_list[] = new UserModel($user->id, $user->nom, $user->sexe);
+        $users_list[] = new User_Model($user->id, $user->nom, $user->sexe);
 
       return $users_list;
     }
@@ -24,7 +24,7 @@
 
       foreach($xml->children() as $user)
         if ($id == $user->id)
-          return new UserModel($user->id, $user->nom, $user->sexe);
+          return new User_Model($user->id, $user->nom, $user->sexe);
     }
 
     public function create() {
