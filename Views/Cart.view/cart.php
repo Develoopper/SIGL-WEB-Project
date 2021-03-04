@@ -122,8 +122,7 @@
 
 				<h6 class="ms-auto">Total: <b>500 DH</b></h6>
 			</div>
-			
-
+		
 		</div>
 	</div>
 
