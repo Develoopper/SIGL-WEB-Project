@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <produits>
-  <produit categorie="">
-    <id>1</id>
+  <produit sousCategorie="1">
+    <refProduit>P1</refProduit>
     <libelle>libellee1</libelle>
     <prix>100</prix>
   </produit>
-  <produit>
-    <id>2</id>
+  <produit sousCategorie="2">
+    <refProduit>P2</refProduit>
     <libelle>libellee2</libelle>
     <prix>200</prix>
   </produit>
-  <produit>
-    <id>3</id>
+  <produit sousCategorie="3">
+    <refProduit>P3</refProduit>
     <libelle>libellee3</libelle>
     <prix>300</prix>
   </produit>
-  <produit>
-    <id>5</id>
+  <produit sousCategorie="4">
+    <refProduit>P5</refProduit>
     <libelle>chiproduit</libelle>
     <prix>6000</prix>
     <description>l'innovation dans les produits.</description>
