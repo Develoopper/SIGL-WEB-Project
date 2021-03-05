@@ -84,6 +84,7 @@
           }
         }
       }
+      if(!isset($products_list)) return "Pas de produit avec cette signature.";
       return $products_list;
     }
 
@@ -164,11 +165,11 @@
   // $products_list = Produit_Model::getOne($where);
   // $p = new Produit_Model("4", "produit4", 6000, "ghali3liya");
   // $p1 = Produit_Model::getOne(array(["filterBy" => "id", "opt" => "equal", "filterValue" => "5"]))[0];
-  $p2 = new Produit_Model("P5", "chiproduit", 6000, "l'innovation dans les produits.");
+  // $p2 = new Produit_Model("P5", "chiproduit", 6000, "l'innovation dans les produits.");
   // $result = $p->create();
-  $resultModif = Produit_Model::update("P1", $p2);
+  // $resultModif = Produit_Model::update("P1", $p2);
   // $resultSuppre = Produit_Model::delete($p);
-  print_r($resultModif);
+  // print_r($resultModif);
   // print_r($resultSuppre);
   // print_r($result);
   // print_r($products_list);

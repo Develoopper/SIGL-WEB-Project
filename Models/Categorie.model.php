@@ -11,34 +11,26 @@
     }
 
     public static function getOne($where) {
-      $xml = parent::load_xml("produits") or die("Erreur de recupération des produits.");
+        $xml = parent::load_xml("categories") or die("Erreur de recupération des categories.");
 
-      foreach($xml->children() as $categorie){
+        foreach($xml->children() as $categorie){
 
-        foreach($where as $filter){
-          $filterBy = $filter["filterBy"];
-          $operator = $filter["opt"];
-          $filterValue = $filter["filterValue"];
+            foreach($where as $filter){
+                $filterBy = $filter["filterBy"];
+                $operator = $filter["opt"];
+                $filterValue = $filter["filterValue"];
 
-          if($operator == "like" && str_contains($categorie->libelle, $filterValue)){
-            $products_list[] = new Categorie_Model($categorie->refProduit, $categorie->libelle);
-            for($i = array_key_first($products_list); $i < count($products_list); $i++){
-              if(!str_contains($categorie->{$filterBy}, $filterValue)){
-                unset($products_list[$i]);
-              }
+                if($operator == "like" && str_contains($categorie->libelle, $filterValue)){
+                    $categories_list[] = new Categorie_Model($categorie->id, $categorie->libelle);
+                }
+                if($operator == "equal" && $categorie->{$filterBy} == $filterValue){
+                    $categories_list[] = new Categorie_Model($categorie->id, $categorie->libelle);
+                }
+
             }
-          }
-          if($operator == "equal" && $categorie->{$filterBy} == $filterValue){
-            $categories_list[] = new Categorie_Model($categorie->refProduit, $categorie->libelle);
-            for($i = array_key_first($categories_list); $i < count($categories_list); $i++){
-              if($categorie->{$filterBy} != $filterValue){
-                unset($categories_list[$i]);
-              }
-            }
-          }
         }
-      }
-      return $categories_list;
+        if(!isset($categories_list)) return "Pas de categorie avec cette signature.";
+        return $categories_list;
     }
 
     public static function getAll() {
@@ -63,7 +55,7 @@
 
     public function create() {
       $xml = parent::load_xml("categories");
-      $exist = self::searchCategorieInXML($this, $xml)[0];
+      $exist = self::searchCategorieInXML($this->id, $xml)[0];
 
       if(!$exist){
         $categorie = $xml->addChild("categorie");
@@ -102,6 +94,9 @@
     }
   }
     $c = new Categorie_Model("4", "libelle4");
-    echo $c::getAll()[0]->id;
-
+    print_r($c::getAll());
+    echo $c->create();
+    $result = Categorie_Model::getOne(array(["filterBy" => "id", "opt" => "equal", "filterValue" => 1]));
+    $c = is_array($result) ? $result[0] : $result;
+    echo $c->id;
 ?>
