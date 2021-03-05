@@ -2,8 +2,8 @@
   include "./Model.php";
 
   class Categorie_Model extends Model {
-    private $id;
-    private $libelle;
+    public $id;
+    public $libelle;
 
     public function __construct($id, $libelle) {
       $this->id = $id;
@@ -100,6 +100,8 @@
         return "La catégorie n'existe pas.";
       }
     }
-
   }
+    $c = new Categorie_Model("4", "libelle4");
+    echo $c::getAll()[0]->id;
+
 ?>

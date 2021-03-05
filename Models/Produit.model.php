@@ -1,10 +1,10 @@
 <?php
   include "./Model.php";
   class Produit_Model extends Model {
-    private $refProduit;
-    private $libelle;
-    private $prix;
-    private $description;
+    public $refProduit;
+    public $libelle;
+    public $prix;
+    public $description;
 
     public function __construct($refProduit, $libelle, $prix, $description) {
       $this->refProduit = $refProduit;
