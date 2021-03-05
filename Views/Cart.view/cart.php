@@ -42,7 +42,7 @@
 			</div>
 			
 			<div class="mx-5" style="width: 900px">
-				<div class="d-flex justify-content-between align-items-center rounded p-2 bg-dark text-light mb-3">
+				<div class="d-flex justify-content-between align-items-center rounded p-2 bg-white text-dark border border-dark mb-3">
 					<div class="d-flex align-items-center">
 						<img src="https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/24/177193/1.jpg?3360" class="me-3 rounded" style="height: 70px; width: 70px" alt="...">
 						<div>
@@ -52,23 +52,23 @@
 					</div>
 
 					<div class="d-flex justify-content-between align-items-center">
-						<div class="bg-light" style="height: 60px; width: 1px;"></div>
+						<div class="bg-dark" style="height: 60px; width: 1px;"></div>
 
 						<div class="d-flex mx-3">
-							<a href="#" style=""><i class= "material-icons mx-1 text-light" style="font-size: 20px;">remove</i></a>
+							<a href="#" style=""><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">remove</i></a>
 							<h6 class="mx-4 mb-0">1</h6>
-							<a href="#" style=""><i class= "material-icons mx-1 text-light" style="font-size: 20px;">add</i></a>
+							<a href="#" style=""><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">add</i></a>
 						</div>
 
-						<div class="bg-light" style="height: 60px; width: 1px;"></div>
+						<div class="bg-dark" style="height: 60px; width: 1px;"></div>
 
 						<div>
-							<h6 class="mx-5 mb-0">1158 DH</h6>
+							<h6 class="mx-5 mb-0"><b>1158 DH</b></h6>
 						</div>
 					</div>
 				</div>
 
-				<div class="d-flex justify-content-between align-items-center rounded p-2 bg-dark text-light mb-3">
+				<div class="d-flex justify-content-between align-items-center rounded p-2 bg-white text-dark border border-dark mb-3">
 					<div class="d-flex align-items-center">
 						<img src="https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/24/177193/1.jpg?3360" class="me-3 rounded" style="height: 70px; width: 70px" alt="...">
 						<div>
@@ -78,23 +78,23 @@
 					</div>
 
 					<div class="d-flex justify-content-between align-items-center">
-						<div class="bg-light" style="height: 60px; width: 1px;"></div>
+						<div class="bg-dark" style="height: 60px; width: 1px;"></div>
 
 						<div class="d-flex mx-3">
-							<a href="#" style=""><i class= "material-icons mx-1 text-light" style="font-size: 20px;">remove</i></a>
+							<a href="#" style=""><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">remove</i></a>
 							<h6 class="mx-4 mb-0">1</h6>
-							<a href="#" style=""><i class= "material-icons mx-1 text-light" style="font-size: 20px;">add</i></a>
+							<a href="#" style=""><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">add</i></a>
 						</div>
 
-						<div class="bg-light" style="height: 60px; width: 1px;"></div>
+						<div class="bg-dark" style="height: 60px; width: 1px;"></div>
 
 						<div>
-							<h6 class="mx-5 mb-0">1158 DH</h6>
+							<h6 class="mx-5 mb-0"><b>1158 DH</b></h6>
 						</div>
 					</div>
 				</div>
 
-				<div class="d-flex justify-content-between align-items-center rounded p-2 bg-dark text-light mb-3">
+				<div class="d-flex justify-content-between align-items-center rounded p-2 bg-white text-dark border border-dark mb-3">
 					<div class="d-flex align-items-center">
 						<img src="https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/24/177193/1.jpg?3360" class="me-3 rounded" style="height: 70px; width: 70px" alt="...">
 						<div>
@@ -104,23 +104,34 @@
 					</div>
 
 					<div class="d-flex justify-content-between align-items-center">
-						<div class="bg-light" style="height: 60px; width: 1px;"></div>
+						<div class="bg-dark" style="height: 60px; width: 1px;"></div>
 
 						<div class="d-flex mx-3">
-							<a href="#" style=""><i class= "material-icons mx-1 text-light" style="font-size: 20px;">remove</i></a>
+							<a href="#" style=""><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">remove</i></a>
 							<h6 class="mx-4 mb-0">1</h6>
-							<a href="#" style=""><i class= "material-icons mx-1 text-light" style="font-size: 20px;">add</i></a>
+							<a href="#" style=""><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">add</i></a>
 						</div>
 
-						<div class="bg-light" style="height: 60px; width: 1px;"></div>
+						<div class="bg-dark" style="height: 60px; width: 1px;"></div>
 
 						<div>
-							<h6 class="mx-5 mb-0">1158 DH</h6>
+							<h6 class="mx-5 mb-0"><b>1158 DH</b></h6>
 						</div>
 					</div>
 				</div>
 
-				<h6 class="ms-auto">Total: <b>500 DH</b></h6>
+				<div style="width: 100%" class="d-flex flex-column align-items-end">
+					<h6 class="me-3 mt-3">Total: <b class="ms-3">500 DH</b></h6>
+					<div class="d-flex">
+						<a href="" class="text-light" style="text-decoration: none;">
+							<button type="button" class="btn btn-outline-dark mt-3 me-2" style="width: 250px">Poursuivre vos achats</button>
+						</a>
+						<a href="payment" class="text-light" style="text-decoration: none;">
+							<button type="button" class="btn btn-dark mt-3" style="width: 250px">Commander</button>
+						</a>
+					</div>
+				</div>
+				
 			</div>
 		
 		</div>
