@@ -23,10 +23,10 @@
                 $filterValue = $filter["filterValue"];
 
                 if($operator == "like" && str_contains($Sous_categorie->libelle, $filterValue)){
-                    $Sous_categorie_list[] = new Categorie_Model($Sous_categorie->id, $Sous_categorie->libelle);
+                    $Sous_categorie_list[] = new SousCategorie_Model($Sous_categorie->id, $Sous_categorie->libelle, $Sous_categorie->attributes()["categorie"]);
                 }
                 if($operator == "equal" && $Sous_categorie->{$filterBy} == $filterValue){
-                    $Sous_categorie_list[] = new Categorie_Model($Sous_categorie->id, $Sous_categorie->libelle);
+                    $Sous_categorie_list[] = new SousCategorie_Model($Sous_categorie->id, $Sous_categorie->libelle, $Sous_categorie->attributes()["categorie"]);
                 }
 
             }
@@ -39,7 +39,7 @@
       $xml = parent::load_xml("Sous_categories");
 
       foreach( $xml->children() as $Sous_categorie){
-        $Sous_categorie_list[] = new SousCategorie_Model($Sous_categorie->id, $Sous_categorie->libelle, $Sous_categorie->categorie);
+        $Sous_categorie_list[] = new SousCategorie_Model($Sous_categorie->id, $Sous_categorie->libelle, $Sous_categorie->attributes()["categorie"]);
       }
 
       return $Sous_categorie_list;
@@ -51,6 +51,7 @@
 
       if(!$exist){
         $sousCategorie = $xml->addChild("sousCategorie");
+        $sousCategorie->addAttribute("categorie", $this->categorie);
         $sousCategorie->addChild("id", $this->id);
         $sousCategorie->addChild("libelle", $this->libelle);
 

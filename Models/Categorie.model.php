@@ -88,6 +88,10 @@
     echo $c->create();
     $result = Categorie_Model::getOne(array(["filterBy" => "id", "opt" => "equal", "filterValue" => 1]));
     $c = is_array($result) ? $result[0] : $result;
-    echo $c->id;
-    echo Categorie_Model::deleteC($c->id);
+    if(!is_string($c)){
+      echo $c->id;
+      echo Categorie_Model::deleteC($c->id);
+    }else{
+      echo $c;
+    }
 ?>
