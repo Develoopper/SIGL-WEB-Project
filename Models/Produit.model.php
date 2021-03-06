@@ -93,9 +93,10 @@
       foreach($xml->children() as $product){
         if($product->refProduit == $refProduit){
           $exist = true;
+          $foundProduct = $product;
         }
       }
-      return [$exist, $product];
+      return [$exist, $foundProduct];
     }
 
     public function create() {

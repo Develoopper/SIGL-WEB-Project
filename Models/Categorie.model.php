@@ -48,9 +48,10 @@
       foreach($xml->children() as $categorie){
         if($categorie->id == $idCategorie){
           $exist = true;
+          $foundCat = $categorie;
         }
       }
-      return [$exist, $categorie];
+      return [$exist, $foundCat];
     }
 
     public function create() {

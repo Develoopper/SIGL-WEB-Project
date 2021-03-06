@@ -6,7 +6,6 @@
       return $xml;
     }
 
-
     protected static function saveInFile($xml, $fileName){
         $dom = new DOMDocument("1.0");
         $dom->preserveWhiteSpace = false;
