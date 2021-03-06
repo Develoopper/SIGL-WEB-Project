@@ -12,6 +12,11 @@
     }
 }
 
+.main {
+  position: relative;
+  float: right;
+}
+
 body {
   font-size: .875rem;
 }
@@ -27,6 +32,7 @@ body {
  */
 
 .sidebar {
+  border-right: 1px solid white;
   position: fixed;
   top: 0;
   /* rtl:raw:
@@ -36,7 +42,7 @@ body {
   /* rtl:remove */
   left: 0;
   z-index: 100; /* Behind the navbar */
-  padding: 48px 0 0; /* Height of navbar */
+  padding: 70px 0 0; /* Height of navbar */
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 
@@ -111,4 +117,8 @@ body {
 .form-control-dark:focus {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+#sidebarMenu{
+
 }

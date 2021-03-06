@@ -1,3 +1,4 @@
+
 <html lang="en">
     <head>
     <meta charset="UTF-8">
@@ -9,16 +10,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <title>Dashboard</title>
     <style>
-        <?php
-            include "./dashboard.css";
-            include "../assets/materialize/css/materialize.min.css";
-            include "../assets/bootstrap/bootstrap.min.css";
-        ?>
+            <?php
+                    include "./dashboard.css";
+                    include "../assets/materialize/css/materialize.min.css";
+                    include "../assets/bootstrap/bootstrap.min.css";
+            ?>
     </style>
     </head>
     <body>
         <?php include './sidebar.php';?>
-          </div>
-        </div>
     </body>
 </html>
