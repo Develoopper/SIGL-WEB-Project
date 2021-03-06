@@ -84,10 +84,10 @@ include './Model.php';
 
     public function update($login, $newUser) {
       $xml = parent::load_xml("utilisateurs");
-      [$exist, $oldUser] = self::searchUserInXML($login, $xml);
+      $exist = self::searchUserInXML($login, $xml)[0];
 
       if($exist){
-            $id = $xml->xpath("//user/login[.='$oldUser->login']")[0];
+            $id = $xml->xpath("//user/login[.='$login']")[0];
             $user = current($id->xpath("parent::*"));
 
             $user->nom = $newUser->nom;
@@ -102,24 +102,15 @@ include './Model.php';
       }
     }
 
-    public static function delete($login) {
-      $xml = parent::load_xml("utilisateurs");
-      [$exist, $user] = self::searchUserInXML($login, $xml);
-
-      if($exist) {
-        $login = $xml->xpath("//user/login[.='$user->login']");
-        $userSupri = current($login[0]->xpath("parent::*"));
-
-        if (!empty($userSupri)) {
-          unset($userSupri[0]);
-        }
-      }
-
-      return Parent::saveInFile($xml, "utilisateurs");
+    public static function deleteU($login) {
+      if(isset($id))
+        return parent::delete($login, "utilisateurs", "user", "login");
+      else
+        return "Vous devez entrer un login.";
     }
   }
   $user = new User_Model("","salem","mohammed","salem010203","salem.mhmed@yahoo.com","client");
   $user->create();
   echo User_Model::getAll()[0]->login;
-  echo User_Model::delete($user->login);
+  echo User_Model::deleteU($user->login);
 ?>

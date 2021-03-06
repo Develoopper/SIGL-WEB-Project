@@ -43,20 +43,9 @@
       return $categories_list;
     }
 
-    private static function searchCategorieInXML($idCategorie, $xml){
-      $exist = false;
-      foreach($xml->children() as $categorie){
-        if($categorie->id == $idCategorie){
-          $exist = true;
-          $foundCat = $categorie;
-        }
-      }
-      return [$exist, @$foundCat];
-    }
-
     public function create() {
       $xml = parent::load_xml("categories");
-      $exist = self::searchCategorieInXML($this->id, $xml)[0];
+      $exist = parent::searchInXML($this->id, $xml)[0];
 
       if(!$exist){
         $categorie = $xml->addChild("categorie");
@@ -73,40 +62,25 @@
 
     public static function update($idCategorie, $newCategorie) {
       $xml = parent::load_xml("categories");
-      [$exist, $oldProduct] = self::searchCategorieInXML($idCategorie, $xml);
+      $exist = parent::searchInXML($idCategorie, $xml)[0];
 
       if($exist){
-        $existNew = self::searchCategorieInXML($newCategorie->id, $xml)[0];
-
-        if(!$existNew){
-            $id = $xml->xpath("//categorie/id[.='$oldProduct->id']")[0];
+            $id = $xml->xpath("//categorie/id[.='$idCategorie']")[0];
             $categorie = current($id->xpath("parent::*"));
 
             $categorie->libelle = $newCategorie->libelle;
 
             return Parent::saveInFile($xml,"categories");
-        }else{
-          return "La nouvelle catégorie existe déjà";
-        }
       }else{
         return "La catégorie n'existe pas.";
       }
     }
 
-    public static function delete($id) {
-      $xml = parent::load_xml("produits");
-      [$exist, $categorie] = self::searchCategorieInXML($id, $xml);
-
-      if($exist) {
-        $id = $xml->xpath("//produit/refProduit[.='$categorie->refProduit']");
-        $categorieSupri = current($id[0]->xpath("parent::*"));
-
-        if (!empty($categorieSupri)) {
-          unset($categorieSupri[0]);
-        }
-      }
-
-      return Parent::saveInFile($xml,"categories");
+    public static function deleteC($id) {
+      if(isset($id))
+        return parent::delete($id, "categories", "categorie", "id");
+      else
+        return "Vous devez entrer un identifiant.";
     }
   }
     $c = new Categorie_Model("4", "libelle4");
@@ -115,4 +89,5 @@
     $result = Categorie_Model::getOne(array(["filterBy" => "id", "opt" => "equal", "filterValue" => 1]));
     $c = is_array($result) ? $result[0] : $result;
     echo $c->id;
+    echo Categorie_Model::deleteC($c->id);
 ?>
