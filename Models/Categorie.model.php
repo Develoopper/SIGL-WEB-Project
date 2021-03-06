@@ -83,15 +83,15 @@
         return "Vous devez entrer un identifiant.";
     }
   }
-    $c = new Categorie_Model("4", "libelle4");
-    print_r($c::getAll());
-    echo $c->create();
-    $result = Categorie_Model::getOne(array(["filterBy" => "id", "opt" => "equal", "filterValue" => 1]));
-    $c = is_array($result) ? $result[0] : $result;
-    if(!is_string($c)){
-      echo $c->id;
-      echo Categorie_Model::deleteC($c->id);
-    }else{
-      echo $c;
-    }
+    // $c = new Categorie_Model("4", "libelle4");
+    // print_r($c::getAll());
+    // echo $c->create();
+    // $result = Categorie_Model::getOne(array(["filterBy" => "id", "opt" => "equal", "filterValue" => 1]));
+    // $c = is_array($result) ? $result[0] : $result;
+    // if(!is_string($c)){
+    //   echo $c->id;
+    //   echo Categorie_Model::deleteC($c->id);
+    // }else{
+    //   echo $c;
+    // }
 ?>

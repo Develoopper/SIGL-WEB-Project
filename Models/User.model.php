@@ -109,8 +109,8 @@ include './Model.php';
         return "Vous devez entrer un login.";
     }
   }
-  $user = new User_Model("","salem","mohammed","salem010203","salem.mhmed@yahoo.com","client");
-  $user->create();
-  echo User_Model::getAll()[0]->login;
-  echo User_Model::deleteU($user->login);
+  // $user = new User_Model("","salem","mohammed","salem010203","salem.mhmed@yahoo.com","client");
+  // $user->create();
+  // echo User_Model::getAll()[0]->login;
+  // echo User_Model::deleteU($user->login);
 ?>

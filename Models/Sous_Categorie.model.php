@@ -86,10 +86,10 @@
             return "Vous devez entrer un identifiant.";
     }
   }
-    $c = new SousCategorie_Model("4", "libelle4", "1");
-    print_r($c::getAll());
-    echo $c->create();
-    $result = SousCategorie_Model::getOne(array(["filterBy" => "id", "opt" => "equal", "filterValue" => 1]));
-    $c = is_array($result) ? $result[0] : $result;
-    echo $c->id;
+    // $c = new SousCategorie_Model("4", "libelle4", "1");
+    // print_r($c::getAll());
+    // echo $c->create();
+    // $result = SousCategorie_Model::getOne(array(["filterBy" => "id", "opt" => "equal", "filterValue" => 1]));
+    // $c = is_array($result) ? $result[0] : $result;
+    // echo $c->id;
 ?>
