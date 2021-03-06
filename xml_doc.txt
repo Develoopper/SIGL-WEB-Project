@@ -12,3 +12,66 @@ $produitsList = $doc->getElementsByTagName("produits");
         $produits->appendChild($produit);
         echo $doc->save($_SERVER['DOCUMENT_ROOT']."/Database/produits.xml");
         return $doc->save($_SERVER['DOCUMENT_ROOT']."/Database/produits.xml");
+
+
+
+//Save
+
+//       $xml = parent::load_xml("Sous_Categories");
+//       $exist = self::searchSousCategorieInXML($id, $xml);
+//
+//       if($exist) {
+//         $id = $xml->xpath("//sousCategorie/id[.='$id']");
+//         $SousCategorieSupri = current($id[0]->xpath("parent::*"));
+//
+//         if (!empty($SousCategorieSupri)) {
+//           unset($SousCategorieSupri[0]);
+//         }
+//       }
+//
+//       return Parent::saveInFile($xml, "Sous_categories");
+
+
+
+
+
+    // private static function searchSousCategorieInXML($idSousCategorie, $xml){
+    //   $exist = false;
+    //   foreach($xml->children() as $SousCategorie){
+    //     if($SousCategorie->id == $idSousCategorie){
+    //       $exist = true;
+    //       $foundSousCat = $SousCategorie;
+    //     }
+    //   }
+    //   return [$exist, @$foundSousCat];
+    // }
+
+
+
+    $xml = parent::load_xml("utilisateurs");
+      [$exist, $user] = self::searchUserInXML($login, $xml);
+
+      if($exist) {
+        $login = $xml->xpath("//user/login[.='$user->login']");
+        $userSupri = current($login[0]->xpath("parent::*"));
+
+        if (!empty($userSupri)) {
+          unset($userSupri[0]);
+        }
+      }
+
+      return Parent::saveInFile($xml, "utilisateurs");
+
+       $xml = parent::load_xml("produits");
+      $exist = self::searchProductInXML($refProduit, $xml)[0];
+
+      if($exist) {
+        $refProduit = $xml->xpath("//produit/refProduit[.='$refProduit']");
+        $product = current($refProduit[0]->xpath("parent::*"));
+
+        if (!empty($product)) {
+          unset($product[0]);
+        }
+      }
+
+      return Parent::saveInFile($xml,"produits");
