@@ -96,7 +96,7 @@
           $foundProduct = $product;
         }
       }
-      return [$exist, $foundProduct];
+      return [$exist, @$foundProduct];
     }
 
     public function create() {

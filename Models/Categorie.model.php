@@ -51,7 +51,7 @@
           $foundCat = $categorie;
         }
       }
-      return [$exist, $foundCat];
+      return [$exist, @$foundCat];
     }
 
     public function create() {
@@ -82,7 +82,6 @@
             $id = $xml->xpath("//categorie/id[.='$oldProduct->id']")[0];
             $categorie = current($id->xpath("parent::*"));
 
-            $categorie->id = $newCategorie->id;
             $categorie->libelle = $newCategorie->libelle;
 
             return Parent::saveInFile($xml,"categories");
@@ -92,6 +91,22 @@
       }else{
         return "La catégorie n'existe pas.";
       }
+    }
+
+    public static function delete($id) {
+      $xml = parent::load_xml("produits");
+      [$exist, $categorie] = self::searchCategorieInXML($id, $xml);
+
+      if($exist) {
+        $id = $xml->xpath("//produit/refProduit[.='$categorie->refProduit']");
+        $categorieSupri = current($id[0]->xpath("parent::*"));
+
+        if (!empty($categorieSupri)) {
+          unset($categorieSupri[0]);
+        }
+      }
+
+      return Parent::saveInFile($xml,"categories");
     }
   }
     $c = new Categorie_Model("4", "libelle4");
