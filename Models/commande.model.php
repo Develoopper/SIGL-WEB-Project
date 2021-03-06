@@ -5,15 +5,17 @@
     public $numCommande;
     public $libelle;
     public $dateCommande;
+    public $etat;
     public $montant;
     public $login;
 
-    public function __construct($numCommande, $libelle, $dateCommande, $montant, $login) {
+    public function __construct($numCommande, $libelle, $dateCommande, $etat, $montant, $login) {
       $this->numCommande = $numCommande;
       $this->libelle = $libelle;
       $this->dateCommande = $dateCommande;
       $this->montant = $montant;
       $this->login = $login;
+      $this->etat = $etat;
     }
 
     public static function getOne($where) {
@@ -27,66 +29,70 @@
                 $filterValue = $filter["filterValue"];
 
                 if($operator == "like" && str_contains($cmd->libelle, $filterValue)){
-                    $cmds_list[] = new Commande_Model($cmd->numCommande, $cmd->libelle, $cmd->);
+                    $cmds_list[] = new Commande_Model($cmd->numCommande, $cmd->libelle, $cmd->dateCommande, $cmd->etat, $cmd->montant, $cmd->attributes()["login"]);
                 }
                 if($operator == "equal" && $cmd->{$filterBy} == $filterValue){
-                    $cmds_list[] = new Commande_Model($cmd->id, $cmd->libelle);
+                    $cmds_list[] = new Commande_Model($cmd->numCommande, $cmd->libelle, $cmd->dateCommande, $cmd->etat, $cmd->montant, $cmd->attributes()["login"]);
                 }
 
             }
         }
-        if(!isset($categories_list)) return "Pas de categorie avec cette signature.";
-        return $categories_list;
+        if(!isset($cmds_list)) return "Pas de commande avec cette signature.";
+        return $cmds_list;
     }
 
     public static function getAll() {
-      $xml = parent::load_xml("categories");
+      $xml = parent::load_xml("commandes");
 
-      foreach( $xml->children() as $categorie){
-        $categories_list[] = new Categorie_Model($categorie->id, $categorie->libelle);
+      foreach( $xml->children() as $cmd){
+        $cmds_list[] = new Commande_Model($cmd->numCommande, $cmd->libelle, $cmd->dateCommande, $cmd->etat, $cmd->montant, $cmd->attributes()["login"]);
       }
 
-      return $categories_list;
+      return $cmds_list;
     }
 
     public function create() {
-      $xml = parent::load_xml("categories");
+      $xml = parent::load_xml("commandes");
       $exist = parent::searchInXML($this->id, $xml)[0];
 
       if(!$exist){
-        $categorie = $xml->addChild("categorie");
-        $categorie->addChild("id", $this->id);
-        $categorie->addChild("libelle", $this->libelle);
+        $commande = $xml->addChild("commande");
+        $commande->addAttribute("login", $this->login);
+        $commande->addChild("numCommande", $this->numCommande);
+        $commande->addChild("libelle", $this->libelle);
+        $commande->addChild("date", $this->dateCommande->format('Y-m-d H:i:s'));
+        $commande->addChild("etat", $this->etat);
+        $commande->addChild("montant", $this->montant);
 
-        return Parent::saveInFile($xml,"categories");
+        return Parent::saveInFile($xml, "commandes");
       }
       else
       {
-        return "une catégorie avec le meme identifiant existe déjà";
+        return "une commande avec le meme numéro existe déjà";
       }
     }
 
-    public static function update($idCategorie, $newCategorie) {
-      $xml = parent::load_xml("categories");
-      $exist = parent::searchInXML($idCategorie, $xml)[0];
+    public static function update($numCommande, $newCommande) {
+      $xml = parent::load_xml("commandes");
+      $exist = parent::searchInXML($numCommande, $xml)[0];
 
       if($exist){
-            $id = $xml->xpath("//categorie/id[.='$idCategorie']")[0];
-            $categorie = current($id->xpath("parent::*"));
+        $id = $xml->xpath("//commande/numCommande[.='$numCommande']")[0];
+        $categorie = current($id->xpath("parent::*"));
 
-            $categorie->libelle = $newCategorie->libelle;
+        $categorie->libelle = $newCommande->libelle;
 
-            return Parent::saveInFile($xml,"categories");
+        return Parent::saveInFile($xml,"commandes");
       }else{
-        return "La catégorie n'existe pas.";
+        return "La commande n'existe pas.";
       }
     }
 
     public static function deleteC($id) {
       if(isset($id))
-        return parent::delete($id, "categories", "categorie", "id");
+        return parent::delete($id, "commandes", "commande", "numCommande");
       else
-        return "Vous devez entrer un identifiant.";
+        return "Vous devez entrer un numero de commande.";
     }
   }
 
