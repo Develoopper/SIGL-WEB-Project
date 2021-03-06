@@ -19,7 +19,7 @@
     }
 
     public static function getOne($where) {
-        $xml = parent::load_xml("commandes") or die("Erreur de recupération des commandes.");
+        $xml = parent::load_xml("commandes");
 
         foreach($xml->children() as $cmd){
 
@@ -88,7 +88,7 @@
       }
     }
 
-    public static function deleteC($id) {
+    public static function deleteCmd($id) {
       if(isset($id))
         return parent::delete($id, "commandes", "commande", "numCommande");
       else
