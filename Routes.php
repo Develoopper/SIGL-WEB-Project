@@ -15,7 +15,11 @@
     Controller::CreateView("Payment");
   });
 
-  Route::set("products", function() {
-    Controller::CreateView("Products");
+  Route::set("payment", function() {
+    Controller::CreateView("Payment");
+  });
+
+  Route::set("product", function() {
+    Controller::CreateView("Product");
   });
 ?>

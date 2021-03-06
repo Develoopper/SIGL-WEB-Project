@@ -6,46 +6,52 @@
       "img" => "https://jennygracejewellery.co.uk/wp-content/uploads/2019/10/silver-fan-jewellery-header-e1604778854767-1200x360.jpg"
     ],
     [
-      "libellee" => "Second slide label",
-      "prix" => "Some representative placeholder content for the first slide.",
+      "title" => "Second slide label",
+      "content" => "Some representative placeholder content for the first slide.",
       "img" => "https://cdn.shopify.com/s/files/1/0811/2085/collections/under100banner_1200x1200.jpg?v=1604329232"
     ],
     [
-      "libellee" => "Third slide label",
-      "prix" => "Some representative placeholder content for the first slide.",
+      "title" => "Third slide label",
+      "content" => "Some representative placeholder content for the first slide.",
       "img" => "https://img1.wsimg.com/isteam/ip/b93c21eb-4bec-4f15-8616-1a0af4725974/ols/KlaarSmithDesign%20heart%20pendant%20bar.jpg/:/rs=w:1200,h:1200"
     ],
   ];
 
   $meilleursVentes = [
     [
+      "id" => 1,
       "libellee" => "Montre water-proof taille standard",
-      "prix" => 579.00,
+      "prix" => 579,
       "img" => "https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/24/177193/1.jpg?3360"
     ],
     [
-      "libellee" => "Montre water-proof taille standard",
-      "prix" => 579.00,
+      "id" => 2,
+      "libellee" => "Porte feuille cuire",
+      "prix" => 150,
       "img" => "https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/42/139382/1.jpg?9659"
     ],
     [
-      "libellee" => "Montre water-proof taille standard",
-      "prix" => 579.00,
+      "id" => 3,
+      "libellee" => "Lunettes de soleil",
+      "prix" => 200,
       "img" => "https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/16/295183/1.jpg?1806"
     ],
     [
-      "libellee" => "Montre water-proof taille standard",
-      "prix" => 579.00,
+      "id" => 4,
+      "libellee" => "Puzzle pendentif",
+      "prix" => 100,
       "img" => "https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/71/544163/1.jpg?0556"
     ],
     [
-      "libellee" => "Montre water-proof taille standard",
-      "prix" => 579.00,
+      "id" => 5,
+      "libellee" => "Bague en argent",
+      "prix" => 300,
       "img" => "https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/68/344182/1.jpg?2292"
     ],
     [
-      "libellee" => "Montre water-proof taille standard",
-      "prix" => 579.00,
+      "id" => 6,
+      "libellee" => "Echarpe pour homme",
+      "prix" => 120,
       "img" => "https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/85/144613/1.jpg?2808"
     ],
   ];
@@ -116,11 +122,13 @@
             foreach ($meilleursVentes as $item) {
               echo '
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                  <div class="card-body p-2">
-                    <p class="card-text text-truncate">'.$item["libellee"].'</p>
-                    <p class="card-text text-truncate">'.$item["prix"].' DH</p>
-                  </div>
+                  <a href="product?id='.$item["id"].'" style="text-decoration: none;" class="text-dark">
+                    <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                    <div class="card-body p-2">
+                      <p class="card-text text-truncate">'.$item["libellee"].'</p>
+                      <p class="card-text text-truncate">'.$item["prix"].' DH</p>
+                    </div>
+                  </a>
                 </div>
               ';
             }
@@ -133,11 +141,13 @@
             foreach ($meilleursVentes as $item) {
               echo '
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                  <div class="card-body p-2">
-                    <p class="card-text cut-text">'.$item["libellee"].'</p>
-                    <p class="card-text cut-text">'.$item["prix"].' DH</p>
-                  </div>
+                  <a href="product?id='.$item["id"].'" style="text-decoration: none;" class="text-dark">
+                    <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                    <div class="card-body p-2">
+                      <p class="card-text text-truncate">'.$item["libellee"].'</p>
+                      <p class="card-text text-truncate">'.$item["prix"].' DH</p>
+                    </div>
+                  </a>
                 </div>
               ';
             }
@@ -150,11 +160,13 @@
             foreach ($meilleursVentes as $item) {
               echo '
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                  <div class="card-body p-2">
-                    <p class="card-text cut-text">'.$item["libellee"].'</p>
-                    <p class="card-text cut-text">'.$item["prix"].' DH</p>
-                  </div>
+                  <a href="product?id='.$item["id"].'" style="text-decoration: none;" class="text-dark">
+                    <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                    <div class="card-body p-2">
+                      <p class="card-text text-truncate">'.$item["libellee"].'</p>
+                      <p class="card-text text-truncate">'.$item["prix"].' DH</p>
+                    </div>
+                  </a>
                 </div>
               ';
             }
@@ -193,11 +205,13 @@
             foreach ($meilleursVentes as $item) {
               echo '
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                  <div class="card-body p-2">
-                    <p class="card-text text-truncate">'.$item["libellee"].'</p>
-                    <p class="card-text text-truncate">'.$item["prix"].' DH</p>
-                  </div>
+                  <a href="product?id='.$item["id"].'" style="text-decoration: none;" class="text-dark">
+                    <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                    <div class="card-body p-2">
+                      <p class="card-text text-truncate">'.$item["libellee"].'</p>
+                      <p class="card-text text-truncate">'.$item["prix"].' DH</p>
+                    </div>
+                  </a>
                 </div>
               ';
             }
@@ -210,11 +224,13 @@
             foreach ($meilleursVentes as $item) {
               echo '
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                  <div class="card-body p-2">
-                    <p class="card-text cut-text">'.$item["libellee"].'</p>
-                    <p class="card-text cut-text">'.$item["prix"].' DH</p>
-                  </div>
+                  <a href="product?id='.$item["id"].'" style="text-decoration: none;" class="text-dark">
+                    <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                    <div class="card-body p-2">
+                      <p class="card-text text-truncate">'.$item["libellee"].'</p>
+                      <p class="card-text text-truncate">'.$item["prix"].' DH</p>
+                    </div>
+                  </a>
                 </div>
               ';
             }
@@ -227,11 +243,13 @@
             foreach ($meilleursVentes as $item) {
               echo '
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                  <div class="card-body p-2">
-                    <p class="card-text cut-text">'.$item["libellee"].'</p>
-                    <p class="card-text cut-text">'.$item["prix"].' DH</p>
-                  </div>
+                  <a href="product?id='.$item["id"].'" style="text-decoration: none;" class="text-dark">
+                    <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                    <div class="card-body p-2">
+                      <p class="card-text text-truncate">'.$item["libellee"].'</p>
+                      <p class="card-text text-truncate">'.$item["prix"].' DH</p>
+                    </div>
+                  </a>
                 </div>
               ';
             }
@@ -270,11 +288,13 @@
             foreach ($meilleursVentes as $item) {
               echo '
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                  <div class="card-body p-2">
-                    <p class="card-text text-truncate">'.$item["libellee"].'</p>
-                    <p class="card-text text-truncate">'.$item["prix"].' DH</p>
-                  </div>
+                  <a href="product?id='.$item["id"].'" style="text-decoration: none;" class="text-dark">
+                    <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                    <div class="card-body p-2">
+                      <p class="card-text text-truncate">'.$item["libellee"].'</p>
+                      <p class="card-text text-truncate">'.$item["prix"].' DH</p>
+                    </div>
+                  </a>
                 </div>
               ';
             }
@@ -287,11 +307,13 @@
             foreach ($meilleursVentes as $item) {
               echo '
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                  <div class="card-body p-2">
-                    <p class="card-text cut-text">'.$item["libellee"].'</p>
-                    <p class="card-text cut-text">'.$item["prix"].' DH</p>
-                  </div>
+                  <a href="product?id='.$item["id"].'" style="text-decoration: none;" class="text-dark">
+                    <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                    <div class="card-body p-2">
+                      <p class="card-text text-truncate">'.$item["libellee"].'</p>
+                      <p class="card-text text-truncate">'.$item["prix"].' DH</p>
+                    </div>
+                  </a>
                 </div>
               ';
             }
@@ -304,11 +326,13 @@
             foreach ($meilleursVentes as $item) {
               echo '
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                  <div class="card-body p-2">
-                    <p class="card-text cut-text">'.$item["libellee"].'</p>
-                    <p class="card-text cut-text">'.$item["prix"].' DH</p>
-                  </div>
+                  <a href="product?id='.$item["id"].'" style="text-decoration: none;" class="text-dark">
+                    <img src='.$item["img"].'style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                    <div class="card-body p-2">
+                      <p class="card-text text-truncate">'.$item["libellee"].'</p>
+                      <p class="card-text text-truncate">'.$item["prix"].' DH</p>
+                    </div>
+                  </a>
                 </div>
               ';
             }
