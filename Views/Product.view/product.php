@@ -32,8 +32,11 @@
 						<span style="white-space: initial; font-size: 15px;">Categorie: <b><?php echo $product->sousCategorie; ?></b></span><br>
 						<span style="white-space: initial; font-size: 15px;">Marque: <b><?php echo $product->marque; ?></b></span>
 					</div>
-					<h2 style="font-family: 'Segoe UI'"><b>579 DH</b></h2>
-					<button type="button" class="btn btn-dark" style="width: 100%;">J'achète</button>
+					<h2 style="font-family: 'Segoe UI'"><b><?php echo $product->prix; ?> DH</b></h2>
+					<button type="button" class="btn btn-dark d-flex justify-content-center align-items-center" style="width: 100%;">
+						<i class="material-icons mx-1" style="font-size: 30px;">add_shopping_cart</i>
+						Ajouter au panier
+					</button>
 				</div>
 			</div>
 			
