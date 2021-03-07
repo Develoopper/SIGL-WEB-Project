@@ -10,14 +10,42 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <title>Dashboard</title>
     <style>
-            <?php
-                    include "./dashboard.css";
-                    include "../assets/materialize/css/materialize.min.css";
-                    include "../assets/bootstrap/bootstrap.min.css";
-            ?>
+        <?php
+            include "./dashboard.css";
+            include "../assets/materialize/css/materialize.min.css";
+            include "../assets/bootstrap/bootstrap.min.css";
+        ?>
     </style>
     </head>
     <body>
+        <div class="wrapper">
+            <div class="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li><a href="">Produits</a></li>
+                    <li><a href="">Utilisateurs</a></li>
+                    <li><a href="">Commandes</a></li>
+                </ul>
+            </div>
+
+        <div class="main-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <a href="#" class="btn btn-access" id="menu-toggle"></a>
+                        <h1>Sidebar Layout are cool</h1>
+                        <p>hey you.
+                            hey you.
+                            hey you.
+                            hey you.
+                            hey you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <script>
+        </script>
         <?php include './sidebar.php';?>
     </body>
 </html>
