@@ -1,24 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <produits>
-  <produit sousCategorie="1">
-    <refProduit>P1</refProduit>
-    <libelle>libellee1</libelle>
-    <prix>100</prix>
+  <produit sousCategorie="Montres - Homme">
+    <refProduit>1</refProduit>
+    <libelle>Naviforce Top Luxury Brand Watch Fashion Sports Men Quartz Watches Digital Dual Display Wristwatch Male NF9153</libelle>
+    <prix>579</prix>
+    <marque>Naviforce</marque>
+    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/24/177193/1.jpg?3360</img>
   </produit>
-  <produit sousCategorie="2">
-    <refProduit>P2</refProduit>
-    <libelle>libellee2</libelle>
-    <prix>200</prix>
+
+  <produit sousCategorie="Portefeuilles - Homme">
+    <refProduit>2</refProduit>
+    <libelle>Portefeuille Miniwallet anti détournement de données des cartes RFID Marron</libelle>
+    <prix>65</prix>
+    <marque>Miniwallet</marque>
+    <img>https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/42/139382/1.jpg?9659</img>
   </produit>
-  <produit sousCategorie="3">
-    <refProduit>P3</refProduit>
-    <libelle>libellee3</libelle>
-    <prix>300</prix>
+
+  <produit sousCategorie="categorie3">
+    <refProduit>3</refProduit>
+    <libelle>AORON Lunettes de soleil polarisées pour homme pilote marque Luxueuse Protection</libelle>
+    <prix>159</prix>
+    <marque>AORON</marque>
+    <img>https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/16/295183/1.jpg?1806</img>
   </produit>
-  <produit sousCategorie="4">
-    <refProduit>P5</refProduit>
-    <libelle>chiproduit</libelle>
-    <prix>6000</prix>
-    <description>l'innovation dans les produits.</description>
+
+  <produit sousCategorie="categorie3">
+    <refProduit>4</refProduit>
+    <libelle>Ensemble de 2 colliers des couples amour cadeau accessoire pendentif</libelle>
+    <prix>159</prix>
+    <marque>AORON</marque>
+    <img>https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/71/544163/1.jpg?0556</img>
+  </produit>
+
+  <produit sousCategorie="Bijoux - Femmes">
+    <refProduit>5</refProduit>
+    <libelle>Bague de fiançailles Argenté avec pierres en zircon Anneau Brillant pour femmes.</libelle>
+    <prix>199</prix>
+    <marque></marque>
+    <img>https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/68/344182/1.jpg?2292</img>
+  </produit>
+
+  <produit sousCategorie="Echarpes - Femmes">
+    <refProduit>6</refProduit>
+    <libelle>Cashmink Écharpe pour femmes Fabriqué en Allemagne</libelle>
+    <prix>169</prix>
+    <marque>Cashmink</marque>
+    <img>https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/85/144613/1.jpg?2808</img>
   </produit>
 </produits>

@@ -1,5 +1,5 @@
 <?php
-  Route::set("index.php", function() {
+  Route::set("", function() {
     Controller::CreateView("Home");
   });
 
@@ -9,10 +9,6 @@
   
   Route::set("cart", function() {
     Controller::CreateView("Cart");
-  });
-
-  Route::set("payment", function() {
-    Controller::CreateView("Payment");
   });
 
   Route::set("payment", function() {

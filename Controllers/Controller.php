@@ -2,22 +2,19 @@
   require_once "Models/User.model.php";
 
   class Controller {
-    private static $vars = [];
+    private static $data = [];
 
     public static function CreateView($view_name) {
       Auth::login();
 
-      // $data = [
-      //   "name" => "Bo9al",
-      //   "sex" => "homme",
-      //   "users" => UserModel::getOne(2),
-      //   "user" => $_SESSION["user"]
-      // ];
+      self::$data = [
+        "product" => Produit_Model::getOne([["filterBy" => "refProduit", "opt" => "equal", "filterValue" => $_GET["id"]]])[0]
+      ];
 
       // foreach($data as $key => $val)
       //   self::$vars[$key] = $val;
 
-      extract(self::$vars);
+      extract(self::$data);
 
       require_once "Views/$view_name.view/".lcfirst($view_name).".php";
     }

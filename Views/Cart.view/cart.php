@@ -18,12 +18,12 @@
 </head>
 
 <body>
-	<?php include "Views/Components/NavBar.php"; ?>
+	<?php Component("NavBar", []); ?>
 
 	<!-- Panier -->
 	<!-- <div class="d-flex flex-column align-items-center me-5 p-4 bg-light" style="border-radius: 10px;"> -->
 	<div class="d-flex justify-content-center">
-		<div class="mx-3 my-4 px-3 py-3 bg-light" style="border-radius: 10px; font-size: 13px;">
+		<div class="mx-3 my-4 p-3 bg-light" style="border-radius: 10px; font-size: 13px;">
 			<h3 class="mb-3 ms-4">Panier</h3>
 			
 			<div class="d-flex justify-content-between align-items-center p-2 mx-5">
@@ -138,7 +138,7 @@
 	</div>
 
 	<!-- Footer -->
-	<?php include "Views/Components/Footer.php"; ?>
+	<?php Component("Footer", []); ?>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 	<script>

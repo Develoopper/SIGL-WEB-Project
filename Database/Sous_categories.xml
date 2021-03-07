@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <sousCategories>
-    <sousCategorie categorie="1">
-        <id>1</id>
-        <libelle>categorie1</libelle>
-    </sousCategories>
-    <sousCategorie categorie="2">
-        <id>2</id>
-        <libelle>categorie2</libelle>
-    </sousCategories>
+	<sousCategorie>
+		<id>1</id>
+		<libelle>Montres</libelle>
+		<categorie>Hommes</categorie>
+	</sousCategorie>
+	<sousCategorie>
+		<id>2</id>
+		<libelle>Portefeuilles</libelle>
+		<categorie>Hommes</categorie>
+	</sousCategorie>
+	<sousCategorie>
+		<id>3</id>
+		<libelle>Lunettes</libelle>
+		<categorie>Hommes</categorie>
+	</sousCategorie>
 </sousCategories>

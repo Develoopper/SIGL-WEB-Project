@@ -1,6 +1,11 @@
 <?php
   session_start();
 
+  function Component($fileName, $variables) {
+    extract($variables);
+    include "Views/Components/".$fileName.".php";
+  }
+
   spl_autoload_register(function ($class_name) {
     if (file_exists("./Classes/".$class_name.".php"))
       require_once "./Classes/".$class_name.".php";

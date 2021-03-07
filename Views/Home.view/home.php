@@ -76,7 +76,7 @@
 </head>
 <body>
   <!-- Nav bar -->
-  <?php include "Views/Components/NavBar.php"; ?>
+  <?php Component("NavBar", []); ?>
 
   <!-- Slider -->
   <div id="carouselExampleCaptions" data-bs-interval="3000" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -189,7 +189,7 @@
       <img src="https://ma.jumia.is/cms/000_2021/Week08/DoubleBanners/MA_W08_DB_montres.png" style="border-radius: 5px" alt="" srcset="">
     </div>
     <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
-      <img src="https://ma.jumia.is/cms/000_2021/Week08/DoubleBanners/MA_W08_DB_Beaute.png" style="border-radius: 5px" alt="" srcset="">
+      <img src="https://ma.jumia.is/cms/000_2021/Week07/DB/MA_W07_DB_ModeHomme.png" style="border-radius: 5px" alt="" srcset="">
     </div>
   </div>
 
@@ -272,9 +272,10 @@
       <img src="https://ma.jumia.is/cms/000_2021/Week07/DB/MA_W07_DB_ModeFemme.png" style="border-radius: 5px" alt="" srcset="">
     </div>
     <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
-      <img src="https://ma.jumia.is/cms/000_2021/Week07/DB/MA_W07_DB_ModeHomme.png" style="border-radius: 5px" alt="" srcset="">
+      <img src="https://ma.jumia.is/cms/000_2021/Week08/DoubleBanners/MA_W08_DB_montres.png" style="border-radius: 5px" alt="" srcset="">
     </div>
   </div>
+  
 
   <!-- Tendance -->
   <div class="mx-3 my-4 px-3 py-3 bg-light" style="border-radius: 10px; font-size: 13px;">
@@ -350,7 +351,7 @@
   </div>
 
   <!-- Footer -->
-	<?php include "Views/Components/Footer.php"; ?>
+	<?php Component("Footer", []); ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <script>
