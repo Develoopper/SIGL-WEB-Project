@@ -11,7 +11,7 @@
         $dom->preserveWhiteSpace = false;
         $dom->formatOutput = true;
         $dom->loadXML($xml->saveXML());
-        $dom->save("../Database/$fileName.xml");
+        $dom->save("Database/$fileName.xml");
         return true;
     }
 

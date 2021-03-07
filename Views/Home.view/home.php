@@ -69,7 +69,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <link rel="stylesheet" href="accueil.css">
-  <title>Document</title>
+  <title>Home</title>
   <style>
     <?php include "home.css"; ?>
   </style>
