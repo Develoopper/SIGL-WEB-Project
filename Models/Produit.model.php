@@ -122,8 +122,9 @@
         $produit->addChild("libelle", $this->libelle);
         $produit->addChild("prix", $this->prix);
         $produit->addChild("img", $this->img);
+        $produit->addChild("marque", $this->marque);
 
-        return Parent::saveInFile($xml,"produits");
+        return Parent::saveInFile($xml, "produits");
       }
       else
       {
@@ -144,7 +145,7 @@
         $product->prix = $newProduit->prix;
         $product->img = $newProduit->img;
         $product->marque = $newProduit->marque;
-        $product->sousCategorie = $newProduit->sousCategorie;
+        $product->attributes()["sousCategorie"] = $newProduit->sousCategorie;
 
         return Parent::saveInFile($xml,"produits");
       } else {

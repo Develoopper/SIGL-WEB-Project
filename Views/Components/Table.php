@@ -9,7 +9,7 @@
     <table class="table table-striped table-bordered" id="table2">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">Id</th>
+          <th scope="col">Ref</th>
           <th scope="col">Libellee</th>
           <th scope="col">Prix</th>
           <th scope="col">Marque</th>
@@ -80,6 +80,22 @@
             console.log("*****", data);
           }
 
+        })
+      },
+      onAdd: function(id) {
+        console.log("+++++++", id);
+        $.ajax({
+          url: "http://localhost/Projects/SIGL-WEB-Project/products",
+          data: {
+            method: "POST",
+            data: id
+          },
+          dataType: "json",
+          type: "POST",
+          // header: { method: "PATCH" },
+          success: function (data) {
+            console.log("*****", data);
+          }
         })
       },
       // advanced: {

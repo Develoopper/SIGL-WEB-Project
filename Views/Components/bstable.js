@@ -221,7 +221,7 @@ class BSTable {
 	}
 	_actionAddRow() {
 		// Add row to this table
-
+    let id = 0;
 		let $allRows = this.table.find("tbody tr");
 		if ($allRows.length == 0) {
 			// there are no rows. we must create them
@@ -244,17 +244,22 @@ class BSTable {
 			$lastRow.clone().appendTo($lastRow.parent());
 			$lastRow = this.table.find("tr:last");
 			let $cols = $lastRow.find("td"); //lee campos
+      id = parseInt($cols[0].innerHTML) + 1;
+      let i = 0;
 			$cols.each(function () {
 				let column = this; // Inner function this (column object)
-				if ($(column).attr("name") == "bstable-actions") {
+				if ($(column).attr("name") == "bstable-actions")
 					// action buttons column. change nothing
-				} else {
+          ;
+        else if (i == 0)
+          $(column).html(id);
+				else 
 					$(column).html(""); // clear the text
-				}
+        i++;
 			});
 		}
 		this._addOnClickEventsToActions(); // Add onclick events to each action button in all rows
-		this.options.onAdd();
+		this.options.onAdd(id);
 	}
 
 	// --------------------------------------------------

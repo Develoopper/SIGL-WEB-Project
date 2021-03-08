@@ -29,7 +29,10 @@
   
   Route::post("products", function() {
     header('Content-Type: text/json');
-    echo json_encode($_POST["data"]);
+    $data = $_POST["data"];
+    $obj = new Produit_Model($data, "", "", "", "", "");
+    $res = $obj->create();
+    echo json_encode($res);
   });
   
   Route::patch("products", function() {
