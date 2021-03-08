@@ -128,9 +128,6 @@
       $exist = self::searchProductInXML($RefProduct, $xml)[0];
 
       if($exist){
-        $existNew = self::searchProductInXML($newProduit->refProduit, $xml)[0];
-
-        if(!$existNew){
           $refProduit = $xml->xpath("//produit/refProduit[.='$RefProduct']")[0];
           $product = current($refProduit->xpath("parent::*"));
 
@@ -140,17 +137,13 @@
           $product->prix = $newProduit->prix;
 
           return Parent::saveInFile($xml,"produits");
-
-        }else{
-          return "Le nouveau produit existe déjà";
-        }
       }else{
         return "Le produit n'existe pas.";
       }
     }
 
     public static function deleteP($refProduit) {
-      if(isset($id))
+      if(isset($refProduit))
         return parent::delete($refProduit, "produits", "produit", "refProduit");
       else
           return "Vous devez entrer une reference.";

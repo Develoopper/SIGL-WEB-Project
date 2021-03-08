@@ -13,7 +13,7 @@
       $this->login = $login;
       $this->nom=  $nom;
       $this->prenom = $prenom;
-      $this->mp = $mp;
+      $this->mp = hash("sha256", $mp);
       $this->email = $email;
       $this->type = $type;
     }
@@ -103,7 +103,7 @@
     }
 
     public static function deleteU($login) {
-      if(isset($id))
+      if(isset($login))
         return parent::delete($login, "utilisateurs", "user", "login");
       else
         return "Vous devez entrer un login.";
