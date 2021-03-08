@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-		
+
 	<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 	<!-- Bootstrap core CSS-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/flatly/bootstrap.min.css">
@@ -30,7 +30,7 @@
 <body>
 	<!-- Nav bar -->
 	<?php Component("AdminNavBar", []); ?>
-	
+
 	<?php Component("Table", []); ?>
 
 	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> -->

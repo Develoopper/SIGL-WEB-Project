@@ -88,9 +88,9 @@
       }
     }
 
-    public static function deleteCmd($id) {
-      if(isset($id))
-        return parent::delete($id, "commandes", "commande", "numCommande");
+    public static function deleteCmd($numCommande) {
+      if(isset($numCommande))
+        return parent::delete($numCommande, "commandes", "commande", "numCommande");
       else
         return "Vous devez entrer un numero de commande.";
     }
