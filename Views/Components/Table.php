@@ -43,8 +43,44 @@
     var example2 = new BSTable("table2", {
       // editableColumns: "1,2",
       $addButton: $('#table2-new-row-button'),
-      onEdit: function() {
-        console.log("EDITED");
+      onEdit: function(row) {
+        var obj = {};
+        ["refProduit", "libelle", "prix", "marque", "img", "sousCategorie"].map((key, index) => {
+          obj[key] = $(row).children()[index].innerHTML;
+        });
+
+        // console.log(obj);
+
+        $.ajax({
+          url: "http://localhost/Projects/SIGL-WEB-Project/products",
+          data: {
+            method: "PATCH",
+            data: obj
+          },
+          dataType: "json",
+          type: "POST",
+          // header: { method: "PATCH" },
+          success: function (data) {
+            console.log("*****", data);
+          }
+
+        })
+      },
+      onDelete: function(row) {
+        $.ajax({
+          url: "http://localhost/Projects/SIGL-WEB-Project/products",
+          data: {
+            method: "DELETE",
+            data: $(row).children()[0].innerHTML
+          },
+          dataType: "json",
+          type: "POST",
+          // header: { method: "PATCH" },
+          success: function (data) {
+            console.log("*****", data);
+          }
+
+        })
       },
       // advanced: {
       //   columnLabel: ''
