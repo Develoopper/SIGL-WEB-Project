@@ -18,4 +18,16 @@
   Route::set("product", function() {
     Controller::CreateView("Product");
   });
+
+  Route::set("admin/users", function() {
+    Controller::CreateView("AdminUsers");
+  });
+
+  Route::set("admin/products", function() {
+    Controller::CreateView("AdminProducts");
+  });
+  
+  Route::set("admin/orders", function() {
+    Controller::CreateView("AdminOrders");
+  });
 ?>

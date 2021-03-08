@@ -3,7 +3,7 @@
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<a class="navbar-brand" style="font-family: 'Dancing Script'; font-size: 35px;" href="./">Elegance</a>
+		<a class="navbar-brand me-4" style="font-family: 'Dancing Script'; font-size: 35px;" href="./">Elegance</a>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item dropdown">
@@ -23,7 +23,7 @@
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Homme
 					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item" href="#">Action</a></li>
 						<li><a class="dropdown-item" href="#">Another action</a></li>
 						<li>
@@ -36,7 +36,7 @@
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Fille
 					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item" href="#">Action</a></li>
 						<li><a class="dropdown-item" href="#">Another action</a></li>
 						<li>
@@ -49,7 +49,7 @@
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Garçon
 					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
 						<li><a class="dropdown-item" href="#">Action</a></li>
 						<li><a class="dropdown-item" href="#">Another action</a></li>
 						<li>

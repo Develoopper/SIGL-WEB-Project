@@ -10,7 +10,6 @@
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-	<link rel="stylesheet" href="accueil.css">
 	<title>Document</title>
 	<style>
 		<?php include "login.css"; ?>

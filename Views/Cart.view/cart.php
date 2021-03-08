@@ -65,6 +65,10 @@
 						<div>
 							<h6 class="mx-5 mb-0"><b>1158 DH</b></h6>
 						</div>
+
+						<div class="bg-dark" style="height: 60px; width: 1px;"></div>
+
+						<a href="#"><i class= "material-icons mx-1 text-dark mx-3 ps-2">delete</i></a>
 					</div>
 				</div>
 
@@ -91,6 +95,10 @@
 						<div>
 							<h6 class="mx-5 mb-0"><b>1158 DH</b></h6>
 						</div>
+
+						<div class="bg-dark" style="height: 60px; width: 1px;"></div>
+
+						<a href="#"><i class= "material-icons mx-1 text-dark mx-3 ps-2">delete</i></a>
 					</div>
 				</div>
 
@@ -117,6 +125,10 @@
 						<div>
 							<h6 class="mx-5 mb-0"><b>1158 DH</b></h6>
 						</div>
+
+						<div class="bg-dark" style="height: 60px; width: 1px;"></div>
+
+						<a href="#"><i class= "material-icons mx-1 text-dark mx-3 ps-2">delete</i></a>
 					</div>
 				</div>
 
@@ -142,7 +154,7 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 	<script>
-		<?php include "accueil.js"; ?>
+		<?php include "cart.js"; ?>
 	</script>
 	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->
