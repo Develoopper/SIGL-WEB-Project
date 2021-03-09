@@ -5,7 +5,7 @@
     private static $data = [];
 
     public static function CreateView($view_name) {
-      Auth::login();
+      // Auth::login();
 
       self::$data = [
         "product" => Produit_Model::getOne([["filterBy" => "refProduit", "opt" => "equal", "filterValue" => $_GET["id"]]])[0]

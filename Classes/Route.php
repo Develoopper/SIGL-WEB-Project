@@ -17,6 +17,23 @@
       }
     }
 
+    public static function get() {
+      $args = func_get_args();
+
+      if ($_GET["url"] != $args[0])
+        return;
+
+      if ($_POST["method"] != "GET")
+        return;
+
+      foreach ($args as $i => $func) {
+        if ($i == 0)
+          continue;
+        if (@!$func())
+          break;
+      }
+    }
+
     public static function post() {
       $args = func_get_args();
 
