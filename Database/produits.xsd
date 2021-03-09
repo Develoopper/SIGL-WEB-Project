@@ -1,0 +1,20 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="produits">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="produit" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="refProduit"/>
+              <xs:element type="xs:string" name="libelle"/>
+              <xs:element type="xs:short" name="prix"/>
+              <xs:element type="xs:string" name="marque"/>
+              <xs:element type="xs:string" name="img"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="sousCategorie" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
