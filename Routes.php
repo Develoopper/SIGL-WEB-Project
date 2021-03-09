@@ -1,33 +1,35 @@
 <?php
   Route::set("", function() {
-    Controller::CreateView("Home");
+    Controller::CreateView("Home", []);
   });
 
   Route::set("login", function() {
-    Controller::CreateView("Login");
+    // create a session and set a cookie
+    Controller::CreateView("Login", []);
   });
   
   Route::set("cart", function() {
-    Controller::CreateView("Cart");
+    Controller::CreateView("Cart", []);
   });
 
   Route::set("payment", function() {
-    Controller::CreateView("Payment");
+    Controller::CreateView("Payment", []);
   });
 
   Route::set("product", function() {
-    Controller::CreateView("Product");
+    Controller::CreateView("Product", [
+      "product" => Produit_Model::getOne([["filterBy" => "refProduit", "opt" => "equal", "filterValue" => $_GET["id"]]])[0]
+    ]);
   });
 
   Route::set("admin/users", function() {
-    Controller::CreateView("AdminUsers");
+    Controller::CreateView("AdminUsers", []);
   });
 
   Route::set("admin/products", function() {
-    Controller::CreateView("AdminProducts");
+    Controller::CreateView("AdminProducts", []);
   });
   
-  Route::set("admin/orders", function() {
-    Controller::CreateView("AdminOrders");
-  });
+  include "Routers/produit.router.php";
+
 ?>
