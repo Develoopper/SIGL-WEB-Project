@@ -11,7 +11,7 @@
     Controller::CreateView("Home", []);
   });
 
-  Route::set("login", function() {
+  Route::set("login", function () {
     // create a session and set a cookie
     Controller::CreateView("Login", []);
   });
@@ -27,6 +27,12 @@
   Route::set("product", function() {
     Controller::CreateView("Product", [
       "product" => Produit_Model::getOne([["filterBy" => "refProduit", "opt" => "equal", "filterValue" => $_GET["id"]]])[0]
+    ]);
+  });
+
+  Route::set("categorie", function() {
+    Controller::CreateView("Categorie", [
+      "products" => Produit_Model::getOne([["filterBy" => "sousCategorie", "opt" => "equal", "filterValue" => 1]])
     ]);
   });
 

@@ -6,58 +6,28 @@
 		<a class="navbar-brand me-4" style="font-family: 'Dancing Script'; font-size: 35px;" href="./">Elegance</a>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Femme
-					</a>
-					<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-						<li>
-							<hr class="dropdown-divider">
-						</li>
-						<li><a class="dropdown-item" href="#">Something else here</a></li>
-					</ul>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Homme
-					</a>
-					<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-						<li>
-							<hr class="dropdown-divider">
-						</li>
-						<li><a class="dropdown-item" href="#">Something else here</a></li>
-					</ul>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Fille
-					</a>
-					<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-						<li>
-							<hr class="dropdown-divider">
-						</li>
-						<li><a class="dropdown-item" href="#">Something else here</a></li>
-					</ul>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Garçon
-					</a>
-					<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-						<li>
-							<hr class="dropdown-divider">
-						</li>
-						<li><a class="dropdown-item" href="#">Something else here</a></li>
-					</ul>
-				</li>
+				<?php
+					foreach (Categorie_Model::getAll() as $categorie) {
+						echo '
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									'.$categorie->libelle.'
+								</a>
+								<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">						
+						';
+
+						foreach (SousCategorie_Model::getOne([
+							["filterBy" => "categorie", "opt" => "equal", "filterValue" => (int)($categorie->id)]
+						]) as $sousCategorie) {
+							echo '<li><a class="dropdown-item" href="#">'.$sousCategorie->libelle.'</a></li>';
+						}
+						
+						echo '
+								</ul>
+							</li>
+						';
+					}
+				?>					
 			</ul>
 
 			<div class="d-flex align-items-center justify-content-between" style="font-size: 15px;">

@@ -1,10 +1,5 @@
 <?php
-  session_start();
-
-  function Component($fileName, $variables) {
-    extract($variables);
-    include "Views/Components/".$fileName.".php";
-  }
+  // session_start();
 
   spl_autoload_register(function ($class_name) {
     if (file_exists("./Classes/".$class_name.".php"))
@@ -18,6 +13,11 @@
     else if (file_exists("./Models/".explode("_", $class_name)[0].".model.php"))
       require_once "./Models/".explode("_", $class_name)[0].".model.php";
   });
+
+  function Component($fileName, $variables) {
+    extract($variables);
+    include "Views/Components/".$fileName.".php";
+  }
 
   require_once "Routes.php";
 ?>

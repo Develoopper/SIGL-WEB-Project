@@ -2,11 +2,11 @@
 <categories>
   <categorie>
     <id>1</id>
-    <libelle>Homme</libelle>
+    <libelle>Femme</libelle>
   </categorie>
   <categorie>
     <id>2</id>
-    <libelle>Femme</libelle>
+    <libelle>Homme</libelle>
   </categorie>
   <categorie>
     <id>3</id>
