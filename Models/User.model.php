@@ -1,5 +1,6 @@
 <?php
-  include './Model.php';
+  include 'Models/Model.php';
+
   class User_Model extends Model {
     public $login;
     public $nom;
@@ -7,8 +8,9 @@
     public $mp;
     public $email;
     public $type;
+    public $adresse;
 
-    public function __construct($login = "", $nom, $prenom, $mp, $email, $type) {
+    public function __construct($login = "", $nom, $prenom, $mp, $email, $type, $adresse="") {
       if($login == "") $login = md5($nom.$prenom);
       $this->login = $login;
       $this->nom=  $nom;
@@ -16,6 +18,7 @@
       $this->mp = hash("sha256", $mp);
       $this->email = $email;
       $this->type = $type;
+      $this->adresse = $adresse;
     }
 
     public static function getAll() {
@@ -38,7 +41,7 @@
                 $filterValue = $filter["filterValue"];
 
                 if($operator == "equal" && $user->{$filterBy} == $filterValue){
-                    $users_list[] = new User_Model($user->login, $user->nom, $user->prenom, $user->mp, $user->email, $user->type);
+                    $users_list[] = new User_Model($user->login, $user->nom, $user->prenom, $user->mp, $user->email, $user->type, $user->adresse);
                     for ($i = array_key_first($users_list); $i < count($users_list); $i++) {
                       if ($user->{$filterBy} != $filterValue) {
                         unset($users_list[$i]);
@@ -75,6 +78,8 @@
         $user->addChild("mp", hash("sha256",$this->mp));
         $user->addChild("email", $this->email);
         $user->addChild("type", $this->type);
+        $user->addChild("adresse", $this->adresse);
+
 
         return Parent::saveInFile($xml,"utilisateurs");
       }
@@ -97,6 +102,7 @@
             $user->mp = $newUser->mp;
             $user->email = $newUser->email;
             $user->type = $newUser->type;
+            $user->adresse = $newUser->adresse;
 
             return Parent::saveInFile($xml, "utilisateurs");
       }else{
