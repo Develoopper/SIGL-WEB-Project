@@ -11,10 +11,7 @@
     Controller::CreateView("Home", []);
   });
 
-  Route::set("login", function () {
-      Auth()
-    },
-    function() {
+  Route::set("login", function() {
     // create a session and set a cookie
     Controller::CreateView("Login", []);
   });

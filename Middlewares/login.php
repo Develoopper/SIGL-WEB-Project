@@ -1,7 +1,6 @@
 <?php
     function signIn() {
         session_start();
-        echo "kjhg";
         if(isset($_POST["email"]) && isset($_POST["mp"])){
             $Users = User_Model::getOne([["filterBy" => "email", "opt" => "equal", "filterValue" => $_POST["email"]], ["filterBy" => "mp", "opt" => "equal", "filterValue" => hash("sha256", $_POST["mp"])]]);
             if(is_array($Users)){
