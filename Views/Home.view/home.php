@@ -91,8 +91,7 @@
           <div class="carousel-item '.($index == 0 ? "active" : "").'">
             <img src="'.$item["img"].'" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
+              
             </div>
           </div>
         ';
@@ -276,9 +275,9 @@
   </div>
   
 
-  <!-- Tendance -->
+  <!-- Nouveautés -->
   <div class="mx-3 my-4 px-3 py-3 bg-light" style="border-radius: 10px; font-size: 13px;">
-    <h3 class="mb-3">Tendance</h3>
+    <h3 class="mb-3">Nouveautés</h3>
 
     <div id="tendance" data-bs-interval="0" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner px-5">

@@ -4,8 +4,7 @@
   // include "./Models/Categorie.model.php";
   // include "./Models/Commande.model.php";
   // include "./Models/SousCategorie.model.php";
-  // include "./Models/User.model.php";
-  include "./Middlewares/login.php";
+  // include "./Models/Utilisateur.model.php";
   include './Controllers/panier.php';
 
   Route::set("", function() {
@@ -25,18 +24,6 @@
     Controller::CreateView("Payment", []);
   });
 
-  Route::set("product", function() {
-    Controller::CreateView("Product", [
-      "product" => Produit_Model::getOne([["filterBy" => "refProduit", "opt" => "equal", "filterValue" => $_GET["id"]]])[0]
-    ]);
-  });
-
-  Route::set("categorie", function() {
-    Controller::CreateView("Categorie", [
-      "products" => Produit_Model::getOne([["filterBy" => "sousCategorie", "opt" => "equal", "filterValue" => $_GET["id"]]])
-    ]);
-  });
-
   Route::set("admin/users", function() {
     Controller::CreateView("AdminUsers", []);
   });
@@ -46,16 +33,16 @@
   });
 
   Route::set("signIn", function(){
-      signIn();
-      // CreateView("SignIn", []);
+    Utilisateur_Controller::signIn();
+    // CreateView("SignIn", []);
   });
 
   Route::set("signUp", function(){
-      signUp();
+    Utilisateur_Controller::signUp();
   });
 
   Route::set("addToCart", function(){
-      // addProduct();
+    // addProduct();
   });
 
   include "Routers/produit.router.php";

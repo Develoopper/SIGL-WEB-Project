@@ -94,7 +94,8 @@
 			</form>
 		</div>
 	</div>
-
+	salemmed266@gmail.com
+	123456
 	<!-- Footer -->
 	<?php Component("Footer", []); ?>
 

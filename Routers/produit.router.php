@@ -1,4 +1,16 @@
 <?php
+  Route::set("products", function() {
+    Controller::CreateView("Products", [
+      "products" => Produit_Model::getOne([["filterBy" => "sousCategorie", "opt" => "equal", "filterValue" => $_GET["id"]]])
+    ]);
+  });
+
+  Route::set("product", function() {
+    Controller::CreateView("Product", [
+      "product" => Produit_Model::getOne([["filterBy" => "refProduit", "opt" => "equal", "filterValue" => $_GET["id"]]])[0]
+    ]);
+  });
+
   Route::get("products", function() {
     header('Content-Type: text/json');
     $data = $_POST["data"];
