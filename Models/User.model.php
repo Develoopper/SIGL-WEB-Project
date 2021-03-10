@@ -37,11 +37,13 @@
                 $operator = $filter["opt"];
                 $filterValue = $filter["filterValue"];
 
-                if($operator == "like" && str_contains($user->{$filterBy}, $filterValue)){
-                    $users_list[] = new User_Model($user->login, $user->nom, $user->prenom, $user->mp, $user->email, $user->type);
-                }
                 if($operator == "equal" && $user->{$filterBy} == $filterValue){
                     $users_list[] = new User_Model($user->login, $user->nom, $user->prenom, $user->mp, $user->email, $user->type);
+                    for ($i = array_key_first($users_list); $i < count($users_list); $i++) {
+                      if ($user->{$filterBy} != $filterValue) {
+                        unset($users_list[$i]);
+                      }
+                    }
                 }
 
             }

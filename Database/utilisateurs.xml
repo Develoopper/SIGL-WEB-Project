@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <users>
-  
+  <user>
+    <login>5e7273181975e4f28b8e2d707d464aa3</login>
+    <nom>salem</nom>
+    <prenom>mohammed</prenom>
+    <mp>49dc52e6bf2abe5ef6e2bb5b0f1ee2d765b922ae6cc8b95d39dc06c21c848f8c</mp>
+    <email>salemmed266@gmail.com</email>
+    <type>admin</type>
+  </user>
 </users>
