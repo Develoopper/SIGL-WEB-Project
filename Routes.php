@@ -6,7 +6,7 @@
   // include "./Models/SousCategorie.model.php";
   // include "./Models/User.model.php";
   include "./Middlewares/login.php";
-  include './Controllers/addToCart.php';
+  include './Controllers/panier.php';
 
   Route::set("", function() {
     Controller::CreateView("Home", []);
@@ -54,9 +54,6 @@
       signUp();
   });
 
-  Route::set("addToCart", function(){
-      AddProduct();
-  });
 
   include "Routers/produit.router.php";
 
