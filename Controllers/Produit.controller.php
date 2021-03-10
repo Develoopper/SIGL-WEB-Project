@@ -1,22 +1,22 @@
 <?php
-  class Produits_Controller extends Controller {
-    public static set() {
+  class Produit_Controller extends Controller {
+    public static function set() {
 
     }
 
-    public static get() {
+    public static function get() {
       
     }
 
-    public static post() {
+    public static function post() {
       
     }
 
-    public static patch() {
+    public static function patch() {
       
     }
 
-    public static delete() {
+    public static function delete() {
       
     }
   }

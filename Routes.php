@@ -1,4 +1,6 @@
 <?php
+  include "Models/Produit.model.php";
+  
   Route::set("", function() {
     Controller::CreateView("Home", []);
   });
@@ -30,6 +32,6 @@
     Controller::CreateView("AdminProducts", []);
   });
   
-  include "Routers/produit.router.php";
+  // include "Routers/produit.router.php";
 
 ?>
