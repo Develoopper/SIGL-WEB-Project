@@ -17,6 +17,7 @@
 </head>
 
 <body>
+
 	<!-- Nav bar -->
 	<?php Component("NavBar", []); ?>
 
@@ -25,50 +26,45 @@
 		<!-- S'inscrire -->
 		<div class="d-flex border flex-column align-items-center me-5 p-4 bg-light" style="border-radius: 10px;">
 			<h3 class="mb-5">S'inscrire</h3>
-			<form action="login.php" method="post">
+			<form action="signUp" method="post">
 				<div class="d-flex justify-content-between">
 					<div class="mb-3">
 						<label for="exampleFormControlInput1" class="form-label">Nom</label>
-						<input type="email" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="nom">
+						<input type="text" name="nom" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="nom">
 					</div>
 					<div class="mb-3">
 						<label for="exampleFormControlInput1" class="form-label">Prénom</label>
-						<input type="email" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="prénom">
+						<input type="text" name="prenom" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="prénom">
 					</div>
 				</div>
 				<div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">E-mail</label>
-					<input type="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
+					<input type="email" name="emailIns" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
 				</div>
 				<div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">Téléphone</label>
-					<input type="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="téléphone">
+					<input type="telephone" name="telephone" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="téléphone">
 				</div>
 				<div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
-					<input type="password" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe">
+					<input type="password" name="mpIns" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe">
 				</div>
-				<div class="form-check mb-4">
-					<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-					<label class="form-check-label" for="flexCheckDefault">
-						J'ai lu et j'accepte les <a href="#" class="link-dark">Conditions générales de vente</a>
-					</label>
-				</div>
-				<button type="button" class="btn btn-dark" style="width: 100%">S'inscrire</button>
+
+				<button type="submit" class="btn btn-dark" style="width: 100%">S'inscrire</button>
 			</form>
 		</div>
 
 		<!-- Se connecter -->
 		<div class="d-flex border flex-column align-items-center p-4 bg-light" style="border-radius: 10px;">
 			<h3 class="mb-5">Se connecter</h3>
-			<form action="login" method="post">
+			<form action="signIn" method="post">
 				<div class="mb-3">
-					<label for="exampleFormControlInput1" name="email" class="form-label">E-mail</label>
-					<input type="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
+					<label for="exampleFormControlInput1" class="form-label">E-mail</label>
+					<input type="email"  name="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
 				</div>
 				<div class="mb-3">
-					<label for="exampleFormControlInput1" name="mp" class="form-label">Mot de passe</label>
-					<input type="password" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe">
+					<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
+					<input type="password" name="mp" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe">
 				</div>
 				<div class="d-flex justify-content-between">
 					<div class="form-check mb-4">
@@ -79,35 +75,14 @@
 					</div>
 					<a href="#" class="link-dark">Mot de passe oublié ?</a>
 				</div>
-				<button type="submit" name="connecter" class="btn btn-dark" style="width: 100%">Se connecter</button>
+				<button type="submit" class="btn btn-dark" style="width: 100%">Se connecter</button>
 			</form>
 		</div>
 	</div>
 
 	<!-- Footer -->
 	<?php Component("Footer", []); ?>
-	<?php
-		session_start();
-		if(isset($_POST["connecter"])){
-			if(isset($_POST["email"]) && isset($_POST["mp"])){
-				$Users = User_Model::getOne([["filterBy" => "email", "opt" => "equal", "filterValue" => $_POST["email"]], ["filterBy" => "mp", "opt" => "equal", "filterValue" => $_POST["mp"]]]);
-				if(count($Users) != 0){
-					$_SESSION["login"] = $Users[0]->login;
-					if($Users[0]->type == "admin"){
-						Header("Location:AdminProducts");
-						echo '<script>alert("bien")</script>';
-					}
-					else{
-						Header("Location:Home");
-						echo '<script>alert("bien")</script>';
-					}
-				}else{
-					Header("Location:login.php?erreur=1");
-				}
-			}
 
-		}
-	?>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 	<script>
 		<?php include "accueil.js"; ?>

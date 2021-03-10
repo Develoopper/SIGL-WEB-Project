@@ -1,5 +1,6 @@
 <?php
-  include "./Model.php";
+  include "Models/Model.php";
+
   class Produit_Model extends Model {
     public $refProduit;
     public $libelle;
@@ -94,7 +95,7 @@
         }
       }
 
-      if (!isset($products_list)) 
+      if (!isset($products_list))
         return "Pas de produit avec cette signature.";
 
       return $products_list;

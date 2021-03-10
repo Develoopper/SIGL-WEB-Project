@@ -1,10 +1,20 @@
 <?php
+  // include "./Models/Model.php";
+  include "./Models/Produit.model.php";
+  // include "./Models/Categorie.model.php";
+  // include "./Models/Commande.model.php";
+  // include "./Models/SousCategorie.model.php";
+  // include "./Models/User.model.php";
+  include "./Middlewares/login.php";
 
   Route::set("", function() {
     Controller::CreateView("Home", []);
   });
 
-  Route::set("login", function() {
+  Route::set("login", function () {
+      Auth()
+    },
+    function() {
     // create a session and set a cookie
     Controller::CreateView("Login", []);
   });
@@ -29,6 +39,15 @@
 
   Route::set("admin/products", function() {
     Controller::CreateView("AdminProducts", []);
+  });
+
+  Route::set("signIn", function(){
+      signIn();
+      // CreateView("SignIn", []);
+  });
+
+  Route::set("signUp", function(){
+      signUp();
   });
 
   include "Routers/produit.router.php";
