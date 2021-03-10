@@ -24,12 +24,31 @@
 		<div class="mx-3 my-4 p-3 bg-light" style="border-radius: 10px; font-size: 13px;">
 
 			<div class="d-flex rounded p-2 text-dark" style="width: 1200px">
-				<select class="form-select" aria-label="Default select example">
-					<option selected>Filtre</option>
-					<option value="1">One</option>
-					<option value="2">Two</option>
-					<option value="3">Three</option>
+				<select class="form-select" aria-label="Default select example" style="width: 200px">
+					<option selected value="libelle">Libellee</option>
+					<option value="prix">Prix</option>
+					<option value="marque">Marque</option>
+					<option value="sousCategorie">Sous categorie</option>
 				</select>
+			</div>
+
+			<div class="row">
+				<?php
+				echo var_dump($products)
+					// foreach ($products as $product) {
+					// 	echo '
+					// 		<div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
+					// 			<a href="product?id='.$product->id.'" style="text-decoration: none;" class="text-dark">
+					// 				<img src='.$product->img.'style="height: 180px; width: 180px" class="card-img-top" alt="...">
+					// 				<div class="card-body p-2">
+					// 					<p class="card-text text-truncate">'.$product->libellee.'</p>
+					// 					<p class="card-text text-truncate">'.$product->prix.' DH</p>
+					// 				</div>
+					// 			</a>
+					// 		</div>
+					// 	';
+					// }
+				?>
 			</div>
 			
 		</div>
