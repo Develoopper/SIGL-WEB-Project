@@ -6,14 +6,14 @@
   // include "./Models/SousCategorie.model.php";
   // include "./Models/Utilisateur.model.php";
   include './Controllers/panier.php';
-  include 'Middlewares/auth.php';
-  include 'Middlewares/preventAuth.php';
+  include 'Middlewares/Auth.php';
+  include 'Middlewares/PreventAuth.php';
 
   Route::set("", function() {
     Controller::CreateView("Home", []);
   });
 
-  Route::set("cart", function() {
+  Route::set("cart", "Auth", function() {
     Controller::CreateView("Cart", []);
   });
 

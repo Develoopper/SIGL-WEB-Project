@@ -1,10 +1,9 @@
 <?php
-  Route::set("admin/users", "auth", function() {
-    // echo auth();
+  Route::set("admin/users", "Auth", function() {
     Controller::CreateView("AdminUsers", []);
   });
 
-  Route::set("admin/products", function() {
+  Route::set("admin/products", "Auth", function() {
     Controller::CreateView("AdminProducts", []);
   });
 ?>
