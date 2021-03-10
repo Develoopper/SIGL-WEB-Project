@@ -25,7 +25,7 @@
 		<!-- S'inscrire -->
 		<div class="d-flex border flex-column align-items-center me-5 p-4 bg-light" style="border-radius: 10px;">
 			<h3 class="mb-5">S'inscrire</h3>
-			<form action="" method="post">
+			<form action="login.php" method="post">
 				<div class="d-flex justify-content-between">
 					<div class="mb-3">
 						<label for="exampleFormControlInput1" class="form-label">Nom</label>
@@ -61,13 +61,13 @@
 		<!-- Se connecter -->
 		<div class="d-flex border flex-column align-items-center p-4 bg-light" style="border-radius: 10px;">
 			<h3 class="mb-5">Se connecter</h3>
-			<form action="" method="post">
+			<form action="login" method="post">
 				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">E-mail</label>
+					<label for="exampleFormControlInput1" name="email" class="form-label">E-mail</label>
 					<input type="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
 				</div>
 				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
+					<label for="exampleFormControlInput1" name="mp" class="form-label">Mot de passe</label>
 					<input type="password" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe">
 				</div>
 				<div class="d-flex justify-content-between">
@@ -79,14 +79,35 @@
 					</div>
 					<a href="#" class="link-dark">Mot de passe oublié ?</a>
 				</div>
-				<button type="button" class="btn btn-dark" style="width: 100%">Se connecter</button>
+				<button type="submit" name="connecter" class="btn btn-dark" style="width: 100%">Se connecter</button>
 			</form>
 		</div>
 	</div>
 
 	<!-- Footer -->
 	<?php Component("Footer", []); ?>
+	<?php
+		session_start();
+		if(isset($_POST["connecter"])){
+			if(isset($_POST["email"]) && isset($_POST["mp"])){
+				$Users = User_Model::getOne([["filterBy" => "email", "opt" => "equal", "filterValue" => $_POST["email"]], ["filterBy" => "mp", "opt" => "equal", "filterValue" => $_POST["mp"]]]);
+				if(count($Users) != 0){
+					$_SESSION["login"] = $Users[0]->login;
+					if($Users[0]->type == "admin"){
+						Header("Location:AdminProducts");
+						echo '<script>alert("bien")</script>';
+					}
+					else{
+						Header("Location:Home");
+						echo '<script>alert("bien")</script>';
+					}
+				}else{
+					Header("Location:login.php?erreur=1");
+				}
+			}
 
+		}
+	?>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 	<script>
 		<?php include "accueil.js"; ?>

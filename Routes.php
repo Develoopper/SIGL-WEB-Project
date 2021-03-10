@@ -1,4 +1,5 @@
 <?php
+
   Route::set("", function() {
     Controller::CreateView("Home", []);
   });
@@ -7,7 +8,7 @@
     // create a session and set a cookie
     Controller::CreateView("Login", []);
   });
-  
+
   Route::set("cart", function() {
     Controller::CreateView("Cart", []);
   });
@@ -29,7 +30,7 @@
   Route::set("admin/products", function() {
     Controller::CreateView("AdminProducts", []);
   });
-  
+
   include "Routers/produit.router.php";
 
 ?>
