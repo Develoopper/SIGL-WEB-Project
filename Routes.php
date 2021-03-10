@@ -33,7 +33,7 @@
 
   Route::set("categorie", function() {
     Controller::CreateView("Categorie", [
-      "products" => Produit_Model::getOne([["filterBy" => "sousCategorie", "opt" => "equal", "filterValue" => 6]])
+      "products" => Produit_Model::getOne([["filterBy" => "sousCategorie", "opt" => "equal", "filterValue" => $_GET["id"]]])
     ]);
   });
 

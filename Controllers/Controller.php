@@ -19,4 +19,5 @@
       require_once "Views/$view_name.view/".lcfirst($view_name).".php";
     }
   }
+  
 ?>
