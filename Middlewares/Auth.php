@@ -1,11 +1,14 @@
 <?php
-  function auth($utilisateur) {
-    // if (!isset($_COOKIE["utilisateur"])) {
-    //   setcookie("utilisateur", , time() + (86400), "/");
-    // }
-    
-    // $_SESSION["utilisateur"] = "oussama";
+  function auth() {
+    session_start();
 
-    // check if utilisateur is 
+    if (!isset($_COOKIE["login"])) {
+      header("Location: login");
+      return false;
+    } 
+
+    $_SESSION["login"] = $_COOKIE["login"];
+
+    return $_COOKIE["login"];
   }
 ?>

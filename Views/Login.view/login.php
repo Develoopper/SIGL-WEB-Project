@@ -52,7 +52,7 @@
 				</div>
 				<div class="mb-3">
 					<?php
-						if(isset($_GET["exist"])){
+						if (isset($_GET["exist"])) {
 							echo "utilisateur exist déjà";
 						}
 					?>
@@ -84,7 +84,7 @@
 				</div>
 				<div class="d-flex justify-content-between mb-3">
 					<?php
-						if(isset($_GET["erreur"])){
+						if (isset($_GET["erreur"])) {
 							echo "utilisateur n'existe pas";
 						}
 					?>

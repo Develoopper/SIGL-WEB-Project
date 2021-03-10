@@ -3,6 +3,7 @@ class Utilisateur_Controller extends Controller {
   
   public static function signIn() {
     session_start();
+
     if (isset($_POST["email"]) && isset($_POST["mp"])) {
       $utilisateurs = Utilisateur_Model::getOne([
         ["filterBy" => "email", "opt" => "equal", "filterValue" => $_POST["email"]], 
@@ -10,11 +11,12 @@ class Utilisateur_Controller extends Controller {
       ]);
       if (is_array($utilisateurs)) {
         $_SESSION["login"] = (string)$utilisateurs[0]->login;
-        if ($utilisateurs[0]->type == "admin") {
+        setcookie("login", $_SESSION["login"], time() + 60 * 60 * 60, "" , "" , false , true);
+
+        if ($utilisateurs[0]->type == "admin")
           header('Location: admin/products');
-        } else {
+        else
           header("Location: ./");
-        }
       } else {
         header("Location: login?erreur=1");
       }

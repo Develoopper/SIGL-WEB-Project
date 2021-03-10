@@ -11,7 +11,7 @@
     public $adresse;
 
     public function __construct($login = "", $nom, $prenom, $mp, $email, $type, $adresse="") {
-      if($login == "") 
+      if ($login == "") 
         $login = md5($nom.$prenom);
 
       $this->login = $login;
@@ -26,7 +26,7 @@
     public static function getAll() {
       $xml = parent::load_xml("utilisateurs");
 
-      foreach($xml->children() as $utilisateur)
+      foreach ($xml->children() as $utilisateur)
         $utilisateurs_list[] = new Utilisateur_Model($utilisateur->login, $utilisateur->nom, $utilisateur->prenom, $utilisateur->mp, $utilisateur->email, $utilisateur->type);
 
       return $utilisateurs_list;
@@ -71,7 +71,6 @@
         $utilisateur->addChild("email", $this->email);
         $utilisateur->addChild("type", $this->type);
         $utilisateur->addChild("adresse", $this->adresse);
-
 
         return Parent::saveInFile($xml,"utilisateurs");
       } else {
