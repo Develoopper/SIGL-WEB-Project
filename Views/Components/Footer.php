@@ -17,39 +17,7 @@
     <!-- Section: Social media -->
 
     <!-- Section: Form -->
-    <section class="">
-      <form action="">
-        <!--Grid row-->
-        <div class="row d-flex justify-content-center">
-          <!--Grid column-->
-          <div class="col-auto">
-            <p class="pt-2">
-              <strong>Abonnez-vous pour recevoir nos meilleures offres!</strong>
-            </p>
-          </div>
-          <!--Grid column-->
 
-          <!--Grid column-->
-          <div class="col-md-5 col-12">
-            <!-- Email input -->
-            <div class="form-outline form-white mb-4">
-              <input type="email" id="form5Example2" class="form-control" placeholder="name@example.com" />
-            </div>
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-auto">
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-outline-light mb-4">
-              S'abonner
-            </button>
-          </div>
-          <!--Grid column-->
-        </div>
-        <!--Grid row-->
-      </form>
-    </section>
     <!-- Section: Form -->
 
     <!-- Section: Text -->

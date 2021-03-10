@@ -6,7 +6,7 @@
   // include "./Models/SousCategorie.model.php";
   // include "./Models/User.model.php";
   include "./Middlewares/login.php";
-  include './Controllers/addToCart.php';
+  include './Controllers/panier.php';
 
   Route::set("", function() {
     Controller::CreateView("Home", []);
@@ -33,7 +33,7 @@
 
   Route::set("categorie", function() {
     Controller::CreateView("Categorie", [
-      "products" => Produit_Model::getOne([["filterBy" => "sousCategorie", "opt" => "equal", "filterValue" => 6]])
+      "products" => Produit_Model::getOne([["filterBy" => "sousCategorie", "opt" => "equal", "filterValue" => $_GET["id"]]])
     ]);
   });
 
@@ -55,7 +55,7 @@
   });
 
   Route::set("addToCart", function(){
-      AddProduct();
+      // addProduct();
   });
 
   include "Routers/produit.router.php";
