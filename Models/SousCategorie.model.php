@@ -13,26 +13,29 @@
     }
 
     public static function getOne($where) {
-        $xml = parent::load_xml("sousCategories") or die("Erreur de recupération des categories.");
+      $xml = parent::load_xml("sousCategories") or die("Erreur de recupération des categories.");
 
-        foreach($xml->children() as $sousCategorie) {
+      foreach($xml->children() as $sousCategorie) {
 
-            foreach($where as $filter){
-                $filterBy = $filter["filterBy"];
-                $operator = $filter["opt"];
-                $filterValue = $filter["filterValue"];
+        foreach($where as $filter){
+          $filterBy = $filter["filterBy"];
+          $operator = $filter["opt"];
+          $filterValue = $filter["filterValue"];
 
-                if($operator == "like" && str_contains($sousCategorie->libelle, $filterValue)){
-                    $sousCategorie_list[] = new SousCategorie_Model($sousCategorie->id, $sousCategorie->libelle, $sousCategorie->attributes()["categorie"]);
-                }
-                if($operator == "equal" && $sousCategorie->{$filterBy} == $filterValue){
-                    $sousCategorie_list[] = new SousCategorie_Model($sousCategorie->id, $sousCategorie->libelle, $sousCategorie->attributes()["categorie"]);
-                }
+          if ($operator == "like" && str_contains($sousCategorie->libelle, $filterValue)) {
+            $sousCategorie_list[] = new SousCategorie_Model($sousCategorie->id, $sousCategorie->libelle, $sousCategorie->attributes()["categorie"]);
+          }
 
-            }
+          if ($operator == "equal" && ($sousCategorie->{$filterBy} == $filterValue || $sousCategorie->attributes()[$filterBy] == $filterValue)) {
+            $sousCategorie_list[] = new SousCategorie_Model($sousCategorie->id, $sousCategorie->libelle, $sousCategorie->attributes()["categorie"]);
+          }
         }
-        if(!isset($sousCategorie_list)) return "Pas de categorie avec cette signature.";
-        return $sousCategorie_list;
+      }
+
+      if (!isset($sousCategorie_list)) 
+        return "Pas de categorie avec cette signature.";
+
+      return $sousCategorie_list;
     }
 
     public static function getAll() {

@@ -24,6 +24,12 @@
     ]);
   });
 
+  Route::set("categorie", function() {
+    Controller::CreateView("Categorie", [
+      "product" => Produit_Model::getOne([["filterBy" => "refProduit", "opt" => "equal", "filterValue" => $_GET["id"]]])[0]
+    ]);
+  });
+
   Route::set("admin/users", function() {
     Controller::CreateView("AdminUsers", []);
   });
