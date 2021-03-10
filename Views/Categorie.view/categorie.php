@@ -20,35 +20,41 @@
 	<!-- Nav bar -->
 	<?php Component("NavBar", []); ?>
 
-	<div class="d-flex justify-content-center">
-		<div class="mx-3 my-4 p-3 bg-light" style="border-radius: 10px; font-size: 13px;">
+	<div class="d-flex my-4 px-3">
+		<div class="bg-light text-dark rounded p-3" style="width: 400px">
+			Filtre :
+			<select class="form-select mt-2 mb-4" id="filterBy" aria-label="Default select example" style="height: 40px">
+				<option selected value="libelle">Libellee</option>
+				<option value="marque">Marque</option>
+				<option value="sousCategorie">Sous categorie</option>
+			</select>
+			Valeur :
+  		<input type="text" class="form-control mt-2" id="filterValue">
+		</div>
 
-			<div class="d-flex rounded p-2 text-dark" style="width: 1200px">
-				<select class="form-select" aria-label="Default select example" style="width: 200px">
-					<option selected value="libelle">Libellee</option>
-					<option value="prix">Prix</option>
-					<option value="marque">Marque</option>
-					<option value="sousCategorie">Sous categorie</option>
-				</select>
-			</div>
-
-			<div class="row">
-				<?php
-				echo var_dump($products)
-					// foreach ($products as $product) {
-					// 	echo '
-					// 		<div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-					// 			<a href="product?id='.$product->id.'" style="text-decoration: none;" class="text-dark">
-					// 				<img src='.$product->img.'style="height: 180px; width: 180px" class="card-img-top" alt="...">
-					// 				<div class="card-body p-2">
-					// 					<p class="card-text text-truncate">'.$product->libellee.'</p>
-					// 					<p class="card-text text-truncate">'.$product->prix.' DH</p>
-					// 				</div>
-					// 			</a>
-					// 		</div>
-					// 	';
-					// }
-				?>
+		<div class="ms-3 p-3 bg-light" style="border-radius: 10px; font-size: 13px;">
+		
+			<div class="container-fluid">
+				<div class="row d-flex justify-content-evenly" id="container">
+					<?php
+					// echo var_dump($products);
+						foreach ($products as $product) {
+							echo '
+								<div class="col-3">
+									<div class="card shadow-effect p-0" style="width: 200px; height: 250px; border: none;">
+										<a href="product?id='.$product->refProduit.'" style="text-decoration: none;" class="text-dark">
+											<img src='.$product->img.'style="height: 180px; width: 180px" class="card-img-top" alt="...">
+											<div class="card-body p-2">
+												<p class="card-text text-truncate">'.$product->libelle.'</p>
+												<p class="card-text text-truncate">'.$product->prix.' DH</p>
+											</div>
+										</a>
+									</div>
+								</div>
+							';
+						}
+					?>
+				</div>
 			</div>
 			
 		</div>
@@ -58,6 +64,7 @@
 	<?php Component("Footer", []); ?>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	<script>
 		<?php include "categorie.js"; ?>
 	</script>

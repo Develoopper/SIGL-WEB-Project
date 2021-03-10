@@ -1,6 +1,12 @@
 <?php
   Route::get("products", function() {
-    
+    header('Content-Type: text/json');
+    $data = $_POST["data"];
+    $opt = "like";
+    if ($data["filterBy"] == "prix")
+      $opt = "equal";
+    $res = Produit_Model::getOne([["filterBy" => $data["filterBy"], "opt" => $opt, "filterValue" => $data["filterValue"]]]);
+    echo json_encode($res);
   });
 
   Route::post("products", function() {
