@@ -47,7 +47,7 @@
             }
           }
 
-          if ($operator == "equal" && $product->{$filterBy} == $filterValue) {
+          if ($operator == "equal" && ($product->{$filterBy} == $filterValue || $product->attributes()["sousCategorie"] == $filterValue)) {
             $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"]);
             for ($i = array_key_first($products_list); $i < count($products_list); $i++) {
               if ($product->{$filterBy} != $filterValue) {
