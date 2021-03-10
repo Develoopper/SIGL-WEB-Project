@@ -18,6 +18,7 @@
 
 <body>
 
+
 	<!-- Nav bar -->
 	<?php Component("NavBar", []); ?>
 
@@ -49,6 +50,13 @@
 					<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
 					<input type="password" name="mpIns" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe">
 				</div>
+				<div class="mb-3">
+					<?php
+						if(isset($_GET["exist"])){
+							echo "utilisateur exist déjà";
+						}
+					?>
+				</div>
 
 				<button type="submit" class="btn btn-dark" style="width: 100%">S'inscrire</button>
 			</form>
@@ -73,8 +81,15 @@
 							Rester connecté
 						</label>
 					</div>
-					<a href="#" class="link-dark">Mot de passe oublié ?</a>
 				</div>
+				<div class="d-flex justify-content-between mb-3">
+					<?php
+						if(isset($_GET["erreur"])){
+							echo "utilisateur n'existe pas";
+						}
+					?>
+				</div>
+
 				<button type="submit" class="btn btn-dark" style="width: 100%">Se connecter</button>
 			</form>
 		</div>

@@ -9,13 +9,12 @@
                     header('Location: admin/products');
                 }
                 else{
-                    header("Location: ./");
+                    header("Location: home");
                 }
             }else{
-                header("Location:login?erreur=1");
+                header("Location: login?erreur=1");
             }
         }
-
     }
     function signUp() {
         if(isset($_POST["emailIns"]) && isset($_POST["mpIns"])){
@@ -23,10 +22,9 @@
             if(!is_array($Users)){
                 $newUser = new User_Model("", $_POST["nom"], $_POST["prenom"], $_POST["mpIns"], $_POST["emailIns"], "client");
                 if($newUser->create())
-                    Header("Location:");
+                    Header("Location: home");
             }else{
-                echo '<script>alert("'.$Users.'")</script>';
-                Header("Location:login");
+                Header("Location: login?exist=1");
             }
         }
     }
