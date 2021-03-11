@@ -3,7 +3,7 @@
     session_start();
 
     if (!isset($_COOKIE["login"])) {
-      header("Location: /login");
+      header("Location: login");
       return false;
     } 
 

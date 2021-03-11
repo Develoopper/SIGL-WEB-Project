@@ -13,7 +13,7 @@
     Controller::CreateView("Home", []);
   });
 
-  Route::set("cart", "Auth", function() {
+  Route::set("cart", function() {
     Controller::CreateView("Cart", []);
   });
 
@@ -21,7 +21,7 @@
     Controller::CreateView("Payment", []);
   });
 
-  Route::set("addToCart", function() {
+  Route::set("addToCart", "Auth", function() {
     // addProduct();
   });
 

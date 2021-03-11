@@ -75,7 +75,11 @@
 </head>
 <body>
   <!-- Nav bar -->
-  <?php Component("NavBar", []); ?>
+  <?php 
+    Component("NavBar", [
+      // "logged" => isset($_SESSION["login"])
+    ]); 
+  ?>
 
   <!-- Slider -->
   <div id="carouselExampleCaptions" data-bs-interval="3000" class="carousel carousel-dark slide" data-bs-ride="carousel">
