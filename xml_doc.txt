@@ -49,14 +49,14 @@ $produitsList = $doc->getElementsByTagName("produits");
 
 
     $xml = parent::load_xml("utilisateurs");
-      [$exist, $user] = self::searchUserInXML($login, $xml);
+      [$exist, $utilisateur] = self::searchUserInXML($login, $xml);
 
       if($exist) {
-        $login = $xml->xpath("//user/login[.='$user->login']");
-        $userSupri = current($login[0]->xpath("parent::*"));
+        $login = $xml->xpath("//utilisateur/login[.='$utilisateur->login']");
+        $utilisateurSupri = current($login[0]->xpath("parent::*"));
 
-        if (!empty($userSupri)) {
-          unset($userSupri[0]);
+        if (!empty($utilisateurSupri)) {
+          unset($utilisateurSupri[0]);
         }
       }
 

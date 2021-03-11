@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <categories>
   <categorie>
+    <id>1</id>
+    <libelle>Femme</libelle>
+  </categorie>
+  <categorie>
     <id>2</id>
-    <libelle>categorie2</libelle>
+    <libelle>Homme</libelle>
   </categorie>
   <categorie>
     <id>3</id>
-    <libelle>categorie3</libelle>
+    <libelle>Fille</libelle>
   </categorie>
   <categorie>
     <id>4</id>
-    <libelle>libelle4</libelle>
+    <libelle>Garçon</libelle>
   </categorie>
 </categories>
