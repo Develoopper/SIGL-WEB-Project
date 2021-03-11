@@ -141,10 +141,10 @@
 
           return Parent::saveInFile($xml,"produits");
 
-        }else{
+        } else {
           return "Le nouveau produit existe déjà";
         }
-      }else{
+      } else {
         return "Le produit n'existe pas.";
       }
     }

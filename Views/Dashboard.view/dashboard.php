@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <a href="#" class="btn btn-access" id="menu-toggle"></a>
-                        <h1>Sidebar Layout are cool</h1>
+                        <h1>Sidebar Layouts are cool</h1>
                         <p>hey you.
                             hey you.
                             hey you.
