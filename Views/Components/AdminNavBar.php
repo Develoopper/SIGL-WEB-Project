@@ -24,11 +24,22 @@
 			</ul>
 
 			<div class="d-flex align-items-center justify-content-between" style="font-size: 15px;">
-				<a href="login" class="d-flex align-items-center mx-3 text-dark" style="text-decoration: none;">
-					<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
-					Compte
-				</a>
+				<div class="dropdown">
+					<a href="#" class="nav-link dropdown-toggle d-flex align-items-center mx-3 text-dark" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
+						<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
+						<span class="me-1">Compte</span>
+					</a>
+					<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
+						<?php
+							$logged = isset($_SESSION["login"]);
+							$href = $logged ? "logout?to=".$_GET["url"] : "login";
+							$html = $logged ? "Se déconnecter" : "Se connecter";
+							echo '<li><a class="dropdown-item" href="'.$href.'">'.$html.'</a></li>'
+						?>
+					</ul>
+				</div>
 			</div>
+			
 		</div>
 	</div>
 </nav>

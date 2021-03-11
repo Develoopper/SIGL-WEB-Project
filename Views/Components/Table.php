@@ -7,7 +7,7 @@
       Nouvelle ligne
     </button>
     <table class="table table-striped table-bordered" id="table2">
-      <thead class="thead-dark">
+      <thead class="text-light" style="background-color: #343a40;">
         <tr>
           <th scope="col">Ref</th>
           <th scope="col">Libellee</th>

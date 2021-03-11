@@ -1,13 +1,14 @@
 <?php
-  class Auth {
-    public static function login() {
-      // if (!isset($_COOKIE["user"])) {
-      //   setcookie("user", , time() + (86400), "/");
-      // }
-      
-      // $_SESSION["user"] = "oussama";
+  function Auth() {
+    session_start();
 
-      
-    }
-  }  
+    if (!isset($_COOKIE["login"])) {
+      header("Location: login");
+      return false;
+    } 
+
+    $_SESSION["login"] = $_COOKIE["login"];
+
+    return $_COOKIE["login"];
+  }
 ?>
