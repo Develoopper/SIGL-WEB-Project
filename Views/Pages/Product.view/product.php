@@ -23,7 +23,7 @@
 	<div class="d-flex justify-content-center">
 		<div class="mx-3 my-4 p-3 bg-light" style="border-radius: 10px; font-size: 13px;">
 
-			<div class="d-flex rounded p-2 text-dark" style="width: 900px">
+			<div class="d-flex rounded p-2 text-dark" id="<?php echo $produit->refProduit ?>" style="width: 900px">
 				<img id="img" src="<?php echo $product->img; ?>" class="me-3 rounded border border " style="height: 350px; width: 350px" alt="...">
 				<div class="d-flex flex-column justify-content-around">
 					<div>
@@ -45,21 +45,22 @@
 	<!-- Footer -->
 	<?php Component("Footer", []); ?>
 	<script>
-	function addToCart(){
-        $.ajax({
-          url: "http://localhost/Projects/SIGL-WEB-Project/addToCart",
-          data: {
-            method: "POST",
-            data:{libelle : $("#libelle").html(), img: $("#img").attr("src"), marque: $("#marque").html(),categorie: $("#categorie").html()}
-          },
-          dataType: "json",
-          type: "POST",
-          // header: { method: "PATCH" },
-          success: function (data) {
-            console.log("*****", data);
-          }
-        })
-      }
+		function addToCart(){
+			$.ajax({
+			url: "http://localhost/Projects/SIGL-WEB-Project/addToCart",
+			data: {
+				method: "POST",
+				data:{refProduit: $("#refProduit").attr("refProduit"), libelle : $("#libelle").html(), img: $("#img").attr("src"), marque: $("#marque").html(),categorie: $("#categorie").html()}
+			},
+			dataType: "json",
+			type: "POST",
+			// header: { method: "PATCH" },
+			success: function (data) {
+				console.log("*****", data);
+			}
+			});
+      	}
+
 	</script>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

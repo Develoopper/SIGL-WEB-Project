@@ -1,5 +1,6 @@
 <?php
   class Produit_Controller extends Controller {
+
     public static function get() {
       header('Content-Type: text/json');
       $data = $_POST["data"];

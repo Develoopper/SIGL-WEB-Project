@@ -1,42 +1,51 @@
 <?php
-	session_start();
-	function createPanier() {
+
+class Cart_Controller extends Controller{
+
+	public static function createCart() {
+		session_start();
 		if (!isset($_SESSION['panier'])) {
 			/* Initialisation du panier */
 			$_SESSION['panier'] = array();
 			/* Subdivision du panier */
-			$_SESSION['panier']['id_article'] = array();
+			$_SESSION['panier']['refProduit'] = array();
 			$_SESSION['panier']['qte'] = array();
 			$_SESSION['panier']['libelle'] = array();
 			$_SESSION['panier']['prix'] = array();
 			$_SESSION['panier']['img'] = array();
+			if (!isset($_COOKIE["panier"])) {
+				setcookie("panier", serialize($_SESSION["panier"]));
+			}
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	function verif_panier($ref_article) {
+	public static function checkProduct($ref_article) {
 		/* On initialise la variable de retour */
 		$present = false;
 		/* On vérifie les numéros de références des articles et on compare avec l'article à vérifier */
-		if (array_search($ref_article, $_SESSION['panier']['id_article']) != "") {
+		if (array_search($ref_article, $_SESSION['panier']['refProduit']) != "") {
 			$present = true;
 		}
 		return $present;
 	}
 
-	function AddProduct($refProduit, $libelle, $prix, $img) {
-		if (!createPanier() && verif_panier($refProduit) == false) {
-			array_push($_SESSION['panier']['ref'], $refProduit);
+	public static function addProduct($refProduit, $libelle, $prix, $img, $qte) {
+		if (!self::createCart() && self::checkProduct($refProduit)) {
+			array_push($_SESSION['panier']['refProduit'], $refProduit);
 			array_push($_SESSION['panier']['libelle'], $libelle);
 			array_push($_SESSION['panier']['prix'], $prix);
 			array_push($_SESSION['panier']['img'], $img);
+			array_push($_SESSION['panier']['qte'], $qte);
+			return true;
 		}
+		return false;
 	}
 
 
-	function modif_qte($ref_article, $qte) {
+	public static function UpdateProduct($ref_article, $qte) {
 		/* On compte le nombre d'articles différents dans le panier */
 		$nb_articles = count($_SESSION['panier']['id_article']);
 		/* On initialise la variable de retour */
@@ -52,7 +61,7 @@
 		return $ajoute;
 	}
 
-	function supprim_article($ref_article) {
+	public static function deleteProduct($ref_article) {
 		$suppression = false;
 		/* création d'un tableau temporaire de stockage des articles */
 		$panier_tmp = array("id_article" => array(), "qte" => array(), "libelle" => array(), "prix" => array(), "img" => array());
@@ -76,8 +85,8 @@
 		$suppression = true;
 		return $suppression;
 	}
-		
-	function montant_panier() {
+
+	public static function getTotal() {
 		/* On initialise le montant */
 		$montant = 0;
 		/* Comptage des articles du panier */
@@ -90,7 +99,7 @@
 		return $montant;
 	}
 
-	function qte_livre() {
+	public static function getQte() {
 		/* On initialise le montant */
 		$qte = 0;
 		/* Comptage des articles du panier */
@@ -103,12 +112,12 @@
 		return $qte;
 	}
 
-	function nbrelivre() {
+	public static function getNbreProducts() {
 		$nb_articles = count($_SESSION['panier']['id_article']);
 		return $nb_articles;
 	}
 
-	function vider_panier() {
+	public static function deleteAll() {
 		$vide = false;
 		unset($_SESSION['panier']);
 
@@ -118,6 +127,8 @@
 
 		return $vide;
 	}
+}
+
 
 /*
  vider_panier();
