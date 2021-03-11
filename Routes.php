@@ -13,18 +13,12 @@
     Controller::CreateView("Home", []);
   });
 
-  Route::set("cart", "Auth", function() {
-    Controller::CreateView("Cart", []);
-  });
-
   Route::set("payment", function() {
     Controller::CreateView("Payment", []);
   });
 
-  Route::set("addToCart", function() {
-    // addProduct();
-  });
 
+  include "Routers/cart.router.php";
   include "Routers/admin.router.php";
   include "Routers/produit.router.php";
   include "Routers/utilisateur.router.php";
