@@ -1,7 +1,10 @@
 <?php
-  Route::set("login", "preventAuth", function () {
-    // create a session and set a cookie
+  Route::set("login", "PreventAuth", function () {
     Controller::CreateView("Login", []);
+  });
+
+  Route::set("logout", "Auth", function () {
+    Utilisateur_Controller::logout();
   });
 
   Route::set("signIn", function() {

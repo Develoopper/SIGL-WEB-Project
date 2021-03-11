@@ -19,7 +19,7 @@
 						foreach (SousCategorie_Model::getOne([
 							["filterBy" => "categorie", "opt" => "equal", "filterValue" => (int)($categorie->id)]
 						]) as $sousCategorie) {
-							echo '<li><a class="dropdown-item" href="categorie?id='.$sousCategorie->id.'">'.$sousCategorie->libelle.'</a></li>';
+							echo '<li><a class="dropdown-item" href="products?id='.$sousCategorie->id.'">'.$sousCategorie->libelle.'</a></li>';
 						}
 						
 						echo '
@@ -35,10 +35,22 @@
 					<input class="form-control me-2" style="font-size: 14px; width: 200px" type="search" placeholder="Chercher un produit" aria-label="Search">
 					<button class="btn btn-outline-dark" style="font-size: 14px;" type="submit">Rechercher</button>
 				</form> -->
-				<a href="login" class="d-flex align-items-center mx-3 text-dark" style="text-decoration: none;">
-					<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
-					Compte
-				</a>
+
+				<div class="dropdown">
+					<a href="cart" class="nav-link dropdown-toggle d-flex align-items-center mx-3 text-dark" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
+						<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
+						<span class="me-1">Compte</span>
+					</a>
+					<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
+						<?php
+							$logged = isset($_SESSION["login"]);
+							$href = $logged ? "logout?to=".$_GET["url"] : "login";
+							$html = $logged ? "Se déconnecter" : "Se connecter";
+							echo '<li><a class="dropdown-item" href="'.$href.'">'.$html.'</a></li>'
+						?>
+					</ul>
+				</div>
+
 				<a href="cart" class="d-flex align-items-center text-dark" style="text-decoration: none;">
 					<i class="large material-icons mx-1" style="font-size: 30px;">shopping_cart</i>
 					Panier
