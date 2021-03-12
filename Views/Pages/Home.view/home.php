@@ -91,11 +91,10 @@
     <div class="carousel-inner mb-4">
     <?php
       foreach ($slider as $index => $item) {
-        $img = $item['img'];
         $active = $index == 0 ? "active" : "";
         echo <<<HTML
           <div class="carousel-item $active">
-            <img src='$img' class="d-block w-100" alt="...">
+            <img src="{$item['img']}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               
             </div>
