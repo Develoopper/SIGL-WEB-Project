@@ -52,12 +52,12 @@ session_start();
 					$produits = unserialize($_COOKIE["panier"]);
 					var_dump($produits);
 					foreach ($produits as $produit) {
-						echo '<div class="d-flex justify-content-between align-items-center rounded p-2 bg-white text-dark border border-dark mb-3 produits" id="' . $produit["refProduit"] . '">
+						echo '<div class="d-flex justify-content-between align-items-center rounded p-2 bg-white text-dark border border-dark mb-3 produits" id="' . $produit->refProduit . '">
 											<div class="d-flex align-items-center">
-												<img src="' . $produit["img"] . '" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
+												<img src="' . $produit->img . '" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
 												<div>
-													<h6 class="text-truncate" name="libelle">' . $produit["libelle"] . '</h6>
-													<span style="font-size: 15px" name="prix">' . $produit["prix"] . '</span>
+													<h6 class="text-truncate" name="libelle">' . $produit->libelle . '</h6>
+													<span style="font-size: 15px" name="prix">' . $produit->prix . '</span>
 												</div>
 											</div>
 
