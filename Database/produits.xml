@@ -85,4 +85,11 @@
     <marque>Cashmink</marque>
     <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/85/144613/1.jpg?2808</img>
   </produit>
+  <produit sousCategorie="">
+    <refProduit>13</refProduit>
+    <libelle/>
+    <prix/>
+    <img/>
+    <marque/>
+  </produit>
 </produits>

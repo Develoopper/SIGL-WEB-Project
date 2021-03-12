@@ -3,7 +3,6 @@
 class Cart_Controller extends Controller{
 
 	public static function createCart() {
-		session_start();
 		if (!isset($_COOKIE["panier"])) {
 			if (!isset($_SESSION['panier'])) {
 				/* Initialisation du panier */

@@ -16,7 +16,6 @@
     Controller::CreateView("Payment", []);
   });
 
-
   include "Routers/cart.router.php";
   include "Routers/admin.router.php";
   include "Routers/produit.router.php";

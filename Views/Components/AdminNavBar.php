@@ -7,19 +7,19 @@
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item">
-					<a class="nav-link" href="./users">
-						Utilisateurs
-					</a>
+					<a class="nav-link" href="adminUtilisateurs">Utilisateurs</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="./products">
-						Produits
-					</a>
+					<a class="nav-link" href="adminProduits">Produits</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="./orders">
-						Commandes
-					</a>
+					<a class="nav-link" href="adminCommandes">Commandes</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="adminCategories">Categories</a>
+				</li>	
+				<li class="nav-item">
+					<a class="nav-link" href="adminSousCategories">Sous categories</a>
 				</li>
 			</ul>
 
@@ -30,12 +30,7 @@
 						<span class="me-1">Compte</span>
 					</a>
 					<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-						<?php
-							$logged = isset($_SESSION["login"]);
-							$href = $logged ? "logout" : "login";
-							$html = $logged ? "Se déconnecter" : "Se connecter";
-							echo '<li><a class="dropdown-item" href="'.$href.'">'.$html.'</a></li>'
-						?>
+						<li><a class="dropdown-item" href="logout">Se déconnecter</a></li>
 					</ul>
 				</div>
 			</div>

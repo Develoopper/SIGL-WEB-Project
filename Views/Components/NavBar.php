@@ -8,24 +8,26 @@
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<?php
 					foreach (Categorie_Model::getAll() as $categorie) {
-						echo '
+						echo <<<HTML
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									'.$categorie->libelle.'
+									$categorie->libelle
 								</a>
 								<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">						
-						';
+						HTML;
 
 						foreach (SousCategorie_Model::getOne([
 							["filterBy" => "categorie", "opt" => "equal", "filterValue" => (int)($categorie->id)]
 						]) as $sousCategorie) {
-							echo '<li><a class="dropdown-item" href="products?id='.$sousCategorie->id.'">'.$sousCategorie->libelle.'</a></li>';
+							echo <<<HTML
+								<li><a class="dropdown-item" href="products?id=$sousCategorie->id">$sousCategorie->libelle</a></li>
+							HTML;
 						}
 						
-						echo '
+						echo <<<HTML
 								</ul>
 							</li>
-						';
+						HTML;
 					}
 				?>					
 			</ul>
@@ -37,7 +39,7 @@
 				</form> -->
 
 				<?php
-					if (isset($_SESSION["login"]))
+					if (isset($_SESSION["login"])) {
 						echo <<<HTML
 							<div class="dropdown">
 								<a href="#" class="nav-link dropdown-toggle d-flex align-items-center mx-3 text-dark" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
@@ -49,13 +51,14 @@
 								</ul>
 							</div>
 						HTML;
-					else
+					} else {
 						echo <<<HTML
 							<a href="login" class="d-flex align-items-center mx-3 text-dark" style="text-decoration: none;">
 								<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
 								<span class="me-1">Compte</span>
 							</a>
 						HTML;
+					}
 				?>
 
 				<a href="cart" class="d-flex align-items-center text-dark" style="text-decoration: none;">

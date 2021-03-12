@@ -14,4 +14,21 @@
   Route::set("signUp", function() {
     Utilisateur_Controller::signUp();
   });
+  
+
+  Route::get("utilisateurs", function() {
+    Utilisateur_Controller::get();
+  });
+
+  Route::post("utilisateurs", function() {
+    Utilisateur_Controller::post();
+  });
+  
+  Route::patch("utilisateurs", function() {
+    Utilisateur_Controller::patch();
+  });
+
+  Route::delete("utilisateurs", function() {
+    Utilisateur_Controller::delete();
+  });
 ?>

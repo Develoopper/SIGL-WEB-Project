@@ -9,7 +9,7 @@
         echo Cart_Controller::deleteProduct($_GET["refProduit"]);
     });
 
-    Route::set("cart", "Auth", function() {
+    Route::set("cart", function() {
         // unset($_SESSION["panier"]);
         // setcookie("panier", "");
         // Cart_Controller::createCart();
