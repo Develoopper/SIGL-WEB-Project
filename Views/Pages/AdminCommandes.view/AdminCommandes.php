@@ -12,13 +12,13 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 	<title>Dashboard</title>
 	<style>
-		<?php include "login.css"; ?>
+		<?php include "adminCommandes.css"; ?>
 	</style>
 </head>
 
 <body>
 	<!-- Nav bar -->
-	<?php Component("AdminNavBar", []); ?>
+	<?php Component("adminCommandes", []); ?>
 
 	
 

@@ -3,6 +3,8 @@
 class Cart_Controller extends Controller{
 
 	public static function createCart() {
+		// session_start();
+
 		if (!isset($_SESSION['panier'])) {
 			$_SESSION['panier'] = array();
 

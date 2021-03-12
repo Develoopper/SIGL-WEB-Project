@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 	<!-- JQuery library -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="accueil.css">
+	<link rel="stylesheet" href="cart.css">
 	<title>Panier</title>
 	<style>
 		<?php include "cart.css"; ?>
