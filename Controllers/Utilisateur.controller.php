@@ -20,7 +20,7 @@ class Utilisateur_Controller extends Controller {
         setcookie("login", $_SESSION["login"], time() + 60 * 60 * 60, "" , "" , false , true);
 
         if ($utilisateurs[0]->type == "admin")
-          header('Location: adminProducts');
+          header('Location: adminProduits');
         else
           header("Location: ./");
       } else {
