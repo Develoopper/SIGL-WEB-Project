@@ -3,20 +3,17 @@
 class Cart_Controller extends Controller{
 
 	public static function createCart() {
-		if (!isset($_COOKIE["panier"])) {
-			if (!isset($_SESSION['panier'])) {
-				/* Initialisation du panier */
-				$_SESSION['panier'] = array();
-				/* Subdivision du panier */
-				// $_SESSION['panier']['refProduit'] = array();
-				// $_SESSION['panier']['qte'] = array();
-				// $_SESSION['panier']['libelle'] = array();
-				// $_SESSION['panier']['prix'] = array();
-				// $_SESSION['panier']['img'] = array();
-				setcookie("panier", serialize($_SESSION["panier"]));
-				return true;
-			}
+		if (!isset($_SESSION['panier'])) {
+			$_SESSION['panier'] = array();
+
+			return true;
 		}
+
+		if (isset($_COOKIE["panier"])) {
+			$_SESSION['panier'] = unserialize($_COOKIE["panier"]);
+			return true;
+		}
+
 		return false;
 	}
 
@@ -24,27 +21,49 @@ class Cart_Controller extends Controller{
 		/* On initialise la variable de retour */
 		$present = false;
 		/* On vérifie les numéros de références des articles et on compare avec l'article à vérifier */
-		if (array_search($refProduit, $_COOKIE['panier']['refProduit']) != "") {
+		if (array_search($refProduit, unserialize($_COOKIE['panier'])) != "") {
 			$present = true;
 		}
 		return $present;
 	}
 
 	public static function addProduct($produit) {
+
     header('Content-Type: text/json');
-		$produit = new Produit_Model($produit["refProduit"], $_POST["libelle"], $_POST["prix"], $_POST["img"], "", "");
-		if (self::checkProduct($produit["refProduit"]) == false) {
-			array_push($_SESSION['panier'], $produit);
-			// array_push($_SESSION['panier']['libelle'], $produit["libelle"]);
-			// array_push($_SESSION['panier']['prix'], $produit["prix"]);
-			// array_push($_SESSION['panier']['img'], $produit["img"]);
-			// array_push($_SESSION['panier']['qte'], $produit["qte"]);
-			setcookie("panier", serialize($_SESSION["panier"]));
+
+		$produitObj = new Produit_Model($produit["refProduit"], $produit["libelle"], $produit["prix"], $produit["img"], "", "");
+
+		if (self::checkProduct($produitObj->refProduit) == false) {
+			array_push($_SESSION['panier'], $produitObj);
+			setcookie("panier", serialize($_SESSION["panier"]), time() + 48 * 60 * 60 * 60);
 			return true;
 		}
+
 		return false;
 	}
 
+	public static function deleteProduct($data) {
+   		header('Content-Type: text/json');
+
+		$refProduit = $data["refProduit"];
+		$suppression = false;
+
+		$panier_tmp = array();
+
+		if (isset($_SESSION['panier'])) {
+			foreach ($_SESSION['panier'] as $produit) {
+				if ($produit->refProduit != $refProduit)
+					array_push($panier_tmp, $produit);
+			}
+		}
+
+		$_SESSION['panier'] = $panier_tmp;
+		setcookie("panier", serialize($_SESSION['panier']), time() + 48 * 60 * 60 * 60);
+
+		unset($panier_tmp);
+		$suppression = true;
+		return $suppression;
+	}
 
 	public static function UpdateProduct($ref_article, $qte) {
 		/* On compte le nombre d'articles différents dans le panier */
@@ -59,33 +78,10 @@ class Cart_Controller extends Controller{
 				$ajoute = true;
 			}
 		}
+
 		return $ajoute;
 	}
 
-	public static function deleteProduct($ref_article) {
-		$suppression = false;
-		/* création d'un tableau temporaire de stockage des articles */
-		$panier_tmp = array("id_article" => array(), "qte" => array(), "libelle" => array(), "prix" => array(), "img" => array());
-		/* Comptage des articles du panier */
-		$nb_articles = count($_SESSION['panier']['id_article']);
-		/* Transfert du panier dans le panier temporaire */
-		for ($i = 0; $i < $nb_articles; $i++) {
-			/* On transfère tout sauf l'article à supprimer */
-			if ($_SESSION['panier']['id_article'][$i] != $ref_article) {
-				array_push($panier_tmp['id_article'], $_SESSION['panier']['id_article'][$i]);
-				array_push($panier_tmp['qte'], $_SESSION['panier']['qte'][$i]);
-				array_push($panier_tmp['libelle'], $_SESSION['panier']['libelle'][$i]);
-				array_push($panier_tmp['prix'], $_SESSION['panier']['prix'][$i]);
-				array_push($panier_tmp['img'], $_SESSION['panier']['img'][$i]);
-			}
-		}
-		/* Le transfert est terminé, on ré-initialise le panier */
-		$_SESSION['panier'] = $panier_tmp;
-		/* Option : on peut maintenant supprimer notre panier temporaire: */
-		unset($panier_tmp);
-		$suppression = true;
-		return $suppression;
-	}
 
 	public static function getTotal() {
 		/* On initialise le montant */
