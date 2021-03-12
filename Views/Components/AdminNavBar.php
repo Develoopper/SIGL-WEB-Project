@@ -32,7 +32,7 @@
 					<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
 						<?php
 							$logged = isset($_SESSION["login"]);
-							$href = $logged ? "logout?to=".$_GET["url"] : "login";
+							$href = $logged ? "logout" : "login";
 							$html = $logged ? "Se déconnecter" : "Se connecter";
 							echo '<li><a class="dropdown-item" href="'.$href.'">'.$html.'</a></li>'
 						?>

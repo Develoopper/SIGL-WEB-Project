@@ -8,4 +8,13 @@
     <email>salemmed266@gmail.com</email>
     <type>admin</type>
   </utilisateur>
+  <utilisateur>
+    <login>e971ec675a1be33e9cd8e276defcdb4c</login>
+    <nom>khalfi</nom>
+    <prenom>oussama</prenom>
+    <mp>49dc52e6bf2abe5ef6e2bb5b0f1ee2d765b922ae6cc8b95d39dc06c21c848f8c</mp>
+    <email>okhalfi2000@gmail.com</email>
+    <type>client</type>
+    <adresse/>
+  </utilisateur>
 </utilisateurs>
