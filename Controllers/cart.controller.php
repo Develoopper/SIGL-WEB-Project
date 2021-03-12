@@ -31,7 +31,7 @@ class Cart_Controller extends Controller{
 
 	public static function addProduct($produit) {
 
-    header('Content-Type: text/json');
+    	header('Content-Type: text/json');
 
 		$produitObj = new Produit_Model($produit["refProduit"], $produit["libelle"], $produit["prix"], $produit["img"], "", "");
 
@@ -112,8 +112,8 @@ class Cart_Controller extends Controller{
 	}
 
 	public static function getNbreProducts() {
-		$nb_articles = count($_SESSION['panier']['id_article']);
-		return $nb_articles;
+		$nbreProduits = count($_SESSION['panier']);
+		return $nbreProduits;
 	}
 
 	public static function deleteAll() {
@@ -128,75 +128,4 @@ class Cart_Controller extends Controller{
 	}
 }
 
-
-/*
- vider_panier();
-createPanier();
-AddLivre("sjdhjsdh",2,"qqq",50,"sdlsld");
-
-var_dump($_SESSION['panier']);
-
-AddLivre("kskdnjsn",2,"qqq",50,"sdsldk");
-
-supprim_article("kskdnjsn");
-
-var_dump($_SESSION['panier']);
-*/
-/*createPanier();
-AddLivre("sjdhjsdh",2,"qqq",50);
-modif_qte("sjdhjsdh", 5);
-vider_panier();*/
-
-/*
-$a =  array();
-$a[1] = "JHJDHJDHJS";
-$a[2] = "SDQqs";
-$a[3] = "DSDQSdk";
-$a[4] = "SQS";
-
-if(array_search("SQS",$a)!=""){
-	echo "oui";
-}else{
-	echo "non";
-}
-
-
-
-
-/*$a =  array();
-$a[1] = "JHJDHJDHJS";
-$a[2] = "SDQqs";
-$a[3] = "DSDQSdk";
-$a[4] = "SQS";
-
-if(array_search("sh",$a)!=""){
-	echo "oui";
-}else{
-	echo "non";
-}
-
-
-createPanier();
-AddLivre("lQKSJKJLKQJSK",2,"qqq",50);
-modif_qte("lQKSJKJLKQJSK", 5);
-echo montant_panier();
-
-var_dump($_SESSION['panier']);
-
-
-/*
-
-var_dump($_SESSION['panier']);
-session_unset();
-session_destroy();
-/*session_unset();
-session_destroy();*/
-
-/*
-createPanier();
-session_unset();
-session_destroy();
-
-if(isset($_SESSION['panier']['qte'])) echo "oui";
- */
 ?>

@@ -46,7 +46,7 @@
 								<label style="margin-left: 15px;" for="adresse">Adresse* </label>
 							</div>
 						</div>
-						<button type="submit" class="btn btn-primary">Submit</button>
+						<button type="submit" class="btn btn-primary">Enregistrer</button>
 					</div>
 				</fieldset>
 			</form>

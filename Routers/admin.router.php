@@ -18,4 +18,5 @@
   Route::set("adminSousCategories", "Auth", function() {
     Controller::CreateView("AdminSousCategories", []);
   });
+
 ?>
