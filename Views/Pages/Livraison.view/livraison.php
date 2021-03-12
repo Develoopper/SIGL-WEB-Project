@@ -21,7 +21,13 @@
 <body>
 	<!-- Nav bar -->
 	<?php Component("NavBar", []); ?>
-
+	<?php
+		if (isset($_SESSION["login"])) {
+			$utilisateur = Utilisateur_Model::getOne([
+        	["filterBy" => "login", "opt" => "equal", "filterValue" => $_SESSION["login"]]
+      ])[0];
+		}
+	?>
 	<div class="d-flex align-items-center justify-content-center mt-5">
 		<div class="d-flex border flex-column align-items-center me-5 p-4 bg-light card" style="border-radius: 10px;">
 			<form>
@@ -30,11 +36,11 @@
 						<h3 class="mb-5">Informations de livraison</h3>
 						<div class="row">
 							<div class="mb-3 col-6 form-floating">
-								<input type="text" id="prenom" class="form-control" placeholder="Entrer votre prénom">
+								<input type="text" id="prenom" class="form-control" value="<?php echo $utilisateur->prenom ;?>" placeholder="Entrer votre prénom">
 								<label style="margin-left: 15px;" for="prenom" class="form-label">Prénom* </label>
 							</div>
 							<div class="mb-3 col-6 form-floating">
-								<input type="text" id="nom" class="form-control" placeholder="Entrer votre nom">
+								<input type="text" id="nom" class="form-control" value="<?php echo $utilisateur->nom ;?>" placeholder="Entrer votre nom">
 								<label style="margin-left: 15px;" for="nom" class="form-label">Nom* </label>
 							</div>
 							<div class="mb-3 col-6 form-floating">
