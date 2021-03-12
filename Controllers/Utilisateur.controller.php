@@ -36,7 +36,7 @@ class Utilisateur_Controller extends Controller {
       if (!is_array($utilisateurs)) {
         $newUtilisateur = new Utilisateur_Model("", $_POST["nom"], $_POST["prenom"], $_POST["mpIns"], $_POST["emailIns"], "client");
         if ($newUtilisateur->create())
-          header("Location: home");
+          header("Location: ./");
       } else {
         header("Location: login?exist=1");
       }

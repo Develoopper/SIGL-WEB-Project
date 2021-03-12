@@ -36,20 +36,27 @@
 					<button class="btn btn-outline-dark" style="font-size: 14px;" type="submit">Rechercher</button>
 				</form> -->
 
-				<div class="dropdown">
-					<a href="cart" class="nav-link dropdown-toggle d-flex align-items-center mx-3 text-dark" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
-						<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
-						<span class="me-1">Compte</span>
-					</a>
-					<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-						<?php
-							$logged = isset($_SESSION["login"]);
-							$href = $logged ? "logout?to=".$_GET["url"] : "login";
-							$html = $logged ? "Se déconnecter" : "Se connecter";
-							echo '<li><a class="dropdown-item" href="'.$href.'">'.$html.'</a></li>'
-						?>
-					</ul>
-				</div>
+				<?php
+					if (isset($_SESSION["login"]))
+						echo <<<HTML
+							<div class="dropdown">
+								<a href="#" class="nav-link dropdown-toggle d-flex align-items-center mx-3 text-dark" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
+									<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
+									<span class="me-1">Compte</span>
+								</a>
+								<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
+									<li><a class="dropdown-item" href='logout'>Se déconnecter</a></li>
+								</ul>
+							</div>
+						HTML;
+					else
+						echo <<<HTML
+							<a href="login" class="d-flex align-items-center mx-3 text-dark" style="text-decoration: none;">
+								<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
+								<span class="me-1">Compte</span>
+							</a>
+						HTML;
+				?>
 
 				<a href="cart" class="d-flex align-items-center text-dark" style="text-decoration: none;">
 					<i class="large material-icons mx-1" style="font-size: 30px;">shopping_cart</i>
