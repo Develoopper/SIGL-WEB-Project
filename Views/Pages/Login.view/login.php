@@ -30,24 +30,24 @@
 			<form action="signUp" method="post">
 				<div class="d-flex justify-content-between">
 					<div class="mb-3">
-						<label for="exampleFormControlInput1" class="form-label">Nom</label>
+						<label class="form-label">Nom</label>
 						<input type="text" name="nom" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="nom">
 					</div>
 					<div class="mb-3">
-						<label for="exampleFormControlInput1" class="form-label">Prénom</label>
+						<label class="form-label">Prénom</label>
 						<input type="text" name="prenom" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="prénom">
 					</div>
 				</div>
 				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">E-mail</label>
+					<label class="form-label">E-mail</label>
 					<input type="email" name="emailIns" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
 				</div>
 				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">Téléphone</label>
+					<label class="form-label">Téléphone</label>
 					<input type="telephone" name="telephone" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="téléphone">
 				</div>
 				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
+					<label class="form-label">Mot de passe</label>
 					<input type="password" name="mpIns" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe">
 				</div>
 				<div class="mb-3">

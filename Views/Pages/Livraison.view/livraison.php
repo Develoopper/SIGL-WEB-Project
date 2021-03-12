@@ -22,23 +22,37 @@
 	<!-- Nav bar -->
 	<?php Component("NavBar", []); ?>
 
+	<div class="d-flex align-items-center justify-content-center mt-5">
+		<div class="d-flex border flex-column align-items-center me-5 p-4 bg-light card" style="border-radius: 10px;">
+			<form>
+				<fieldset>
+					<div class="row d-flex align-items-center g-3 needs-validation">
+						<h3 class="mb-5">Informations de livraison</h3>
+						<div class="row">
+							<div class="mb-3 col-6 form-floating">
+								<input type="text" id="prenom" class="form-control" placeholder="Entrer votre prénom">
+								<label style="margin-left: 15px;" for="prenom" class="form-label">Prénom* </label>
+							</div>
+							<div class="mb-3 col-6 form-floating">
+								<input type="text" id="nom" class="form-control" placeholder="Entrer votre nom">
+								<label style="margin-left: 15px;" for="nom" class="form-label">Nom* </label>
+							</div>
+							<div class="mb-3 col-6 form-floating">
+								<input type="text" id="numTel" class="form-control" placeholder="Entrer votre numéro de télephone">
+								<label style="margin-left: 15px;" for="numTel" class="form-label">Numéro de télephone* </label>
+							</div>
+							<div class="mb-3 col-6 form-floating">
+								<textarea class="form-control" placeholder="Entrer votre adresse" id="adresse"></textarea>
+								<label style="margin-left: 15px;" for="adresse">Adresse* </label>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</div>
 
-	<form action="" method="POST">
-		<div class="mb-3">
-			<label for="exampleInputEmail1" class="form-label">Prénom* </label>
-			<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-			<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-		</div>
-		<div class="mb-3">
-			<label for="exampleInputPassword1" class="form-label">Nom* </label>
-			<input type="password" class="form-control" id="exampleInputPassword1">
-		</div>
-		<div class="mb-3 form-check">
-			<input type="checkbox" class="form-check-input" id="exampleCheck1">
-			<label class="form-check-label" for="exampleCheck1">Enregistrer</label>
-		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
-	</form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 	<script>
