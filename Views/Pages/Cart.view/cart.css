@@ -2,3 +2,13 @@ body {
   font-family: Montserrat;
   font-size: 15px;
 }
+
+.libelle{
+  white-space:pre;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  width: 100%;
+  text-size-adjust: auto;
+  text-align: justify;
+}

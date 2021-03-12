@@ -75,10 +75,10 @@
 </head>
 <body>
   <!-- Nav bar -->
-  <?php 
+  <?php
     Component("NavBar", [
       // "logged" => isset($_SESSION["login"])
-    ]); 
+    ]);
   ?>
 
   <!-- Slider -->
@@ -97,7 +97,6 @@
           <div class="carousel-item $active">
             <img src='$img' class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              
             </div>
           </div>
         HTML;
@@ -279,7 +278,7 @@
       <img src="https://ma.jumia.is/cms/000_2021/Week08/DoubleBanners/MA_W08_DB_montres.png" style="border-radius: 5px" alt="" srcset="">
     </div>
   </div>
-  
+
 
   <!-- Nouveautés -->
   <div class="mx-3 my-4 px-3 py-3 bg-light" style="border-radius: 10px; font-size: 13px;">

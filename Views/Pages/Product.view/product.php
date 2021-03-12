@@ -25,7 +25,7 @@
 	<div class="d-flex justify-content-center">
 		<div class="mx-3 my-4 p-3 bg-light" style="border-radius: 10px; font-size: 13px;">
 
-			<div class="d-flex rounded p-2 text-dark" id="<?php echo $produit->refProduit ?>" style="width: 900px">
+			<div class="d-flex rounded p-2 text-dark" name="refProduit" id="<?php echo $product->refProduit ?>" style="width: 900px">
 				<img id="img" src="<?php echo $product->img; ?>" class="me-3 rounded border border " style="height: 350px; width: 350px" alt="...">
 				<div class="d-flex flex-column justify-content-around">
 					<div>
@@ -53,7 +53,7 @@
 					url: "http://localhost:5050/SIGL-WEB-Project/addToCart",
 					data: {
 						method: "POST",
-						data:{refProduit: $("#refProduit").attr("refProduit"), libelle : $("#libelle").html(), img: $("#img").attr("src"), prix: prix}
+						data:{refProduit: $("div[name=refProduit]").attr("id"), libelle : $("#libelle").html(), img: $("#img").attr("src"), prix: prix}
 					},
 					dataType: "json",
 					type: "POST",

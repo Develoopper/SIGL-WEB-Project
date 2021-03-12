@@ -5,8 +5,8 @@
         echo Cart_Controller::addProduct($_POST["data"]);
     });
 
-    Route::post("deleteFromCart", function() {
-        echo Cart_Controller::deleteProduct($_GET["refProduit"]);
+    Route::delete("deleteFromCart", function() {
+        echo Cart_Controller::deleteProduct($_POST["data"]);
     });
 
     Route::set("cart", "Auth", function() {

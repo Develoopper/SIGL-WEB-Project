@@ -29,7 +29,7 @@ class Cart_Controller extends Controller{
 	public static function addProduct($produit) {
     header('Content-Type: text/json');
 		$produitObj = new Produit_Model($produit["refProduit"], $produit["libelle"], $produit["prix"], $produit["img"], "", "");
-		if (self::checkProduct($produit["refProduit"]) == false) {
+		if (self::checkProduct($produitObj->refProduit) == false) {
 			array_push($_SESSION['panier'], $produitObj);
 			setcookie("panier", serialize($_SESSION["panier"]));
 			return true;
@@ -54,26 +54,23 @@ class Cart_Controller extends Controller{
 		return $ajoute;
 	}
 
-	public static function deleteProduct($ref_article) {
+	public static function deleteProduct($data) {
+    header('Content-Type: text/json');
+
+		$refProduit = $data["refProduit"];
 		$suppression = false;
-		/* création d'un tableau temporaire de stockage des articles */
-		$panier_tmp = array("id_article" => array(), "qte" => array(), "libelle" => array(), "prix" => array(), "img" => array());
-		/* Comptage des articles du panier */
-		$nb_articles = count($_SESSION['panier']['id_article']);
-		/* Transfert du panier dans le panier temporaire */
-		for ($i = 0; $i < $nb_articles; $i++) {
-			/* On transfère tout sauf l'article à supprimer */
-			if ($_SESSION['panier']['id_article'][$i] != $ref_article) {
-				array_push($panier_tmp['id_article'], $_SESSION['panier']['id_article'][$i]);
-				array_push($panier_tmp['qte'], $_SESSION['panier']['qte'][$i]);
-				array_push($panier_tmp['libelle'], $_SESSION['panier']['libelle'][$i]);
-				array_push($panier_tmp['prix'], $_SESSION['panier']['prix'][$i]);
-				array_push($panier_tmp['img'], $_SESSION['panier']['img'][$i]);
+
+		$panier_tmp = array();
+		if (isset($_SESSION['panier'])) {
+			foreach ($_SESSION['panier'] as $produit) {
+				if ($produit->refProduit != $refProduit)
+					array_push($panier_tmp, $produit);
 			}
 		}
-		/* Le transfert est terminé, on ré-initialise le panier */
+
 		$_SESSION['panier'] = $panier_tmp;
-		/* Option : on peut maintenant supprimer notre panier temporaire: */
+		setcookie("panier", $_SESSION['panier']);
+
 		unset($panier_tmp);
 		$suppression = true;
 		return $suppression;
