@@ -57,7 +57,6 @@
 					},
 					dataType: "json",
 					type: "POST",
-					// header: { method: "PATCH" },
 					success: function (data) {
 						console.log("*****", data);
 					}

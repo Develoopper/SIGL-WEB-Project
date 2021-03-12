@@ -4,15 +4,18 @@ class Cart_Controller extends Controller{
 
 	public static function createCart() {
 		session_start();
-		if (!isset($_COOKIE["panier"])) {
-			if (!isset($_SESSION['panier'])) {
-				/* Initialisation du panier */
-				$_SESSION['panier'] = array();
 
-				setcookie("panier", serialize($_SESSION["panier"]));
-				return true;
-			}
+		if (!isset($_SESSION['panier'])) {
+			$_SESSION['panier'] = array();
+
+			return true;
 		}
+
+		if (isset($_COOKIE["panier"])) {
+			$_SESSION['panier'] = unserialize($_COOKIE["panier"]);
+			return true;
+		}
+
 		return false;
 	}
 
@@ -20,23 +23,48 @@ class Cart_Controller extends Controller{
 		/* On initialise la variable de retour */
 		$present = false;
 		/* On vérifie les numéros de références des articles et on compare avec l'article à vérifier */
-		if (array_search($refProduit, $_COOKIE['panier']) != "") {
+		if (array_search($refProduit, unserialize($_COOKIE['panier'])) != "") {
 			$present = true;
 		}
 		return $present;
 	}
 
 	public static function addProduct($produit) {
+
     header('Content-Type: text/json');
+
 		$produitObj = new Produit_Model($produit["refProduit"], $produit["libelle"], $produit["prix"], $produit["img"], "", "");
+
 		if (self::checkProduct($produitObj->refProduit) == false) {
 			array_push($_SESSION['panier'], $produitObj);
-			setcookie("panier", serialize($_SESSION["panier"]));
+			setcookie("panier", serialize($_SESSION["panier"]), time() + 48 * 60 * 60 * 60);
 			return true;
 		}
+
 		return false;
 	}
 
+	public static function deleteProduct($data) {
+   		header('Content-Type: text/json');
+
+		$refProduit = $data["refProduit"];
+		$suppression = false;
+
+		$panier_tmp = array();
+		if (isset($_SESSION['panier'])) {
+			foreach ($_SESSION['panier'] as $produit) {
+				if ($produit->refProduit != $refProduit)
+					array_push($panier_tmp, $produit);
+			}
+		}
+
+		$_SESSION['panier'] = $panier_tmp;
+		setcookie("panier", serialize($_SESSION['panier']), time() + 48 * 60 * 60 * 60);
+
+		unset($panier_tmp);
+		$suppression = true;
+		return $suppression;
+	}
 
 	public static function UpdateProduct($ref_article, $qte) {
 		/* On compte le nombre d'articles différents dans le panier */
@@ -51,30 +79,10 @@ class Cart_Controller extends Controller{
 				$ajoute = true;
 			}
 		}
+
 		return $ajoute;
 	}
 
-	public static function deleteProduct($data) {
-    header('Content-Type: text/json');
-
-		$refProduit = $data["refProduit"];
-		$suppression = false;
-
-		$panier_tmp = array();
-		if (isset($_SESSION['panier'])) {
-			foreach ($_SESSION['panier'] as $produit) {
-				if ($produit->refProduit != $refProduit)
-					array_push($panier_tmp, $produit);
-			}
-		}
-
-		$_SESSION['panier'] = $panier_tmp;
-		setcookie("panier", $_SESSION['panier']);
-
-		unset($panier_tmp);
-		$suppression = true;
-		return $suppression;
-	}
 
 	public static function getTotal() {
 		/* On initialise le montant */
