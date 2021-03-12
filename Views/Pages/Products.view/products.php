@@ -39,19 +39,19 @@
 					<?php
 					// echo var_dump($products);
 						foreach ($products as $product) {
-							echo '
+							echo <<<HTML
 								<div class="col-3">
 									<div class="card shadow-effect p-0 mb-3" style="width: 200px; height: 270px; border: none;">
-										<a href="product?id='.$product->refProduit.'" style="text-decoration: none;" class="text-dark">
-											<img src='.$product->img.'style="height: 180px; width: 180px" class="card-img-top" alt="...">
+										<a href="product?id=$product->refProduit" style="text-decoration: none;" class="text-dark">
+											<img src='$product->img'style="height: 180px; width: 180px" class="card-img-top" alt="...">
 											<div class="card-body p-2">
-												<p class="card-text text-truncate">'.$product->libelle.'</p>
-												<p class="card-text text-truncate">'.$product->prix.' DH</p>
+												<p class="card-text text-truncate">$product->libelle</p>
+												<p class="card-text text-truncate">$product->prix DH</p>
 											</div>
 										</a>
 									</div>
 								</div>
-							';
+							HTML;
 						}
 					?>
 				</div>

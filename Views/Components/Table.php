@@ -2,11 +2,11 @@
   <div class="jquery-script-clear"></div>
   </div>
   <div class="mx-3 mt-5">
-    <button id="table2-new-row-button" class="btn btn-outline-dark d-flex align-items-center mb-1">
+    <button id="table-new-row-button" class="btn btn-outline-dark d-flex align-items-center mb-1">
       <i class="material-icons me-1" style="font-size: 20px;">add</i>
       Nouvelle ligne
     </button>
-    <table class="table table-striped table-bordered" id="table2">
+    <table class="table table-striped table-bordered" id="table">
       <thead class="text-light" style="background-color: #343a40;">
         <tr>
           <th scope="col">Ref</th>
@@ -14,35 +14,35 @@
           <th scope="col">Prix</th>
           <th scope="col">Marque</th>
           <th scope="col">Image</th>
-          <th scope="col">Sous categorie</th>
+          <th scope="col">Sous<br>categorie</th>
         </tr>
       </thead>
       <tbody>
         <?php
           foreach (Produit_Model::getAll() as $produit) {
-            echo '
+            echo <<<HTML
               <tr>
-                <td>'.$produit->refProduit.'</td>
-                <td>'.$produit->libelle.'</td>
-                <td>'.$produit->prix.'</td>
-                <td>'.$produit->marque.'</td>
-                <td>'.$produit->img.'</td>
-                <td>'.$produit->sousCategorie.'</td>
+                <td>$produit->refProduit</td>
+                <td>$produit->libelle</td>
+                <td>$produit->prix</td>
+                <td>$produit->marque</td>
+                <td><img src="$produit->img" style="width: 60px; height: 60px"></td>
+                <td>$produit->sousCategorie</td>
               </tr>
-            ';
+            HTML;
           }
         ?>
       </tbody>
     </table>
-</div>
+  </div>
 
   <script><?php include "bstable.js"; ?></script>
 
   <script>
     // Example with a add new row button & only some columns editable & removed actions column label
-    var example2 = new BSTable("table2", {
+    var example2 = new BSTable("table", {
       // editableColumns: "1,2",
-      $addButton: $('#table2-new-row-button'),
+      $addButton: $('#table-new-row-button'),
       onEdit: function(row) {
         var obj = {};
         ["refProduit", "libelle", "prix", "marque", "img", "sousCategorie"].map((key, index) => {

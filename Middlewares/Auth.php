@@ -1,7 +1,5 @@
 <?php
   function Auth() {
-    session_start();
-
     if (!isset($_COOKIE["login"])) {
       header("Location: login");
       return false;

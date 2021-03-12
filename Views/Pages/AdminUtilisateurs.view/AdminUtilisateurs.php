@@ -23,7 +23,7 @@
 
 	<title>Dashboard</title>
 	<style>
-		<?php include "AdminProducts.css"; ?>
+		<?php include "AdminUtilisateurs.css"; ?>
 	</style>
 </head>
 
@@ -31,11 +31,50 @@
 	<!-- Nav bar -->
 	<?php Component("AdminNavBar", []); ?>
 
-	<?php Component("Table", []); ?>
+	<div class="jquery-script-clear"></div>
+  </div>
+  <div class="mx-3 mt-5">
+    <button id="table-new-row-button" class="btn btn-outline-dark d-flex align-items-center mb-1">
+      <i class="material-icons me-1" style="font-size: 20px;">add</i>
+      Nouvelle ligne
+    </button>
+    <table class="table table-striped table-bordered" id="table">
+      <thead class="text-light" style="background-color: #343a40;">
+        <tr>
+          <th scope="col">Login</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
+          <th scope="col">Mdp</th>	
+          <th scope="col">Email</th>
+          <th scope="col">Type</th>
+          <th scope="col">Adresse</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+          foreach (Utilisateur_Model::getAll() as $utilisateur) {
+            echo <<<HTML
+              <tr>
+                <td>$utilisateur->login</td>
+                <td>$utilisateur->nom</td>
+                <td>$utilisateur->prenom</td>
+                <td>$utilisateur->mp</td>	
+                <td>$utilisateur->email</td>
+                <td>$utilisateur->type</td>
+                <td>$utilisateur->adresse</td>
+              </tr>
+            HTML;
+          }
+        ?>
+      </tbody>
+    </table>
+  </div>
+	
+	<script><?php include "Views/assets/bstable.js"; ?></script>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 	<script>
-		<?php include "AdminProducts.js"; ?>
+		<?php include "AdminUtilisateurs.js"; ?>
 	</script>
 	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->

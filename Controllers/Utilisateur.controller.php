@@ -8,8 +8,6 @@ class Utilisateur_Controller extends Controller {
   }
 
   public static function signIn() {
-    session_start();
-
     if (isset($_POST["email"]) && isset($_POST["mp"])) {
       echo "*";
       $utilisateurs = Utilisateur_Model::getOne([
@@ -22,7 +20,7 @@ class Utilisateur_Controller extends Controller {
         setcookie("login", $_SESSION["login"], time() + 60 * 60 * 60, "" , "" , false , true);
 
         if ($utilisateurs[0]->type == "admin")
-          header('Location: adminproducts');
+          header('Location: adminProducts');
         else
           header("Location: ./");
       } else {
@@ -48,23 +46,35 @@ class Utilisateur_Controller extends Controller {
   {
   }
 
-  public static function getAll()
-  {
+  public static function get() {
+    header('Content-Type: text/json');
+    $data = $_POST["data"];
+    $opt = "like";
+    if ($data["filterBy"] == "prix")
+      $opt = "equal";
+    $res = Produit_Model::getOne([["filterBy" => $data["filterBy"], "opt" => $opt, "filterValue" => $data["filterValue"]]]);
+    echo json_encode($res);
   }
 
-  public static function getOne()
-  {
+  public static function post() {
+    header('Content-Type: text/json');
+    $data = $_POST["data"];
+    $obj = new Produit_Model($data, "", "", "", "", "");
+    $res = $obj->create();
+    echo json_encode($res);
   }
 
-  public static function post()
-  {
+  public static function patch() {
+    header('Content-Type: text/json');
+    $data = $_POST["data"];
+    $res = Produit_Model::update($data["refProduit"], new Produit_Model($data["refProduit"], $data["libelle"], $data["prix"], $data["img"], $data["marque"], $data["sousCategorie"]));
+    echo json_encode($res);
   }
 
-  public static function patch()
-  {
-  }
-
-  public static function delete()
-  {
+  public static function delete() {
+    header('Content-Type: text/json');
+    $data = $_POST["data"];
+    $res = Produit_Model::deleteP($data);
+    echo json_encode($res);
   }
 }
