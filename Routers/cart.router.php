@@ -6,7 +6,7 @@
     });
 
     Route::delete("deleteFromCart", function() {
-        Cart_Controller::deleteProduct($_POST["data"]);
+        echo Cart_Controller::deleteProduct($_POST["data"]);
     });
 
     Route::set("cart", function() {

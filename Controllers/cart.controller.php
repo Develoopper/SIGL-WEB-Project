@@ -51,6 +51,7 @@ class Cart_Controller extends Controller{
 		$suppression = false;
 
 		$panier_tmp = array();
+
 		if (isset($_SESSION['panier'])) {
 			foreach ($_SESSION['panier'] as $produit) {
 				if ($produit->refProduit != $refProduit)
