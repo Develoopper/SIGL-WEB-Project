@@ -10,7 +10,9 @@
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-	<title>Document</title>
+	<!-- JQuery library -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+	<title>Produit</title>
 	<style>
 		<?php include "product.css"; ?>
 	</style>
@@ -31,8 +33,8 @@
 						<span style="white-space: initial; font-size: 15px;" >Categorie: <b id="categorie"><?php echo $product->sousCategorie; ?></b></span><br>
 						<span style="white-space: initial; font-size: 15px;" >Marque: <b id="marque"><?php echo $product->marque; ?></b></span>
 					</div>
-					<h2 style="font-family: 'Segoe UI'"><b><?php echo $product->prix; ?> DH</b></h2>
-						<button type="button" onClick="addToCart()" class="btn btn-dark d-flex justify-content-center align-items-center" style="width: 100%;">
+					<h2 style="font-family: 'Segoe UI'"><b id="prix"><?php echo $product->prix; ?> DH</b></h2>
+						<button type="button" class="btn btn-dark d-flex justify-content-center align-items-center" style="width: 100%;" id="addToCart">
 							<i class="material-icons me-2" style="font-size: 30px;">add_shopping_cart</i>
 							Ajouter au panier
 						</button>
@@ -45,22 +47,22 @@
 	<!-- Footer -->
 	<?php Component("Footer", []); ?>
 	<script>
-		function addToCart(){
+		$("#addToCart").on("click", function() {
+			var prix = $("#prix").html().split(" ")[0];
 			$.ajax({
-			url: "http://localhost/Projects/SIGL-WEB-Project/addToCart",
-			data: {
-				method: "POST",
-				data:{refProduit: $("#refProduit").attr("refProduit"), libelle : $("#libelle").html(), img: $("#img").attr("src"), marque: $("#marque").html(),categorie: $("#categorie").html()}
-			},
-			dataType: "json",
-			type: "POST",
-			// header: { method: "PATCH" },
-			success: function (data) {
-				console.log("*****", data);
-			}
-			});
-      	}
-
+					url: "http://localhost:5050/SIGL-WEB-Project/addToCart",
+					data: {
+						method: "POST",
+						data:{refProduit: $("#refProduit").attr("refProduit"), libelle : $("#libelle").html(), img: $("#img").attr("src"), prix: prix}
+					},
+					dataType: "json",
+					type: "POST",
+					// header: { method: "PATCH" },
+					success: function (data) {
+						console.log("*****", data);
+					}
+				});
+		});
 	</script>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

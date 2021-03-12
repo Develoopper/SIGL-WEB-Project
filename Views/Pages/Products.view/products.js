@@ -1,6 +1,6 @@
 $("#filterValue").on("keypress", function (e) {
   $.ajax({
-    url: "http://localhost/Projects/SIGL-WEB-Project/products",
+    url: "http://localhost:5050/SIGL-WEB-Project/products",
     data: {
       method: "GET",
       data: {
