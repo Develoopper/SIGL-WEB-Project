@@ -46,6 +46,7 @@
 
 	<!-- Footer -->
 	<?php Component("Footer", []); ?>
+
 	<script>
 		$("#addToCart").on("click", function() {
 			var prix = $("#prix").html().split(" ")[0];
