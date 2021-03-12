@@ -1,15 +1,18 @@
 <?php
 
-    Route::set("addToCart", function() {
-        Cart_Controller::addProduct($_POST["refProduit"], $_POST["libelle"], $_POST[""], $_POST[], $_POST[], $_POST[]);
+    Route::post("addToCart", function() {
+        Cart_Controller::createCart();
+        echo Cart_Controller::addProduct($_POST["data"]);
     });
 
-    Route::set("deleteFromCart", function() {
-        Cart_Controller::deleteProduct($_GET["refProduit"]);
+    Route::post("deleteFromCart", function() {
+        echo Cart_Controller::deleteProduct($_GET["refProduit"]);
     });
 
     Route::set("cart", "Auth", function() {
-        Cart_Controller::createCart();
+        // unset($_SESSION["panier"]);
+        // setcookie("panier", "");
+        // Cart_Controller::createCart();
         Controller::CreateView("Cart", []);
     });
 

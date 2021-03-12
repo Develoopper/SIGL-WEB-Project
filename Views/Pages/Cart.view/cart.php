@@ -1,5 +1,5 @@
 <?php
-	session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +13,8 @@
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+	<!-- JQuery library -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="accueil.css">
 	<title>Panier</title>
 	<style>
@@ -46,14 +48,16 @@
 
 			<div class="mx-5" style="width: 900px">
 				<?php
-					if (isset($_COOKIE["panier"])) {
-						foreach ($_COOKIE["panier"] as $produit) {
-							echo '<div class="d-flex justify-content-between align-items-center rounded p-2 bg-white text-dark border border-dark mb-3 produits" id="'.$produit["refProduit"].'">
+				if (isset($_COOKIE["panier"])) {
+					$produits = unserialize($_COOKIE["panier"]);
+					var_dump($produits);
+					foreach ($produits as $produit) {
+						echo '<div class="d-flex justify-content-between align-items-center rounded p-2 bg-white text-dark border border-dark mb-3 produits" id="' . $produit["refProduit"] . '">
 											<div class="d-flex align-items-center">
-												<img src="'.$produit["img"].'" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
+												<img src="' . $produit["img"] . '" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
 												<div>
-													<h6 class="text-truncate" name="libelle">'.$produit["libelle"].'</h6>
-													<span style="font-size: 15px" name="prix">'.$produit["prix"].'</span>
+													<h6 class="text-truncate" name="libelle">' . $produit["libelle"] . '</h6>
+													<span style="font-size: 15px" name="prix">' . $produit["prix"] . '</span>
 												</div>
 											</div>
 
@@ -61,9 +65,9 @@
 												<div class="bg-dark" style="height: 60px; width: 1px;"></div>
 
 												<div class="d-flex mx-3">
-													<a href="javascript:increment();" style=""><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">remove</i></a>
+													<a href="#" style="" name="decrement"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">remove</i></a>
 													<h6 class="mx-4 mb-0" name="qte">1</h6>
-													<a href="javascript:decrement()" style=""><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">add</i></a>
+													<a href="#" style="" name="increment"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">add</i></a>
 												</div>
 
 												<div class="bg-dark" style="height: 60px; width: 1px;"></div>
@@ -74,15 +78,16 @@
 
 												<div class="bg-dark" style="height: 60px; width: 1px;"></div>
 
-												<a href="deleteFromCart?refProduit='.$produit["refProduit"].'"><i class= "material-icons mx-1 text-dark mx-3 ps-2">delete</i></a>
+												<a href="#"><i class= "material-icons mx-1 text-dark mx-3 ps-2">delete</i></a>
 											</div>
 										</div>';
-						}
+						$i++;
 					}
+				}
 				?>
 
 
-<!--				<div class="d-flex justify-content-between align-items-center rounded p-2 bg-white text-dark border border-dark mb-3">
+				<!--				<div class="d-flex justify-content-between align-items-center rounded p-2 bg-white text-dark border border-dark mb-3">
 					<div class="d-flex align-items-center">
 						<img src="https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/24/177193/1.jpg?3360" class="me-3 rounded" style="height: 70px; width: 70px" alt="...">
 						<div>
@@ -143,7 +148,7 @@
 				</div>
 -->
 				<div style="width: 100%" class="d-flex flex-column align-items-end">
-					<h6 class="me-3 mt-3">Total: <b class="ms-3" id="totale"></b></h6>
+					<h6 class="me-3 mt-3">Totale : <b class="ms-3" id="totale"></b></h6>
 					<div class="d-flex">
 						<a href="./" class="text-light" style="text-decoration: none;">
 							<button type="button" class="btn btn-outline-dark mt-3 me-2" style="width: 250px">Poursuivre vos achats</button>
@@ -166,36 +171,49 @@
 	<script>
 		<?php include "cart.js"; ?>
 
-		$(document).load(function () {
+		$(document).ready(function() {
 
 			// Calculer le totale
 			var totale;
-			$("b[name=prixQte]").forEach(prix => {
-				 totale += parseInt(prix.html());
+
+			$("b[name=prixQte]").each( function() {
+				totale += parseInt($(this).html());
 			});
 
 			// Calculer les prix par quantites
 			var prix;
 			var qte;
 
-			$("div[id=produits]").forEach(produit => {
-				prix = parseInt(produit.children("h6[name=libelle]")[0].html());
-				qte = parseInt(produit.children("span[name=prix]")[0].html());
+			$("div[id=produits]").each( function(produit) {
+				prix = parseInt(produit.children("span[name=prix]")[0].html());
+				qte = parseInt(produit.children("h6[name=qte]")[0].html());
 				produit.children("b[name=prixQte]").html(prix * qte);
 			});
 
 			$("#totale").html(totale);
 		})
 
-		function increment() {
+		// function increment(target) {
+		// 	target
+		// }
+		$("a[name=increment]").on("click", function() {
+			var number = parseInt($(this).prev("h6[name=qte]").html());
+			number++;
+			$(this).prev("h6[name=qte]").html(number);
+		});
+
+		$("a[name=decrement]").on("click", function() {
+			var number = parseInt($(this).next("h6[name=qte]").html());
+			if (number > 1)
+				number--;
+			$(this).next("h6[name=qte]").html(number);
+		});
+
+		function decrement(target) {
 
 		}
 
-		function decrement() {
-
-		}
-
-		/*function deleteFromCart(){
+		function deleteFromCart(){
 			$.ajax({
 			url: "http://localhost/Projects/SIGL-WEB-Project/deleteFromCart",
 			data: {
@@ -209,7 +227,7 @@
 				console.log("*****", data);
 			}
 			});
-      	}*/
+      	}
 	</script>
 	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->

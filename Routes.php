@@ -5,7 +5,6 @@
   // include "./Models/Commande.model.php";
   // include "./Models/SousCategorie.model.php";
   // include "./Models/Utilisateur.model.php";
-  include './Controllers/panier.php';
   include 'Middlewares/Auth.php';
   include 'Middlewares/PreventAuth.php';
 

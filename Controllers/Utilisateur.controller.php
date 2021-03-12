@@ -6,16 +6,17 @@ class Utilisateur_Controller extends Controller {
     setcookie("login", "", time() - 3600);
     header("Location: ./");
   }
-  
+
   public static function signIn() {
     session_start();
 
     if (isset($_POST["email"]) && isset($_POST["mp"])) {
       echo "*";
       $utilisateurs = Utilisateur_Model::getOne([
-        ["filterBy" => "email", "opt" => "equal", "filterValue" => $_POST["email"]], 
+        ["filterBy" => "email", "opt" => "equal", "filterValue" => $_POST["email"]],
         ["filterBy" => "mp", "opt" => "equal", "filterValue" => hash("sha256", $_POST["mp"])]
       ]);
+
       if (is_array($utilisateurs)) {
         $_SESSION["login"] = (string)$utilisateurs[0]->login;
         setcookie("login", $_SESSION["login"], time() + 60 * 60 * 60, "" , "" , false , true);
@@ -36,7 +37,7 @@ class Utilisateur_Controller extends Controller {
       if (!is_array($utilisateurs)) {
         $newUtilisateur = new Utilisateur_Model("", $_POST["nom"], $_POST["prenom"], $_POST["mpIns"], $_POST["emailIns"], "client");
         if ($newUtilisateur->create())
-          header("Location: home");
+          header("Location: ./");
       } else {
         header("Location: login?exist=1");
       }

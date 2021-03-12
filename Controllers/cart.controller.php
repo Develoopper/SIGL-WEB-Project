@@ -4,41 +4,43 @@ class Cart_Controller extends Controller{
 
 	public static function createCart() {
 		session_start();
-		if (!isset($_SESSION['panier'])) {
-			/* Initialisation du panier */
-			$_SESSION['panier'] = array();
-			/* Subdivision du panier */
-			$_SESSION['panier']['refProduit'] = array();
-			$_SESSION['panier']['qte'] = array();
-			$_SESSION['panier']['libelle'] = array();
-			$_SESSION['panier']['prix'] = array();
-			$_SESSION['panier']['img'] = array();
-			if (!isset($_COOKIE["panier"])) {
+		if (!isset($_COOKIE["panier"])) {
+			if (!isset($_SESSION['panier'])) {
+				/* Initialisation du panier */
+				$_SESSION['panier'] = array();
+				/* Subdivision du panier */
+				// $_SESSION['panier']['refProduit'] = array();
+				// $_SESSION['panier']['qte'] = array();
+				// $_SESSION['panier']['libelle'] = array();
+				// $_SESSION['panier']['prix'] = array();
+				// $_SESSION['panier']['img'] = array();
 				setcookie("panier", serialize($_SESSION["panier"]));
+				return true;
 			}
-			return true;
-		} else {
-			return false;
 		}
+		return false;
 	}
 
-	public static function checkProduct($ref_article) {
+	public static function checkProduct($refProduit) {
 		/* On initialise la variable de retour */
 		$present = false;
 		/* On vérifie les numéros de références des articles et on compare avec l'article à vérifier */
-		if (array_search($ref_article, $_SESSION['panier']['refProduit']) != "") {
+		if (array_search($refProduit, $_COOKIE['panier']['refProduit']) != "") {
 			$present = true;
 		}
 		return $present;
 	}
 
-	public static function addProduct($refProduit, $libelle, $prix, $img, $qte) {
-		if (!self::createCart() && self::checkProduct($refProduit)) {
-			array_push($_SESSION['panier']['refProduit'], $refProduit);
-			array_push($_SESSION['panier']['libelle'], $libelle);
-			array_push($_SESSION['panier']['prix'], $prix);
-			array_push($_SESSION['panier']['img'], $img);
-			array_push($_SESSION['panier']['qte'], $qte);
+	public static function addProduct($produit) {
+    header('Content-Type: text/json');
+		$produit = new Produit_Model($produit["refProduit"], $_POST["libelle"], $_POST["prix"], $_POST["img"], "", "");
+		if (self::checkProduct($produit["refProduit"]) == false) {
+			array_push($_SESSION['panier'], $produit);
+			// array_push($_SESSION['panier']['libelle'], $produit["libelle"]);
+			// array_push($_SESSION['panier']['prix'], $produit["prix"]);
+			// array_push($_SESSION['panier']['img'], $produit["img"]);
+			// array_push($_SESSION['panier']['qte'], $produit["qte"]);
+			setcookie("panier", serialize($_SESSION["panier"]));
 			return true;
 		}
 		return false;
