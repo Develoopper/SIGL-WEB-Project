@@ -1,5 +1,5 @@
 <?php
-  include "./Model.php";
+  // include "Models/Model.php";
 
   class SousCategorie_Model extends Model {
     public $id;
@@ -75,7 +75,7 @@
             $sousCategorie = current($id->xpath("parent::*"));
 
             $sousCategorie->libelle = $newSousCategorie->libelle;
-            $sousCategorie->attributes()["categorie"] = $sousCategorie->categorie;
+            $sousCategorie->attributes()["categorie"] = $newSousCategorie->categorie;
 
             return Parent::saveInFile($xml,"sousCategories");
       }else{

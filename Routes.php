@@ -3,7 +3,7 @@
   include "./Models/Produit.model.php";
   // include "./Models/Categorie.model.php";
   // include "./Models/Commande.model.php";
-  // include "./Models/SousCategorie.model.php";
+  include "./Models/SousCategorie.model.php";
   // include "./Models/Utilisateur.model.php";
   include 'Middlewares/Auth.php';
   include 'Middlewares/PreventAuth.php';

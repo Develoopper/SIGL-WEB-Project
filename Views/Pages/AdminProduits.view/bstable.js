@@ -8,6 +8,8 @@
 
 "use strict";
 
+let rowIndex = 0;
+
 /** @class BSTable class that represents an editable bootstrap table. */
 class BSTable {
 	/**
@@ -183,11 +185,11 @@ class BSTable {
 				content +
 				'">';
 
-			if (i == 3) {
-				input = '<select class="form-select form-select-sm">';
-				selectOptions.map(option => {
+			if (i == 6) {
+				input = `<select id="categoriesSelect${rowIndex}" onchange="handleChange(${rowIndex})" class="form-select form-select-sm" style="font-family: arial">`;
+				categoriesOptions.map(option => {
 					input += `
-						<option value="${option.id["0"]}" ${option.id["0"] == content ? "selected" : "" }>
+						<option value="${option.id["0"]}" ${option.id["0"] == $(content).attr("id") ? "selected" : "" }>
 							${option.libelle["0"]}
 						</option>
 					`;
@@ -195,9 +197,23 @@ class BSTable {
 				input +=	'</select>';
 			}
 
+			if (i == 7) {
+				input = `<select id="sousCategoriesSelect${rowIndex}" class="form-select form-select-sm" style="font-family: arial">`;
+				sousCategoriesOptions.map(option => {
+					if (option.categorie["0"] == $("#categoriesSelect" + rowIndex).val())
+						input += `
+							<option value="${option.id["0"]}" ${option.id["0"] == $(content).attr("id") ? "selected" : "" }>
+								${option.libelle["0"]}
+							</option>
+						`;
+				});
+				input +=	'</select>';
+			}
+
 			$td.html(div + input); // set content
 		});
 		this._actionsModeEdit(button);
+		rowIndex++;
 	}
 	_rowDelete(button) {
 		// Remove the row
@@ -213,8 +229,10 @@ class BSTable {
 		if (!this.currentlyEditingRow($currentRow)) return; // not currently editing, return
 
 		// Finish editing the row & save edits
-		let i = 0;
+		let i = 0;	
 		let src = "";
+		let id1 = "";
+		let id2 = "";
 		this._modifyEachColumn(this.options.editableColumns, $cols, function ($td) {
 			i++;
 			// modify each column
@@ -222,24 +240,40 @@ class BSTable {
 			if (i == 5) {
 				src = cont;
 				cont = `<img src="${cont}" style="width: 60px; height: 60px">`;
-			} 
+			}
+			if (i == 6 || i == 7) {
+				if (i == 6)
+					id1 = $td.find("select").val();
+				if (i == 7)
+					id2 = $td.find("select").val();
+				cont = `
+					<span id="${$td.find("select").val()}">
+						${$td.find("select")["0"].options[$td.find("select").val() - 1].text}
+					</span>
+				`; // read through each input
+				// console.log("(", $td.find("select").attr("options"));
+				// console.log("+", $td.find("select")["0"].options[$td.find("select").val() - 1].text);
+			}
 			$td.html(cont); // set the content and remove the input fields
 		});
 		this._actionsModeNormal(button);
 		
 		const currentRow = [];
-
+		
 		let j = 0;
 		for (const att of $($currentRow[0]).children()) {
 			j++;
 			if (j === 5)
 				currentRow.push(src);
+			if (j === 6)
+				currentRow.push(id1);
+			if (j === 7)
+				currentRow.push(id2);
 			else
 				currentRow.push(att.innerHTML);
 		}
-
 		currentRow.pop()
-		console.log("45", (currentRow));
+
 		this.options.onEdit(currentRow);
 	}
 	_rowCancel(button) {

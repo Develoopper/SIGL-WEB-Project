@@ -46,13 +46,21 @@
           <th scope="col">Prix</th>
           <th scope="col">Marque</th>
           <th scope="col">Image</th>
-          <th scope="col">Sous<br>categorie</th>
           <th scope="col">Categorie</th>
+          <th scope="col">Sous<br>categorie</th>
         </tr>
       </thead>
       <tbody>
         <?php
           foreach (Produit_Model::getAll() as $produit) {
+            $sousCategorie = SousCategorie_Model::getOne([
+              ["filterBy" => "id", "opt" => "equal", "filterValue" => (int)$produit->sousCategorie]
+            ])[0];
+
+            $categorie = Categorie_Model::getOne([
+              ["filterBy" => "id", "opt" => "equal", "filterValue" => (int)$sousCategorie->categorie]
+            ])[0];
+
             echo <<<HTML
               <tr>
                 <td>$produit->refProduit</td>
@@ -60,8 +68,8 @@
                 <td>$produit->prix</td>
                 <td>$produit->marque</td>
                 <td><img src="$produit->img" style="width: 60px; height: 60px"></td>
-                <td>$produit->sousCategorie</td>
-                <td>$produit->categorie</td>
+                <td><span id="$sousCategorie->categorie">$categorie->libelle</span></td>
+                <td><span id="$produit->sousCategorie">$sousCategorie->libelle</span></td>
               </tr>
             HTML;
           }
@@ -69,9 +77,12 @@
       </tbody>
     </table>
   </div>
-
+  
   <script>
-    let selectOptions = JSON.parse('<?php echo json_encode(Categorie_Model::getAll()) ?>');
+    let categoriesOptions = JSON.parse('<?php echo json_encode(Categorie_Model::getAll()) ?>');
+    let sousCategoriesOptions = JSON.parse('<?php echo json_encode(SousCategorie_Model::getAll()) ?>');
+    console.log(sousCategoriesOptions);
+
   </script>
 
 	<script><?php include "bstable.js"; ?></script>

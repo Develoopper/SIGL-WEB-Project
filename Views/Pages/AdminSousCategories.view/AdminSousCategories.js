@@ -31,7 +31,7 @@ var example2 = new BSTable("table", {
 	onEdit: function(row) {
 		var obj = {};
 		["id", "libelle", "categorie"].map((key, index) => {
-			obj[key] = $(row).children()[index].innerHTML;
+			obj[key] = row[index];
 		});
 
 		// console.log(obj);

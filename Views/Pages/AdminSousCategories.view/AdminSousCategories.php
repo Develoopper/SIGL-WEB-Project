@@ -49,11 +49,15 @@
       <tbody>
         <?php
           foreach (SousCategorie_Model::getAll() as $sousCategorie) {
+            $categorie = Categorie_Model::getOne([
+              ["filterBy" => "id", "opt" => "equal", "filterValue" => (int)$sousCategorie->categorie]
+            ])[0];
+            
             echo <<<HTML
               <tr>
                 <td>$sousCategorie->id</td>
                 <td>$sousCategorie->libelle</td>
-                <td>$sousCategorie->categorie</td>
+                <td><span id="$sousCategorie->categorie">$categorie->libelle</span></td>
               </tr>
             HTML;
           }

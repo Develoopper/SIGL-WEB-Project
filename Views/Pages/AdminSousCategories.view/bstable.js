@@ -162,9 +162,7 @@ class BSTable {
 	_rowEdit(button) {
 		// Indicate user is editing the row
 		let $currentRow = $(button).parents("tr"); // access the row
-		console.log($currentRow);
 		let $cols = $currentRow.find("td"); // read rows
-		console.log($cols);
 		if (this.currentlyEditingRow($currentRow)) return; // not currently editing, return
 		//Pone en modo de edición
 		let i = 0;
@@ -182,10 +180,10 @@ class BSTable {
 			'">';
 
 			if (i == 3) {
-				input = '<select class="form-select form-select-sm">';
+				input = '<select class="form-select form-select-sm" style="font-family: arial">';
 				selectOptions.map(option => {
 					input += `
-						<option value="${option.id["0"]}" ${option.id["0"] == content ? "selected" : "" }>
+						<option value="${option.id["0"]}" ${option.id["0"] == $(content).attr("id") ? "selected" : "" }>
 							${option.libelle["0"]}
 						</option>
 					`;
@@ -207,22 +205,43 @@ class BSTable {
 	_rowAccept(button) {
 		// Accept the changes to the row
 		let $currentRow = $(button).parents("tr"); // access the row
-		console.log($currentRow);
 		let $cols = $currentRow.find("td"); // read fields
 		if (!this.currentlyEditingRow($currentRow)) return; // not currently editing, return
 
 		// Finish editing the row & save edits
 		let i = 0;
+		let id = "";
 		this._modifyEachColumn(this.options.editableColumns, $cols, function ($td) {
 			i++;
 			// modify each column
 			let cont = $td.find("input").val(); // read through each input
-			if (i == 3)
-				cont = $td.find("select").val(); // read through each input
+			if (i == 3) {
+				id = $td.find("select").val();
+				cont = `
+					<span id="${$td.find("select").val()}">
+						${$td.find("select")["0"].options[$td.find("select").val() - 1].text}
+					</span>
+				`; // read through each input
+				// console.log("(", $td.find("select").attr("options"));
+				// console.log("+", $td.find("select")["0"].options[$td.find("select").val() - 1].text);
+			}
 			$td.html(cont); // set the content and remove the input fields
 		});
 		this._actionsModeNormal(button);
-		this.options.onEdit($currentRow[0]);
+
+		const currentRow = [];
+		
+		let j = 0;
+		for (const att of $($currentRow[0]).children()) {
+			j++;
+			if (j === 3)
+				currentRow.push(id);
+			else
+				currentRow.push(att.innerHTML);
+		}
+		currentRow.pop()
+
+		this.options.onEdit(currentRow);
 	}
 	_rowCancel(button) {
 		// Reject the changes

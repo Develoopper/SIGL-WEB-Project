@@ -1,5 +1,5 @@
 <?php
-  include "Models/Model.php";
+  // include "Models/Model.php";
 
   class Produit_Model extends Model {
     public $refProduit;

@@ -2,18 +2,18 @@
 <categories>
   <categorie>
     <id>1</id>
-    <libelle>Femme</libelle>
+    <libelle>Femmes</libelle>
   </categorie>
   <categorie>
     <id>2</id>
-    <libelle>Homme</libelle>
+    <libelle>Hommes</libelle>
   </categorie>
   <categorie>
     <id>3</id>
-    <libelle>Fille</libelle>
+    <libelle>Filles</libelle>
   </categorie>
   <categorie>
     <id>4</id>
-    <libelle>Garçon</libelle>
+    <libelle>Garçons</libelle>
   </categorie>
 </categories>

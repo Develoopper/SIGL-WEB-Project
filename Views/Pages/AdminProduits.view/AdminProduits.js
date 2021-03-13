@@ -22,7 +22,19 @@ $(document).ready(function(){
 	});
 });
 
-
+function handleChange(rowIndex) {
+	console.log("wa zbi!");
+	let html = "";
+	sousCategoriesOptions.map(option => {
+		if (option.categorie["0"] == $("#categoriesSelect" + rowIndex).val())
+			html += `
+				<option value="${option.id["0"]}">
+					${option.libelle["0"]}
+				</option>
+			`;
+	});
+	$("#sousCategoriesSelect" + rowIndex).html(html)
+}
 
 // Example with a add new row button & only some columns editable & removed actions column label
 var example2 = new BSTable("table", {
@@ -30,7 +42,7 @@ var example2 = new BSTable("table", {
 	$addButton: $('#table-new-row-button'),
 	onEdit: function(row) {
 		var obj = {};
-		["refProduit", "libelle", "prix", "marque", "img", "sousCategorie"].map((key, index) => {
+		["refProduit", "libelle", "prix", "marque", "img", "categorie", "sousCategorie"].map((key, index) => {
 			obj[key] = row[index];
 		});
 

@@ -24,7 +24,7 @@
 	<div class="d-flex my-4 px-3">
 		<div class="bg-light text-dark rounded p-3" style="width: 400px">
 			Filtre :
-			<select class="form-select mt-2 mb-4" id="filterBy" aria-label="Default select example" style="height: 40px">
+			<select class="form-select mt-2 mb-4" id="filterBy" aria-label="Default select example" style="font-family: arial; height: 40px">
 				<option selected value="libelle">Libellee</option>
 				<option value="marque">Marque</option>
 				<option value="sousCategorie">Sous categorie</option>
