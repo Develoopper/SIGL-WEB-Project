@@ -1,16 +1,18 @@
 <?php
 class Utilisateur_Controller extends Controller {
 
-  public static function logout() {
+  public static function logOut() {
+
     unset($_SESSION['login']);
     setcookie("login", "", time() - 3600);
     header("Location: ./");
+
   }
 
   public static function signIn() {
 
     if (isset($_POST["email"]) && isset($_POST["mp"])) {
-      echo "*";
+
       $utilisateurs = Utilisateur_Model::getOne([
         ["filterBy" => "email", "opt" => "equal", "filterValue" => $_POST["email"]],
         ["filterBy" => "mp", "opt" => "equal", "filterValue" => hash("sha256", $_POST["mp"])]
@@ -18,7 +20,7 @@ class Utilisateur_Controller extends Controller {
 
       if (is_array($utilisateurs)) {
         $_SESSION["login"] = (string)$utilisateurs[0]->login;
-        setcookie("login", $_SESSION["login"], time() + 60 * 60 * 60, "" , "" , false , true);
+        setcookie("login", $_SESSION['login'], time() + 60 * 60 * 60, "" , "" , false , true);
 
         if ($utilisateurs[0]->type == "admin")
           header('Location: adminProduits');

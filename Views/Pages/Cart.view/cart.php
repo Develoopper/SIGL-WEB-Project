@@ -20,7 +20,8 @@
 </head>
 
 <body>
-	<?php Component("NavBar", []); ?>
+	<!-- NavBar -->
+	<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
 
 	<!-- Panier -->
 	<!-- <div class="d-flex flex-column align-items-center me-5 p-4 bg-light" style="border-radius: 10px;"> -->
@@ -85,7 +86,7 @@
 						<a href="./" class="text-light" style="text-decoration: none;">
 							<button type="button" class="btn btn-outline-dark mt-3 me-2" style="width: 250px">Poursuivre vos achats</button>
 						</a>
-						<a href="payment" class="text-light" style="text-decoration: none;">
+						<a href="livraison" class="text-light" style="text-decoration: none;">
 							<button type="button" class="btn btn-dark mt-3" style="width: 250px">Commander</button>
 						</a>
 					</div>

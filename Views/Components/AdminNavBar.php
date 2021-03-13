@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container-fluid mx-3">
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +18,7 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="adminCategories">Categories</a>
-				</li>	
+				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="adminSousCategories">Sous categories</a>
 				</li>
@@ -30,11 +31,12 @@
 						<span class="me-1">Compte</span>
 					</a>
 					<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="logout">Se déconnecter</a></li>
+						<li><span class="dropdown-item" id="bonjourUtilisateur"><?php echo "Bienvenue " . $utilisateur->nom . " " . $utilisateur->prenom ;?></span></li>
+						<li><a class="dropdown-item" href="logOut">Se déconnecter</a></li>
 					</ul>
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 </nav>

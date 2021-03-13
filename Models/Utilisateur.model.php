@@ -1,7 +1,7 @@
 <?php
   // include 'Models/Model.php';
-
   class Utilisateur_Model extends Model {
+
     public $login;
     public $nom;
     public $prenom;
@@ -11,7 +11,7 @@
     public $adresse;
 
     public function __construct($login = "", $nom, $prenom, $mp, $email, $type, $adresse="") {
-      if ($login == "") 
+      if ($login == "")
         $login = md5($nom.$prenom);
 
       $this->login = $login;
@@ -52,7 +52,7 @@
           }
         }
 
-        if (!isset($utilisateurs_list)) 
+        if (!isset($utilisateurs_list))
           return "Pas d'utilisateur avec cette signature.";
 
         return $utilisateurs_list;

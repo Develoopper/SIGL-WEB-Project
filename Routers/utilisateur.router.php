@@ -3,8 +3,8 @@
     Controller::CreateView("Login", []);
   });
 
-  Route::set("logout", "Auth", function () {
-    Utilisateur_Controller::logout();
+  Route::set("logOut", "Auth", function () {
+    Utilisateur_Controller::logOut();
   });
 
   Route::set("signIn", function() {

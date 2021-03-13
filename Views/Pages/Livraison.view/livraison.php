@@ -20,14 +20,8 @@
 
 <body>
 	<!-- Nav bar -->
-	<?php Component("NavBar", []); ?>
-	<?php
-		if (isset($_SESSION["login"])) {
-			$utilisateur = Utilisateur_Model::getOne([
-        	["filterBy" => "login", "opt" => "equal", "filterValue" => $_SESSION["login"]]
-      ])[0];
-		}
-	?>
+	<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
+
 	<div class="d-flex align-items-center justify-content-center mt-5">
 		<div class="d-flex border flex-column align-items-center me-5 p-4 bg-light card" style="border-radius: 10px;">
 			<form>
