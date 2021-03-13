@@ -12,7 +12,7 @@
     Controller::CreateView("Home", [
       "meilleursVentes" => Produit_Model::getMeilleursVentes(),
       "nouveautes" => Produit_Model::getNouveaute(),
-      "petitsPrix" => Produit_Model::getPetitsPrix(),
+      "petitsPrix" => Produit_Model::getPetitsPrix()
     ]);
   });
 
