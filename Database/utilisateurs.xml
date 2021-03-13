@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <utilisateurs>
   <utilisateur>
-    <login>5e7273181975e4f28b8e2d707d464aa3</login>
-    <nom>salem</nom>
-    <prenom>mohammed</prenom>
-    <mp>49dc52e6bf2abe5ef6e2bb5b0f1ee2d765b922ae6cc8b95d39dc06c21c848f8c</mp>
+    <login>7f720bdd61099c18f3fb859a1c035a03</login>
+    <nom>SALEM</nom>
+    <prenom>Mohammed</prenom>
+    <mp>8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92</mp>
     <email>salemmed266@gmail.com</email>
-    <type>admin</type>
-  </utilisateur>
-  <utilisateur>
-    <login>e971ec675a1be33e9cd8e276defcdb4c</login>
-    <nom>khalfi</nom>
-    <prenom>oussama</prenom>
-    <mp>49dc52e6bf2abe5ef6e2bb5b0f1ee2d765b922ae6cc8b95d39dc06c21c848f8c</mp>
-    <email>okhalfi2000@gmail.com</email>
     <type>client</type>
     <adresse/>
+    <tele>0636295603</tele>
   </utilisateur>
 </utilisateurs>

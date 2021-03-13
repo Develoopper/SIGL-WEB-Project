@@ -43,7 +43,7 @@
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Téléphone*</label>
-					<input type="telephone" name="telephone" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="téléphone">
+					<input type="telephone" name="telephone" style="width: 450px" class="form-control" placeholder="téléphone">
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Mot de passe*</label>
@@ -83,9 +83,10 @@
 				</div>
 				<div class="d-flex justify-content-between mb-3">
 					<?php
-						if (isset($_GET["erreur"])) {
+						if (isset($_GET["erreur"]) && $_GET["erreur"] == 1)
 							echo "utilisateur n'existe pas";
-						}
+						if (isset($_GET["erreur"]) && $_GET["erreur"] == 2)
+							echo "mot de passe incorrect";
 					?>
 				</div>
 
