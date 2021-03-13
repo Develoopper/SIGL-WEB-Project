@@ -47,7 +47,7 @@
 							</div>
 						</div>
 						<button type="submit" class="btn btn-primary">Enregistrer</button>
-						<button type="submit" class="btn btn-primary">Enregistrer</button>
+						<button type="submit" class="btn btn-primary">Retour vers le panier</button>
 					</div>
 				</fieldset>
 			</form>

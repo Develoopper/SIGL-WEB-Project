@@ -44,10 +44,9 @@
 							<div class="dropdown">
 								<a href="#" class="nav-link dropdown-toggle d-flex align-items-center mx-3 text-dark" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
 									<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
-									<span class="me-1">Compte</span>
+									<span class="me-1" id="bonjourUtilisateur" >Bienvenue $utilisateur->nom $utilisateur->prenom</span>
 								</a>
 								<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-									<li><span class="dropdown-item" id="bonjourUtilisateur">Bienvenue $utilisateur->nom $utilisateur->prenom</span></li>
 									<li><a class="dropdown-item" href='logOut'>Se déconnecter</a></li>
 								</ul>
 							</div>
