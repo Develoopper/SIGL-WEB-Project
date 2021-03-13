@@ -2,7 +2,7 @@
 class Utilisateur_Controller extends Controller {
 
   public static function logout() {
-    session_destroy();
+    unset($_SESSION['login']);
     setcookie("login", "", time() - 3600);
     header("Location: ./");
   }
@@ -21,7 +21,7 @@ class Utilisateur_Controller extends Controller {
         setcookie("login", $_SESSION["login"], time() + 60 * 60 * 60, "" , "" , false , true);
 
         if ($utilisateurs[0]->type == "admin")
-          header('Location: adminProduit');
+          header('Location: adminProduits');
         else
           header('Location: ./');
       } else {
