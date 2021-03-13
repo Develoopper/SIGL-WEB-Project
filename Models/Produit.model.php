@@ -8,21 +8,34 @@
     public $img;
     public $marque;
     public $sousCategorie;
+    public $dateAjout;
 
-    public function __construct($refProduit, $libelle, $prix, $img, $marque, $sousCategorie) {
+    public function __construct($refProduit, $libelle, $prix, $img, $marque, $sousCategorie, $dateAjout) {
       $this->refProduit = $refProduit;
       $this->libelle = $libelle;
       $this->prix = $prix;
       $this->img = $img;
       $this->marque = $marque;
       $this->sousCategorie = $sousCategorie;
+      $this->dateAjout =  $dateAjout;
+    }
+
+    public static function getNouveaute() {
+      $xml = parent::load_xml("produits");
+
+      foreach ($xml->children() as $product) {
+        if($product->dateAjout)
+          $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
+      }
+
+      return $products_list;
     }
 
     public static function getAll() {
       $xml = parent::load_xml("produits");
 
       foreach ($xml->children() as $product) {
-        $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"]);
+        $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
       }
 
       return $products_list;
@@ -39,7 +52,7 @@
           $filterValue = $filter["filterValue"];
 
           if ($operator == "like" && str_contains($product->libelle, $filterValue)) {
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"]);
+            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
             for ($i = array_key_first($products_list); $i < count($products_list); $i++) {
               if (!str_contains($product->{$filterBy}, $filterValue)) {
                 unset($products_list[$i]);
@@ -48,7 +61,7 @@
           }
 
           if ($operator == "equal" && ($product->{$filterBy} == $filterValue || $product->attributes()[$filterBy] == $filterValue)) {
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"]);
+            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
             for ($i = array_key_first($products_list); $i < count($products_list); $i++) {
               if ($product->{$filterBy} != $filterValue && $product->attributes()[$filterBy] != $filterValue) {
                 unset($products_list[$i]);
@@ -57,7 +70,7 @@
           }
 
           if ($operator == "gt" && $product->prix > $filterValue) {
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"]);
+            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
             for ($i = array_key_first($products_list); $i < count($products_list); $i++) {
               if ($products_list[$i]->prix <= $filterValue) {
                 unset($products_list[$i]);
@@ -66,7 +79,7 @@
           }
 
           if ($operator == "gtE" &&  (int)$product->prix >= $filterValue) {
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"]);
+            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
             // supprimerles produits qui ne respectent pas la condition
             for ($i = array_key_first($products_list); $i < count($products_list); $i++) {
               if ($products_list[$i]->prix < $filterValue) {
@@ -76,7 +89,7 @@
           }
 
           if ($operator == "lt" && (int)$product->prix < $filterValue) {
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"]);
+            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
             for ($i = array_key_first($products_list); $i < count($products_list); $i++) {
               if ($products_list[$i]->prix >= $filterValue) {
                 unset($products_list[$i]);
@@ -85,7 +98,7 @@
           }
 
           if ($operator == "ltE" && (int)$product->prix <= $filterValue) {
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"]);
+            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
             for ($i = array_key_first($products_list); $i < count($products_list); $i++) {
               if ($products_list[$i]->prix > $filterValue) {
                 unset($products_list[$i]);
@@ -124,6 +137,7 @@
         $produit->addChild("prix", $this->prix);
         $produit->addChild("img", $this->img);
         $produit->addChild("marque", $this->marque);
+        $produit->addChild("dateAjout", $this->dateAjout);
 
         return Parent::saveInFile($xml, "produits");
       }
@@ -146,6 +160,7 @@
         $product->prix = $newProduit->prix;
         $product->img = $newProduit->img;
         $product->marque = $newProduit->marque;
+        $product->dateAjout = $newProduit->dateAjout;
         $product->attributes()["sousCategorie"] = $newProduit->sousCategorie;
 
         return Parent::saveInFile($xml,"produits");
