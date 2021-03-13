@@ -29,7 +29,7 @@
 
 <body class="bg-white">
 	<!-- Nav bar -->
-	<?php Component("AdminNavBar", []); ?>
+	<?php Component("AdminNavBar",  ["utilisateur" => $utilisateur]); ?>
 
 	<div class="jquery-script-clear"></div>
   </div>
@@ -61,7 +61,7 @@
       </tbody>
     </table>
   </div>
-  
+
   <script>
     let selectOptions = JSON.parse('<?php echo json_encode(Categorie_Model::getAll()) ?>');
   </script>

@@ -18,9 +18,8 @@
 
 <body>
 
-
 	<!-- Nav bar -->
-	<?php Component("NavBar", []); ?>
+	<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
 
 	<!-- Formulaires -->
 	<div class="d-flex justify-content-center align-items-center mt-3">

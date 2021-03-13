@@ -18,7 +18,8 @@
 
 <body>
 	<!-- Nav bar -->
-	<?php Component("NavBar", []); ?>
+	<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
+
 
 	<div class="d-flex my-4 px-3">
 		<div class="bg-light text-dark rounded p-3" style="width: 400px">
@@ -33,7 +34,7 @@
 		</div>
 
 		<div class="ms-3 p-3 bg-light" style="border-radius: 10px; font-size: 13px;">
-		
+
 			<div class="container-fluid">
 				<div class="row d-flex justify-content-evenly" id="container">
 					<?php
@@ -56,7 +57,7 @@
 					?>
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 

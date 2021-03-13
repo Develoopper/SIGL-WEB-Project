@@ -1,6 +1,6 @@
 <?php
 
-  Route::set("livraison", function() {
+  Route::set("livraison", "Auth", function() {
     Controller::CreateView("Livraison", []);
   });
 

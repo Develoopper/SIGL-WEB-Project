@@ -1,7 +1,7 @@
 <?php
 
-  Route::set("payment", function() {
-    Controller::CreateView("Payment", []);
+  Route::set("payement", function() {
+    Controller::CreateView("Payement", []);
   });
 
 ?>

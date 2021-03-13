@@ -3,8 +3,8 @@
     Controller::CreateView("Login", []);
   });
 
-  Route::set("logout", "Auth", function () {
-    Utilisateur_Controller::logout();
+  Route::set("logOut", "Auth", function () {
+    Utilisateur_Controller::logOut();
   });
 
   Route::set("signIn", function() {
@@ -14,7 +14,6 @@
   Route::set("signUp", function() {
     Utilisateur_Controller::signUp();
   });
-  
 
   Route::get("utilisateurs", function() {
     Utilisateur_Controller::get();
@@ -23,7 +22,7 @@
   Route::post("utilisateurs", function() {
     Utilisateur_Controller::post();
   });
-  
+
   Route::patch("utilisateurs", function() {
     Utilisateur_Controller::patch();
   });

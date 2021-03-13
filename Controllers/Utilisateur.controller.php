@@ -1,15 +1,18 @@
 <?php
 class Utilisateur_Controller extends Controller {
 
-  public static function logout() {
-    session_destroy();
+  public static function logOut() {
+
+    unset($_SESSION['login']);
     setcookie("login", "", time() - 3600);
     header("Location: ./");
+
   }
 
   public static function signIn() {
+
     if (isset($_POST["email"]) && isset($_POST["mp"])) {
-      echo "*";
+
       $utilisateurs = Utilisateur_Model::getOne([
         ["filterBy" => "email", "opt" => "equal", "filterValue" => $_POST["email"]],
         ["filterBy" => "mp", "opt" => "equal", "filterValue" => hash("sha256", $_POST["mp"])]
@@ -17,21 +20,24 @@ class Utilisateur_Controller extends Controller {
 
       if (is_array($utilisateurs)) {
         $_SESSION["login"] = (string)$utilisateurs[0]->login;
-        setcookie("login", $_SESSION["login"], time() + 60 * 60 * 60, "" , "" , false , true);
+        setcookie("login", $_SESSION['login'], time() + 60 * 60 * 60, "" , "" , false , true);
 
         if ($utilisateurs[0]->type == "admin")
           header('Location: adminProduits');
         else
-          header("Location: ./");
+          header('Location: ./');
       } else {
-        header("Location: login?erreur=1");
+        header('Location: login?erreur=1');
       }
     }
   }
 
   public static function signUp() {
-    if (isset($_POST["emailIns"]) && isset($_POST["mpIns"])) {
-      $utilisateurs = Utilisateur_Model::getOne([["filterBy" => "email", "opt" => "equal", "filterValue" => $_POST["emailIns"]]]);
+
+    if (isset($_POST['emailIns']) && isset($_POST['mpIns'])) {
+      $utilisateurs = Utilisateur_Model::getOne([
+        ["filterBy" => "email", "opt" => "equal", "filterValue" => $_POST["emailIns"]]
+      ]);
       if (!is_array($utilisateurs)) {
         $newUtilisateur = new Utilisateur_Model("", $_POST["nom"], $_POST["prenom"], $_POST["mpIns"], $_POST["emailIns"], "client");
         if ($newUtilisateur->create())
@@ -40,6 +46,7 @@ class Utilisateur_Controller extends Controller {
         header("Location: login?exist=1");
       }
     }
+
   }
 
   public static function set()
@@ -50,16 +57,16 @@ class Utilisateur_Controller extends Controller {
     header('Content-Type: text/json');
     $data = $_POST["data"];
     $opt = "like";
-    if ($data["filterBy"] == "prix")
+    if ($data["filterBy"] == "login")
       $opt = "equal";
-    $res = Produit_Model::getOne([["filterBy" => $data["filterBy"], "opt" => $opt, "filterValue" => $data["filterValue"]]]);
+    $res = Utilisateur_Model::getOne([["filterBy" => $data["filterBy"], "opt" => $opt, "filterValue" => $data["filterValue"]]]);
     echo json_encode($res);
   }
 
   public static function post() {
     header('Content-Type: text/json');
     $data = $_POST["data"];
-    $obj = new Produit_Model($data, "", "", "", "", "");
+    $obj = new Utilisateur_Model($data, "", "", "", "", "", "", "");
     $res = $obj->create();
     echo json_encode($res);
   }
@@ -67,14 +74,14 @@ class Utilisateur_Controller extends Controller {
   public static function patch() {
     header('Content-Type: text/json');
     $data = $_POST["data"];
-    $res = Produit_Model::update($data["refProduit"], new Produit_Model($data["refProduit"], $data["libelle"], $data["prix"], $data["img"], $data["marque"], $data["sousCategorie"]));
+    $res = Utilisateur_Model::update($data["login"], new Produit_Model($data["login"], $data["nom"], $data["prenom"], $data["mp"], $data["email"], $data["type"], "", $data["tele"]));
     echo json_encode($res);
   }
 
   public static function delete() {
     header('Content-Type: text/json');
     $data = $_POST["data"];
-    $res = Produit_Model::deleteP($data);
+    $res = Utilisateur_Model::deleteU($data);
     echo json_encode($res);
   }
 }

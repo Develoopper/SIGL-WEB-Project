@@ -14,7 +14,7 @@
     public static function post() {
       header('Content-Type: text/json');
       $data = $_POST["data"];
-      $obj = new Produit_Model($data, "", "", "", "", "");
+      $obj = new Produit_Model($data, "", "", "", "", "", "");
       $res = $obj->create();
       echo json_encode($res);
     }

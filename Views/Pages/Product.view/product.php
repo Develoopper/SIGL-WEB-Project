@@ -20,7 +20,7 @@
 
 <body>
 	<!-- Nav bar -->
-	<?php Component("NavBar", []); ?>
+	<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
 
 	<div class="d-flex justify-content-center">
 		<div class="mx-3 my-4 p-3 bg-light" style="border-radius: 10px; font-size: 13px;">

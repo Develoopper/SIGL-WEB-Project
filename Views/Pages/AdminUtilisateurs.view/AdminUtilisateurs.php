@@ -29,7 +29,7 @@
 
 <body class="bg-white">
 	<!-- Nav bar -->
-	<?php Component("AdminNavBar", []); ?>
+	<?php Component("AdminNavBar",  ["utilisateur" => $utilisateur]); ?>
 
 	<div class="jquery-script-clear"></div>
   </div>
@@ -44,7 +44,7 @@
           <th scope="col">Login</th>
           <th scope="col">Nom</th>
           <th scope="col">Prenom</th>
-          <th scope="col">Mdp</th>	
+          <th scope="col">Mdp</th>
           <th scope="col">Email</th>
           <th scope="col">Type</th>
           <th scope="col">Adresse</th>
@@ -58,7 +58,7 @@
                 <td>$utilisateur->login</td>
                 <td>$utilisateur->nom</td>
                 <td>$utilisateur->prenom</td>
-                <td>$utilisateur->mp</td>	
+                <td>$utilisateur->mp</td>
                 <td>$utilisateur->email</td>
                 <td>$utilisateur->type</td>
                 <td>$utilisateur->adresse</td>
@@ -69,7 +69,7 @@
       </tbody>
     </table>
   </div>
-	
+
 	<script><?php include "Views/assets/bstable.js"; ?></script>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

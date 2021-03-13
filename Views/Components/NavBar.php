@@ -13,7 +13,7 @@
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 									$categorie->libelle
 								</a>
-								<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">						
+								<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
 						HTML;
 
 						foreach (SousCategorie_Model::getOne([
@@ -23,13 +23,13 @@
 								<li><a class="dropdown-item" href="products?id=$sousCategorie->id">$sousCategorie->libelle</a></li>
 							HTML;
 						}
-						
+
 						echo <<<HTML
 								</ul>
 							</li>
 						HTML;
 					}
-				?>					
+				?>
 			</ul>
 
 			<div class="d-flex align-items-center justify-content-between" style="font-size: 15px;">
@@ -47,7 +47,8 @@
 									<span class="me-1">Compte</span>
 								</a>
 								<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-									<li><a class="dropdown-item" href='logout'>Se déconnecter</a></li>
+									<li><span class="dropdown-item" id="bonjourUtilisateur">Bienvenue $utilisateur->nom $utilisateur->prenom</span></li>
+									<li><a class="dropdown-item" href='logOut'>Se déconnecter</a></li>
 								</ul>
 							</div>
 						HTML;

@@ -16,7 +16,7 @@
 
   function Component($fileName, $variables) {
     extract($variables);
-    include "Views/Components/".$fileName.".php";
+    require_once "Views/Components/".$fileName.".php";
   }
 
   require_once "Routes.php";

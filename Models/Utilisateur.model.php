@@ -1,7 +1,7 @@
 <?php
   // include 'Models/Model.php';
-
   class Utilisateur_Model extends Model {
+
     public $login;
     public $nom;
     public $prenom;
@@ -9,9 +9,10 @@
     public $email;
     public $type;
     public $adresse;
+    public $tele;
 
-    public function __construct($login = "", $nom, $prenom, $mp, $email, $type, $adresse="") {
-      if ($login == "") 
+    public function __construct($login = "", $nom, $prenom, $mp, $email, $type, $adresse="", $tele="") {
+      if ($login == "")
         $login = md5($nom.$prenom);
 
       $this->login = $login;
@@ -21,13 +22,14 @@
       $this->email = $email;
       $this->type = $type;
       $this->adresse = $adresse;
+      $this->tele = $tele;
     }
 
     public static function getAll() {
       $xml = parent::load_xml("utilisateurs");
 
       foreach ($xml->children() as $utilisateur)
-        $utilisateurs_list[] = new Utilisateur_Model($utilisateur->login, $utilisateur->nom, $utilisateur->prenom, $utilisateur->mp, $utilisateur->email, $utilisateur->type);
+        $utilisateurs_list[] = new Utilisateur_Model($utilisateur->login, $utilisateur->nom, $utilisateur->prenom, $utilisateur->mp, $utilisateur->email, $utilisateur->type, $utilisateur->adresse, $utilisateur->tele);
 
       return $utilisateurs_list;
     }
@@ -42,7 +44,7 @@
             $filterValue = $filter["filterValue"];
 
             if ($operator == "equal" && $utilisateur->{$filterBy} == $filterValue) {
-              $utilisateurs_list[] = new Utilisateur_Model($utilisateur->login, $utilisateur->nom, $utilisateur->prenom, $utilisateur->mp, $utilisateur->email, $utilisateur->type, $utilisateur->adresse);
+              $utilisateurs_list[] = new Utilisateur_Model($utilisateur->login, $utilisateur->nom, $utilisateur->prenom, $utilisateur->mp, $utilisateur->email, $utilisateur->type, $utilisateur->adresse, $utilisateur->tele);
               for ($i = array_key_first($utilisateurs_list); $i < count($utilisateurs_list); $i++) {
                 if ($utilisateur->{$filterBy} != $filterValue) {
                   unset($utilisateurs_list[$i]);
@@ -52,7 +54,7 @@
           }
         }
 
-        if (!isset($utilisateurs_list)) 
+        if (!isset($utilisateurs_list))
           return "Pas d'utilisateur avec cette signature.";
 
         return $utilisateurs_list;
@@ -71,6 +73,7 @@
         $utilisateur->addChild("email", $this->email);
         $utilisateur->addChild("type", $this->type);
         $utilisateur->addChild("adresse", $this->adresse);
+        $utilisateur->addChild("tele", $this->tele);
 
         return Parent::saveInFile($xml,"utilisateurs");
       } else {
@@ -78,7 +81,8 @@
       }
     }
 
-    public function update($login, $newUtilisateur) {
+    public static function update($login, $newUtilisateur) {
+
       $xml = parent::load_xml("utilisateurs");
       $exist = parent::searchInXML($login, $xml)[0];
 
@@ -92,6 +96,7 @@
         $utilisateur->email = $newUtilisateur->email;
         $utilisateur->type = $newUtilisateur->type;
         $utilisateur->adresse = $newUtilisateur->adresse;
+        $utilisateur->tele = $newUtilisateur->tele;
 
         return Parent::saveInFile($xml, "utilisateurs");
       } else {
