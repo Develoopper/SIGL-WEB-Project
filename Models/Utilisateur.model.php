@@ -46,9 +46,8 @@
             if ($operator == "equal" && $utilisateur->{$filterBy} == $filterValue) {
               $utilisateurs_list[] = new Utilisateur_Model($utilisateur->login, $utilisateur->nom, $utilisateur->prenom, $utilisateur->mp, $utilisateur->email, $utilisateur->type, $utilisateur->adresse, $utilisateur->tele);
               for ($i = array_key_first($utilisateurs_list); $i < count($utilisateurs_list); $i++) {
-                if ($utilisateur->{$filterBy} != $filterValue) {
+                if ($utilisateur->{$filterBy} != $filterValue)
                   unset($utilisateurs_list[$i]);
-                }
               }
             }
           }

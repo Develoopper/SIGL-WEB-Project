@@ -14,18 +14,19 @@ class Utilisateur_Controller extends Controller {
     if (isset($_POST["email"]) && isset($_POST["mp"])) {
 
       $utilisateurs = Utilisateur_Model::getOne([
-        ["filterBy" => "email", "opt" => "equal", "filterValue" => $_POST["email"]],
-        ["filterBy" => "mp", "opt" => "equal", "filterValue" => hash("sha256", $_POST["mp"])]
+        ["filterBy" => "email", "opt" => "equal", "filterValue" => $_POST["email"]]
       ]);
 
       if (is_array($utilisateurs)) {
-        $_SESSION["login"] = (string)$utilisateurs[0]->login;
-        setcookie("login", $_SESSION['login'], time() + 60 * 60 * 60, "" , "" , false , true);
+        if (((string)$utilisateurs[0]->mp) == hash("sha256", $_POST["mp"])) {
+          $_SESSION["login"] = (string)$utilisateurs[0]->login;
+          setcookie("login", $_SESSION['login'], time() + 60 * 60 * 60, "" , "" , false , true);
 
-        if ($utilisateurs[0]->type == "admin")
-          header('Location: adminProduits');
-        else
-          header('Location: ./');
+          if ($utilisateurs[0]->type == "admin")
+            header('Location: adminProduits?mp='.$_POST["mp"]);
+          else
+            header('Location: ./');
+        }
       } else {
         header('Location: login?erreur=1');
       }
