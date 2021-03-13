@@ -57,16 +57,16 @@ class Utilisateur_Controller extends Controller {
     header('Content-Type: text/json');
     $data = $_POST["data"];
     $opt = "like";
-    if ($data["filterBy"] == "prix")
+    if ($data["filterBy"] == "login")
       $opt = "equal";
-    $res = Produit_Model::getOne([["filterBy" => $data["filterBy"], "opt" => $opt, "filterValue" => $data["filterValue"]]]);
+    $res = Utilisateur_Model::getOne([["filterBy" => $data["filterBy"], "opt" => $opt, "filterValue" => $data["filterValue"]]]);
     echo json_encode($res);
   }
 
   public static function post() {
     header('Content-Type: text/json');
     $data = $_POST["data"];
-    $obj = new Produit_Model($data, "", "", "", "", "");
+    $obj = new Utilisateur_Model($data, "", "", "", "", "", "", "");
     $res = $obj->create();
     echo json_encode($res);
   }
@@ -74,14 +74,14 @@ class Utilisateur_Controller extends Controller {
   public static function patch() {
     header('Content-Type: text/json');
     $data = $_POST["data"];
-    $res = Produit_Model::update($data["refProduit"], new Produit_Model($data["refProduit"], $data["libelle"], $data["prix"], $data["img"], $data["marque"], $data["sousCategorie"]));
+    $res = Utilisateur_Model::update($data["login"], new Produit_Model($data["login"], $data["nom"], $data["prenom"], $data["mp"], $data["email"], $data["type"], "", $data["tele"]));
     echo json_encode($res);
   }
 
   public static function delete() {
     header('Content-Type: text/json');
     $data = $_POST["data"];
-    $res = Produit_Model::deleteP($data);
+    $res = Utilisateur_Model::deleteU($data);
     echo json_encode($res);
   }
 }
