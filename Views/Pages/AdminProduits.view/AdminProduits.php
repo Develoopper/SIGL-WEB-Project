@@ -23,7 +23,7 @@
 
 	<title>Dashboard</title>
 	<style>
-		<?php include "AdminProduits.css"; ?>
+		<?php include "adminProduits.css"; ?>
 	</style>
 </head>
 
@@ -47,6 +47,7 @@
           <th scope="col">Marque</th>
           <th scope="col">Image</th>
           <th scope="col">Sous<br>categorie</th>
+          <th scope="col">Categorie</th>
         </tr>
       </thead>
       <tbody>
@@ -60,6 +61,7 @@
                 <td>$produit->marque</td>
                 <td><img src="$produit->img" style="width: 60px; height: 60px"></td>
                 <td>$produit->sousCategorie</td>
+                <td>$produit->categorie</td>
               </tr>
             HTML;
           }
@@ -68,11 +70,15 @@
     </table>
   </div>
 
+  <script>
+    let selectOptions = JSON.parse('<?php echo json_encode(Categorie_Model::getAll()) ?>');
+  </script>
+
 	<script><?php include "bstable.js"; ?></script>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 	<script>
-		<?php include "AdminProduits.js"; ?>
+		<?php include "adminProduits.js"; ?>
 	</script>
 	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->
