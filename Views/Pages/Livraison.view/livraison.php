@@ -47,6 +47,7 @@
 							</div>
 						</div>
 						<button type="submit" class="btn btn-primary">Enregistrer</button>
+						<button type="submit" class="btn btn-primary">Enregistrer</button>
 					</div>
 				</fieldset>
 			</form>

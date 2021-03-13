@@ -8,11 +8,10 @@
 
       if (isset($_SESSION['login'])) {
         $utilisateur = Utilisateur_Model::getOne([
-            ["filterBy" => "login", "opt" => "equal", "filterValue" => $_SESSION["login"]]
+          ["filterBy" => "login", "opt" => "equal", "filterValue" => $_SESSION["login"]]
         ])[0];
+        extract(["utilisateur" => $utilisateur]);
 	    }
-
-      extract($utilisateur);
 
       require_once "Views/Pages/$view_name.view/".lcfirst($view_name).".php";
     }
