@@ -9,7 +9,11 @@
   include 'Middlewares/PreventAuth.php';
 
   Route::set("", function() {
-    Controller::CreateView("Home", []);
+    Controller::CreateView("Home", [
+      "meilleursVentes" => Produit_Model::getMeilleursVentes(),
+      "nouveautes" => Produit_Model::getNouveaute(),
+      "petitsPrix" => Produit_Model::getPetitsPrix(),
+    ]);
   });
 
   include "Routers/cart.router.php";
