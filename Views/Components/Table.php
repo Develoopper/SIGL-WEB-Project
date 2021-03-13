@@ -52,7 +52,7 @@
         // console.log(obj);
 
         $.ajax({
-          url: "http://localhost/Projects/SIGL-WEB-Project/products",
+          url: "http://localhost:5050/SIGL-WEB-Project/products",
           data: {
             method: "PATCH",
             data: obj
@@ -68,7 +68,7 @@
       },
       onDelete: function(row) {
         $.ajax({
-          url: "http://localhost/Projects/SIGL-WEB-Project/products",
+          url: "http://localhost:5050/SIGL-WEB-Project/products",
           data: {
             method: "DELETE",
             data: $(row).children()[0].innerHTML
@@ -85,7 +85,7 @@
       onAdd: function(id) {
         console.log("+++++++", id);
         $.ajax({
-          url: "http://localhost/Projects/SIGL-WEB-Project/products",
+          url: "http://localhost:5050/SIGL-WEB-Project/products",
           data: {
             method: "POST",
             data: id

@@ -54,7 +54,12 @@
 					url: "http://localhost:5050/SIGL-WEB-Project/addToCart",
 					data: {
 						method: "POST",
-						data:{refProduit: $("div[name=refProduit]").attr("id"), libelle : $("#libelle").html(), img: $("#img").attr("src"), prix: prix}
+						data: {
+							refProduit: $("div[name=refProduit]").attr("id"), 
+							libelle : $("#libelle").html(), 
+							img: $("#img").attr("src"), 
+							prix: prix
+						}
 					},
 					dataType: "json",
 					type: "POST",

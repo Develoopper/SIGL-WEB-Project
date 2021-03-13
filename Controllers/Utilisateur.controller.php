@@ -2,11 +2,9 @@
 class Utilisateur_Controller extends Controller {
 
   public static function logOut() {
-
     unset($_SESSION['login']);
     setcookie("login", "", time() - 3600);
     header("Location: ./");
-
   }
 
   public static function signIn() {

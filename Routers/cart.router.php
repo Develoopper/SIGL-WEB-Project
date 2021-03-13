@@ -3,6 +3,10 @@
     Route::post("addToCart", function() {
         Cart_Controller::createCart();
         echo Cart_Controller::addProduct($_POST["data"]);
+
+        // header('Content-Type: text/json');
+        // // header('HTTP/1.1 200 OK');
+        // echo json_encode("zbi");
     });
 
     Route::delete("deleteFromCart", function() {

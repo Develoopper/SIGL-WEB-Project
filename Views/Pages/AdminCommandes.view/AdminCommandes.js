@@ -37,7 +37,7 @@ var example2 = new BSTable("table", {
 		// console.log(obj);
 
 		$.ajax({
-			url: "http://localhost/Projects/SIGL-WEB-Project/commandes",
+			url: "http://localhost:5050/SIGL-WEB-Project/commandes",
 			data: {
 				method: "PATCH",
 				data: obj
@@ -53,7 +53,7 @@ var example2 = new BSTable("table", {
 	},
 	onDelete: function(row) {
 		$.ajax({
-			url: "http://localhost/Projects/SIGL-WEB-Project/commandes",
+			url: "http://localhost:5050/SIGL-WEB-Project/commandes",
 			data: {
 				method: "DELETE",
 				data: $(row).children()[0].innerHTML
@@ -70,7 +70,7 @@ var example2 = new BSTable("table", {
 	onAdd: function(id) {
 		console.log("+++++++", id);
 		$.ajax({
-			url: "http://localhost/Projects/SIGL-WEB-Project/commandes",
+			url: "http://localhost:5050/SIGL-WEB-Project/commandes",
 			data: {
 				method: "POST",
 				data: id
