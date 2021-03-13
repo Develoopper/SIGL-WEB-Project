@@ -1,5 +1,5 @@
 <?php
-  // include "Models/Model.php";
+  // include "./Model.php";
 
   class Produit_Model extends Model {
     public $refProduit;
@@ -23,9 +23,44 @@
     public static function getNouveaute() {
       $xml = parent::load_xml("produits");
 
+      $products_list = array();
       foreach ($xml->children() as $product) {
-        if($product->dateAjout)
-          $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
+        $date = DateTime::createFromFormat('j/m/Y', $product->dateAjout);
+        if(date_diff(new DateTime(), $date)->d <= 5) {
+          if (count($products_list) <= 12)
+            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
+        }
+      }
+
+      return $products_list;
+    }
+
+    public static function getMeilleursVentes() {
+      $xml = parent::load_xml("produits");
+
+      $products_list = array();
+      foreach ($xml->children() as $product) {
+        $produitsCommandees = LigneCommande_Model::getOne([["filterBy" => "produit", "opt" => "equal", "filterValue" => $product->refProduit]]);
+        $max = count($produitsCommandees);
+        if (count($produitsCommandees) > $max) {
+          if (count($products_list) <= 12)
+            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
+          $max = count($produitsCommandees);
+        }
+      }
+
+      return $products_list;
+    }
+
+    public static function getPetitsPrix() {
+      $xml = parent::load_xml("produits");
+
+      $products_list = array();
+      foreach ($xml->children() as $product) {
+        if((float)$product->prix <= 300.0) {
+          if (count($products_list) <= 12)
+            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
+        }
       }
 
       return $products_list;

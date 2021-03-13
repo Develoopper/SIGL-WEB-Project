@@ -30,9 +30,9 @@ class Cart_Controller extends Controller{
 	}
 
 	public static function addProduct($produit) {
-    header('Content-Type: text/json');
+    	header('Content-Type: text/json');
 
-		$produitObj = new Produit_Model($produit["refProduit"], $produit["libelle"], $produit["prix"], $produit["img"], "", "");
+		$produitObj = new Produit_Model($produit["refProduit"], $produit["libelle"], $produit["prix"], $produit["img"], "", "", "");
 
 		if (self::checkProduct($produitObj->refProduit) == false) {
 			array_push($_SESSION['panier'], $produitObj);
