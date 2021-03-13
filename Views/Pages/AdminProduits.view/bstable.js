@@ -182,6 +182,19 @@ class BSTable {
 				'" value="' +
 				content +
 				'">';
+
+			if (i == 3) {
+				input = '<select class="form-select form-select-sm">';
+				selectOptions.map(option => {
+					input += `
+						<option value="${option.id["0"]}" ${option.id["0"] == content ? "selected" : "" }>
+							${option.libelle["0"]}
+						</option>
+					`;
+				});
+				input +=	'</select>';
+			}
+
 			$td.html(div + input); // set content
 		});
 		this._actionsModeEdit(button);

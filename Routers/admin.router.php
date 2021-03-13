@@ -1,21 +1,21 @@
 <?php
-  Route::set("adminUtilisateurs", "Auth", function() {
+  Route::set("adminUtilisateurs", function() {
     Controller::CreateView("AdminUtilisateurs", []);
   });
 
-  Route::set("adminProduits", "Auth", function() {
+  Route::set("adminProduits", function() {
     Controller::CreateView("AdminProduits", []);
   });
 
-  Route::set("adminCommandes", "Auth", function() {
+  Route::set("adminCommandes", function() {
     Controller::CreateView("AdminCommandes", []);
   });
 
-  Route::set("adminCategories", "Auth", function() {
+  Route::set("adminCategories", function() {
     Controller::CreateView("AdminCategories", []);
   });
 
-  Route::set("adminSousCategories", "Auth", function() {
+  Route::set("adminSousCategories", function() {
     Controller::CreateView("AdminSousCategories", []);
   });
 
