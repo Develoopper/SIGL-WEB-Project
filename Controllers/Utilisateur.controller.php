@@ -16,14 +16,16 @@ class Utilisateur_Controller extends Controller {
       ]);
 
       if (is_array($utilisateurs)) {
-        if (((string)$utilisateurs[0]->mp) == hash("sha256", $_POST["mp"])) {
+        if ($utilisateurs[0]->mp == hash("sha256", $_POST["mp"])) {
           $_SESSION["login"] = (string)$utilisateurs[0]->login;
           setcookie("login", $_SESSION['login'], time() + 60 * 60 * 60, "" , "" , false , true);
 
           if ($utilisateurs[0]->type == "admin")
-            header('Location: adminProduits?mp='.$_POST["mp"]);
+            header('Location: adminProduits');
           else
             header('Location: ./');
+        } else {
+          header('Location: login?erreur=2');
         }
       } else {
         header('Location: login?erreur=1');
@@ -38,9 +40,9 @@ class Utilisateur_Controller extends Controller {
         ["filterBy" => "email", "opt" => "equal", "filterValue" => $_POST["emailIns"]]
       ]);
       if (!is_array($utilisateurs)) {
-        $newUtilisateur = new Utilisateur_Model("", $_POST["nom"], $_POST["prenom"], $_POST["mpIns"], $_POST["emailIns"], "client");
+        $newUtilisateur = new Utilisateur_Model("", $_POST["nom"], $_POST["prenom"], $_POST["mpIns"], $_POST["emailIns"], "client", "", $_POST["telephone"]);
         if ($newUtilisateur->create())
-          header("Location: ./");
+          header("Location: login");
       } else {
         header("Location: login?exist=1");
       }

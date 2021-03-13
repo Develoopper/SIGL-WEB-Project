@@ -11,14 +11,14 @@
     public $adresse;
     public $tele;
 
-    public function __construct($login = "", $nom, $prenom, $mp, $email, $type, $adresse="", $tele="") {
+    public function __construct($login, $nom, $prenom, $mp, $email, $type, $adresse, $tele) {
       if ($login == "")
         $login = md5($nom.$prenom);
 
       $this->login = $login;
       $this->nom=  $nom;
       $this->prenom = $prenom;
-      $this->mp = hash("sha256", $mp);
+      $this->mp = $mp;
       $this->email = $email;
       $this->type = $type;
       $this->adresse = $adresse;
@@ -68,7 +68,7 @@
         $utilisateur->addChild("login", $this->login);
         $utilisateur->addChild("nom", $this->nom);
         $utilisateur->addChild("prenom", $this->prenom);
-        $utilisateur->addChild("mp", hash("sha256",$this->mp));
+        $utilisateur->addChild("mp", hash("sha256", $this->mp));
         $utilisateur->addChild("email", $this->email);
         $utilisateur->addChild("type", $this->type);
         $utilisateur->addChild("adresse", $this->adresse);
