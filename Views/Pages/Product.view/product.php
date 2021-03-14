@@ -55,9 +55,9 @@
 					data: {
 						method: "POST",
 						data: {
-							refProduit: $("div[name=refProduit]").attr("id"), 
-							libelle : $("#libelle").html(), 
-							img: $("#img").attr("src"), 
+							refProduit: $("div[name=refProduit]").attr("id"),
+							libelle : $("#libelle").html(),
+							img: $("#img").attr("src"),
 							prix: prix
 						}
 					},

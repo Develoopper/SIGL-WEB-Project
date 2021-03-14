@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <commandes>
-  <commande>
-    <id>1</id>
-    <libellee>libellee1</libellee>
-    <prix>100</prix>
-  </commande>
-  <commande>
-    <id>2</id>
-    <libellee>libellee2</libellee>
-    <prix>200</prix>
-  </commande>
-  <commande>
-    <id>3</id>
-    <libellee>libellee3</libellee>
-    <prix>300</prix>
+  <commande login="montant">
+    <numCommande>0</numCommande>
+    <libelle>commande0</libelle>
+    <date>date</date>
+    <etat>etatCmd</etat>
+    <montant>dateCmd</montant>
   </commande>
 </commandes>

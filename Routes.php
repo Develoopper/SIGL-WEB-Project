@@ -24,5 +24,7 @@
   include "Routers/utilisateur.router.php";
   include "Routers/categorie.router.php";
   include "Routers/sousCategorie.router.php";
+  include "Routers/commande.router.php";
+
 
 ?>

@@ -1,7 +1,8 @@
 <?php
-  include "./Model.php";
+  // include "./Model.php";
 
   class Commande_Model extends Model {
+    public static $NbreCommandes;
     public $numCommande;
     public $libelle;
     public $dateCommande;
@@ -10,8 +11,16 @@
     public $login;
 
     public function __construct($numCommande, $libelle, $dateCommande, $etat, $montant, $login) {
-      $this->numCommande = $numCommande;
-      $this->libelle = $libelle;
+      if ($numCommande == "")
+        $this->numCommande = self::$NbreCommandes++;
+      else
+        $this->numCommande = $numCommande;
+
+      if ($libelle == "")
+        $this->libelle = "commande".$this->numCommande;
+      else
+        $this->libelle = $libelle;
+
       $this->dateCommande = $dateCommande;
       $this->montant = $montant;
       $this->login = $login;
@@ -53,21 +62,20 @@
 
     public function create() {
       $xml = parent::load_xml("commandes");
-      $exist = parent::searchInXML($this->id, $xml)[0];
+      $exist = parent::searchInXML($this->numCommande, $xml)[0];
 
       if(!$exist){
         $commande = $xml->addChild("commande");
         $commande->addAttribute("login", $this->login);
         $commande->addChild("numCommande", $this->numCommande);
         $commande->addChild("libelle", $this->libelle);
-        $commande->addChild("date", $this->dateCommande->format('Y-m-d H:i:s'));
+        $commande->addChild("date", $this->dateCommande);
         $commande->addChild("etat", $this->etat);
         $commande->addChild("montant", $this->montant);
 
-        return Parent::saveInFile($xml, "commandes");
-      }
-      else
-      {
+        if (Parent::saveInFile($xml, "commandes") == 1)
+          return $this->numCommande;
+      } else {
         return "une commande avec le meme numéro existe déjà";
       }
     }
@@ -95,5 +103,9 @@
         return "Vous devez entrer un numero de commande.";
     }
   }
+
+  // $obj = new Commande_Model("", "", "date", "etatCmd", "dateCmd", "montant","login");
+  // $res = $obj->create();
+  // echo $res;
 
 ?>

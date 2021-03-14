@@ -85,9 +85,9 @@
 						<a href="./" class="text-light" style="text-decoration: none;">
 							<button type="button" class="btn btn-outline-dark mt-3 me-2" style="width: 250px">Poursuivre vos achats</button>
 						</a>
-						<a href="livraison" class="text-light" style="text-decoration: none;">
-							<button type="button" class="btn btn-dark mt-3" style="width: 250px">Commander</button>
-						</a>
+						<!-- <a href="" class="text-light" style="text-decoration: none;"> -->
+							<button type="button" class="btn btn-dark mt-3" id="commander" style="width: 250px">Commander</button>
+						<!-- </a> -->
 					</div>
 				</div>
 
@@ -168,6 +168,43 @@
 				});
 			}
 		);
+
+		$("#commander").on("click", function() {
+			var today = new Date();
+			var dd = String(today.getDate()).padStart(2, '0');
+			var mm = String(today.getMonth() + 1).padStart(2, '0');
+			var yyyy = today.getFullYear();
+			today = mm + '/' + dd + '/' + yyyy;
+
+			$produitsCommandes = new Array();
+			$(".produits").each( function() {
+				qte = parseFloat($(this).children().last().children(".qte").children("h6").html());
+				refProduit = $(this).attr("id");
+				$produitsCommandes.push({qte, refProduit});
+			});
+
+			$.ajax({
+				url: "http://localhost:5050/SIGL-WEB-Project/addCommande",
+				data: {
+					method: "POST",
+					data: {
+						dateCmd: today,
+						etatCmd: "en cours",
+						montant: $("#totale").html(),
+						login: <?php echo "'" .$utilisateur->login . "'" ?>,
+						produitsCommandes: $produitsCommandes
+					}
+				},
+				dataType: "json",
+				type: "POST",
+				success: function (data) {
+					console.log("*****", data);
+				},
+				error: function () {
+					console.log("*****");
+				}
+			});
+		});
 	</script>
 	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->

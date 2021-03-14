@@ -1,15 +1,17 @@
 <?php
-  include "./Model.php";
+  // include "./Model.php";
 
   class LigneCommande_Model extends Model {
     public $id;
     public $commande;
     public $produit;
+    public $qte;
 
-    public function __construct($commande, $produit) {
+    public function __construct($commande, $produit, $qte) {
       $this->id = md5($commande.$produit);
       $this->commande = $commande;
       $this->produit = $produit;
+      $this->qte = $qte;
     }
 
     public static function getOne($where) {
@@ -23,7 +25,7 @@
                 $filterValue = $filter["filterValue"];
 
                 if($operator == "equal" && $ligneCmd->{$filterBy} == $filterValue){
-                    $lignesCmds_list[] = new LigneCommande_Model($ligneCmd->commande, $ligneCmd->produit);
+                    $lignesCmds_list[] = new LigneCommande_Model($ligneCmd->commande, $ligneCmd->produit, $ligneCmd->qte);
                 }
             }
         }
@@ -35,7 +37,7 @@
       $xml = parent::load_xml("ligneCommandes");
 
       foreach( $xml->children() as $ligneCmd){
-        $lignesCmds_list[] = new LigneCommande_Model($ligneCmd->commande, $ligneCmd->produit);
+        $lignesCmds_list[] = new LigneCommande_Model($ligneCmd->commande, $ligneCmd->produit, $ligneCmd->qte);
       }
 
       return $lignesCmds_list;
@@ -46,9 +48,10 @@
       $exist = parent::searchInXML($this->id, $xml)[0];
 
       if(!$exist){
-        $commande = $xml->addChild("ligneCommande");
-        $commande->addChild("commande", $this->commande);
-        $commande->addChild("produit", $this->produit);
+        $ligneCommande = $xml->addChild("ligneCommande");
+        $ligneCommande->addChild("commande", $this->commande);
+        $ligneCommande->addChild("produit", $this->produit);
+        $ligneCommande->addChild("qte", $this->qte);
 
         return Parent::saveInFile($xml, "ligneCommandes");
       }
@@ -68,6 +71,7 @@
 
         $ligneCommande->commande = $newLigneCommande->commande;
         $ligneCommande->produit = $newLigneCommande->produit;
+        $ligneCommande->qte = $newLigneCommande->qte;
 
         return Parent::saveInFile($xml,"commandes");
       }else{
@@ -79,8 +83,10 @@
       if(isset($id))
         return parent::delete($id, "ligneCommandes", "ligneCommande", "id");
       else
-        return "Vous devez entrer un numero de ligne de commande.";
+        return "Vous devez entrer un identifiant de ligne de commande.";
     }
   }
 
+	// $ligneCmd = new LigneCommande_Model("commande", "refPrduit", "qte");
+	// echo $ligneCmd->create();
 ?>

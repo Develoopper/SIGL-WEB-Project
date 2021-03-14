@@ -7,7 +7,9 @@
       $opt = "like";
       if ($data["filterBy"] == "prix")
         $opt = "equal";
-      $res = Produit_Model::getOne([["filterBy" => $data["filterBy"], "opt" => $opt, "filterValue" => $data["filterValue"]]]);
+      $res = Produit_Model::getOne([
+        ["filterBy" => $data["filterBy"], "opt" => $opt, "filterValue" => $data["filterValue"]]
+      ]);
       echo json_encode($res);
     }
 
