@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <commandes>
-  <commande login="montant">
-    <numCommande>0</numCommande>
-    <libelle>commande0</libelle>
-    <date>date</date>
-    <etat>etatCmd</etat>
-    <montant>dateCmd</montant>
-  </commande>
+
 </commandes>
