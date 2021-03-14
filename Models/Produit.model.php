@@ -41,11 +41,13 @@
       $products_list = array();
       foreach ($xml->children() as $product) {
         $produitsCommandees = LigneCommande_Model::getOne([["filterBy" => "produit", "opt" => "equal", "filterValue" => $product->refProduit]]);
-        $max = count($produitsCommandees);
-        if (count($produitsCommandees) > $max) {
-          if (count($products_list) <= 12)
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
+        if (is_array($produitsCommandees)) {
           $max = count($produitsCommandees);
+          if (count($produitsCommandees) > $max) {
+            if (count($products_list) <= 12)
+              $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
+            $max = count($produitsCommandees);
+          }
         }
       }
 
