@@ -34,10 +34,6 @@
 	<div class="jquery-script-clear"></div>
   </div>
   <div class="mx-3 mt-5">
-    <button id="table-new-row-button" class="btn btn-outline-dark d-flex align-items-center mb-1">
-      <i class="material-icons me-1" style="font-size: 20px;">add</i>
-      Nouvelle ligne
-    </button>
     <table class="table table-striped table-bordered" id="table">
       <thead class="text-light" style="background-color: #343a40;">
         <tr>
@@ -48,6 +44,7 @@
           <th scope="col">Image</th>
           <th scope="col">Categorie</th>
           <th scope="col">Sous<br>categorie</th>
+          <th scope="col">Date<br>d'ajout</th>
         </tr>
       </thead>
       <tbody>
@@ -70,12 +67,17 @@
                 <td><img src="$produit->img" style="width: 60px; height: 60px"></td>
                 <td><span id="$sousCategorie->categorie">$categorie->libelle</span></td>
                 <td><span id="$produit->sousCategorie">$sousCategorie->libelle</span></td>
+                <td>$produit->dateAjout</td>
               </tr>
             HTML;
           }
         ?>
       </tbody>
     </table>
+    <button id="table-new-row-button" class="btn btn-outline-dark d-flex align-items-center mb-1">
+      <i class="material-icons me-1" style="font-size: 20px;">add</i>
+      Nouvelle ligne
+    </button>
   </div>
   
   <script>

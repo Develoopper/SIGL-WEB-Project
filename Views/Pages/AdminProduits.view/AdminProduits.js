@@ -1,3 +1,11 @@
+function getTodayDate() {
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+  var yyyy = today.getFullYear();
+  return dd + '/' + mm + '/' + yyyy;
+}
+
 $(document).ready(function(){
 	// Activate tooltip
 	$('[data-toggle="tooltip"]').tooltip();
@@ -42,7 +50,7 @@ var example2 = new BSTable("table", {
 	$addButton: $('#table-new-row-button'),
 	onEdit: function(row) {
 		var obj = {};
-		["refProduit", "libelle", "prix", "marque", "img", "categorie", "sousCategorie"].map((key, index) => {
+		["refProduit", "libelle", "prix", "marque", "img", "categorie", "sousCategorie", "dateAjout"].map((key, index) => {
 			obj[key] = row[index];
 		});
 

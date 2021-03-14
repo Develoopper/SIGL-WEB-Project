@@ -15,6 +15,7 @@
     <prix>65</prix>
     <marque>Miniwallet</marque>
     <img>https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/42/139382/1.jpg?9659</img>
+    <dateAjout/>
   </produit>
   <produit sousCategorie="3">
     <refProduit>3</refProduit>
@@ -36,6 +37,7 @@
     <prix>199</prix>
     <marque/>
     <img>https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/68/344182/1.jpg?2292</img>
+    <dateAjout/>
   </produit>
   <produit sousCategorie="6">
     <refProduit>6</refProduit>

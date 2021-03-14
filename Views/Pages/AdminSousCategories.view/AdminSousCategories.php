@@ -34,10 +34,6 @@
 	<div class="jquery-script-clear"></div>
   </div>
   <div class="mx-3 mt-5">
-    <button id="table-new-row-button" class="btn btn-outline-dark d-flex align-items-center mb-1">
-      <i class="material-icons me-1" style="font-size: 20px;">add</i>
-      Nouvelle ligne
-    </button>
     <table class="table table-striped table-bordered" id="table">
       <thead class="text-light" style="background-color: #343a40;">
         <tr>
@@ -64,6 +60,10 @@
         ?>
       </tbody>
     </table>
+    <button id="table-new-row-button" class="btn btn-outline-dark d-flex align-items-center mb-1">
+      <i class="material-icons me-1" style="font-size: 20px;">add</i>
+      Nouvelle ligne
+    </button>
   </div>
 
   <script>

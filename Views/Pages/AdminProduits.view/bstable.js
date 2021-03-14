@@ -241,16 +241,19 @@ class BSTable {
 				src = cont;
 				cont = `<img src="${cont}" style="width: 60px; height: 60px">`;
 			}
+			
 			if (i == 6 || i == 7) {
 				if (i == 6)
 					id1 = $td.find("select").val();
 				if (i == 7)
 					id2 = $td.find("select").val();
-				cont = `
-					<span id="${$td.find("select").val()}">
-						${$td.find("select")["0"].options[$td.find("select").val() - 1].text}
-					</span>
-				`; // read through each input
+
+				let optionText = "";
+				for (const option of $td.find("select")["0"].options) {
+					if ($td.find("select").val() == option.value)
+						optionText = option.text;
+				}
+				cont = `<span id="${$td.find("select").val()}">${optionText}</span>`; // read through each input
 				// console.log("(", $td.find("select").attr("options"));
 				// console.log("+", $td.find("select")["0"].options[$td.find("select").val() - 1].text);
 			}
@@ -263,11 +266,11 @@ class BSTable {
 		let j = 0;
 		for (const att of $($currentRow[0]).children()) {
 			j++;
-			if (j === 5)
+			if (j == 5)
 				currentRow.push(src);
-			if (j === 6)
+			else if (j == 6)
 				currentRow.push(id1);
-			if (j === 7)
+			else if (j == 7)
 				currentRow.push(id2);
 			else
 				currentRow.push(att.innerHTML);
@@ -304,12 +307,14 @@ class BSTable {
 			let $cols = $currentRow.find("th"); // read each header field
 			// create the new row
 			let newColumnHTML = "";
+			let i = 0;
 			$cols.each(function () {
+				i++;
 				let column = this; // Inner function this (column object)
 				if ($(column).attr("name") == "bstable-actions") {
 					newColumnHTML = newColumnHTML + actionsColumnHTML; // add action buttons
 				} else {
-					newColumnHTML = newColumnHTML + "<td></td>";
+					newColumnHTML = newColumnHTML + "<td>" + i == 8 ? getTodayDate() : "" + "</td>";
 				}
 			});
 			this.table.find("tbody").append("<tr>" + newColumnHTML + "</tr>");
@@ -322,15 +327,15 @@ class BSTable {
       id = parseInt($cols[0].innerHTML) + 1;
       let i = 0;
 			$cols.each(function () {
+				i++;
 				let column = this; // Inner function this (column object)
 				if ($(column).attr("name") == "bstable-actions")
 					// action buttons column. change nothing
           ;
-        else if (i == 0)
+        else if (i == 1)
           $(column).html(id);
 				else 
-					$(column).html(""); // clear the text
-        i++;
+					$(column).html(i == 8 ? getTodayDate() : ""); // clear the text
 			});
 		}
 		this._addOnClickEventsToActions(); // Add onclick events to each action button in all rows

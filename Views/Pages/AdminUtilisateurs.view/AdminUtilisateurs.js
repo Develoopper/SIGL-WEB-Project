@@ -30,7 +30,7 @@ var example2 = new BSTable("table", {
 	$addButton: $('#table-new-row-button'),
 	onEdit: function(row) {
 		var obj = {};
-		["login", "nom", "prenom", "mp", "email", "type", "adresse"].map((key, index) => {
+		["login", "nom", "prenom", "mp", "email", "tele", "type", "adresse"].map((key, index) => {
 			obj[key] = $(row).children()[index].innerHTML;
 		});
 
