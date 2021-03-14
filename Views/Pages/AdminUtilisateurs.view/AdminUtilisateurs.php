@@ -34,10 +34,6 @@
 	<div class="jquery-script-clear"></div>
   </div>
   <div class="mx-3 mt-5">
-    <button id="table-new-row-button" class="btn btn-outline-dark d-flex align-items-center mb-1">
-      <i class="material-icons me-1" style="font-size: 20px;">add</i>
-      Nouvelle ligne
-    </button>
     <table class="table table-striped table-bordered" id="table">
       <thead class="text-light" style="background-color: #343a40;">
         <tr>
@@ -46,6 +42,7 @@
           <th scope="col">Prenom</th>
           <th scope="col" class="text-truncate">Mdp</th>
           <th scope="col">Email</th>
+          <th scope="col">Tel</th>
           <th scope="col">Type</th>
           <th scope="col">Adresse</th>
         </tr>
@@ -56,18 +53,23 @@
             echo <<<HTML
               <tr>
                 <td class="text-truncate" style="max-width: 150px">$utilisateur->login</td>
-                <td>$utilisateur->nom</td>
-                <td>$utilisateur->prenom</td>
-                <td class="text-truncate" style="max-width: 150px">$utilisateur->mp</td>
-                <td>$utilisateur->email</td>
-                <td>$utilisateur->type</td>
-                <td>$utilisateur->adresse</td>
+                <td class="text-truncate" style="max-width: 100px">$utilisateur->nom</td>
+                <td class="text-truncate" style="max-width: 100px">$utilisateur->prenom</td>
+                <td class="text-truncate" style="max-width: 100px">$utilisateur->mp</td>
+                <td class="text-truncate" style="max-width: 150px">$utilisateur->email</td>
+                <td class="text-truncate" style="max-width: 80px">$utilisateur->tele</td>
+                <td class="text-truncate" style="max-width: 80px">$utilisateur->type</td>
+                <td class="text-truncate" style="max-width: 200px">$utilisateur->adresse</td>
               </tr>
             HTML;
           }
         ?>
       </tbody>
     </table>
+    <button id="table-new-row-button" class="btn btn-outline-dark d-flex align-items-center mb-1">
+      <i class="material-icons me-1" style="font-size: 20px;">add</i>
+      Nouvelle ligne
+    </button>
   </div>
 
 	<script><?php include "Views/assets/bstable.js"; ?></script>
