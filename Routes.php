@@ -6,6 +6,7 @@
   include "./Models/SousCategorie.model.php";
   // include "./Models/Utilisateur.model.php";
   include 'Middlewares/Auth.php';
+  include 'Middlewares/AdminAuth.php';
   include 'Middlewares/PreventAuth.php';
 
   Route::set("", function() {
