@@ -3,7 +3,11 @@ class Utilisateur_Controller extends Controller {
 
   public static function logOut() {
     unset($_SESSION['login']);
-    setcookie("login", "", time() - 3600);
+    setcookie("login", "", array(
+      'expires' => time() - 3600,
+      'httponly' => true,    // or false
+      'samesite' => 'Lax' // None || Lax  || Strict
+    ));
     header("Location: ./");
   }
 
@@ -18,7 +22,11 @@ class Utilisateur_Controller extends Controller {
       if (is_array($utilisateurs)) {
         if ($utilisateurs[0]->mp == hash("sha256", $_POST["mp"])) {
           $_SESSION["login"] = (string)$utilisateurs[0]->login;
-          setcookie("login", $_SESSION['login'], time() + 60 * 60 * 60, "" , "" , false , true);
+          setcookie("login", $_SESSION['login'], array(
+            'expires' => time() + 60 * 60 * 60,
+            'httponly' => true,    // or false
+            'samesite' => 'Lax' // None || Lax  || Strict
+          ));
 
           if ($utilisateurs[0]->type == "admin")
             header('Location: adminProduits');
