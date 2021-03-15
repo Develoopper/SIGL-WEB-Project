@@ -47,14 +47,17 @@
 				<?php
 					if (isset($_COOKIE["panier"])) {
 						$produits = unserialize($_COOKIE["panier"]);
-						var_dump($produits);
+						var_dump(json_encode($produits));
 						foreach ($produits as $produit) {
 							echo <<<HTML
-								<div class="d-flex justify-content-between align-items-center rounded p-2 bg-white text-dark border border-dark mb-3 produits" id="{$produit->refProduit}">
-									<img src="{$produit->img}" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
-									<div>
-										<h6 class="text-truncate" style="width: 485px" name="libelle">$produit->libelle</h6>
-										<span style="font-size: 15px" name="prix">$produit->prix DH</span>
+								<div class="d-flex justify-content-between rounded p-2 bg-white text-dark border border-dark mb-3 produits" id="{$produit->refProduit}">
+									<div class="d-flex align-items-center">
+										<img src="{$produit->img}" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
+										<div>
+											<h6 class="text-truncate" style="width: 485px" name="libelle">$produit->libelle</h6>
+											<span style="font-size: 15px" name="prix">$produit->prix</span>
+											<span style="font-size: 15px">DH</span>
+										</div>
 									</div>
 									<div class="d-flex justify-content-between align-items-center">
 										<div class="bg-dark" style="height: 60px; width: 1px;"></div>
@@ -65,7 +68,10 @@
 										</div>
 										<div class="bg-dark" style="height: 60px; width: 1px;"></div>
 										<div class="prixQte">
-											<h6 class="mx-3 mb-0"><b name="prixQte"></b> DH</h6>
+											<h6 class="mx-3 mb-0">
+												<b name="prixQte"></b>
+												<b>DH</b>
+											</h6>
 										</div>
 										<div class="bg-dark" style="height: 60px; width: 1px;"></div>
 										<a name="delete"><i class= "material-icons mx-1 text-dark mx-3 ps-2">delete</i></a>
@@ -78,7 +84,7 @@
 				?>
 
 				<div style="width: 100%" class="d-flex flex-column align-items-end">
-					<h6 class="me-3 mt-3">Total : <b class="ms-3" id="totale"></b> DH</h6>
+					<h6 class="me-3 mt-3">Total : <b class="ms-3" id="totale"></b> <b>DH</b></h6>
 					<div class="d-flex">
 						<a href="./" class="text-light" style="text-decoration: none;">
 							<button type="button" class="btn btn-outline-dark mt-3 me-2" style="width: 250px">Poursuivre vos achats</button>
@@ -106,10 +112,10 @@
 			var qte;
 
 			$(".produits").each( function(indice) {
-				prix = parseFloat($("[name='prix']").html());
+				prix = parseFloat($(this).children().first().children().last().children("[name='prix']").html());
 				qte = parseFloat($(this).children().last().children(".qte").children("h6").html());
 				console.log(prix, qte);
-				$(this).children().last().children(".prixQte").children("h6").children("b").html(prix * qte);
+				$(this).children().last().children(".prixQte").children("h6").children("[name='prixQte']").html(prix * qte);
 			});
 		}
 
