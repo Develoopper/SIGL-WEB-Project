@@ -7,7 +7,7 @@
     <marque>Naviforce</marque>
     <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/24/177193/1.jpg?3360</img>
     <sousCategorie>Montres - Homme</sousCategorie>
-    <dateAjout>10/02/2021</dateAjout>
+    <dateAjout>10/02/2021<dateAjout/>
   </produit>
   <produit sousCategorie="2">
     <refProduit>2</refProduit>
@@ -15,7 +15,7 @@
     <prix>65</prix>
     <marque>Miniwallet</marque>
     <img>https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/42/139382/1.jpg?9659</img>
-    <dateAjout>11/02/2021</dateAjout>
+    <dateAjout>11/02/2021<dateAjout/>
   </produit>
   <produit sousCategorie="3">
     <refProduit>3</refProduit>

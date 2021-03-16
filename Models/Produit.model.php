@@ -24,12 +24,17 @@
       $xml = parent::load_xml("produits");
 
       $products_list = array();
-      foreach ($xml->children() as $product) {
-        $date = DateTime::createFromFormat('j/m/Y', $product->dateAjout);
-        if(date_diff(new DateTime(), $date)->d <= 5) {
-          if (count($products_list) <= 12)
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
+      $i = 0;
+      $listProduits = (array)$xml->children();
+      foreach ($listProduits as $product) {
+        $iMin = $i;
+        for ($j = $i + 1; $j < count($listProduits); $j++) {
+          $date = DateTime::createFromFormat('j/m/Y', $product->dateAjout);
+          //if (date_diff(new DateTime(), $date)->d < );
         }
+        if (count($products_list) <= 12)
+            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
+        $i++;
       }
 
       return $products_list;
