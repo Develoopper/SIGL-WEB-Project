@@ -1,9 +1,16 @@
 <?php
-  class Model {
+  class Model implements Serializable{
 
     public static function load_xml($entity) {
       $xml = simplexml_load_file("Database/$entity.xml");
       return $xml;
+    }
+
+    public function serialize() {
+      return serialize($this->data);
+    }
+    public function unserialize($data) {
+      $this->data = unserialize($data);
     }
 
     protected static function saveInFile($xml, $fileName){

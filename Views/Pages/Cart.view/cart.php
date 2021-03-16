@@ -129,19 +129,20 @@
 					dataType: "json",
 					type: "POST",
 					success: function (data) {
-						$(".produits").each( function() {
-							var contains = false;
-							data.forEach(produit => {
-								if ($(this).attr("id") == produit.refProduit) {
-									contains = true;
-									console.log('====================================');
-									console.log(contains);
-									console.log('====================================');
-								}
-							});
-							if (!contains)
-								$(this).remove();
-						});
+						// $(".produits").each( function() {
+						// 	console.log(data);
+						// 	var contains = false;
+						// 	data.forEach(produit => {
+						// 		if ($(this).attr("id") == produit.refProduit) {
+						// 			contains = true;
+						// 			console.log('====================================');
+						// 			console.log(contains);
+						// 			console.log('====================================');
+						// 		}
+						// 	});
+						// 	if (!contains)
+						// 		$(this).remove();
+						// });
 					}
 				});
 			}

@@ -10,8 +10,7 @@
     });
 
     Route::delete("deleteFromCart", function() {
-        if (Cart_Controller::createCart())
-            echo Cart_Controller::deleteProduct($_POST["data"]);
+        echo Cart_Controller::deleteProduct($_POST["data"]);
     });
 
 

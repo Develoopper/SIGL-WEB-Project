@@ -66,8 +66,9 @@ class Cart_Controller extends Controller{
 
 		if (isset($_SESSION['panier'])) {
 			foreach (unserialize($_SESSION['panier']) as $produit) {
-				if ($produit->refProduit != $refProduit) {
+				if ((int)$produit->refProduit != (int)$refProduit) {
 					array_push($panier_tmp, $produit);
+					return $produit->refProduit;
 				}
 			}
 		}
