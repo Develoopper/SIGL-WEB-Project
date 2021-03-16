@@ -17,7 +17,7 @@
         $this->numCommande = $numCommande;
 
       if ($libelle == "")
-        $this->libelle = "commande".$this->numCommande;
+        $this->libelle = "commande" . $this->numCommande;
       else
         $this->libelle = $libelle;
 
@@ -80,15 +80,26 @@
       }
     }
 
-    public static function update($numCommande, $newCommande) {
+    protected static function searchInCommandeXML($numCommande, $xml) {
+      $exist = false;
+      foreach($xml->children() as $element){
+        if($element->numCommande == $numCommande){
+          $exist = true;
+          $foundElement = $element;
+        }
+      }
+      return [$exist, @$foundElement];
+    }
+
+    public static function update($numCommande, $etat) {
       $xml = parent::load_xml("commandes");
-      $exist = parent::searchInXML($numCommande, $xml)[0];
+      $exist = self::searchInCommandeXML($numCommande, $xml)[0];
 
       if($exist){
         $id = $xml->xpath("//commande/numCommande[.='$numCommande']")[0];
-        $categorie = current($id->xpath("parent::*"));
+        $commande = current($id->xpath("parent::*"));
 
-        $categorie->etat = $newCommande->etat;
+        $commande->etat = $etat;
 
         return Parent::saveInFile($xml,"commandes");
       }else{

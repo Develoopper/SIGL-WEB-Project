@@ -1,8 +1,8 @@
 <?php
 
     Route::post("addToCart", function() {
-        Cart_Controller::createCart();
-        echo Cart_Controller::addProduct($_POST["data"]);
+        if (Cart_Controller::createCart())
+            echo Cart_Controller::addProduct($_POST["data"]);
 
         // header('Content-Type: text/json');
         // // header('HTTP/1.1 200 OK');

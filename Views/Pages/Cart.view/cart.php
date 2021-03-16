@@ -45,44 +45,44 @@
 
 			<div class="mx-5" style="width: 900px">
 				<?php
-					if (isset($_COOKIE["panier"])) {
-						$produits = unserialize($_COOKIE["panier"]);
-						var_dump(json_encode($produits));
-						foreach ($produits as $produit) {
-							echo <<<HTML
-								<a href="product?id={$produit->refProduit}">
-									<div class="d-flex justify-content-between rounded p-2 bg-white text-dark border border-dark mb-3 produits" id="{$produit->refProduit}">
-										<div class="d-flex align-items-center">
-											<img src="{$produit->img}" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
-											<div>
-												<h6 class="text-truncate" style="width: 485px" name="libelle">$produit->libelle</h6>
-												<span style="font-size: 15px" name="prix">$produit->prix</span>
-												<span style="font-size: 15px">DH</span>
+						if (isset($_COOKIE["panier"])) {
+							$produits = unserialize($_COOKIE["panier"]);
+							var_dump(json_encode($produits));
+							foreach ($produits as $produit) {
+								echo <<<HTML
+									<a href="product?id={$produit->refProduit}">
+										<div class="d-flex justify-content-between rounded p-2 bg-white text-dark border border-dark mb-3 produits" id="{$produit->refProduit}">
+											<div class="d-flex align-items-center">
+												<img src="{$produit->img}" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
+												<div>
+													<h6 class="text-truncate" style="width: 485px" name="libelle">$produit->libelle</h6>
+													<span style="font-size: 15px" name="prix">$produit->prix</span>
+													<span style="font-size: 15px">DH</span>
+												</div>
+											</div>
+											<div class="d-flex justify-content-between align-items-center">
+												<div class="bg-dark" style="height: 60px; width: 1px;"></div>
+												<div class="d-flex mx-3 qte">
+													<a style="" name="decrement"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">remove</i></a>
+													<h6 class="mx-4 mb-0" name="qte">1</h6>
+													<a style="" name="increment"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">add</i></a>
+												</div>
+												<div class="bg-dark" style="height: 60px; width: 1px;"></div>
+												<div class="prixQte">
+													<h6 class="mx-3 mb-0">
+														<b name="prixQte"></b>
+														<b>DH</b>
+													</h6>
+												</div>
+												<div class="bg-dark" style="height: 60px; width: 1px;"></div>
+												<a name="delete"><i class= "material-icons mx-1 text-dark mx-3 ps-2">delete</i></a>
 											</div>
 										</div>
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="bg-dark" style="height: 60px; width: 1px;"></div>
-											<div class="d-flex mx-3 qte">
-												<a style="" name="decrement"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">remove</i></a>
-												<h6 class="mx-4 mb-0" name="qte">1</h6>
-												<a style="" name="increment"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">add</i></a>
-											</div>
-											<div class="bg-dark" style="height: 60px; width: 1px;"></div>
-											<div class="prixQte">
-												<h6 class="mx-3 mb-0">
-													<b name="prixQte"></b>
-													<b>DH</b>
-												</h6>
-											</div>
-											<div class="bg-dark" style="height: 60px; width: 1px;"></div>
-											<a name="delete"><i class= "material-icons mx-1 text-dark mx-3 ps-2">delete</i></a>
-										</div>
-									</div>
-								</a>
-							HTML;
-							$i++;
+									</a>
+								HTML;
+							}
 						}
-					}
+
 				?>
 
 				<div style="width: 100%" class="d-flex flex-column align-items-end">
@@ -129,7 +129,20 @@
 					dataType: "json",
 					type: "POST",
 					success: function (data) {
-						console.log("*****", data);
+						// $(".produits").each( function() {
+						// 	console.log(data);
+						// 	var contains = false;
+						// 	data.forEach(produit => {
+						// 		if ($(this).attr("id") == produit.refProduit) {
+						// 			contains = true;
+						// 			console.log('====================================');
+						// 			console.log(contains);
+						// 			console.log('====================================');
+						// 		}
+						// 	});
+						// 	if (!contains)
+						// 		$(this).remove();
+						// });
 					}
 				});
 			}
@@ -157,7 +170,7 @@
 						dateCmd: today,
 						etatCmd: "en cours",
 						montant: $("#totale").html(),
-						login: <?php echo "'" .$utilisateur->login . "'" ?>,
+						login: <?php echo "'" . $utilisateur->login . "'" ?>,
 						produitsCommandes: $produitsCommandes
 					}
 				},

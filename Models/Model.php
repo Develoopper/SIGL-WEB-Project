@@ -1,18 +1,25 @@
 <?php
-  class Model {
+  class Model implements Serializable{
 
     public static function load_xml($entity) {
-      $xml = simplexml_load_file("Database/$entity.xml") or die("Error: Cannot create object");
+      $xml = simplexml_load_file("Database/$entity.xml");
       return $xml;
     }
 
+    public function serialize() {
+      return serialize($this->data);
+    }
+    public function unserialize($data) {
+      $this->data = unserialize($data);
+    }
+
     protected static function saveInFile($xml, $fileName){
-        $dom = new DOMDocument("1.0");
-        $dom->preserveWhiteSpace = false;
-        $dom->formatOutput = true;
-        $dom->loadXML($xml->saveXML());
-        $dom->save("Database/$fileName.xml");
-        return true;
+      $dom = new DOMDocument("1.0");
+      $dom->preserveWhiteSpace = false;
+      $dom->formatOutput = true;
+      $dom->loadXML($xml->saveXML());
+      $dom->save("Database/$fileName.xml");
+      return true;
     }
 
     protected static function searchInXML($id, $xml){

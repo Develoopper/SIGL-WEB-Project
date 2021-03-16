@@ -10,8 +10,9 @@
               <xs:element type="xs:short" name="prix"/>
               <xs:element type="xs:string" name="marque"/>
               <xs:element type="xs:string" name="img"/>
+              <xs:element type="xs:string" name="dateAjout"/>
             </xs:sequence>
-            <xs:attribute type="xs:string" name="sousCategorie" use="optional"/>
+            <xs:attribute type="xs:byte" name="sousCategorie" use="optional"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
