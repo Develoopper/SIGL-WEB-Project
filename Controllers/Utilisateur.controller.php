@@ -5,7 +5,6 @@ class Utilisateur_Controller extends Controller {
     unset($_SESSION['login']);
     setcookie("login", "", array(
       'expires' => time() - 3600,
-      'httponly' => true,    // or false
       'samesite' => 'Lax' // None || Lax  || Strict
     ));
     header("Location: ./");

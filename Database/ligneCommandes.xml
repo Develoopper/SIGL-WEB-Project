@@ -18,4 +18,54 @@
     <produit>3</produit>
     <qte>3</qte>
   </ligneCommade>
+  <ligneCommande>
+    <commande>une commande avec le meme numéro existe déjà</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>une commande avec le meme numéro existe déjà</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>une commande avec le meme numéro existe déjà</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>une commande avec le meme numéro existe déjà</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>une commande avec le meme numéro existe déjà</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>une commande avec le meme numéro existe déjà</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>une commande avec le meme numéro existe déjà</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>une commande avec le meme numéro existe déjà</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>une commande avec le meme numéro existe déjà</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>une commande avec le meme numéro existe déjà</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
 </ligneCommades>

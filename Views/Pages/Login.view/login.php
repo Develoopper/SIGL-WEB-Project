@@ -73,14 +73,6 @@
 					<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
 					<input type="password" name="mp" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe">
 				</div>
-				<div class="d-flex justify-content-between">
-					<div class="form-check mb-4">
-						<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-						<label class="form-check-label" for="flexCheckDefault">
-							Rester connecté
-						</label>
-					</div>
-				</div>
 				<div class="d-flex justify-content-between mb-3">
 					<?php
 						if (isset($_GET["erreur"]) && $_GET["erreur"] == 1)

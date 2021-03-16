@@ -138,6 +138,7 @@
 							});
 							if (!contains)
 								$(this).remove();
+							calculerTotale();
 						});
 					}
 				});
@@ -173,7 +174,10 @@
 				dataType: "json",
 				type: "POST",
 				success: function (data) {
-					console.log("*****", data);
+					if (data == "login")
+						window.location.href = "login";
+					else
+						window.location.href = "livraison";
 				},
 				error: function () {
 					console.log("*****");
