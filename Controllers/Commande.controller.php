@@ -3,8 +3,10 @@
 
     public static function post() {
       header('Content-Type: text/json');
-      if (!isset($data["login"]))
-        Controller::CreateView("login", []);
+
+      if (!isset($_SESSION["login"]))
+        return json_encode("login");
+
       $data = $_POST["data"];
       $obj = new Commande_Model("", "", $data["dateCmd"], $data["etatCmd"], $data["montant"], $data["login"]);
       $res = $obj->create();
@@ -13,9 +15,9 @@
           $ligneCmd = new LigneCommande_Model($res, $produitCommande->refProduit, $produitCommande->qte);
           $resLigne = $ligneCmd->create();
         }
-        echo json_encode($resLigne);
+        return json_encode("livraison");
       }
-			echo json_encode($res);
+			return json_encode($res);
     }
 
     public static function patch() {
