@@ -3,7 +3,8 @@
 
     public static function post() {
       header('Content-Type: text/json');
-
+      if (!isset($data["login"]))
+        Controller::CreateView("login", []);
       $data = $_POST["data"];
       $obj = new Commande_Model("", "", $data["dateCmd"], $data["etatCmd"], $data["montant"], $data["login"]);
       $res = $obj->create();
