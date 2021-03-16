@@ -69,7 +69,7 @@
         $commande->addAttribute("login", $this->login);
         $commande->addChild("numCommande", $this->numCommande);
         $commande->addChild("libelle", $this->libelle);
-        $commande->addChild("date", $this->dateCommande);
+        $commande->addChild("dateCommande", $this->dateCommande);
         $commande->addChild("etat", $this->etat);
         $commande->addChild("montant", $this->montant);
 
@@ -86,9 +86,12 @@
 
       if($exist){
         $id = $xml->xpath("//commande/numCommande[.='$numCommande']")[0];
-        $categorie = current($id->xpath("parent::*"));
+        $commande = current($id->xpath("parent::*"));
 
-        $categorie->libelle = $newCommande->libelle;
+        $commande->dateCommande = $newCommande->dateCommande;
+        $commande->etat = $newCommande->etat;
+        $commande->montant = $newCommande->montant;
+        $commande->libelle = $newCommande->libelle;
 
         return Parent::saveInFile($xml,"commandes");
       }else{
