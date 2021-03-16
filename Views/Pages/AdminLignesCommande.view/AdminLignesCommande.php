@@ -46,7 +46,9 @@
       </thead>
       <tbody>
         <?php
-          foreach (LigneCommande_Model::getAll() as $ligneCommande) {
+          foreach (LigneCommande_Model::getOne([
+						["filterBy" => "commande", "opt" => "equal", "filterValue" => $_GET["numCommande"]]
+					]) as $ligneCommande) {
 						echo <<<HTML
 							<tr>
 								<td name="numCommande">$ligneCommande->id</td>
@@ -60,48 +62,6 @@
       </tbody>
     </table>
   </div>
-
-	<script>
-		$("i[name=valider]").click(function (e) {
-			const tr = $(this).parent().parent();
-			$.ajax({
-				url: "http://localhost:5050/SIGL-WEB-Project/commandes",
-				data: {
-					method: "PATCH",
-					data: {
-						numCommande: tr.children("td[name=numCommande]").html(),
-						etat: "validé"
-					}
-				},
-				dataType: "json",
-				type: "POST",
-				// header: { method: "PATCH" },
-				success: function (data) {
-					tr.children("td[name=etat]").html("validé");
-				}
-			});
-		})
-
-		$("i[name=annuler]").click(function (e) {
-			const tr = $(this).parent().parent();
-			$.ajax({
-				url: "http://localhost:5050/SIGL-WEB-Project/commandes",
-				data: {
-					method: "PATCH",
-					data: {
-						numCommande: tr.children("td[name=numCommande]").html(),
-						etat: "annulé"
-					}
-				},
-				dataType: "json",
-				type: "POST",
-				// header: { method: "PATCH" },
-				success: function (data) {
-					tr.children("td[name=etat]").html("validé");
-				}
-			});		
-		})
-	</script>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 	<script>

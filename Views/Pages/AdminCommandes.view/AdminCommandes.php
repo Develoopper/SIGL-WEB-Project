@@ -107,7 +107,7 @@
 				type: "POST",
 				// header: { method: "PATCH" },
 				success: function (data) {
-					tr.children("td[name=etat]").html("validé");
+					tr.children("td[name=etat]").html("annulé");
 				}
 			});		
 		})
