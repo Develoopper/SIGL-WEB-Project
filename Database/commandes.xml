@@ -21,4 +21,39 @@
     <etat>en cours</etat>
     <montant>200</montant>
   </commande>
+  <commande login="7f720bdd61099c18f3fb859a1c035a03">
+    <numCommande>1</numCommande>
+    <libelle>commande1</libelle>
+    <dateCommande>03/16/2021</dateCommande>
+    <etat>en attente</etat>
+    <montant>159</montant>
+  </commande>
+  <commande login="7f720bdd61099c18f3fb859a1c035a03">
+    <numCommande>1</numCommande>
+    <libelle>commande1</libelle>
+    <dateCommande>03/16/2021</dateCommande>
+    <etat>en attente</etat>
+    <montant>159</montant>
+  </commande>
+  <commande login="7f720bdd61099c18f3fb859a1c035a03">
+    <numCommande>1</numCommande>
+    <libelle>commande1</libelle>
+    <dateCommande>03/16/2021</dateCommande>
+    <etat>en attente</etat>
+    <montant>159</montant>
+  </commande>
+  <commande login="7f720bdd61099c18f3fb859a1c035a03">
+    <numCommande>1</numCommande>
+    <libelle>commande1</libelle>
+    <dateCommande>03/16/2021</dateCommande>
+    <etat>en attente</etat>
+    <montant>159</montant>
+  </commande>
+  <commande login="7f720bdd61099c18f3fb859a1c035a03">
+    <numCommande>1</numCommande>
+    <libelle>commande1</libelle>
+    <dateCommande>03/16/2021</dateCommande>
+    <etat>en attente</etat>
+    <montant>159</montant>
+  </commande>
 </commandes>

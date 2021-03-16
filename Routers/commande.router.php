@@ -1,5 +1,6 @@
 <?php
-	Route::post("addCommande", "Auth", function() {
+
+	Route::post("addCommande", function() {
 		Commande_Controller::post();
 	});
 

@@ -11,9 +11,11 @@
     public $login;
 
     public function __construct($numCommande, $libelle, $dateCommande, $etat, $montant, $login) {
-      if ($numCommande == "")
-        $this->numCommande = self::$NbreCommandes++;
-      else
+
+      if ($numCommande == "") {
+        self::$NbreCommandes++;
+        $this->numCommande = self::$NbreCommandes;
+      } else
         $this->numCommande = $numCommande;
 
       if ($libelle == "")
@@ -62,7 +64,7 @@
 
     public function create() {
       $xml = parent::load_xml("commandes");
-      $exist = parent::searchInXML($this->numCommande, $xml)[0];
+      $exist = self::searchInCommandeXML($this->numCommande, $xml)[0];;
 
       if(!$exist){
         $commande = $xml->addChild("commande");
