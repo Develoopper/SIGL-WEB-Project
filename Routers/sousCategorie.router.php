@@ -1,8 +1,4 @@
 <?php
-  Route::get("sousCategories", function() {
-    SousCategorie_Controller::get();
-  });
-
   Route::post("sousCategories", function() {
     SousCategorie_Controller::post();
   });
