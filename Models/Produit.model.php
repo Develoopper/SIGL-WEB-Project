@@ -24,9 +24,7 @@
       $xml = parent::load_xml("produits");
 
       foreach($xml->children() as $product)
-      {
         $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
-      }
 
       usort($products_list, function($p1, $p2){
         return strtotime($p1->dateAjout) - strtotime($p2->dateAjout);
