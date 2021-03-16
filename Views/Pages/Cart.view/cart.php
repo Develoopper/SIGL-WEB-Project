@@ -129,10 +129,18 @@
 					dataType: "json",
 					type: "POST",
 					success: function (data) {
-						$(".produits").filter( function() {
-							$(this).toggle(data.find( function(produit) {
-								$(this).attr("id") == produit.refProduit;
-							}));
+						$(".produits").each( function() {
+							var contains = false;
+							data.forEach(produit => {
+								if ($(this).attr("id") == produit.refProduit) {
+									contains = true;
+									console.log('====================================');
+									console.log(contains);
+									console.log('====================================');
+								}
+							});
+							if (!contains)
+								$(this).remove();
 						});
 					}
 				});

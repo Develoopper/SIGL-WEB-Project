@@ -17,7 +17,7 @@
         $this->numCommande = $numCommande;
 
       if ($libelle == "")
-        $this->libelle = "commande".$this->numCommande;
+        $this->libelle = "commande" . $this->numCommande;
       else
         $this->libelle = $libelle;
 
@@ -80,7 +80,7 @@
       }
     }
 
-    public static function update($numCommande, $newCommande) {
+    public static function update($numCommande, $etat) {
       $xml = parent::load_xml("commandes");
       $exist = parent::searchInXML($numCommande, $xml)[0];
 
@@ -88,10 +88,7 @@
         $id = $xml->xpath("//commande/numCommande[.='$numCommande']")[0];
         $commande = current($id->xpath("parent::*"));
 
-        $commande->dateCommande = $newCommande->dateCommande;
-        $commande->etat = $newCommande->etat;
-        $commande->montant = $newCommande->montant;
-        $commande->libelle = $newCommande->libelle;
+        $commande->etat = $etat;
 
         return Parent::saveInFile($xml,"commandes");
       }else{
