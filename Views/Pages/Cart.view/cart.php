@@ -50,33 +50,35 @@
 						var_dump(json_encode($produits));
 						foreach ($produits as $produit) {
 							echo <<<HTML
-								<div class="d-flex justify-content-between rounded p-2 bg-white text-dark border border-dark mb-3 produits" id="{$produit->refProduit}">
-									<div class="d-flex align-items-center">
-										<img src="{$produit->img}" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
-										<div>
-											<h6 class="text-truncate" style="width: 485px" name="libelle">$produit->libelle</h6>
-											<span style="font-size: 15px" name="prix">$produit->prix</span>
-											<span style="font-size: 15px">DH</span>
+								<a href="product?id={$produit->refProduit}">
+									<div class="d-flex justify-content-between rounded p-2 bg-white text-dark border border-dark mb-3 produits" id="{$produit->refProduit}">
+										<div class="d-flex align-items-center">
+											<img src="{$produit->img}" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
+											<div>
+												<h6 class="text-truncate" style="width: 485px" name="libelle">$produit->libelle</h6>
+												<span style="font-size: 15px" name="prix">$produit->prix</span>
+												<span style="font-size: 15px">DH</span>
+											</div>
+										</div>
+										<div class="d-flex justify-content-between align-items-center">
+											<div class="bg-dark" style="height: 60px; width: 1px;"></div>
+											<div class="d-flex mx-3 qte">
+												<a style="" name="decrement"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">remove</i></a>
+												<h6 class="mx-4 mb-0" name="qte">1</h6>
+												<a style="" name="increment"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">add</i></a>
+											</div>
+											<div class="bg-dark" style="height: 60px; width: 1px;"></div>
+											<div class="prixQte">
+												<h6 class="mx-3 mb-0">
+													<b name="prixQte"></b>
+													<b>DH</b>
+												</h6>
+											</div>
+											<div class="bg-dark" style="height: 60px; width: 1px;"></div>
+											<a name="delete"><i class= "material-icons mx-1 text-dark mx-3 ps-2">delete</i></a>
 										</div>
 									</div>
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="bg-dark" style="height: 60px; width: 1px;"></div>
-										<div class="d-flex mx-3 qte">
-											<a style="" name="decrement"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">remove</i></a>
-											<h6 class="mx-4 mb-0" name="qte">1</h6>
-											<a style="" name="increment"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">add</i></a>
-										</div>
-										<div class="bg-dark" style="height: 60px; width: 1px;"></div>
-										<div class="prixQte">
-											<h6 class="mx-3 mb-0">
-												<b name="prixQte"></b>
-												<b>DH</b>
-											</h6>
-										</div>
-										<div class="bg-dark" style="height: 60px; width: 1px;"></div>
-										<a name="delete"><i class= "material-icons mx-1 text-dark mx-3 ps-2">delete</i></a>
-									</div>
-								</div>
+								</a>
 							HTML;
 							$i++;
 						}
@@ -84,7 +86,7 @@
 				?>
 
 				<div style="width: 100%" class="d-flex flex-column align-items-end">
-					<h6 class="me-3 mt-3">Total : <b class="ms-3" id="totale"></b> <b>DH</b></h6>
+					<h6 class="me-3 mt-3">Totale : <b class="ms-3" id="totale"></b> <b>DH</b></h6>
 					<div class="d-flex">
 						<a href="./" class="text-light" style="text-decoration: none;">
 							<button type="button" class="btn btn-outline-dark mt-3 me-2" style="width: 250px">Poursuivre vos achats</button>
@@ -107,53 +109,12 @@
 	<script>
 		<?php include "cart.js"; ?>
 
-		function calculerPrixQte() {
-			var prix;
-			var qte;
-
-			$(".produits").each( function(indice) {
-				prix = parseFloat($(this).children().first().children().last().children("[name='prix']").html());
-				qte = parseFloat($(this).children().last().children(".qte").children("h6").html());
-				console.log(prix, qte);
-				$(this).children().last().children(".prixQte").children("h6").children("[name='prixQte']").html(prix * qte);
-			});
-		}
-
-		function calculerTotale() {
-			var totale = 0;
-
-			$("b[name=prixQte]").each( function() {
-				totale += parseFloat($(this).html());
-			});
-
-			$("#totale").html(totale);
-		}
-
 		$(document).ready(function() {
 			// Calculer les prix par quantites
 			calculerPrixQte();
 
 			// Calculer le totale
 			calculerTotale();
-
-		});
-
-		$("h6[name=qte]").bind('DOMSubtreeModified', function () {
-			calculerPrixQte();
-			calculerTotale();
-		});
-
-		$("a[name=increment]").on("click", function() {
-			var number = parseFloat($(this).prev("h6[name=qte]").html());
-			number++;
-			$(this).prev("h6[name=qte]").html(number);
-		});
-
-		$("a[name=decrement]").on("click", function() {
-			var number = parseFloat($(this).next("h6[name=qte]").html());
-			if (number > 1)
-				number--;
-			$(this).next("h6[name=qte]").html(number);
 		});
 
 		$("a[name=delete]").click(
