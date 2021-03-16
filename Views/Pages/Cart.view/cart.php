@@ -47,40 +47,44 @@
 				<?php
 					if (isset($_COOKIE["panier"])) {
 						$produits = unserialize($_COOKIE["panier"]);
-						var_dump($produits);
+						var_dump(json_encode($produits));
 						foreach ($produits as $produit) {
 							echo <<<HTML
-										<div class="d-flex justify-content-between align-items-center rounded p-2 bg-white text-dark border border-dark mb-3 produits" id="{$produit->refProduit}">
-											<div class=" flex-fill d-flex align-items-center">
-												<img src="{$produit->img}" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
-												<div>
-													<h6 class="text-truncate libelle" name="libelle"> $produit->libelle </h6>
-													<span style="font-size: 15px" name="prix"> $produit->prix </span>
-												</div>
-											</div>
-											<div class="flex-fill d-flex justify-content-between align-items-center">
-												<div class="bg-dark" style="height: 60px; width: 1px;"></div>
-												<div class="d-flex mx-3 qte">
-													<a style="" name="decrement"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">remove</i></a>
-													<h6 class="mx-4 mb-0" name="qte">1</h6>
-													<a style="" name="increment"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">add</i></a>
-												</div>
-												<div class="bg-dark" style="height: 60px; width: 1px;"></div>
-												<div class="prixQte">
-													<h6 class="mx-5 mb-0"><b name="prixQte"></b></h6>
-												</div>
-												<div class="bg-dark" style="height: 60px; width: 1px;"></div>
-												<a name="delete"><i class= "material-icons mx-1 text-dark mx-3 ps-2">delete</i></a>
-											</div>
+								<div class="d-flex justify-content-between rounded p-2 bg-white text-dark border border-dark mb-3 produits" id="{$produit->refProduit}">
+									<div class="d-flex align-items-center">
+										<img src="{$produit->img}" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
+										<div>
+											<h6 class="text-truncate" style="width: 485px" name="libelle">$produit->libelle</h6>
+											<span style="font-size: 15px" name="prix">$produit->prix</span>
+											<span style="font-size: 15px">DH</span>
 										</div>
-										HTML;
+									</div>
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="bg-dark" style="height: 60px; width: 1px;"></div>
+										<div class="d-flex mx-3 qte">
+											<a style="" name="decrement"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">remove</i></a>
+											<h6 class="mx-4 mb-0" name="qte">1</h6>
+											<a style="" name="increment"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">add</i></a>
+										</div>
+										<div class="bg-dark" style="height: 60px; width: 1px;"></div>
+										<div class="prixQte">
+											<h6 class="mx-3 mb-0">
+												<b name="prixQte"></b>
+												<b>DH</b>
+											</h6>
+										</div>
+										<div class="bg-dark" style="height: 60px; width: 1px;"></div>
+										<a name="delete"><i class= "material-icons mx-1 text-dark mx-3 ps-2">delete</i></a>
+									</div>
+								</div>
+							HTML;
 							$i++;
 						}
 					}
 				?>
 
 				<div style="width: 100%" class="d-flex flex-column align-items-end">
-					<h6 class="me-3 mt-3">Totale : <b class="ms-3" id="totale"></b></h6>
+					<h6 class="me-3 mt-3">Total : <b class="ms-3" id="totale"></b> <b>DH</b></h6>
 					<div class="d-flex">
 						<a href="./" class="text-light" style="text-decoration: none;">
 							<button type="button" class="btn btn-outline-dark mt-3 me-2" style="width: 250px">Poursuivre vos achats</button>
@@ -108,9 +112,10 @@
 			var qte;
 
 			$(".produits").each( function(indice) {
-				prix = parseFloat($(this).children().first().children().last().children("span").html());
+				prix = parseFloat($(this).children().first().children().last().children("[name='prix']").html());
 				qte = parseFloat($(this).children().last().children(".qte").children("h6").html());
-				$(this).children().last().children(".prixQte").children("h6").children("b").html(prix * qte);
+				console.log(prix, qte);
+				$(this).children().last().children(".prixQte").children("h6").children("[name='prixQte']").html(prix * qte);
 			});
 		}
 

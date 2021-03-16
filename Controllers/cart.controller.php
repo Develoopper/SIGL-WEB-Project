@@ -14,6 +14,12 @@ class Cart_Controller extends Controller{
 		if (isset($_COOKIE["panier"])) {
 			$_SESSION['panier'] = unserialize($_COOKIE["panier"]);
 			return true;
+		} else {
+			setcookie("panier", serialize($_SESSION["panier"]), array(
+				'expires' => time() + 48 * 60 * 60 * 60,
+				'samesite' => 'Lax' // None || Lax  || Strict
+			));
+			return true;
 		}
 
 		return false;
@@ -30,13 +36,16 @@ class Cart_Controller extends Controller{
 	}
 
 	public static function addProduct($produit) {
-    	header('Content-Type: text/json');
+    header('Content-Type: text/json');
 
 		$produitObj = new Produit_Model($produit["refProduit"], $produit["libelle"], $produit["prix"], $produit["img"], "", "", "");
 
 		if (self::checkProduct($produitObj->refProduit) == false) {
 			array_push($_SESSION['panier'], $produitObj);
-			setcookie("panier", serialize($_SESSION["panier"]), time() + 48 * 60 * 60 * 60);
+			setcookie("panier", serialize($_SESSION["panier"]), array(
+				'expires' => time() + 48 * 60 * 60 * 60,
+				'samesite' => 'Lax' // None || Lax  || Strict
+			));
 			return true;
 		}
 
@@ -44,7 +53,7 @@ class Cart_Controller extends Controller{
 	}
 
 	public static function deleteProduct($data) {
-   		header('Content-Type: text/json');
+   	header('Content-Type: text/json');
 
 		$refProduit = $data["refProduit"];
 		$suppression = false;
@@ -59,7 +68,10 @@ class Cart_Controller extends Controller{
 		}
 
 		$_SESSION['panier'] = $panier_tmp;
-		setcookie("panier", serialize($_SESSION['panier']), time() + 48 * 60 * 60 * 60);
+		setcookie("panier", serialize($_SESSION['panier']), array(
+			'expires' => time() + 48 * 60 * 60 * 60,
+			'samesite' => 'Lax' // None || Lax  || Strict
+		));
 
 		unset($panier_tmp);
 		$suppression = true;

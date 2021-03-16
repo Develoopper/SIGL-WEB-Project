@@ -7,7 +7,11 @@
     <marque>Naviforce</marque>
     <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/24/177193/1.jpg?3360</img>
     <sousCategorie>Montres - Homme</sousCategorie>
+<<<<<<< HEAD
     <dateAjout><dateAjout/>
+=======
+    <dateAjout>10/02/2021</dateAjout>
+>>>>>>> 3cd1ea1cc942ea8d77ad34e03db0f5eb906fc650
   </produit>
   <produit sousCategorie="2">
     <refProduit>2</refProduit>
@@ -15,7 +19,11 @@
     <prix>65</prix>
     <marque>Miniwallet</marque>
     <img>https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/42/139382/1.jpg?9659</img>
+<<<<<<< HEAD
     <dateAjout><dateAjout/>
+=======
+    <dateAjout>11/02/2021</dateAjout>
+>>>>>>> 3cd1ea1cc942ea8d77ad34e03db0f5eb906fc650
   </produit>
   <produit sousCategorie="3">
     <refProduit>3</refProduit>
@@ -23,6 +31,7 @@
     <prix>159</prix>
     <marque>AORON</marque>
     <img>https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/16/295183/1.jpg?1806</img>
+    <dateAjout>12/02/2021</dateAjout>
   </produit>
   <produit sousCategorie="4">
     <refProduit>4</refProduit>
@@ -30,6 +39,7 @@
     <prix>159</prix>
     <marque>AORON</marque>
     <img>https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/71/544163/1.jpg?0556</img>
+    <dateAjout>13/02/2021</dateAjout>
   </produit>
   <produit sousCategorie="4">
     <refProduit>5</refProduit>
@@ -37,7 +47,7 @@
     <prix>199</prix>
     <marque/>
     <img>https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/68/344182/1.jpg?2292</img>
-    <dateAjout/>
+    <dateAjout>14/02/2021</dateAjout>
   </produit>
   <produit sousCategorie="6">
     <refProduit>6</refProduit>
@@ -45,6 +55,7 @@
     <prix>199</prix>
     <marque>Cashmink</marque>
     <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/85/144613/1.jpg?2808</img>
+    <dateAjout>15/02/2021</dateAjout>
   </produit>
   <produit sousCategorie="6">
     <refProduit>7</refProduit>
@@ -52,6 +63,7 @@
     <prix>199</prix>
     <marque>Cashmink</marque>
     <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/85/144613/1.jpg?2808</img>
+    <dateAjout>16/02/2021</dateAjout>
   </produit>
   <produit sousCategorie="6">
     <refProduit>8</refProduit>
@@ -59,6 +71,7 @@
     <prix>199</prix>
     <marque>Cashmink</marque>
     <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/85/144613/1.jpg?2808</img>
+    <dateAjout>17/02/2021</dateAjout>
   </produit>
   <produit sousCategorie="6">
     <refProduit>9</refProduit>
@@ -66,6 +79,7 @@
     <prix>199</prix>
     <marque>Cashmink</marque>
     <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/85/144613/1.jpg?2808</img>
+    <dateAjout>18/02/2021</dateAjout>
   </produit>
   <produit sousCategorie="6">
     <refProduit>10</refProduit>
@@ -73,6 +87,7 @@
     <prix>199</prix>
     <marque>Cashmink</marque>
     <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/85/144613/1.jpg?2808</img>
+    <dateAjout>19/02/2021</dateAjout>
   </produit>
   <produit sousCategorie="6">
     <refProduit>11</refProduit>
@@ -80,6 +95,7 @@
     <prix>199</prix>
     <marque>Cashmink</marque>
     <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/85/144613/1.jpg?2808</img>
+    <dateAjout>20/02/2021</dateAjout>
   </produit>
   <produit sousCategorie="6">
     <refProduit>12</refProduit>
@@ -87,5 +103,6 @@
     <prix>220</prix>
     <marque>Cashmink</marque>
     <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/85/144613/1.jpg?2808</img>
+    <dateAjout>21/02/2021</dateAjout>
   </produit>
 </produits>
