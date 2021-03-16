@@ -112,19 +112,24 @@
   <div class="mx-3 my-4 px-3 py-3 bg-light" style="border-radius: 10px; font-size: 13px;">
     <h3 class="mb-3">Meilleur ventes</h3>
 
+    <?php
+      $array1 = array_slice($meilleursVentes, 0, 6);
+      $array2 = array_slice($meilleursVentes, 5, 6);
+    ?>
+
     <div id="meilleurs-ventes" data-bs-interval="0" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner px-5">
         <div class="carousel-item active">
           <div class="row d-flex justify-content-around my-1">
           <?php
-            foreach ($meilleursVentes as $item) {
+            foreach ($array1 as $item) {
               echo <<<HTML
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <a href="product?id={$item['id']}" style="text-decoration: none;" class="text-dark">
-                    <img src="{$item['img']}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                  <a href="product?id={$item->refProduit}" style="text-decoration: none;" class="text-dark">
+                    <img src="{$item->img}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
                     <div class="card-body p-2">
-                      <p class="card-text text-truncate">{$item["libellee"]}</p>
-                      <p class="card-text text-truncate">{$item["prix"]} DH</p>
+                      <p class="card-text text-truncate">{$item->libelle}</p>
+                      <p class="card-text text-truncate">{$item->prix} DH</p>
                     </div>
                   </a>
                 </div>
@@ -136,33 +141,14 @@
         <div class="carousel-item">
           <div class="row mx-6 d-flex justify-content-around my-1">
           <?php
-            foreach ($meilleursVentes as $item) {
+            foreach ($array2 as $item) {
               echo <<<HTML
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <a href="product?id={$item['id']}" style="text-decoration: none;" class="text-dark">
-                    <img src="{$item['img']}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                  <a href="product?id={$item->refProduit}" style="text-decoration: none;" class="text-dark">
+                    <img src="{$item->img}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
                     <div class="card-body p-2">
-                      <p class="card-text text-truncate">{$item["libellee"]}</p>
-                      <p class="card-text text-truncate">{$item["prix"]} DH</p>
-                    </div>
-                  </a>
-                </div>
-              HTML;
-            }
-          ?>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="row mx-6 d-flex justify-content-around my-1">
-          <?php
-            foreach ($meilleursVentes as $item) {
-              echo <<<HTML
-                <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <a href="product?id={$item['id']}" style="text-decoration: none;" class="text-dark">
-                    <img src="{$item['img']}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                    <div class="card-body p-2">
-                      <p class="card-text text-truncate">{$item["libellee"]}</p>
-                      <p class="card-text text-truncate">{$item["prix"]} DH</p>
+                      <p class="card-text text-truncate">{$item->libellee}</p>
+                      <p class="card-text text-truncate">{$item->prix} DH</p>
                     </div>
                   </a>
                 </div>
@@ -195,12 +181,17 @@
   <div class="mx-3 my-4 px-3 py-3 bg-light" style="border-radius: 10px; font-size: 13px;">
     <h3 class="mb-3">Petits prix</h3>
 
+    <?php
+      $array1 = array_slice($petitsPrix, 0, 6);
+      $array2 = array_slice($petitsPrix, 5, 6);
+    ?>
+
     <div id="petits-prix" data-bs-interval="0" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner px-5">
         <div class="carousel-item active">
           <div class="row d-flex justify-content-around my-1">
           <?php
-            foreach ($petitsPrix as $item) {
+            foreach ($array1 as $item) {
               echo <<<HTML
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
                   <a href="product?id={$item->refProduit}" style="text-decoration: none;" class="text-dark">
@@ -219,33 +210,14 @@
         <div class="carousel-item">
           <div class="row mx-6 d-flex justify-content-around my-1">
           <?php
-            foreach ($meilleursVentes as $item) {
+            foreach ($array2 as $item) {
               echo <<<HTML
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <a href="product?id={$item['id']}" style="text-decoration: none;" class="text-dark">
-                    <img src="{$item['img']}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                  <a href="product?id={$item->refProduit}" style="text-decoration: none;" class="text-dark">
+                    <img src="{$item->img}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
                     <div class="card-body p-2">
-                      <p class="card-text text-truncate">{$item["libellee"]}</p>
-                      <p class="card-text text-truncate">{$item["prix"]} DH</p>
-                    </div>
-                  </a>
-                </div>
-              HTML;
-            }
-          ?>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="row mx-6 d-flex justify-content-around my-1">
-          <?php
-            foreach ($meilleursVentes as $item) {
-              echo <<<HTML
-                <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <a href="product?id={$item['id']}" style="text-decoration: none;" class="text-dark">
-                    <img src="{$item['img']}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                    <div class="card-body p-2">
-                      <p class="card-text text-truncate">{$item["libellee"]}</p>
-                      <p class="card-text text-truncate">{$item["prix"]} DH</p>
+                      <p class="card-text text-truncate">{$item->libellee}</p>
+                      <p class="card-text text-truncate">{$item->libellee} DH</p>
                     </div>
                   </a>
                 </div>
@@ -279,19 +251,24 @@
   <div class="mx-3 my-4 px-3 py-3 bg-light" style="border-radius: 10px; font-size: 13px;">
     <h3 class="mb-3">Nouveautés</h3>
 
+    <?php
+      $array1 = array_slice($nouveautes, 0, 6);
+      $array2 = array_slice($nouveautes, 5, 6);
+    ?>
+
     <div id="tendance" data-bs-interval="0" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner px-5">
         <div class="carousel-item active">
           <div class="row d-flex justify-content-around my-1">
           <?php
-            foreach ($meilleursVentes as $item) {
+            foreach ($array1 as $item) {
               echo <<<HTML
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <a href="product?id={$item['id']}" style="text-decoration: none;" class="text-dark">
-                    <img src="{$item['img']}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                  <a href="product?id={$item->refProduit}" style="text-decoration: none;" class="text-dark">
+                    <img src="{$item->img}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
                     <div class="card-body p-2">
-                      <p class="card-text text-truncate">{$item["libellee"]}</p>
-                      <p class="card-text text-truncate">{$item["prix"]} DH</p>
+                      <p class="card-text text-truncate">$item->libelle</p>
+                      <p class="card-text text-truncate">$item->prix DH</p>
                     </div>
                   </a>
                 </div>
@@ -303,33 +280,14 @@
         <div class="carousel-item">
           <div class="row mx-6 d-flex justify-content-around my-1">
           <?php
-            foreach ($meilleursVentes as $item) {
+            foreach ($array2 as $item) {
               echo <<<HTML
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <a href="product?id={$item['id']}" style="text-decoration: none;" class="text-dark">
-                    <img src="{$item['img']}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                  <a href="product?id={$item->refProduit}" style="text-decoration: none;" class="text-dark">
+                    <img src="{$item->img}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
                     <div class="card-body p-2">
-                      <p class="card-text text-truncate">{$item["libellee"]}</p>
-                      <p class="card-text text-truncate">{$item["prix"]} DH</p>
-                    </div>
-                  </a>
-                </div>
-              HTML;
-            }
-          ?>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="row mx-6 d-flex justify-content-around my-1">
-          <?php
-            foreach ($meilleursVentes as $item) {
-              echo <<<HTML
-                <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <a href="product?id={$item['id']}" style="text-decoration: none;" class="text-dark">
-                    <img src="{$item['img']}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                    <div class="card-body p-2">
-                      <p class="card-text text-truncate">{$item["libellee"]}</p>
-                      <p class="card-text text-truncate">{$item["prix"]} DH</p>
+                      <p class="card-text text-truncate">$item->libelle</p>
+                      <p class="card-text text-truncate">$item->prix DH</p>
                     </div>
                   </a>
                 </div>

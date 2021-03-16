@@ -23,19 +23,21 @@
     public static function getNouveaute() {
       $xml = parent::load_xml("produits");
 
-      $products_list = array();
-      $i = 0;
-      $listProduits = (array)$xml->children();
-      foreach ($listProduits as $product) {
-        $iMin = $i;
-        for ($j = $i + 1; $j < count($listProduits); $j++) {
-          $date = DateTime::createFromFormat('j/m/Y', $product->dateAjout);
-          //if (date_diff(new DateTime(), $date)->d < );
-        }
-        if (count($products_list) <= 12)
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
-        $i++;
+      foreach($xml->children() as $product)
+      {
+        $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
       }
+
+      usort($products_list, function($p1, $p2){
+        $date1 = DateTime::createFromFormat('j/m/Y', $p1->dateAjout);
+        $date2 = DateTime::createFromFormat('j/m/Y', $p2->dateAjout);
+        if ($date1 == $date2) {
+          return 0;
+        }
+        return strtotime($date1) - strtotime($date2);
+      });
+
+      $products_list = array_slice($products_list, 0, 12);
 
       return $products_list;
     }
@@ -44,6 +46,7 @@
       $xml = parent::load_xml("produits");
 
       $products_list = array();
+
       foreach ($xml->children() as $product) {
         $produitsCommandees = LigneCommande_Model::getOne([["filterBy" => "produit", "opt" => "equal", "filterValue" => $product->refProduit]]);
         if (is_array($produitsCommandees)) {

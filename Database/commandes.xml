@@ -14,4 +14,11 @@
     <etat>en cours</etat>
     <montant>03/16/2021</montant>
   </commande>
+  <commande login="741">
+    <numCommande/>
+    <libelle>commande</libelle>
+    <date>03/16/2021</date>
+    <etat>en cours</etat>
+    <montant>03/16/2021</montant>
+  </commande>
 </commandes>

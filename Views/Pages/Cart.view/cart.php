@@ -120,6 +120,7 @@
 		$("a[name=delete]").click(
 			function (){
 				$refProduit = $(this).parents(".produits").attr("id");
+				// console.log($refProduit);
 				$.ajax({
 					url: "http://localhost:5050/SIGL-WEB-Project/deleteFromCart",
 					data: {
