@@ -7,6 +7,12 @@ body {
   font-size: 15px;
 }
 
+i {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
 .table-responsive {
     margin: 30px 0;
 }

@@ -20,4 +20,14 @@
     <adresse/>
     <tele>0708036640</tele>
   </utilisateur>
+  <utilisateur>
+    <login>9747</login>
+    <nom/>
+    <prenom/>
+    <mp>e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</mp>
+    <email/>
+    <type/>
+    <adresse/>
+    <tele/>
+  </utilisateur>
 </utilisateurs>

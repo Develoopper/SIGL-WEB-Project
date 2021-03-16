@@ -6,10 +6,21 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+	<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+	<!-- Bootstrap core CSS-->
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/flatly/bootstrap.min.css"> -->
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+	<!-- JQuery library -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+
 	<title>Dashboard</title>
 	<style>
 		<?php include "adminCommandes.css"; ?>
@@ -18,7 +29,8 @@
 
 <body class="bg-white">
 	<!-- Nav bar -->
-	<?php Component("AdminNavBar", ["utilisateur" => $utilisateur]); ?>
+	<?php Component("AdminNavBar",  ["utilisateur" => $utilisateur]); ?>
+
 
 	<div class="jquery-script-clear"></div>
   </div>
@@ -26,57 +38,60 @@
     <table class="table table-striped table-bordered" id="table">
       <thead class="text-light" style="background-color: #343a40;">
         <tr>
-          <th scope="col">Ref</th>
-          <th scope="col">Libellee</th>
-          <th scope="col">Prix</th>
-          <th scope="col">Marque</th>
-          <th scope="col">Image</th>
-          <th scope="col">Categorie</th>
-          <th scope="col">Sous<br>categorie</th>
-          <th scope="col">Date<br>d'ajout</th>
+          <th scope="col">Id</th>
+          <th scope="col">Client</th>
+          <th scope="col">Date</th>
+          <th scope="col">Etat</th>
+          <th scope="col">Montant</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
         <?php
-          foreach (Produit_Model::getAll() as $produit) {
-            $sousCategorie = SousCategorie_Model::getOne([
-              ["filterBy" => "id", "opt" => "equal", "filterValue" => (int)$produit->sousCategorie]
-            ])[0];
-
-            $categorie = Categorie_Model::getOne([
-              ["filterBy" => "id", "opt" => "equal", "filterValue" => (int)$sousCategorie->categorie]
-            ])[0];
-
+          foreach (Commande_Model::getAll() as $commande) {
             echo <<<HTML
               <tr>
-                <td>$produit->refProduit</td>
-                <td>$produit->libelle</td>
-                <td>$produit->prix</td>
-                <td>$produit->marque</td>
-                <td><img src="$produit->img" style="width: 60px; height: 60px"></td>
-                <td><span id="$sousCategorie->categorie">$categorie->libelle</span></td>
-                <td><span id="$produit->sousCategorie">$sousCategorie->libelle</span></td>
-                <td>$produit->dateAjout</td>
+                <td name="numCommande">$commande->numCommande</td>
+                <td>$commande->login</td>
+                <td>$commande->dateCommande</td>
+                <td name="etat">$commande->etat</td>
+                <td>$commande->montant</td>
+                <td><i class="material-icons" name="valider">check</i><i class="material-icons" name="annuler">clear</i></td>
               </tr>
             HTML;
           }
         ?>
       </tbody>
     </table>
-    <button id="table-new-row-button" class="btn btn-outline-dark d-flex align-items-center mb-1">
-      <i class="material-icons me-1" style="font-size: 20px;">add</i>
-      Nouvelle ligne
-    </button>
   </div>
-  
-  <script>
-    let categoriesOptions = JSON.parse('<?php echo json_encode(Categorie_Model::getAll()) ?>');
-    let sousCategoriesOptions = JSON.parse('<?php echo json_encode(SousCategorie_Model::getAll()) ?>');
-    console.log(sousCategoriesOptions);
 
-  </script>
+	<script>
+		$("i[name=valider]").click(function (e) {
+			const tr = $(this).parent().parent();
+			$.ajax({
+				url: "http://localhost:5050/SIGL-WEB-Project/commandes",
+				data: {
+					method: "PATCH",
+					data: {
+						numCommande: tr.children("td[name=numCommande]").html(),
+						etat: "validé"
+					}
+				},
+				dataType: "json",
+				type: "POST",
+				// header: { method: "PATCH" },
+				success: function (data) {
+					tr.children("td[name=etat]").html("validé");
+				}
 
-	<script><?php include "bstable.js"; ?></script>
+			});
+		})
+
+		$("i[name=annuler]").click(function (e) {
+			console.log($(this).parent().parent().children("td[name=numCommande]").html());
+			console.log($(this).parent().parent().children("td[name=etat]").html());
+		})
+	</script>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 	<script>
