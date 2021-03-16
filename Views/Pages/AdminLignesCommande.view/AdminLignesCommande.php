@@ -23,7 +23,7 @@
 
 	<title>Dashboard</title>
 	<style>
-		<?php include "adminCommandes.css"; ?>
+		<?php include "adminLignesCommande.css"; ?>
 	</style>
 </head>
 
@@ -39,30 +39,20 @@
       <thead class="text-light" style="background-color: #343a40;">
         <tr>
           <th scope="col">Id</th>
-          <th scope="col">Client</th>
-          <th scope="col">Date</th>
-          <th scope="col">Etat</th>
-          <th scope="col">Montant</th>
-          <th scope="col">Actions</th>
+          <th scope="col">Commande</th>
+          <th scope="col">Produit</th>
+          <th scope="col">Qte</th>
         </tr>
       </thead>
       <tbody>
         <?php
-          foreach (Commande_Model::getAll() as $commande) {
+          foreach (LigneCommande_Model::getAll() as $ligneCommande) {
 						echo <<<HTML
 							<tr>
-								<td name="numCommande">$commande->numCommande</td>
-								<td>$commande->login</td>
-								<td>$commande->dateCommande</td>
-								<td name="etat">$commande->etat</td>
-								<td>$commande->montant</td>
-								<td style="width: 140px">
-									<a href="adminLignesCommande?numCommande={$commande->numCommande}">
-										<i class="material-icons text-dark" name="lignesCom">list</i>
-									</a>
-									<i class="material-icons text-dark" name="valider">check</i>
-									<i class="material-icons text-dark" name="annuler">clear</i>
-								</td>
+								<td name="numCommande">$ligneCommande->id</td>
+								<td>$ligneCommande->commande</td>
+								<td>$ligneCommande->produit</td>
+								<td name="etat">$ligneCommande->qte</td>
 							</tr>
 						HTML;
           }
@@ -115,7 +105,7 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 	<script>
-		<?php include "adminCommandes.js"; ?>
+		<?php include "adminLignesCommande.js"; ?>
 	</script>
 	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->

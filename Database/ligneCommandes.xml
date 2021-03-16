@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ligneCommades>
-
+  <ligneCommade>
+    <id>1</id>
+    <commande>1</commande>
+    <produit>1</produit>
+    <qte>1</qte>
+  </ligneCommade>
+  <ligneCommade>
+    <id>2</id>
+    <commande>1</commande>
+    <produit>2</produit>
+    <qte>2</qte>
+  </ligneCommade>
+  <ligneCommade>
+    <id>3</id>
+    <commande>1</commande>
+    <produit>3</produit>
+    <qte>3</qte>
+  </ligneCommade>
 </ligneCommades>
