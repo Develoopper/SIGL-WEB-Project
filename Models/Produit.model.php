@@ -29,12 +29,7 @@
       }
 
       usort($products_list, function($p1, $p2){
-        $date1 = DateTime::createFromFormat('j/m/Y', $p1->dateAjout);
-        $date2 = DateTime::createFromFormat('j/m/Y', $p2->dateAjout);
-        if ($date1 == $date2) {
-          return 0;
-        }
-        return strtotime($date1) - strtotime($date2);
+        return strtotime($p1->dateAjout) - strtotime($p2->dateAjout);
       });
 
       $products_list = array_slice($products_list, 0, 12);

@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ligneCommades>
-
+  <ligneCommande>
+    <commande>1</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>1</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>1</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>1</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>1</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>1</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
 </ligneCommades>

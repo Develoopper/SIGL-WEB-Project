@@ -134,9 +134,6 @@
 							data.forEach(produit => {
 								if ($(this).attr("id") == produit.refProduit) {
 									contains = true;
-									console.log('====================================');
-									console.log(contains);
-									console.log('====================================');
 								}
 							});
 							if (!contains)
@@ -167,7 +164,7 @@
 					method: "POST",
 					data: {
 						dateCmd: today,
-						etatCmd: "en cours",
+						etatCmd: "en attente",
 						montant: $("#totale").html(),
 						login: <?php echo "'" . $utilisateur->login . "'" ?>,
 						produitsCommandes: $produitsCommandes

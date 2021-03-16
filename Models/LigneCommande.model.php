@@ -20,13 +20,13 @@
         foreach($xml->children() as $ligneCmd){
 
             foreach($where as $filter){
-                $filterBy = $filter["filterBy"];
-                $operator = $filter["opt"];
-                $filterValue = $filter["filterValue"];
+              $filterBy = $filter["filterBy"];
+              $operator = $filter["opt"];
+              $filterValue = $filter["filterValue"];
 
-                if($operator == "equal" && $ligneCmd->{$filterBy} == $filterValue){
-                    $lignesCmds_list[] = new LigneCommande_Model($ligneCmd->commande, $ligneCmd->produit, $ligneCmd->qte);
-                }
+              if($operator == "equal" && $ligneCmd->{$filterBy} == $filterValue){
+                $lignesCmds_list[] = new LigneCommande_Model($ligneCmd->commande, $ligneCmd->produit, $ligneCmd->qte);
+              }
             }
         }
         if(!isset($lignesCmds_list)) return "Pas de ligne de commande avec cette signature.";
@@ -47,7 +47,7 @@
       $xml = parent::load_xml("ligneCommandes");
       $exist = parent::searchInXML($this->id, $xml)[0];
 
-      if(!$exist){
+      if(!$exist) {
         $ligneCommande = $xml->addChild("ligneCommande");
         $ligneCommande->addChild("commande", $this->commande);
         $ligneCommande->addChild("produit", $this->produit);
