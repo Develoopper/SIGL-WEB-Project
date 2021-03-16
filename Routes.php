@@ -17,6 +17,10 @@
     ]);
   });
 
+   Route::set("enAttente", function() {
+    Controller::CreateView("EnAttente", []);
+  });
+
   include "Routers/cart.router.php";
   include "Routers/payement.router.php";
   include "Routers/livraison.router.php";

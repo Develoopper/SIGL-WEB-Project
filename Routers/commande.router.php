@@ -7,4 +7,8 @@
 	Route::patch("commandes", "Auth", function() {
 		Commande_Controller::patch();
 	});
+
+	Route::get("tester", function() {
+		echo Commande_Controller::testerUtilisateur();
+	});
 ?>

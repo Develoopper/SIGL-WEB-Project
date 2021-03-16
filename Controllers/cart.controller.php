@@ -67,7 +67,7 @@ class Cart_Controller extends Controller{
 				'expires' => time() + 48 * 60 * 60 * 60,
 				'samesite' => 'Lax' // None || Lax  || Strict
 			));
-			return json_encode($_SESSION['panier']);
+			return json_encode(count($_COOKIE['panier']));
 		}
 
 		return false;
