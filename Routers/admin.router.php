@@ -11,6 +11,10 @@
     Controller::CreateView("AdminCommandes", []);
   });
 
+  Route::set("adminLignesCommande", "Auth", function() {
+		Controller::CreateView("AdminLignesCommande", []);
+	});
+
   Route::set("adminCategories", "AdminAuth", function() {
     Controller::CreateView("AdminCategories", []);
   });
@@ -18,5 +22,4 @@
   Route::set("adminSousCategories", "AdminAuth", function() {
     Controller::CreateView("AdminSousCategories", []);
   });
-
 ?>

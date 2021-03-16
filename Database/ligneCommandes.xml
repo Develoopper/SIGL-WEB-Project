@@ -1,48 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ligneCommades>
-  <ligneCommande>
+  <ligneCommade>
+    <id>1</id>
     <commande>1</commande>
-    <produit/>
-    <qte/>
-  </ligneCommande>
-  <ligneCommande>
+    <produit>1</produit>
+    <qte>1</qte>
+  </ligneCommade>
+  <ligneCommade>
+    <id>2</id>
     <commande>1</commande>
-    <produit/>
-    <qte/>
-  </ligneCommande>
-  <ligneCommande>
-    <commande>1</commande>
-    <produit/>
-    <qte/>
-  </ligneCommande>
-  <ligneCommande>
-    <commande>1</commande>
-    <produit/>
-    <qte/>
-  </ligneCommande>
-  <ligneCommande>
-    <commande>1</commande>
-    <produit/>
-    <qte/>
-  </ligneCommande>
-  <ligneCommande>
-    <commande>1</commande>
-    <produit/>
-    <qte/>
-  </ligneCommande>
-  <ligneCommande>
-    <commande>une commande avec le meme numéro existe déjà</commande>
-    <produit/>
-    <qte/>
-  </ligneCommande>
-  <ligneCommande>
-    <commande>une commande avec le meme numéro existe déjà</commande>
-    <produit/>
-    <qte/>
-  </ligneCommande>
-  <ligneCommande>
-    <commande>une commande avec le meme numéro existe déjà</commande>
-    <produit/>
-    <qte/>
-  </ligneCommande>
+    <produit>2</produit>
+    <qte>2</qte>
+  </ligneCommade>
+  <ligneCommade>
+    <id>3</id>
+    <commande>2</commande>
+    <produit>3</produit>
+    <qte>3</qte>
+  </ligneCommade>
 </ligneCommades>

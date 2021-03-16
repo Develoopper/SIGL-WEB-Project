@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <commandes>
   <commande login="398">
-    <numCommande/>
+    <numCommande>1</numCommande>
     <libelle>commande</libelle>
     <dateCommande>03/16/2021</dateCommande>
     <etat>en cours</etat>
-    <montant>03/16/2021</montant>
+    <montant>200</montant>
   </commande>
   <commande login="398">
-    <numCommande/>
+    <numCommande>2</numCommande>
     <libelle>commande</libelle>
     <dateCommande>03/16/2021</dateCommande>
-    <etat>en cours</etat>
-    <montant>03/16/2021</montant>
+    <etat>validé</etat>
+    <montant>200</montant>
   </commande>
   <commande login="741">
-    <numCommande/>
+    <numCommande>3</numCommande>
     <libelle>commande</libelle>
     <dateCommande>03/16/2021</dateCommande>
     <etat>en cours</etat>
-    <montant>03/16/2021</montant>
+    <montant>200</montant>
   </commande>
   <commande login="7f720bdd61099c18f3fb859a1c035a03">
     <numCommande>1</numCommande>

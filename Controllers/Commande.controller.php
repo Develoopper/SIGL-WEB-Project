@@ -18,6 +18,13 @@
 			echo json_encode($res);
     }
 
+    public static function patch() {
+      header('Content-Type: text/json');
+      $data = $_POST["data"];
+      $res = Commande_Model::update($data["numCommande"], $data["etat"]);
+      echo json_encode($res);
+    }
+
   }
 
 ?>
