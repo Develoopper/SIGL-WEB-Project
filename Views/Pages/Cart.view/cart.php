@@ -47,16 +47,15 @@
 				<?php
 						if (isset($_COOKIE["panier"])) {
 							$produits = unserialize($_COOKIE["panier"]);
-							var_dump(json_encode($produits));
 							foreach ($produits as $produit) {
 								echo <<<HTML
-									<a href="product?id={$produit->refProduit}">
-										<div class="d-flex justify-content-between rounded p-2 bg-white text-dark border border-dark mb-3 produits" id="{$produit->refProduit}">
+									<a href="product?id={$produit['refProduit']}">
+										<div class="d-flex justify-content-between rounded p-2 bg-white text-dark border border-dark mb-3 produits" id="{$produit['refProduit']}">
 											<div class="d-flex align-items-center">
-												<img src="{$produit->img}" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
+												<img src="{$produit['img']}" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
 												<div>
-													<h6 class="text-truncate" style="width: 485px" name="libelle">$produit->libelle</h6>
-													<span style="font-size: 15px" name="prix">$produit->prix</span>
+													<h6 class="text-truncate" style="width: 485px" name="libelle">{$produit["libelle"]}</h6>
+													<span style="font-size: 15px" name="prix">{$produit["prix"]}</span>
 													<span style="font-size: 15px">DH</span>
 												</div>
 											</div>
@@ -64,7 +63,7 @@
 												<div class="bg-dark" style="height: 60px; width: 1px;"></div>
 												<div class="d-flex mx-3 qte">
 													<a style="" name="decrement"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">remove</i></a>
-													<h6 class="mx-4 mb-0" name="qte">1</h6>
+													<h6 class="mx-4 mb-0" name="qte">{$produit["qte"]}</h6>
 													<a style="" name="increment"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">add</i></a>
 												</div>
 												<div class="bg-dark" style="height: 60px; width: 1px;"></div>
@@ -129,20 +128,20 @@
 					dataType: "json",
 					type: "POST",
 					success: function (data) {
-						// $(".produits").each( function() {
-						// 	console.log(data);
-						// 	var contains = false;
-						// 	data.forEach(produit => {
-						// 		if ($(this).attr("id") == produit.refProduit) {
-						// 			contains = true;
-						// 			console.log('====================================');
-						// 			console.log(contains);
-						// 			console.log('====================================');
-						// 		}
-						// 	});
-						// 	if (!contains)
-						// 		$(this).remove();
-						// });
+						$(".produits").each( function() {
+							console.log(data);
+							var contains = false;
+							data.forEach(produit => {
+								if ($(this).attr("id") == produit.refProduit) {
+									contains = true;
+									console.log('====================================');
+									console.log(contains);
+									console.log('====================================');
+								}
+							});
+							if (!contains)
+								$(this).remove();
+						});
 					}
 				});
 			}

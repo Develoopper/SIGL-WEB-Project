@@ -31,12 +31,15 @@ class Cart_Controller extends Controller{
 	}
 
 	public static function checkProduct($refProduit) {
-		/* On initialise la variable de retour */
 		$present = false;
-		/* On vérifie les numéros de références des articles et on compare avec l'article à vérifier */
-		if (array_search($refProduit, unserialize($_COOKIE['panier'])) != "") {
-			$present = true;
+
+		foreach (unserialize($_COOKIE['panier']) as $produit) {
+			if ($produit["refProduit"] == $refProduit) {
+				$present = true;
+				break;
+			}
 		}
+
 		return $present;
 	}
 
@@ -44,14 +47,27 @@ class Cart_Controller extends Controller{
     	header('Content-Type: text/json');
 
 		$produitObj = new Produit_Model($produit["refProduit"], $produit["libelle"], $produit["prix"], $produit["img"], "", "", "");
+		$tabProduits = (array)$produitObj;
+		$tabProduits['qte'] = 1;
 
 		if (self::checkProduct($produitObj->refProduit) == false) {
-			array_push($_SESSION['panier'], $produitObj);
+			array_push($_SESSION['panier'], $tabProduits);
 			setcookie("panier", serialize($_SESSION["panier"]), array(
 				'expires' => time() + 48 * 60 * 60 * 60,
 				'samesite' => 'Lax' // None || Lax  || Strict
 			));
-			return true;
+			return json_encode($_SESSION['panier']);
+		} else {
+			for ($i = 0; $i < count($_SESSION['panier']); $i++) {
+				if ($produitObj->refProduit == $_SESSION['panier'][$i]["refProduit"]) {
+					$_SESSION['panier'][$i]["qte"]++;
+				}
+			}
+			setcookie("panier", serialize($_SESSION["panier"]), array(
+				'expires' => time() + 48 * 60 * 60 * 60,
+				'samesite' => 'Lax' // None || Lax  || Strict
+			));
+			return json_encode($_SESSION['panier']);
 		}
 
 		return false;
@@ -65,10 +81,9 @@ class Cart_Controller extends Controller{
 		$panier_tmp = array();
 
 		if (isset($_SESSION['panier'])) {
-			foreach (unserialize($_SESSION['panier']) as $produit) {
-				if ((int)$produit->refProduit != (int)$refProduit) {
+			foreach ($_SESSION['panier'] as $produit) {
+				if ((int)$produit["refProduit"] != (int)$refProduit) {
 					array_push($panier_tmp, $produit);
-					return $produit->refProduit;
 				}
 			}
 		}
