@@ -90,6 +90,7 @@
 			// 	produitsCommandes.push({qte: qte, refProduit: refProduit});
 			// });
 
+
 			$.ajax({
 				url: "http://localhost:5050/SIGL-WEB-Project/addCommande",
 				data: {
@@ -99,7 +100,7 @@
 						etatCmd:  "En attente",
 						montant: <?php echo "'" . $_GET["montant"] . "'"?>,
 						login: <?php echo "'" . $utilisateur->login . "'" ?>,
-						adresse: $("#adresse").text(),
+						adresse: $("#adresse").val(),
 						produitsCommandes: produitsCommandes
 					}
 				},

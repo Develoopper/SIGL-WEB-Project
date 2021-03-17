@@ -10,6 +10,7 @@
       $client = Utilisateur_Model::getOne([["filterBy" => "login", "opt" => "equal", "filterValue" => $data["login"]]])[0];
       $client->adresse = $data["adresse"];
       Utilisateur_Model::update($client->login, $client);
+      echo  $client->adresse;
 
       if (is_numeric((int)$res)) {
         foreach ($data["produitsCommandes"] as $produitCommande) {

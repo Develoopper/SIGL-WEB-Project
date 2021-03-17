@@ -45,10 +45,6 @@
 
             if ($operator == "equal" && $utilisateur->{$filterBy} == $filterValue) {
               $utilisateurs_list[] = new Utilisateur_Model($utilisateur->login, $utilisateur->nom, $utilisateur->prenom, $utilisateur->mp, $utilisateur->email, $utilisateur->type, $utilisateur->adresse, $utilisateur->tele);
-              for ($i = array_key_first($utilisateurs_list); $i < count($utilisateurs_list); $i++) {
-                if ($utilisateur->{$filterBy} != $filterValue)
-                  unset($utilisateurs_list[$i]);
-              }
             }
           }
         }
@@ -74,14 +70,13 @@
         $utilisateur->addChild("adresse", $this->adresse);
         $utilisateur->addChild("tele", $this->tele);
 
-        return Parent::saveInFile($xml,"utilisateurs");
+        return Parent::saveInFile($xml, "utilisateurs");
       } else {
         return "un utilisateur avec le meme login existe déjà";
       }
     }
 
     public static function update($login, $newUtilisateur) {
-
       $xml = parent::load_xml("utilisateurs");
 
       $id = $xml->xpath("//utilisateur/login[.='$login']")[0];
