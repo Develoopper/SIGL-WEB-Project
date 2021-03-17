@@ -6,9 +6,9 @@ body {
 a {
   cursor: pointer;
   text-decoration: none;
-  color: white;
+  color: black;
 }
 
 a:hover {
-  color:whitesmoke;
+  color:black;
 }
