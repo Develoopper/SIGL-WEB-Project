@@ -38,7 +38,7 @@
 </head>
 <body>
   <!-- Nav bar -->
-  <?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count($_COOKIE["panier"])]); ?>
+  <?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count(unserialize($_COOKIE["panier"]))]); ?>
 
   <!-- Slider -->
   <div id="carouselExampleCaptions" data-bs-interval="3000" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -71,76 +71,7 @@
     </button>
   </div>
 
-  <!-- Meilleures ventes -->
-  <div class="mx-3 my-4 px-3 py-3 bg-light" style="border-radius: 10px; font-size: 13px;">
-    <h3 class="mb-3">Meilleur ventes</h3>
-
-    <?php
-      $array1 = array_slice($meilleursVentes, 0, 6);
-      $array2 = array_slice($meilleursVentes, 5, 6);
-    ?>
-
-    <div id="meilleurs-ventes" data-bs-interval="0" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner px-5">
-        <div class="carousel-item active">
-          <div class="row d-flex justify-content-around my-1">
-          <?php
-            foreach ($array1 as $item) {
-              echo <<<HTML
-                <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <a href="product?id={$item->refProduit}" style="text-decoration: none;" class="text-dark">
-                    <img src="{$item->img}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                    <div class="card-body p-2">
-                      <p class="card-text text-truncate">{$item->libelle}</p>
-                      <p class="card-text text-truncate">{$item->prix} DH</p>
-                    </div>
-                  </a>
-                </div>
-              HTML;
-            }
-          ?>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="row mx-6 d-flex justify-content-around my-1">
-          <?php
-            foreach ($array2 as $item) {
-              echo <<<HTML
-                <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
-                  <a href="product?id={$item->refProduit}" style="text-decoration: none;" class="text-dark">
-                    <img src="{$item->img}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
-                    <div class="card-body p-2">
-                      <p class="card-text text-truncate">{$item->libelle}</p>
-                      <p class="card-text text-truncate">{$item->prix} DH</p>
-                    </div>
-                  </a>
-                </div>
-              HTML;
-            }
-          ?>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev ms-3" style="width: 0px;" type="button" data-bs-target="#meilleurs-ventes"  data-bs-slide="prev">
-        <i class="material-icons text-dark" style="font-size: 50px;">keyboard_arrow_left</i>
-      </button>
-      <button class="carousel-control-next me-3" style="width: 0px;" type="button" data-bs-target="#meilleurs-ventes"  data-bs-slide="next">
-        <i class="material-icons text-dark" style="font-size: 50px;">keyboard_arrow_right</i>
-      </button>
-    </div>
-  </div>
-
-  <!-- Ads row -->
-  <div class="d-flex justify-content-evenly mx-3 my-4 px-3 py-3 ">
-    <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
-      <img src="https://ma.jumia.is/cms/000_2021/Week08/DoubleBanners/MA_W08_DB_montres.png" style="border-radius: 5px" alt="" srcset="">
-    </div>
-    <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
-      <img src="https://ma.jumia.is/cms/000_2021/Week07/DB/MA_W07_DB_ModeHomme.png" style="border-radius: 5px" alt="" srcset="">
-    </div>
-  </div>
-
-  <!-- Petits prix -->
+    <!-- Petits prix -->
   <div class="mx-3 my-4 px-3 py-3 bg-light" style="border-radius: 10px; font-size: 13px;">
     <h3 class="mb-3">Petits prix</h3>
 
@@ -202,13 +133,12 @@
   <!-- Ads row -->
   <div class="d-flex justify-content-evenly mx-3 my-4 px-3 py-3 ">
     <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
-      <img src="https://ma.jumia.is/cms/000_2021/Week07/DB/MA_W07_DB_ModeFemme.png" style="border-radius: 5px" alt="" srcset="">
-    </div>
-    <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
       <img src="https://ma.jumia.is/cms/000_2021/Week08/DoubleBanners/MA_W08_DB_montres.png" style="border-radius: 5px" alt="" srcset="">
     </div>
+    <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
+      <img src="https://ma.jumia.is/cms/000_2021/Week07/DB/MA_W07_DB_ModeHomme.png" style="border-radius: 5px" alt="" srcset="">
+    </div>
   </div>
-
 
   <!-- Nouveautés -->
   <div class="mx-3 my-4 px-3 py-3 bg-light" style="border-radius: 10px; font-size: 13px;">
@@ -266,6 +196,16 @@
       <button class="carousel-control-next me-3" style="width: 0px;" type="button" data-bs-target="#tendance"  data-bs-slide="next">
         <i class="material-icons text-dark" style="font-size: 50px;">keyboard_arrow_right</i>
       </button>
+    </div>
+  </div>
+
+  <!-- Ads row -->
+  <div class="d-flex justify-content-evenly mx-3 my-4 px-3 py-3 ">
+    <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
+      <img src="https://ma.jumia.is/cms/000_2021/Week07/DB/MA_W07_DB_ModeFemme.png" style="border-radius: 5px" alt="" srcset="">
+    </div>
+    <div class="shadow-effect bg-light d-flex justify-content-center p-2" style="border-radius: 10px; font-size: 13px;">
+      <img src="https://ma.jumia.is/cms/000_2021/Week08/DoubleBanners/MA_W08_DB_montres.png" style="border-radius: 5px" alt="" srcset="">
     </div>
   </div>
 
