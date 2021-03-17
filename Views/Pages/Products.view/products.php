@@ -18,7 +18,7 @@
 
 <body>
 	<!-- Nav bar -->
-	<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
+	<?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count(unserialize($_COOKIE["panier"]))]); ?>
 
 
 	<div class="d-flex my-4 px-3">
