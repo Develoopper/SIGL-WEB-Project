@@ -83,24 +83,19 @@
     public static function update($login, $newUtilisateur) {
 
       $xml = parent::load_xml("utilisateurs");
-      $exist = parent::searchInXML($login, $xml)[0];
 
-      if ($exist) {
-        $id = $xml->xpath("//utilisateur/login[.='$login']")[0];
-        $utilisateur = current($id->xpath("parent::*"));
+      $id = $xml->xpath("//utilisateur/login[.='$login']")[0];
+      $utilisateur = current($id->xpath("parent::*"));
 
-        $utilisateur->nom = $newUtilisateur->nom;
-        $utilisateur->prenom = $newUtilisateur->prenom;
-        $utilisateur->mp = $newUtilisateur->mp;
-        $utilisateur->email = $newUtilisateur->email;
-        $utilisateur->type = $newUtilisateur->type;
-        $utilisateur->adresse = $newUtilisateur->adresse;
-        $utilisateur->tele = $newUtilisateur->tele;
+      $utilisateur->nom = $newUtilisateur->nom;
+      $utilisateur->prenom = $newUtilisateur->prenom;
+      $utilisateur->mp = $newUtilisateur->mp;
+      $utilisateur->email = $newUtilisateur->email;
+      $utilisateur->type = $newUtilisateur->type;
+      $utilisateur->adresse = $newUtilisateur->adresse;
+      $utilisateur->tele = $newUtilisateur->tele;
 
-        return Parent::saveInFile($xml, "utilisateurs");
-      } else {
-        return "L'utilisateur n'existe pas.";
-      }
+      return Parent::saveInFile($xml, "utilisateurs");
     }
 
     public static function deleteU($login) {

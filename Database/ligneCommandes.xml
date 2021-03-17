@@ -151,7 +151,17 @@
     <qte/>
   </ligneCommande>
   <ligneCommande>
-    <commande>une commande avec le meme numéro existe déjà</commande>
+    <commande>9</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>9</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>9</commande>
     <produit/>
     <qte/>
   </ligneCommande>

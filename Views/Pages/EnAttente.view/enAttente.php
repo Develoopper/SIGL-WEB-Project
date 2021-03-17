@@ -53,8 +53,8 @@
           type: "POST",
           success: function (data) {
             console.log(data);
-            if (data != "en attente")
-              $("#message") = "votre commande est validée";
+            if (data[0] != "En attente")
+              $("#message").html("votre commande est validée");
           },
           error: function () {
             console.log("*****");
