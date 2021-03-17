@@ -36,14 +36,14 @@
 		<div class="ms-3 p-3 bg-light" style="border-radius: 10px; font-size: 13px;">
 
 			<div class="container-fluid">
-				<div class="row d-flex justify-content-evenly" id="container">
+				<div class="row d-flex " id="container">
 					<?php
 					// echo var_dump($products);
 						foreach ($products as $product) {
 							echo <<<HTML
 								<div class="col-3">
-									<div class="card shadow-effect p-0 mb-3" style="width: 200px; height: 270px; border: none;">
-										<a href="product?id=$product->refProduit" style="text-decoration: none;" class="text-dark">
+									<div class="card shadow-effect p-0" style="width: 200px; height: 270px; border: none;">
+										<a href="product?id=$product->refProduit" style="text-decoration: none;" class="text-dark mb-3">
 											<img src='$product->img'style="height: 180px; width: 180px" class="card-img-top" alt="...">
 											<div class="card-body p-2">
 												<p class="card-text text-truncate">$product->libelle</p>
