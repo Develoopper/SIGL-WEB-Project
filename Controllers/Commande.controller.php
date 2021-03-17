@@ -21,7 +21,7 @@
       header('Content-Type: text/json');
 
       $idCommande = $_POST["data"]["idCommande"];
-      $commande = Commande_Model::getOne([["filterBy" => "idCommande", "opt" => "equal", "filterValue" => $idCommande]])[0];
+      $commande = Commande_Model::getOne([["filterBy" => "numCommande", "opt" => "equal", "filterValue" => $idCommande]])[0];
 
 			return json_encode($commande->etat);
     }

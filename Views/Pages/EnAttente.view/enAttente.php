@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <title>Home</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
   <style>
     <?php include "home.css"; ?>
   </style>
@@ -23,7 +24,7 @@
             <div>
                 <i class="fas fa-check-circle"></i>
             </div>
-            <div>
+            <div id="message">
                 Votre Commande est en cours de traitement
             </div>
         </div>
@@ -38,8 +39,9 @@
 
   <script>
     <?php include "home.js"; ?>
-      setTimeout(() => {
-        $.ajax({
+
+      setInterval(() => {
+         $.ajax({
           url: "http://localhost:5050/SIGL-WEB-Project/testeCommande",
           data: {
             method: "GET",
@@ -51,12 +53,15 @@
           type: "POST",
           success: function (data) {
             console.log(data);
+            if (data != "en attente")
+              $("#message") = "votre commande est validée";
           },
           error: function () {
             console.log("*****");
           }
         });
       }, 1000);
+
 
   </script>
 
