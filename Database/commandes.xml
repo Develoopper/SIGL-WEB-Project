@@ -137,7 +137,7 @@
     <numCommande>20</numCommande>
     <libelle>commande20</libelle>
     <dateCommande>03/17/2021</dateCommande>
-    <etat>validé</etat>
+    <etat>En attente</etat>
     <montant>0</montant>
   </commande>
 </commandes>

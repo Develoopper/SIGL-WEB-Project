@@ -21,7 +21,7 @@
 
     <div class="d-flex align-content-center justify-content-center">
         <div class="col-6 mt-5 d-flex align-content-center justify-content-center" style="height: 100px;">
-            <div>
+            <div class="ms-5">
                 <i class="fas fa-check-circle"></i>
             </div>
             <div id="message">
@@ -53,8 +53,10 @@
           type: "POST",
           success: function (data) {
             console.log(data);
-            if (data[0] != "En attente")
-              $("#message").html("votre commande est validée");
+            if (data[0] != "En attente") {
+              var message = "Monsieur " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + "Votre commande est validée </br> Vous allez la recevoir au plutart après 48h."
+              $("#message").html(message);
+            }
           },
           error: function () {
             console.log("*****");

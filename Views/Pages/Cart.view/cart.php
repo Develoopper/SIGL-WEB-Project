@@ -124,7 +124,6 @@
 			$("#totaleInput").attr("value", $(this).html());
 		})
 
-
 		$("a[name=delete]").click(
 			function (){
 				$refProduit = $(this).parents(".produits").attr("id");

@@ -18,8 +18,8 @@ function calculerTotale() {
     });
 
     $("#totale").html(totale);
+    $("#totaleInput").val(totale);
 }
-
 
 $("h6[name=qte]").bind('DOMSubtreeModified', function () {
     calculerPrixQte();
