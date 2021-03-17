@@ -26,10 +26,10 @@ $("h6[name=qte]").bind('DOMSubtreeModified', function () {
     calculerTotale();
 });
 
-$("a[name=increment]").on("click", function() {
-    var number = parseFloat($(this).prev("h6[name=qte]").html());
+$("a[name=increment]").on("click", function () {
+    var number = parseFloat($(this).prev("input").prev("h6[name=qte]").html());
     number++;
-    $(this).prev("h6[name=qte]").html(number);
+    $(this).prev("input").prev("h6[name=qte]").html(number);
 });
 
 $("a[name=decrement]").on("click", function() {
