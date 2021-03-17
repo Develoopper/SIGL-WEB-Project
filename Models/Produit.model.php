@@ -82,7 +82,7 @@
     }
 
     public static function getOne($where) {
-      $xml = parent::load_xml("produits") or die("Erreur de recupération des produits.");
+      $xml = parent::load_xml("produits");
 
       foreach ($xml->children() as $product) {
 
