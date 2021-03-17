@@ -41,7 +41,7 @@
 					// echo var_dump($products);
 						foreach ($products as $product) {
 							echo <<<HTML
-								<div class="col-3 mx-3">
+								<div class="col-3">
 									<div class="card shadow-effect p-0 mb-3" style="width: 200px; height: 270px; border: none;">
 										<a href="product?id=$product->refProduit" style="text-decoration: none;" class="text-dark">
 											<img src='$product->img'style="height: 180px; width: 180px" class="card-img-top" alt="...">
