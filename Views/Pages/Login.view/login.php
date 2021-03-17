@@ -19,7 +19,7 @@
 <body>
 
 	<!-- Nav bar -->
-	<?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count($_COOKIE["panier"])]); ?>
+	<?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count(unserialize($_COOKIE["panier"]))]); ?>
 
 	<!-- Formulaires -->
 	<div class="d-flex justify-content-center align-items-center mt-3">

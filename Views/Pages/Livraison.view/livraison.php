@@ -20,7 +20,7 @@
 
 	<body>
 	<!-- Nav bar -->
-	<?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count($_COOKIE["panier"])]); ?>
+	<?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count(unserialize($_COOKIE["panier"]))]); ?>
 
 	<div class="d-flex align-items-center justify-content-center mt-5 ms-5">
 		<div class="d-flex border flex-column align-items-center me-5 p-4 bg-light card" style="border-radius: 10px;">

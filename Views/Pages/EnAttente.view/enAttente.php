@@ -17,7 +17,7 @@
 </head>
 <body>
     <!-- Nav bar -->
-    <?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count($_COOKIE["panier"])]); ?>
+    <?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count(unserialize($_COOKIE["panier"]))]); ?>
 
     <div class="d-flex align-content-center justify-content-center">
         <div class="col-6 mt-5 d-flex align-content-center justify-content-center" style="height: 100px;">
