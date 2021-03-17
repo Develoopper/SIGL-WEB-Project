@@ -8,7 +8,7 @@
 		Commande_Controller::patch();
 	});
 
-	Route::get("tester", function() {
-		echo Commande_Controller::testerUtilisateur();
+	Route::get("testeCommande", function() {
+		echo Commande_Controller::testeCommande();
 	});
 ?>

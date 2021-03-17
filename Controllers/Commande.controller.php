@@ -12,16 +12,18 @@
           $ligneCmd = new LigneCommande_Model($res, $produitCommande->refProduit, $produitCommande->qte);
           $ligneCmd->create();
         }
-        return json_encode("livraison");
+        return json_encode("enAttente " . $res);
       }
 			return json_encode($res);
     }
 
-    public static function testerUtilisateur() {
-      if (!isset($_SESSION["login"]))
-        return json_encode("login");
-      else
-        return json_encode("livraison");
+    public static function testeCommande() {
+      header('Content-Type: text/json');
+
+      $idCommande = $_POST["data"]["idCommande"];
+      $commande = Commande_Model::getOne([["filterBy" => "idCommande", "opt" => "equal", "filterValue" => $idCommande]])[0];
+
+			return json_encode($commande->etat);
     }
 
     public static function patch() {

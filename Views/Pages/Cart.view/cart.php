@@ -44,12 +44,14 @@
 			</div>
 
 			<div class="mx-5" style="width: 900px">
+				<form method='GET' action="livraison">
 				<?php
 					if (isset($_COOKIE["panier"])) {
 						$produits = unserialize($_COOKIE["panier"]);
 						foreach ($produits as $produit) {
 							echo <<<HTML
 								<a href="product?id={$produit['refProduit']}">
+								<input type="hidden" name="refProduit[]" value="{$produit['refProduit']}" />
 									<div class="d-flex justify-content-between rounded p-2 bg-white text-dark border border-dark mb-3 produits" id="{$produit['refProduit']}">
 										<div class="d-flex align-items-center">
 											<img src="{$produit['img']}" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
@@ -64,6 +66,7 @@
 											<div class="d-flex mx-3 qte">
 												<a style="" name="decrement"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">remove</i></a>
 												<h6 class="mx-4 mb-0" name="qte">{$produit["qte"]}</h6>
+												<input type="hidden" name="qte[]" value="{$produit['qte']}" />
 												<a style="" name="increment"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">add</i></a>
 											</div>
 											<div class="bg-dark" style="height: 60px; width: 1px;"></div>
@@ -85,11 +88,12 @@
 
 				<div style="width: 100%" class="d-flex flex-column align-items-end">
 					<h6 class="me-3 mt-3">Totale : <b class="ms-3" id="totale"></b> <b>DH</b></h6>
+					<input type="hidden" id="totaleInput" name="montant" value="" />
 					<div class="d-flex">
 						<a href="./" class="text-light" style="text-decoration: none;">
 							<button type="button" class="btn btn-outline-dark mt-3 me-2" style="width: 250px">Poursuivre vos achats</button>
 						</a>
-						<button type="button" id="commander" class="btn btn-dark mt-3" style="width: 250px">Commander</button>
+						<button type="submit" id="commander" class="btn btn-dark mt-3" style="width: 250px">Commander</button>
 						<!-- <a href="" class="text-light" style="text-decoration: none;"> -->
 						<!-- </a> -->
 					</div>
@@ -99,6 +103,7 @@
 
 		</div>
 	</div>
+	</form>
 
 	<!-- Footer -->
 	<?php Component("Footer", []); ?>
@@ -115,6 +120,9 @@
 			calculerTotale();
 		});
 
+		$("#totale").on("change", function() {
+			$("#totaleInput").attr("value", $(this).html());
+		})
 
 
 		$("a[name=delete]").click(
@@ -146,63 +154,71 @@
 			}
 		);
 
-		$("#commander").on("click", function() {
-			var today = new Date();
-			var dd = String(today.getDate()).padStart(2, '0');
-			var mm = String(today.getMonth() + 1).padStart(2, '0');
-			var yyyy = today.getFullYear();
-			today = mm + '/' + dd + '/' + yyyy;
-
-			$produitsCommandes = new Array();
-			$(".produits").each( function() {
-				qte = parseFloat($(this).children().last().children(".qte").children("h6").html());
-				refProduit = $(this).attr("id");
-				$produitsCommandes.push({qte, refProduit});
-			});
-
-			$.ajax({
-				url: "http://localhost:5050/SIGL-WEB-Project/tester",
-				data: {
-					method : "GET",
-					"data" : "None"
-				},
-				dataType: "json",
-				type: "POST",
-				success: function (data) {
-					if (data == "login")
-						window.location.href = "login";
-					else {
-// 						$.ajax({
-// 							url: "http://localhost:5050/SIGL-WEB-Project/postToLivraison",
-// 							data: {
-// 								method : "POST",
-// 								data: {
+// 		$("#commander").on("click", function() {
+// 			var today = new Date();
+// 			var dd = String(today.getDate()).padStart(2, '0');
+// 			var mm = String(today.getMonth() + 1).padStart(2, '0');
+// 			var yyyy = today.getFullYear();
+// 			today = mm + '/' + dd + '/' + yyyy;
 //
-// 									etatCmd: "en attente",
-// 									montant: $("#totale").html(),
-// 									produitsCommandes: $produitsCommandes
-// 								}
-// 							},
-// 							dataType: "json",
-// 							type: "POST",
-// 							success: function (data) {
-// 								console.log(data);
-// 							},
-// 							error: function () {
-// 								console.log("*****");
-// 							}
-// 						});
-						window.location.href = "livraison?dateCmd="+today+"&etatCmd=en Attente&montant="+$("#totale").html()+"&produitsCommandes="+$produitsCommandes;
-					}
+// 			produitsCommandes = new Array();
+// 			$(".produits").each( function() {
+// 				qte = parseFloat($(this).children().last().children(".qte").children("h6").html());
+// 				refProduit = $(this).attr("id");
+// 				produitsCommandes.push({qte: qte, refProduit: refProduit});
+// 			});
+//
+// 			encodeDataToURL = (data) => {
+// 				return Object
+// 				.keys(data)
+// 				.map(value => `${value}=${encodeURIComponent(data[value])}`)
+// 				.join('&');
+// 			}
+//
+// 			$.ajax({
+// 				url: "http://localhost:5050/SIGL-WEB-Project/tester",
+// 				data: {
+// 					method : "GET",
+// 					data : "None"
+// 				},
+// 				dataType: "json",
+// 				type: "POST",
+// 				success: function (data) {
+// 					if (data == "login")
+// 						window.location.href = "login";
+// 					else {
+// 						var url = "livraison?dateCmd=" + today + "&etatCmd=en Attente&montant=" + $("#totale").html() + "&produitsCommandes[]=" + encodeURI(produitsCommandes);
+// 						window.location.href = url;
+// // 						$.ajax({
+// // 							url: "http://localhost:5050/SIGL-WEB-Project/postToLivraison",
+// // 							data: {
+// // 								method: "POST",
+// // 								data : {
+// // 									dateCmd: today,
+// // 									etatCmd: "en Attente",
+// // 									montant: $("#totale").html(),
+// // 									produitsCommandes: produitsCommandes
+// // 								}
+// // 							},
+// // 							dataType: "json",
+// // 							type: "POST",
+// // 							success: function (data) {
+// //
+// // 							},
+// // 							error: function () {
+// // 								console.log("*****");
+// // 							}
+// // 						});
+//
+// 					}
+// 				},
+// 				error: function () {
+// 					console.log("*****");
+// 				}
+// 			});
 
-				},
-				error: function () {
-					console.log("*****");
-				}
-			});
 
-
-		});
+		// });
 	</script>
 	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->

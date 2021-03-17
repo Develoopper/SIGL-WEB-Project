@@ -42,7 +42,7 @@
 									<label style="margin-left: 15px;" for="numTel" class="form-label">Numéro de télephone* </label>
 								</div>
 								<div class="mb-3 col-6 form-floating">
-									<textarea class="form-control" placeholder="Entrer votre adresse" id="adresse"></textarea>
+									<textarea class="form-control" placeholder="Entrer votre adresse" id="adresse"><?php echo $_GET["qte"][0];?></textarea>
 									<label style="margin-left: 15px;" for="adresse">Adresse* </label>
 								</div>
 							</div>
@@ -67,23 +67,46 @@
 	<script>
 		<?php include "livraison.js"; ?>
 
-		$("#Enregistrer").on("click", function() {
+		$("#Enregistrer").on("click", function(e) {
+			e.preventDefault();
+			var today = new Date();
+			var dd = String(today.getDate()).padStart(2, '0');
+			var mm = String(today.getMonth() + 1).padStart(2, '0');
+			var yyyy = today.getFullYear();
+			today = mm + '/' + dd + '/' + yyyy;
+
+			var produitsCommandes = new Array();
+			var produitsQte = <?php echo json_encode($_GET["qte"])?>;
+			var produitsRef = <?php echo json_encode($_GET["refProduit"])?>;
+			console.log(produitsRef);
+
+			for (var j = 0; j < produitsQte.length; j++)
+				produitsCommandes.push({qte: produitsQte[j], ref: produitsRef[j]});
+
+			// $(".produits").each( function() {
+			// 	qte = parseFloat($(this).children().last().children(".qte").children("h6").html());
+			// 	refProduit = $(this).attr("id");
+			// 	produitsCommandes.push({qte: qte, refProduit: refProduit});
+			// });
+
 			$.ajax({
 				url: "http://localhost:5050/SIGL-WEB-Project/addCommande",
 				data: {
 					method: "POST",
 					data: {
-						dateCmd: $_GET["dateCmd"],
-						etatCmd: $_GET["etatCmd"],
-						montant: $_GET["montant"],
+						dateCmd: today,
+						etatCmd:  "En attente",
+						montant: <?php echo "'" . $_GET["montant"] . "'"?>,
 						login: <?php echo "'" . $utilisateur->login . "'" ?>,
-						produitsCommandes: $_GET["produitsCommandes"]
+						produitsCommandes: produitsCommandes
 					}
 				},
 				dataType: "json",
 				type: "POST",
 				success: function (data) {
-					window.location.href = data;
+					var page = data.split(" ")[0];
+					var param = data.split(" ")[1];
+					window.location.href = page + "?idCommande=" + param ;
 				},
 				error: function () {
 					console.log("*****");
@@ -91,8 +114,8 @@
 			});
 		});
 	</script>
-  	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  	<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script> -->
 
 </body>
 </html>
