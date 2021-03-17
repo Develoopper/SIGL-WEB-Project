@@ -53,10 +53,12 @@
           type: "POST",
           success: function (data) {
             console.log(data);
-            if (data[0] != "En attente") {
-              var message = "Monsieur " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + "Votre commande est validée </br> Vous allez la recevoir au plutart après 48h."
-              $("#message").html(message);
-            }
+            var message = "";
+            if (data[0] == "validé")
+              message = "Monsieur " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + " </br>Votre commande est validée </br> Vous allez la recevoir au plutart après 48h.";
+            if(data[0] == "annulé")
+              message = "Monsieur " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + " </br>Votre commande a été annulée. ";
+            $("#message").html(message);
           },
           error: function () {
             console.log("*****");
