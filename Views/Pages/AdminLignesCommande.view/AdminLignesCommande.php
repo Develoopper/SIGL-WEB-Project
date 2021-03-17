@@ -49,14 +49,14 @@
           foreach (LigneCommande_Model::getOne([
 						["filterBy" => "commande", "opt" => "equal", "filterValue" => $_GET["numCommande"]]
 					]) as $ligneCommande) {
-						echo <<<HTML
-							<tr>
-								<td name="numCommande">$ligneCommande->id</td>
-								<td>$ligneCommande->commande</td>
-								<td>$ligneCommande->produit</td>
-								<td name="etat">$ligneCommande->qte</td>
-							</tr>
-						HTML;
+			echo <<<HTML
+				<tr>
+					<td name="numCommande">$ligneCommande->id</td>
+					<td>$ligneCommande->commande</td>
+					<td>$ligneCommande->produit</td>
+					<td name="etat">$ligneCommande->qte</td>
+				</tr>
+			HTML;
           }
         ?>
       </tbody>

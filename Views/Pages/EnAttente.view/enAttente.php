@@ -21,7 +21,7 @@
 
     <div class="d-flex align-content-center justify-content-center">
         <div class="col-6 mt-5 d-flex align-content-center justify-content-center" style="height: 100px;">
-            <div class="ms-5">
+            <div class="me-3">
                 <i class="fas fa-check-circle"></i>
             </div>
             <div id="message">
@@ -55,9 +55,11 @@
             console.log(data);
             var message = "";
             if (data[0] == "validé")
-              message = "Monsieur " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + " </br>Votre commande est validée </br> Vous allez la recevoir au plutart après 48h.";
+              message = "Notre chère client " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + " </br>Votre commande est validée </br> Vous allez la recevoir au plutart après 48h.";
             if(data[0] == "annulé")
-              message = "Monsieur " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + " </br>Votre commande a été annulée. ";
+              message = "Notre chère client " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + " </br>Votre commande a été annulée. ";
+            if(data[0] == "En attente")
+              message = "Votre Commande est en cours de traitement.";
             $("#message").html(message);
           },
           error: function () {

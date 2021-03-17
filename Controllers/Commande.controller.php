@@ -13,7 +13,7 @@
 
       if (is_numeric((int)$res)) {
         foreach ($data["produitsCommandes"] as $produitCommande) {
-          $ligneCmd = new LigneCommande_Model($res, $produitCommande->refProduit, $produitCommande->qte);
+          $ligneCmd = new LigneCommande_Model($res, $produitCommande["refProduit"], $produitCommande["qte"]);
           $ligneCmd->create();
         }
         return json_encode("enAttente " . $res);

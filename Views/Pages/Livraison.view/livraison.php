@@ -82,7 +82,7 @@
 			console.log(produitsRef);
 
 			for (var j = 0; j < produitsQte.length; j++)
-				produitsCommandes.push({qte: produitsQte[j], ref: produitsRef[j]});
+				produitsCommandes.push({qte: produitsQte[j], refProduit: produitsRef[j]});
 
 			// $(".produits").each( function() {
 			// 	qte = parseFloat($(this).children().last().children(".qte").children("h6").html());
