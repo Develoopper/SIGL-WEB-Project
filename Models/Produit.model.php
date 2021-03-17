@@ -83,11 +83,12 @@
       $xml = parent::load_xml("produits") or die("Erreur de recupération des produits.");
 
       foreach ($xml->children() as $product) {
-
+        
         foreach ($where as $filter) {
           $filterBy = $filter["filterBy"];
           $operator = $filter["opt"];
           $filterValue = $filter["filterValue"];
+
 
           if ($operator == "like" && str_contains($product->libelle, $filterValue)) {
             $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
@@ -116,11 +117,11 @@
             }
           }
 
-          if ($operator == "gtE" &&  (int)$product->prix >= $filterValue) {
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
+          if ($operator == "gtE" &&  (int)$product->prix >= (int)$filterValue) {
+            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, (int)$product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
             // supprimerles produits qui ne respectent pas la condition
             for ($i = array_key_first($products_list); $i < count($products_list); $i++) {
-              if ($products_list[$i]->prix < $filterValue) {
+              if ($products_list[$i]->prix < (int)$filterValue) {
                 unset($products_list[$i]);
               }
             }
@@ -135,10 +136,10 @@
             }
           }
 
-          if ($operator == "ltE" && (int)$product->prix <= $filterValue) {
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
+          if ($operator == "ltE" && (int)$product->prix <= (int)$filterValue) {
+            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, (int)$product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
             for ($i = array_key_first($products_list); $i < count($products_list); $i++) {
-              if ($products_list[$i]->prix > $filterValue) {
+              if ($products_list[$i]->prix > (int)$filterValue) {
                 unset($products_list[$i]);
               }
             }

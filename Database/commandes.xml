@@ -4,7 +4,7 @@
     <numCommande>1</numCommande>
     <libelle>commande</libelle>
     <dateCommande>03/16/2021</dateCommande>
-    <etat>en cours</etat>
+    <etat>annulé</etat>
     <montant>200</montant>
   </commande>
   <commande login="398">

@@ -68,4 +68,9 @@
     <produit/>
     <qte/>
   </ligneCommande>
+  <ligneCommande>
+    <commande>une commande avec le meme numéro existe déjà</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
 </ligneCommades>

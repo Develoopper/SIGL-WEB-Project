@@ -4,11 +4,11 @@
     public static function get() {
       header('Content-Type: text/json');
       $data = $_POST["data"];
-      $opt = "like";
-      if ($data["filterBy"] == "prix")
-        $opt = "equal";
       $res = Produit_Model::getOne([
-        ["filterBy" => $data["filterBy"], "opt" => $opt, "filterValue" => $data["filterValue"]]
+        ["filterBy" => "libelle", "opt" => "like", "filterValue" => $data["libelle"]],
+        ["filterBy" => "marque", "opt" => "like", "filterValue" => $data["marque"]],
+        ["filterBy" => "prix", "opt" => "gtE", "filterValue" => $data["prixMin"]],
+        ["filterBy" => "prix", "opt" => "ltE", "filterValue" => $data["prixMax"]]
       ]);
       echo json_encode($res);
     }
