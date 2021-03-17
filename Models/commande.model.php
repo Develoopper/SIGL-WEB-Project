@@ -2,7 +2,6 @@
   // include "./Model.php";
 
   class Commande_Model extends Model {
-    public static $NbreCommandes;
     public $numCommande;
     public $libelle;
     public $dateCommande;
@@ -11,10 +10,10 @@
     public $login;
 
     public function __construct($numCommande, $libelle, $dateCommande, $etat, $montant, $login) {
+      $xml = parent::load_xml("commandes");
 
       if ($numCommande == "") {
-        self::$NbreCommandes++;
-        $this->numCommande = self::$NbreCommandes;
+        $this->numCommande = count($xml->children()) + 1;
       } else
         $this->numCommande = $numCommande;
 

@@ -7,4 +7,8 @@
 	Route::patch("commandes", "Auth", function() {
 		Commande_Controller::patch();
 	});
+
+	Route::get("testeCommande", function() {
+		echo Commande_Controller::testeCommande();
+	});
 ?>

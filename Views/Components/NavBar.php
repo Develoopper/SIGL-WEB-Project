@@ -63,7 +63,8 @@
 
 				<a href="cart" class="d-flex align-items-center text-dark" style="text-decoration: none;">
 					<i class="large material-icons mx-1" style="font-size: 30px;">shopping_cart</i>
-					Panier
+					<span class="col-6">Panier</span>
+					<span class="badge bg-danger" style="left: 70px;" id="nbreItemsPanier"><?php echo $nbreProductPanier ?></span>
 				</a>
 			</div>
 		</div>

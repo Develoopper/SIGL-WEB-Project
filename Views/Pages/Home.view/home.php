@@ -17,44 +17,7 @@
     ],
   ];
 
-  $meilleursVentes = [
-    [
-      "id" => 1,
-      "libellee" => "Montre water-proof taille standard",
-      "prix" => 579,
-      "img" => "https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/24/177193/1.jpg?3360"
-    ],
-    [
-      "id" => 2,
-      "libellee" => "Porte feuille cuire",
-      "prix" => 150,
-      "img" => "https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/42/139382/1.jpg?9659"
-    ],
-    [
-      "id" => 3,
-      "libellee" => "Lunettes de soleil",
-      "prix" => 200,
-      "img" => "https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/16/295183/1.jpg?1806"
-    ],
-    [
-      "id" => 4,
-      "libellee" => "Puzzle pendentif",
-      "prix" => 100,
-      "img" => "https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/71/544163/1.jpg?0556"
-    ],
-    [
-      "id" => 5,
-      "libellee" => "Bague en argent",
-      "prix" => 300,
-      "img" => "https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/68/344182/1.jpg?2292"
-    ],
-    [
-      "id" => 6,
-      "libellee" => "Echarpe pour homme",
-      "prix" => 120,
-      "img" => "https://ma.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/85/144613/1.jpg?2808"
-    ],
-  ];
+
 ?>
 
 <!DOCTYPE html>
@@ -75,7 +38,7 @@
 </head>
 <body>
   <!-- Nav bar -->
-  <?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
+  <?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count($_COOKIE["panier"])]); ?>
 
   <!-- Slider -->
   <div id="carouselExampleCaptions" data-bs-interval="3000" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -147,7 +110,7 @@
                   <a href="product?id={$item->refProduit}" style="text-decoration: none;" class="text-dark">
                     <img src="{$item->img}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
                     <div class="card-body p-2">
-                      <p class="card-text text-truncate">{$item->libellee}</p>
+                      <p class="card-text text-truncate">{$item->libelle}</p>
                       <p class="card-text text-truncate">{$item->prix} DH</p>
                     </div>
                   </a>
@@ -197,7 +160,7 @@
                   <a href="product?id={$item->refProduit}" style="text-decoration: none;" class="text-dark">
                     <img src="{$item->img}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
                     <div class="card-body p-2">
-                      <p class="card-text text-truncate">{$item->libellee}</p>
+                      <p class="card-text text-truncate">{$item->libelle}</p>
                       <p class="card-text text-truncate">{$item->prix} DH</p>
                     </div>
                   </a>
@@ -216,8 +179,8 @@
                   <a href="product?id={$item->refProduit}" style="text-decoration: none;" class="text-dark">
                     <img src="{$item->img}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
                     <div class="card-body p-2">
-                      <p class="card-text text-truncate">{$item->libellee}</p>
-                      <p class="card-text text-truncate">{$item->libellee} DH</p>
+                      <p class="card-text text-truncate">{$item->libelle}</p>
+                      <p class="card-text text-truncate">{$item->prix} DH</p>
                     </div>
                   </a>
                 </div>
@@ -267,8 +230,8 @@
                   <a href="product?id={$item->refProduit}" style="text-decoration: none;" class="text-dark">
                     <img src="{$item->img}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
                     <div class="card-body p-2">
-                      <p class="card-text text-truncate">$item->libelle</p>
-                      <p class="card-text text-truncate">$item->prix DH</p>
+                      <p class="card-text text-truncate">{$item->libelle}</p>
+                      <p class="card-text text-truncate">{$item->prix} DH</p>
                     </div>
                   </a>
                 </div>
@@ -286,8 +249,8 @@
                   <a href="product?id={$item->refProduit}" style="text-decoration: none;" class="text-dark">
                     <img src="{$item->img}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
                     <div class="card-body p-2">
-                      <p class="card-text text-truncate">$item->libelle</p>
-                      <p class="card-text text-truncate">$item->prix DH</p>
+                      <p class="card-text text-truncate">{$item->libelle}</p>
+                      <p class="card-text text-truncate">{$item->prix} DH</p>
                     </div>
                   </a>
                 </div>

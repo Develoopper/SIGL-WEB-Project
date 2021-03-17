@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <commandes>
-  <commande login="398">
+  <commande login="09746a4a912d660a6b5213a7ae1b7227">
     <numCommande>1</numCommande>
-    <libelle>commande</libelle>
-    <dateCommande>03/16/2021</dateCommande>
-    <etat>annulé</etat>
-    <montant>200</montant>
+    <libelle>commande1</libelle>
+    <dateCommande>03/17/2021</dateCommande>
+    <etat>En attente</etat>
+    <montant/>
   </commande>
-  <commande login="398">
+  <commande login="09746a4a912d660a6b5213a7ae1b7227">
     <numCommande>2</numCommande>
-    <libelle>commande</libelle>
-    <dateCommande>03/16/2021</dateCommande>
-    <etat>validé</etat>
-    <montant>200</montant>
+    <libelle>commande2</libelle>
+    <dateCommande>03/17/2021</dateCommande>
+    <etat>En attente</etat>
+    <montant/>
   </commande>
-  <commande login="741">
+  <commande login="09746a4a912d660a6b5213a7ae1b7227">
     <numCommande>3</numCommande>
-    <libelle>commande</libelle>
-    <dateCommande>03/16/2021</dateCommande>
-    <etat>en cours</etat>
-    <montant>200</montant>
+    <libelle>commande3</libelle>
+    <dateCommande>03/17/2021</dateCommande>
+    <etat>En attente</etat>
+    <montant/>
   </commande>
-  <commande login="7f720bdd61099c18f3fb859a1c035a03">
-    <numCommande>1</numCommande>
-    <libelle>commande1</libelle>
-    <dateCommande>03/16/2021</dateCommande>
-    <etat>en attente</etat>
-    <montant>159</montant>
+  <commande login="09746a4a912d660a6b5213a7ae1b7227">
+    <numCommande>4</numCommande>
+    <libelle>commande4</libelle>
+    <dateCommande>03/17/2021</dateCommande>
+    <etat>En attente</etat>
+    <montant/>
   </commande>
-  <commande login="7f720bdd61099c18f3fb859a1c035a03">
-    <numCommande>1</numCommande>
-    <libelle>commande1</libelle>
-    <dateCommande>03/16/2021</dateCommande>
-    <etat>en attente</etat>
-    <montant>159</montant>
+  <commande login="09746a4a912d660a6b5213a7ae1b7227">
+    <numCommande>5</numCommande>
+    <libelle>commande5</libelle>
+    <dateCommande>03/17/2021</dateCommande>
+    <etat>En attente</etat>
+    <montant/>
   </commande>
-  <commande login="7f720bdd61099c18f3fb859a1c035a03">
-    <numCommande>1</numCommande>
-    <libelle>commande1</libelle>
-    <dateCommande>03/16/2021</dateCommande>
-    <etat>en attente</etat>
-    <montant>159</montant>
+  <commande login="09746a4a912d660a6b5213a7ae1b7227">
+    <numCommande>6</numCommande>
+    <libelle>commande6</libelle>
+    <dateCommande>03/17/2021</dateCommande>
+    <etat>En attente</etat>
+    <montant/>
   </commande>
-  <commande login="7f720bdd61099c18f3fb859a1c035a03">
-    <numCommande>1</numCommande>
-    <libelle>commande1</libelle>
-    <dateCommande>03/16/2021</dateCommande>
-    <etat>en attente</etat>
-    <montant>159</montant>
+  <commande login="09746a4a912d660a6b5213a7ae1b7227">
+    <numCommande>7</numCommande>
+    <libelle>commande7</libelle>
+    <dateCommande>03/17/2021</dateCommande>
+    <etat>En attente</etat>
+    <montant/>
   </commande>
-  <commande login="7f720bdd61099c18f3fb859a1c035a03">
-    <numCommande>1</numCommande>
-    <libelle>commande1</libelle>
-    <dateCommande>03/16/2021</dateCommande>
-    <etat>en attente</etat>
-    <montant>159</montant>
+  <commande login="09746a4a912d660a6b5213a7ae1b7227">
+    <numCommande>8</numCommande>
+    <libelle>commande8</libelle>
+    <dateCommande>03/17/2021</dateCommande>
+    <etat>En attente</etat>
+    <montant/>
   </commande>
 </commandes>
