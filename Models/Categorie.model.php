@@ -1,5 +1,5 @@
 <?php
-  include "./Model.php";
+  // include "./Model.php";
 
   class Categorie_Model extends Model {
     public $id;
