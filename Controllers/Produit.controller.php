@@ -33,7 +33,7 @@
     public static function patch() {
       header('Content-Type: text/json');
       $data = $_POST["data"];
-      $res = Produit_Model::update($data["refProduit"], new Produit_Model($data["refProduit"], $data["libelle"], $data["prix"], $data["img"], $data["marque"], $data["sousCategorie"], ""));
+      $res = Produit_Model::update($data["refProduit"], new Produit_Model($data["refProduit"], $data["libelle"], $data["prix"], $data["img"], $data["marque"], $data["sousCategorie"], $data["dateAjout"]));
       echo json_encode($res);
     }
 

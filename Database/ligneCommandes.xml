@@ -315,4 +315,9 @@
     <produit/>
     <qte/>
   </ligneCommande>
+  <ligneCommande>
+    <commande>20</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
 </ligneCommades>
