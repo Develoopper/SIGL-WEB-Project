@@ -22,7 +22,7 @@
 	<!-- Nav bar -->
 	<?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count($_COOKIE["panier"])]); ?>
 
-	<div class="d-flex align-items-center justify-content-center mt-5">
+	<div class="d-flex align-items-center justify-content-center mt-5 ms-5">
 		<div class="d-flex border flex-column align-items-center me-5 p-4 bg-light card" style="border-radius: 10px;">
 			<form>
 				<fieldset>
@@ -42,7 +42,7 @@
 									<label style="margin-left: 15px;" for="numTel" class="form-label">Numéro de télephone* </label>
 								</div>
 								<div class="mb-3 col-6 form-floating">
-									<textarea class="form-control" placeholder="Entrer votre adresse" id="adresse"><?php echo $_GET["qte"][0];?></textarea>
+									<textarea class="form-control" placeholder="Entrer votre adresse" id="adresse"></textarea>
 									<label style="margin-left: 15px;" for="adresse">Adresse* </label>
 								</div>
 							</div>
@@ -99,6 +99,7 @@
 						etatCmd:  "En attente",
 						montant: <?php echo "'" . $_GET["montant"] . "'"?>,
 						login: <?php echo "'" . $utilisateur->login . "'" ?>,
+						adresse: $("#adresse").text(),
 						produitsCommandes: produitsCommandes
 					}
 				},

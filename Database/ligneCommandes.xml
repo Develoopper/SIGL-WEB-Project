@@ -150,4 +150,19 @@
     <produit/>
     <qte/>
   </ligneCommande>
+  <ligneCommande>
+    <commande>9</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>9</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>9</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
 </ligneCommades>

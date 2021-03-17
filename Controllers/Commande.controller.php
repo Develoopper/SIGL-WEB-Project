@@ -5,8 +5,12 @@
       header('Content-Type: text/json');
 
       $data = $_POST["data"];
-      $obj = new Commande_Model("", "", $data["dateCmd"], $data["etatCmd"], $data["montant"], $data["login"]);
+      $obj = new Commande_Model("", "", $data["dateCmd"], $data["etatCmd"], (float)$data["montant"], $data["login"]);
       $res = $obj->create();
+      $client = Utilisateur_Model::getOne([["filterBy" => "login", "opt" => "equal", "filterValue" => $data["login"]]])[0];
+      $client->adresse = $data["adresse"];
+      Utilisateur_Model::update($client->login, $client);
+
       if (is_numeric((int)$res)) {
         foreach ($data["produitsCommandes"] as $produitCommande) {
           $ligneCmd = new LigneCommande_Model($res, $produitCommande->refProduit, $produitCommande->qte);
@@ -15,6 +19,7 @@
         return json_encode("enAttente " . $res);
       }
 			return json_encode($res);
+
     }
 
     public static function testeCommande() {
