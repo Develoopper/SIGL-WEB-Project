@@ -300,4 +300,19 @@
     <produit/>
     <qte/>
   </ligneCommande>
+  <ligneCommande>
+    <commande>19</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>19</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>19</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
 </ligneCommades>
