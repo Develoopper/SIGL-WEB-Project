@@ -15,4 +15,9 @@
     <produit>4</produit>
     <qte>1</qte>
   </ligneCommande>
+  <ligneCommande>
+    <commande>21</commande>
+    <produit/>
+    <qte/>
+  </ligneCommande>
 </ligneCommades>

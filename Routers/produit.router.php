@@ -6,8 +6,14 @@
   });
 
   Route::set("product", function() {
+    $produit = Produit_Model::getOne([["filterBy" => "refProduit", "opt" => "equal", "filterValue" => $_GET["id"]]])[0];
+    $sousCategorie = SousCategorie_Model::getOne([["filterBy" => "id", "opt" => "equal", "filterValue" => (int)$produit->sousCategorie]])[0];
+    $categorie = Categorie_Model::getOne([["filterBy" => "id", "opt" => "equal", "filterValue" => (int)$sousCategorie->categorie]])[0];
+
     Controller::CreateView("Product", [
-      "product" => Produit_Model::getOne([["filterBy" => "refProduit", "opt" => "equal", "filterValue" => $_GET["id"]]])[0]
+      "produit" => $produit,
+      "sousCategorie" => $sousCategorie,
+      "categorie" => $categorie,
     ]);
   });
 
