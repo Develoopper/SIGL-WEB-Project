@@ -2,7 +2,7 @@
   class Model {
 
     public static function load_xml($entity) {
-      $xml = simplexml_load_file("Database/$entity.xml");
+      $xml = simplexml_load_file("../Database/$entity.xml");
       return $xml;
     }
 
@@ -18,7 +18,7 @@
       $dom->preserveWhiteSpace = false;
       $dom->formatOutput = true;
       $dom->loadXML($xml->saveXML());
-      $dom->save("Database/$fileName.xml");
+      $dom->save("../Database/$fileName.xml");
       return true;
     }
 
