@@ -25,7 +25,7 @@
 
       foreach($xml->children() as $product)
       {
-        $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
+        array_push($products_list, new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout));
       }
 
       usort($products_list, function($p1, $p2){
@@ -48,7 +48,7 @@
           $max = count($produitsCommandees);
           if (count($produitsCommandees) > $max) {
             if (count($products_list) <= 12)
-              $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
+              array_push($products_list, new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout));
             $max = count($produitsCommandees);
           }
         }
@@ -61,12 +61,16 @@
       $xml = parent::load_xml("produits");
 
       $products_list = array();
-      foreach ($xml->children() as $product) {
-        if((float)$product->prix <= 300.0) {
-          if (count($products_list) <= 12)
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
-        }
+
+      foreach($xml->children() as $product) {
+        array_push($products_list, new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout));
       }
+
+      usort($products_list, function($p1, $p2){
+        return (float)($p1->prix) - (float)($p2->prix);
+      });
+
+      $products_list = array_slice($products_list, 0, 12);
 
       return $products_list;
     }
@@ -75,7 +79,7 @@
       $xml = parent::load_xml("produits");
 
       foreach ($xml->children() as $product) {
-        $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
+        array_push($products_list, new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout));
       }
 
       return $products_list;
@@ -84,68 +88,41 @@
     public static function getOne($where) {
       $xml = parent::load_xml("produits");
 
+      $products_list = array();
+      $i = 0;
+
       foreach ($xml->children() as $product) {
+        $i++;
+        $valide = true;
 
         foreach ($where as $filter) {
+
           $filterBy = $filter["filterBy"];
           $operator = $filter["opt"];
           $filterValue = $filter["filterValue"];
 
-          if ($operator == "like" && str_contains($product->libelle, $filterValue)) {
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
-            for ($i = array_key_first($products_list); $i < count($products_list); $i++) {
-              if (!str_contains($product->{$filterBy}, $filterValue)) {
-                unset($products_list[$i]);
-              }
-            }
-          }
+          if ($operator == "like" && !(str_contains($product->libelle, $filterValue)))
+            $valide = false;
 
-          if ($operator == "equal" && ($product->{$filterBy} == $filterValue || $product->attributes()[$filterBy] == $filterValue)) {
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
-            for ($i = array_key_first($products_list); $i < count($products_list); $i++) {
-              if ($product->{$filterBy} != $filterValue && $product->attributes()[$filterBy] != $filterValue) {
-                unset($products_list[$i]);
-              }
-            }
-          }
+          if ($operator == "equal" && !(($product->{$filterBy} == $filterValue || $product->attributes()[$filterBy] == $filterValue)))
+            $valide = false;
 
-          if ($operator == "gt" && $product->prix > $filterValue) {
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
-            for ($i = array_key_first($products_list); $i < count($products_list); $i++) {
-              if ($products_list[$i]->prix <= $filterValue) {
-                unset($products_list[$i]);
-              }
-            }
-          }
+          if ($operator == "gt" && !((float)$product->prix > $filterValue))
+            $valide = false;
 
-          if ($operator == "gtE" &&  (int)$product->prix >= $filterValue) {
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
-            // supprimerles produits qui ne respectent pas la condition
-            for ($i = array_key_first($products_list); $i < count($products_list); $i++) {
-              if ($products_list[$i]->prix < $filterValue) {
-                unset($products_list[$i]);
-              }
-            }
-          }
+          if ($operator == "gtE" && !((float)$product->prix >= $filterValue))
+            $valide = false;
 
-          if ($operator == "lt" && (int)$product->prix < $filterValue) {
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
-            for ($i = array_key_first($products_list); $i < count($products_list); $i++) {
-              if ($products_list[$i]->prix >= $filterValue) {
-                unset($products_list[$i]);
-              }
-            }
-          }
+          if ($operator == "lt" && !((float)$product->prix < $filterValue))
+            $valide = false;
 
-          if ($operator == "ltE" && (int)$product->prix <= $filterValue) {
-            $products_list[] = new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout);
-            for ($i = array_key_first($products_list); $i < count($products_list); $i++) {
-              if ($products_list[$i]->prix > $filterValue) {
-                unset($products_list[$i]);
-              }
-            }
-          }
+          if ($operator == "ltE" && !(((float)$product->prix) <= $filterValue))
+            $valide = false;
+
         }
+
+        if ($valide)
+          array_push($products_list, new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout));
       }
 
       if (!isset($products_list))
@@ -217,10 +194,11 @@
     }
 
   }
-  // $where = array(["filterBy" => "id", "opt" => "equal", "filterValue" => 1], ["filterBy" => "prix", "opt" => "gtE", "filterValue" => 200]);
-  // $products_list = Produit_Model::getOne($where);
+  $where = array(["filterBy" => "sousCategorie", "opt" => "equal", "filterValue" => 1], ["filterBy" => "prix", "opt" => "lt", "filterValue" => 600.0]);
+  $products_list = Produit_Model::getOne($where);
   // $p = new Produit_Model("4", "produit4", 6000, "ghali3liya");
-  // $p1 = Produit_Model::getOne(array(["filterBy" => "id", "opt" => "equal", "filterValue" => "5"]))[0];
+  // $p1 = Produit_Model::getOne(array(["filterBy" => "id", "opt" => "equal", "filterValue" => "5"]));
+  echo "<script>console.log(JSON.parse('".json_encode($products_list)."'))</script>"
   // $p2 = new Produit_Model("P5", "chiproduit", 6000, "l'innovation dans les produits.");
   // $result = $p->create();
     // echo Produit_Model::getAll()[0]->sousCategorie;
