@@ -1,5 +1,5 @@
 <?php
-  include "./Model.php";
+  // include "./Model.php";
 
   class Produit_Model extends Model {
     public $refProduit;
@@ -194,11 +194,11 @@
     }
 
   }
-  $where = array(["filterBy" => "sousCategorie", "opt" => "equal", "filterValue" => 1], ["filterBy" => "prix", "opt" => "lt", "filterValue" => 600.0]);
-  $products_list = Produit_Model::getOne($where);
+  // $where = array(["filterBy" => "sousCategorie", "opt" => "equal", "filterValue" => 1], ["filterBy" => "prix", "opt" => "lt", "filterValue" => 600.0]);
+  // $products_list = Produit_Model::getOne($where);
   // $p = new Produit_Model("4", "produit4", 6000, "ghali3liya");
   // $p1 = Produit_Model::getOne(array(["filterBy" => "id", "opt" => "equal", "filterValue" => "5"]));
-  echo "<script>console.log(JSON.parse('".json_encode($products_list)."'))</script>"
+  // echo "<script>console.log(JSON.parse('".json_encode($products_list)."'))</script>"
   // $p2 = new Produit_Model("P5", "chiproduit", 6000, "l'innovation dans les produits.");
   // $result = $p->create();
     // echo Produit_Model::getAll()[0]->sousCategorie;
