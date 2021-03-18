@@ -77,7 +77,7 @@
 
     <?php
       $array1 = array_slice($petitsPrix, 0, 6);
-      $array2 = array_slice($petitsPrix, 5, 6);
+      $array2 = array_slice($petitsPrix, 6, 6);
     ?>
 
     <div id="petits-prix" data-bs-interval="0" class="carousel slide" data-bs-ride="carousel">
@@ -146,7 +146,7 @@
 
     <?php
       $array1 = array_slice($nouveautes, 0, 6);
-      $array2 = array_slice($nouveautes, 5, 6);
+      $array2 = array_slice($nouveautes, 6, 6);
     ?>
 
     <div id="tendance" data-bs-interval="0" class="carousel slide" data-bs-ride="carousel">

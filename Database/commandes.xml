@@ -21,4 +21,18 @@
     <etat>validé</etat>
     <montant>159</montant>
   </commande>
+  <commande login="09746a4a912d660a6b5213a7ae1b7227">
+    <numCommande>4</numCommande>
+    <libelle>commande4</libelle>
+    <dateCommande>18/03/2021</dateCommande>
+    <etat>validé</etat>
+    <montant>204</montant>
+  </commande>
+  <commande login="7f720bdd61099c18f3fb859a1c035a03">
+    <numCommande>5</numCommande>
+    <libelle>commande5</libelle>
+    <dateCommande>18/03/2021</dateCommande>
+    <etat>validé</etat>
+    <montant>204</montant>
+  </commande>
 </commandes>

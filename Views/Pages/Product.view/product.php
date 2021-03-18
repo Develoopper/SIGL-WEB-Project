@@ -26,7 +26,7 @@
 		<div class="mx-3 my-4 p-3 bg-light" style="border-radius: 10px; font-size: 13px;">
 
 			<div class="d-flex rounded p-2 text-dark" name="refProduit" id="<?php echo $produit->refProduit ?>" style="width: 900px">
-				<img id="img" src="<?php echo $produit->img; ?>" class="me-3 rounded border border " style="height: 350px; width: 350px" alt="...">
+				<img id="img" src="<?php echo $produit->img; ?>" class="me-3 rounded border" style="height: 350px; width: 350px" alt="...">
 				<div class="d-flex flex-column justify-content-around">
 					<div>
 						<h4 style="white-space: initial" id="libelle"><?php echo $produit->libelle; ?></h4>

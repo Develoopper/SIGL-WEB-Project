@@ -24,7 +24,7 @@
 
 	<div class="d-flex my-4 px-4">
 		<div class="bg-light text-dark rounded p-3 py-4" style="min-width: 300px; max-width: 300px;">
-			Libellee :
+			Libellé :
 			<input type="text" name="filtre" id="libelle" class="form-control mb-4 mt-2">
 			Marque :
 			<input type="text" name="filtre" id="marque" class="form-control mb-4 mt-2">
@@ -71,8 +71,8 @@
 			$("#slider-range").slider({
 				range: true,
 				min: 0,
-				max: 4000,
-				values: [0, 4000],
+				max: 2000,
+				values: [0, 2000],
 				slide: function(event, ui) {
 					$("#prix").val(ui.values[0] + " DH - " + ui.values[1] + " DH");
 					$("#prix").trigger("input", { prixMin: ui.values[0], prixMax: ui.values[1] });
@@ -81,7 +81,12 @@
 			$("#prix").val($("#slider-range").slider("values", 0) + " DH - " + $("#slider-range").slider("values", 1) + " DH");
 		});
 
-		$("[name=filtre]").on("input", function (e, { prixMin, prixMax } = { prixMin: 0, prixMax: 0 }) {
+		$("[name=filtre]").on("input", function (e, { prixMin, prixMax } = { prixMin: 0, prixMax: 2000 }) {
+			if (prixMin == 0 && prixMax == 2000) {
+				prixMin = $("#slider-range").slider("values", 0);
+				prixMax = $("#slider-range").slider("values", 1);
+			}
+
 			$.ajax({
 				url: "http://localhost:5050/SIGL-WEB-Project/products",
 				data: {
@@ -90,7 +95,8 @@
 						libelle: $("#libelle").val(),
 						marque: $("#marque").val(),
 						prixMin: parseFloat(prixMin),
-						prixMax: parseFloat(prixMax)
+						prixMax: parseFloat(prixMax),
+						sousCategorie: "<?php echo $_GET["id"]; ?>"
 					}
 				},
 				dataType: "json",
@@ -117,7 +123,11 @@
 					$("#container").html(html);
 				}
 			})
-		})
+		});
+
+		$(document).ready(function() {
+      $("#slider-range").children("span").css("border-radius", "50px");
+		});
 	</script>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

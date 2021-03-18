@@ -38,7 +38,7 @@
       <thead class="text-light" style="background-color: #343a40;">
         <tr>
           <th scope="col">Id</th>
-          <th scope="col">Libellee</th>
+          <th scope="col">Libellé</th>
           <th scope="col">Categorie</th>
         </tr>
       </thead>

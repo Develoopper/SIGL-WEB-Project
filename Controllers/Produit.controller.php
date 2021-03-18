@@ -8,9 +8,11 @@
         ["filterBy" => "libelle", "opt" => "like", "filterValue" => $data["libelle"]],
         ["filterBy" => "marque", "opt" => "like", "filterValue" => $data["marque"]],
         ["filterBy" => "prix", "opt" => "gtE", "filterValue" => (float)$data["prixMin"]],
-        ["filterBy" => "prix", "opt" => "ltE", "filterValue" => (float)$data["prixMax"]]
+        ["filterBy" => "prix", "opt" => "ltE", "filterValue" => (float)$data["prixMax"]],
+        ["filterBy" => "sousCategorie", "opt" => "equal", "filterValue" => $data["sousCategorie"]],
       ]);
-      echo json_encode("*");
+      // echo json_encode("*");
+
       // header('Content-Type: text/json');
       // $data = $_POST["data"];
       // $opt = "like";
@@ -19,7 +21,7 @@
       // $res = Produit_Model::getOne([
       //   ["filterBy" => $data["filterBy"], "opt" => $opt, "filterValue" => $data["filterValue"]]
       // ]);
-      // echo json_encode($res);
+      echo json_encode($res);
     }
 
     public static function post() {
