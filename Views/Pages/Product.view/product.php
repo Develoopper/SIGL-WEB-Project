@@ -66,6 +66,8 @@
 					dataType: "json",
 					type: "POST",
 					success: function (data) {
+						if (!isNaN(data))
+							$("#nbreItemsPanier").html(data);
 						console.log("*****", data);
 					}
 				});

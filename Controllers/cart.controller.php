@@ -56,7 +56,7 @@ class Cart_Controller extends Controller{
 				'expires' => time() + 48 * 60 * 60 * 60,
 				'samesite' => 'Lax' // None || Lax  || Strict
 			));
-			return json_encode($_SESSION['panier']);
+			return json_encode(count($_SESSION['panier']));
 		} else {
 			for ($i = 0; $i < count($_SESSION['panier']); $i++) {
 				if ($produitObj->refProduit == $_SESSION['panier'][$i]["refProduit"]) {
@@ -67,7 +67,7 @@ class Cart_Controller extends Controller{
 				'expires' => time() + 48 * 60 * 60 * 60,
 				'samesite' => 'Lax' // None || Lax  || Strict
 			));
-			return json_encode(count($_COOKIE['panier']));
+			return json_encode(count(unserialize($_COOKIE['panier'])));
 		}
 
 		return false;
