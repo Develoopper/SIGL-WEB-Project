@@ -1,6 +1,6 @@
 <?php
 
-	Route::post("addCommande", function() {
+	Route::post("addCommande", "Auth", function() {
 		echo Commande_Controller::post();
 	});
 
@@ -8,7 +8,8 @@
 		Commande_Controller::patch();
 	});
 
-	Route::get("testeCommande", function() {
+	Route::get("testeCommande", "Auth", function() {
 		echo Commande_Controller::testeCommande();
 	});
+
 ?>
