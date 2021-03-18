@@ -22,8 +22,8 @@
 	<?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count(unserialize($_COOKIE["panier"]))]); ?>
 
 
-	<div class="d-flex my-4 px-4">
-		<div class="bg-light text-dark rounded p-3 py-4" style="min-width: 300px; max-width: 300px;">
+	<div class="row d-flex my-4 px-5">
+		<div class="col bg-light text-dark rounded p-3 py-4" style="min-width: 350px; max-width: 350px;">
 			Libellé :
 			<input type="text" name="filtre" id="libelle" class="form-control mb-4 mt-2">
 			Marque :
@@ -34,29 +34,25 @@
 			<div id="slider-range"></div>
 		</div>
 
-		<div class="ms-3 p-3 bg-light" style="border-radius: 10px; font-size: 13px;">
+		<div class="col ms-3 py-3 ps-3 pe-0 bg-light" style="border-radius: 10px; font-size: 13px;">
 
-			<div class="container-fluid">
-				<div class="row d-flex " id="container">
-					<?php
-					// echo var_dump($products);
-						foreach ($products as $product) {
-							echo <<<HTML
-								<div class="col-3">
-									<div class="card shadow-effect p-0" style="width: 200px; height: 270px; border: none;">
-										<a href="product?id=$product->refProduit" style="text-decoration: none;" class="text-dark mb-3">
-											<img src='$product->img'style="height: 180px; width: 180px" class="card-img-top" alt="...">
-											<div class="card-body p-2">
-												<p class="card-text text-truncate">$product->libelle</p>
-												<p class="card-text text-truncate">$product->prix DH</p>
-											</div>
-										</a>
+			<div class="row d-flex ms-2" id="container">
+				<?php
+				// echo var_dump($products);
+					foreach ($products as $product) {
+						echo <<<HTML
+							<div class="col-3 card shadow-effect p-0 me-4 mb-4" style="width: 200px; height: 270px; border: none;">
+								<a href="product?id=$product->refProduit" style="text-decoration: none;" class="text-dark">
+									<img src='$product->img'style="height: 200px; width: 200px" class="card-img-top" alt="">
+									<div class="card-body p-2">
+										<p class="card-text text-truncate" style="font-size: 13px">$product->libelle</p>
+										<p class="card-text text-truncate" style="font-size: 14px"><b>$product->prix DH</b></p>
 									</div>
-								</div>
-							HTML;
-						}
-					?>
-				</div>
+								</a>
+							</div>
+						HTML;
+					}
+				?>
 			</div>
 
 		</div>
@@ -107,16 +103,14 @@
 					var html = "";
 					data.forEach(produit => {
 						html += `
-							<div class="col-3">
-								<div class="card shadow-effect p-0" style="width: 200px; height: 250px; border: none;">
-									<a href="product?id=${produit.refProduit[0]}" style="text-decoration: none;" class="text-dark">
-										<img src='${produit.img[0]}'style="height: 180px; width: 180px" class="card-img-top" alt="...">
-										<div class="card-body p-2">
-											<p class="card-text text-truncate">${produit.libelle[0]}</p>
-											<p class="card-text text-truncate">${produit.prix[0]} DH</p>
-										</div>
-									</a>
-								</div>
+							<div class="col-3 card shadow-effect p-0 me-4 mb-4" style="width: 200px; height: 270px; border: none;">
+								<a href="product?id=${produit.refProduit[0]}" style="text-decoration: none;" class="text-dark">
+									<img src='${produit.img[0]}' style="height: 200px; width: 200px" class="card-img-top" alt="">
+									<div class="card-body p-2">
+										<p class="card-text text-truncate" style="font-size: 13px">${produit.libelle[0]}</p>
+										<p class="card-text text-truncate" style="font-size: 14px"><b>${produit.prix[0]} DH</b></p>
+									</div>
+								</a>
 							</div>
 						`;
 					});

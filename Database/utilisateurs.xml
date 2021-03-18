@@ -10,24 +10,4 @@
     <adresse>adesse2</adresse>
     <tele>0636295603</tele>
   </utilisateur>
-  <utilisateur>
-    <login>09746a4a912d660a6b5213a7ae1b7227</login>
-    <nom/>
-    <prenom/>
-    <mp/>
-    <email/>
-    <type/>
-    <adresse/>
-    <tele/>
-  </utilisateur>
-  <utilisateur>
-    <login>9747</login>
-    <nom/>
-    <prenom/>
-    <mp>e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</mp>
-    <email/>
-    <type/>
-    <adresse/>
-    <tele/>
-  </utilisateur>
 </utilisateurs>

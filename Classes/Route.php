@@ -7,7 +7,7 @@
       $args = func_get_args();
 
       if (isset($_POST["method"]))
-          return;
+        return;
 
       if ($_GET["url"] != $args[0])
         return;
@@ -24,6 +24,9 @@
       $args = func_get_args();
 
       if ($_GET["url"] != $args[0])
+        return;
+
+      if (!isset($_POST["method"]))
         return;
 
       if ($_POST["method"] != "GET")
@@ -43,6 +46,9 @@
       if ($_GET["url"] != $args[0])
         return;
 
+      if (!isset($_POST["method"]))
+        return;
+
       if ($_POST["method"] != "POST")
         return;
 
@@ -60,6 +66,9 @@
       if ($_GET["url"] != $args[0])
         return;
 
+      if (!isset($_POST["method"]))
+        return;
+
       if ($_POST["method"] != "PATCH")
         return;
 
@@ -75,6 +84,9 @@
       $args = func_get_args();
 
       if ($_GET["url"] != $args[0])
+        return;
+
+      if (!isset($_POST["method"]))
         return;
 
       if ($_POST["method"] != "DELETE")

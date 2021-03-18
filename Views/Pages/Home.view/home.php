@@ -177,7 +177,7 @@
               echo <<<HTML
                 <div class="card shadow-effect col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-0" style="width: 180px; height: 250px; border: none;">
                   <a href="product?id={$item->refProduit}" style="text-decoration: none;" class="text-dark">
-                    <img src="{$item->img}" style="height: 180px; width: 180px" class="card-img-top" alt="...">
+                    <img src="{$item->img}" style="height: 180px; width: 180px" class="card-img-top" alt="">
                     <div class="card-body p-2">
                       <p class="card-text text-truncate">{$item->libelle}</p>
                       <p class="card-text text-truncate">{$item->prix} DH</p>
