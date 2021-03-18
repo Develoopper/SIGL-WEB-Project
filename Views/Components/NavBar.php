@@ -40,14 +40,13 @@
 
 				<?php
 					if (isset($_SESSION["login"])) {
-						$utilisateur = Utilisateur_Model::getOne([["filterBy" => "login", "opt" => "equal", "filterValue" => $_SESSION["login"]]])[0];
 
-							echo <<<HTML
-								<a href="adminProduits" class="d-flex align-items-center text-dark" style="text-decoration: none;">
-									<i class="material-icons mx-1" style="font-size: 30px;">dashboard</i>
-									<span class="me-1">Dashboard</span>
-								</a>
-							HTML;
+						echo <<<HTML
+							<a href="adminProduits" class="d-flex align-items-center text-dark" style="text-decoration: none;">
+								<i class="material-icons mx-1" style="font-size: 30px;">dashboard</i>
+								<span class="me-1">Dashboard</span>
+							</a>
+						HTML;
 
 						echo <<<HTML
 							<div class="dropdown">
@@ -57,6 +56,7 @@
 								</a>
 								<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
 									<li><a class="dropdown-item" href='logOut'>Se déconnecter</a></li>
+									<li><a class="dropdown-item" href=''>Mes commandes</a></li>
 								</ul>
 							</div>
 						HTML;

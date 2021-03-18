@@ -8,6 +8,13 @@
 		Commande_Controller::patch();
 	});
 
+	Route::set("commandesUtilisateur", "Auth", function() {
+		$commandes = Commande_Model::getOne([
+			["filterBy" => "login", "opt" => "equal", "filterValue" => $_GET["login"]]
+		]);
+		Controller::CreateView("CommandesUtilisateur", ["commandes" => $commandes]);
+	});
+
 	Route::get("testeCommande", "Auth", function() {
 		echo Commande_Controller::testeCommande();
 	});

@@ -31,6 +31,9 @@
     public static function getOne($where) {
         $xml = parent::load_xml("commandes");
 
+        $cmds_list = array();
+
+        $valide = true;
         foreach($xml->children() as $cmd){
 
             foreach($where as $filter){
@@ -38,14 +41,16 @@
                 $operator = $filter["opt"];
                 $filterValue = $filter["filterValue"];
 
-                if($operator == "like" && str_contains($cmd->libelle, $filterValue)){
-                    $cmds_list[] = new Commande_Model($cmd->numCommande, $cmd->libelle, $cmd->dateCommande, $cmd->etat, $cmd->montant, $cmd->attributes()["login"]);
-                }
-                if($operator == "equal" && $cmd->{$filterBy} == $filterValue){
-                    $cmds_list[] = new Commande_Model($cmd->numCommande, $cmd->libelle, $cmd->dateCommande, $cmd->etat, $cmd->montant, $cmd->attributes()["login"]);
-                }
+                if($operator == "like" && !(str_contains($cmd->libelle, $filterValue)))
+                  $valide = false;
+                if($operator == "equal" && !($cmd->{$filterBy} == $filterValue || $cmd->attributes()["login"] == $filterValue))
+                  $valide = false;
 
             }
+
+            if($valide)
+              $cmds_list[] = new Commande_Model($cmd->numCommande, $cmd->libelle, $cmd->dateCommande, $cmd->etat, $cmd->montant, $cmd->attributes()["login"]);
+
         }
         if(!isset($cmds_list)) return "Pas de commande avec cette signature.";
         return $cmds_list;
@@ -53,6 +58,8 @@
 
     public static function getAll() {
       $xml = parent::load_xml("commandes");
+
+      $cmds_list = array();
 
       foreach( $xml->children() as $cmd){
         $cmds_list[] = new Commande_Model($cmd->numCommande, $cmd->libelle, $cmd->dateCommande, $cmd->etat, $cmd->montant, $cmd->attributes()["login"]);
