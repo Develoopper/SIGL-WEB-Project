@@ -11,7 +11,7 @@ class Cart_Controller extends Controller{
 		} else {
 			setcookie("panier", serialize($_SESSION["panier"]), array(
 				'expires' => time() + 48 * 60 * 60 * 60,
-				'samesite' => 'Lax' // None || Lax  || Strict
+				'samesite' => 'None' // None || Lax  || Strict
 			));
 			return true;
 		}
@@ -22,7 +22,7 @@ class Cart_Controller extends Controller{
 		} else {
 			setcookie("panier", serialize($_SESSION["panier"]), array(
 				'expires' => time() + 48 * 60 * 60 * 60,
-				'samesite' => 'Lax' // None || Lax  || Strict
+				'samesite' => 'None' // None || Lax  || Strict
 			));
 			return true;
 		}
@@ -54,7 +54,7 @@ class Cart_Controller extends Controller{
 			array_push($_SESSION['panier'], $tabProduits);
 			setcookie("panier", serialize($_SESSION["panier"]), array(
 				'expires' => time() + 48 * 60 * 60 * 60,
-				'samesite' => 'Lax' // None || Lax  || Strict
+				'samesite' => 'None' // None || Lax  || Strict
 			));
 			return json_encode(count($_SESSION['panier']));
 		} else {
@@ -65,7 +65,7 @@ class Cart_Controller extends Controller{
 			}
 			setcookie("panier", serialize($_SESSION["panier"]), array(
 				'expires' => time() + 48 * 60 * 60 * 60,
-				'samesite' => 'Lax' // None || Lax  || Strict
+				'samesite' => 'None' // None || Lax  || Strict
 			));
 			return json_encode(count(unserialize($_COOKIE['panier'])));
 		}
@@ -91,7 +91,7 @@ class Cart_Controller extends Controller{
 		$_SESSION['panier'] = $panier_tmp;
 		setcookie("panier", serialize($_SESSION['panier']), array(
 			'expires' => time() + 48 * 60 * 60 * 60,
-			'samesite' => 'Lax' // None || Lax  || Strict
+			'samesite' => 'None' // None || Lax  || Strict
 		));
 
 		unset($panier_tmp);

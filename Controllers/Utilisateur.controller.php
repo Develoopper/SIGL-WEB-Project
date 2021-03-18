@@ -5,7 +5,7 @@ class Utilisateur_Controller extends Controller {
     unset($_SESSION['login']);
     setcookie("login", "", array(
       'expires' => time() - 3600,
-      'samesite' => 'Lax' // None || Lax  || Strict
+      'samesite' => 'None' // None || Lax  || Strict
     ));
     header("Location: ./");
   }
@@ -24,7 +24,7 @@ class Utilisateur_Controller extends Controller {
           setcookie("login", $_SESSION['login'], array(
             'expires' => time() + 60 * 60 * 60,
             'httponly' => true,    // or false
-            'samesite' => 'Lax' // None || Lax  || Strict
+            'samesite' => 'None' // None || Lax  || Strict
           ));
 
           if ($utilisateurs[0]->type == "admin")

@@ -49,43 +49,33 @@
 
 		<div class="mx-5" style="width: 900px">
 			<?php
-					if (isset($_COOKIE["panier"])) {
-						$produits = unserialize($_COOKIE["panier"]);
-						foreach ($produits as $produit) {
-							echo <<<HTML
-								<a href="product?id={$produit['refProduit']}">
-								<input type="hidden" name="refProduit[]" value="{$produit['refProduit']}" />
-									<div class="d-flex justify-content-between rounded p-2 bg-white text-dark border border-secondary mb-3 produits" id="{$produit['refProduit']}">
-										<div class="d-flex align-items-center">
-											<img src="{$produit['img']}" class="me-3 rounded" style="height: 70px; width: 70px" alt="..." name="img">
-											<div>
-												<h6 class="text-truncate" style="width: 500px" name="libelle">{$produit["libelle"]}</h6>
-												<span style="font-size: 15px" name="prix">{$produit["prix"]}</span>
-												<span style="font-size: 15px">DH</span>
-											</div>
-										</div>
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
-											<div class="d-flex mx-2 qte">
-												<a style="" name="decrement"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">remove</i></a>
-												<h6 class="mx-3 mb-0" name="qte">{$produit["qte"]}</h6>
-												<input type="hidden" name="qte[]" value="{$produit['qte']}" />
-												<a style="" name="increment"><i class= "material-icons mx-1 text-dark" style="font-size: 20px;">add</i></a>
-											</div>
-											<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
-											<div class="prixQte">
-												<h6 class="mx-4 mb-0">
-													<b name="prixQte"></b>
-													<b>DH</b>
-												</h6>
-											</div>
-											<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
-										</div>
+				foreach ($commandes as $commande) {
+					echo <<<HTML
+						<a href="product?id={$commande->numCommande}">
+						<input type="hidden" name="numCommande[]" value="{$commande->numCommande}"/>
+							<div class="d-flex justify-content-between rounded p-2 bg-white text-dark border border-secondary mb-3 produits" id="{$produit['refProduit']}">
+								<div class="d-flex align-items-center">
+									<h6 class="text-truncate" style="width: 500px" name="dateCommande">{$commande->dateCommande}</h6>
+								</div>
+								<div class="d-flex justify-content-between align-items-center">
+									<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
+									<div class="d-flex mx-2">
+										<h6 class="mx-3 mb-0" name="totale">{$commande->totale}</h6>
+										<b>DH</b>
+										<input type="hidden" name="totale[]" value="{$commande->totale}" />
 									</div>
-								</a>
-							HTML;
-						}
-					}
+									<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
+									<div class="etat">
+										<h6 class="mx-4 mb-0">
+											<b name="etat">{$commande->etat}</b>
+										</h6>
+									</div>
+									<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
+								</div>
+							</div>
+						</a>
+					HTML;
+				}
 				?>
 		</div>
   </div>

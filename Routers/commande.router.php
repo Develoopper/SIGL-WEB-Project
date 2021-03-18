@@ -10,7 +10,7 @@
 
 	Route::set("commandesUtilisateur", "Auth", function() {
 		$commandes = Commande_Model::getOne([
-			["filterBy" => "login", "opt" => "equal", "filterValue" => $_GET["login"]]
+			["filterBy" => "login", "opt" => "equal", "filterValue" => $_SESSION["login"]]
 		]);
 		Controller::CreateView("CommandesUtilisateur", ["commandes" => $commandes]);
 	});
