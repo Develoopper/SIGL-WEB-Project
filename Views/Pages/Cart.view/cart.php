@@ -144,8 +144,10 @@
 									contains = true;
 								}
 							});
-							if (!contains)
+							if (!contains) {
 								$(this).remove();
+								$("#nbreItemsPanier").html(data.length);
+							}
 							calculerTotale();
 						});
 					}

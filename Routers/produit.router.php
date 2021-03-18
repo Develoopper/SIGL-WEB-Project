@@ -24,7 +24,7 @@
   Route::post("products", function() {
     Produit_Controller::post();
   });
-  
+
   Route::patch("products", function() {
     Produit_Controller::patch();
   });

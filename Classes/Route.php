@@ -7,7 +7,7 @@
       $args = func_get_args();
 
       if (isset($_POST["method"]))
-          return;
+        return;
 
       if ($_GET["url"] != $args[0])
         return;
