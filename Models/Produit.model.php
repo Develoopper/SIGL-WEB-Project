@@ -23,8 +23,9 @@
     public static function getNouveaute() {
       $xml = parent::load_xml("produits");
 
-      foreach($xml->children() as $product)
-      {
+      $products_list = array();
+
+      foreach($xml->children() as $product) {
         array_push($products_list, new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout));
       }
 
@@ -78,6 +79,8 @@
     public static function getAll() {
       $xml = parent::load_xml("produits");
 
+      $products_list = array();
+
       foreach ($xml->children() as $product) {
         array_push($products_list, new Produit_Model($product->refProduit, $product->libelle, $product->prix, $product->img, $product->marque, $product->attributes()["sousCategorie"], $product->dateAjout));
       }
@@ -101,7 +104,7 @@
           $operator = $filter["opt"];
           $filterValue = $filter["filterValue"];
 
-          if ($operator == "like" && !(str_contains($product->{$filterBy}, $filterValue)))
+          if ($operator == "like" && !(is_numeric(stripos($product->{$filterBy}, $filterValue))))
             $valide = false;
 
           if ($operator == "equal" && !(($product->{$filterBy} == $filterValue || $product->attributes()[$filterBy] == $filterValue)))
@@ -131,9 +134,9 @@
       return $products_list;
     }
 
-    private static function searchProductInXML($refProduit, $xml){
+    private static function searchProductInXML($refProduit, $xml) {
       $exist = false;
-      foreach($xml->children() as $product){
+      foreach($xml->children() as $product) {
         if($product->refProduit == $refProduit){
           $exist = true;
           $foundProduct = $product;
@@ -144,6 +147,7 @@
 
     public function create() {
       $xml = parent::load_xml("produits");
+
       $exist = self::searchProductInXML($this->refProduit, $xml)[0];
 
       if(!$exist){

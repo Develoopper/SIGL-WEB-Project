@@ -10,7 +10,7 @@
       <thead class="text-light" style="background-color: #343a40;">
         <tr>
           <th scope="col">Ref</th>
-          <th scope="col">Libellee</th>
+          <th scope="col">Libellé</th>
           <th scope="col">Prix</th>
           <th scope="col">Marque</th>
           <th scope="col">Image</th>

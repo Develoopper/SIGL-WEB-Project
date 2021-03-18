@@ -1,4 +1,4 @@
-<footer class="bg-dark text-center text-light">
+<footer class="bg-dark text-center text-light mt-2">
   <!-- Grid container -->
   <div class="container p-4 mt-5">
     <span class="text-light" style="font-family: 'Dancing Script'; font-size: 35px;" href="#">Elegance</span>

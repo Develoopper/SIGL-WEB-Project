@@ -20,4 +20,24 @@
     <produit/>
     <qte/>
   </ligneCommande>
+  <ligneCommande>
+    <commande>4</commande>
+    <produit>2</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>4</commande>
+    <produit>8</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>5</commande>
+    <produit>2</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>5</commande>
+    <produit>8</produit>
+    <qte>1</qte>
+  </ligneCommande>
 </ligneCommades>

@@ -7,17 +7,27 @@
     <mp>8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92</mp>
     <email>salemmed266@gmail.com</email>
     <type>admin</type>
-    <adresse>adresse1</adresse>
+    <adresse>adesse2</adresse>
     <tele>0636295603</tele>
   </utilisateur>
   <utilisateur>
     <login>09746a4a912d660a6b5213a7ae1b7227</login>
-    <nom>KHALFI</nom>
-    <prenom>Oussama</prenom>
-    <mp>8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92</mp>
-    <email>okhalfi2000@gmail.com</email>
-    <type>client</type>
+    <nom/>
+    <prenom/>
+    <mp/>
+    <email/>
+    <type/>
     <adresse/>
-    <tele>0708036640</tele>
+    <tele/>
+  </utilisateur>
+  <utilisateur>
+    <login>9747</login>
+    <nom/>
+    <prenom/>
+    <mp>e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</mp>
+    <email/>
+    <type/>
+    <adresse/>
+    <tele/>
   </utilisateur>
 </utilisateurs>

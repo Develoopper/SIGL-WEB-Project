@@ -31,7 +31,6 @@ $(document).ready(function(){
 });
 
 function handleChange(rowIndex) {
-	console.log("wa zbi!");
 	let html = "";
 	sousCategoriesOptions.map(option => {
 		if (option.categorie["0"] == $("#categoriesSelect" + rowIndex).val())
