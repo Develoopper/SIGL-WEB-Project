@@ -101,10 +101,9 @@
           $operator = $filter["opt"];
           $filterValue = $filter["filterValue"];
 
-          if ($operator == "like" && !(str_contains($product->{$filterBy}, $filterValue))){
+          if ($operator == "like" && !(str_contains($product->{$filterBy}, $filterValue)))
             $valide = false;
-            // echo json_encode($product->marque);
-          }
+
           if ($operator == "equal" && !(($product->{$filterBy} == $filterValue || $product->attributes()[$filterBy] == $filterValue)))
             $valide = false;
 
