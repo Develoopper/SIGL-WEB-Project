@@ -1,6 +1,7 @@
 <?php
   // include 'Models/Model.php';
   include "Classes/Cryptographie.php";
+
   class Utilisateur_Model extends Model {
 
     public $login;

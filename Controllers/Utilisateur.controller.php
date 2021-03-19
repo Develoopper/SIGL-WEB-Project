@@ -16,7 +16,7 @@ class Utilisateur_Controller extends Controller {
       ]);
 
       if (is_array($utilisateurs)) {
-        if ($utilisateurs[0]->mp == hash("sha256", $_POST["mp"])) {
+        if ((string)MyEncryption::encrypt($utilisateurs[0]->mp) == (string)MyEncryption::encrypt($_POST["mp"])) {
           $_SESSION["login"] = (string)$utilisateurs[0]->login;
           setcookie("login", $_SESSION['login'], array(
             'expires' => time() + 60 * 60 * 60,
