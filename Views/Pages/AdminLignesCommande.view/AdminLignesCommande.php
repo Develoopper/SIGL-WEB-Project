@@ -38,8 +38,11 @@
 			<thead class="text-light" style="background-color: #343a40;">
 				<tr>
 					<th scope="col">Commande</th>
-					<th scope="col">Produit</th>
+					<th scope="col">Ref produit</th>
+					<th scope="col">Libellé</th>
+					<th scope="col">Image</th>
 					<th scope="col">Qte</th>
+					<th scope="col">Sous total</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -47,11 +50,16 @@
 					foreach (LigneCommande_Model::getOne([
 						["filterBy" => "commande", "opt" => "equal", "filterValue" => $_GET["numCommande"]]
 					]) as $ligneCommande) {
+						$produit = Produit_Model::getOne([["filterBy" => "refProduit", "opt" => "equal", "filterValue" => (string)$ligneCommande->produit]])[0];
+						$sousTotal = $produit->prix * $ligneCommande->qte;
 						echo <<<HTML
 							<tr>
 								<td>$ligneCommande->commande</td>
 								<td>$ligneCommande->produit</td>
+								<td>$produit->libelle</td>
+								<td><img src="$produit->img" style="width: 60px; height: 60px"></td>
 								<td name="etat">$ligneCommande->qte</td>
+								<td name="etat">$sousTotal</td>
 							</tr>
 						HTML;
 						}

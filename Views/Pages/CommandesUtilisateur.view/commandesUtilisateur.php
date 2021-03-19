@@ -56,7 +56,7 @@
 					Etat
 				</h6>
 				<h6 class="ms-4">
-					Totale
+					Total
 				</h6>
 			</div>
 
@@ -79,9 +79,9 @@
 								<div class="d-flex justify-content-between align-items-center">
 									<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
 									<div class="d-flex mx-2">
-										<h6 class="mx-3 mb-0" name="totale">{$commande->montant}</h6>
+										<h6 class="mx-3 mb-0" name="total">{$commande->montant}</h6>
 										<b>DH</b>
-										<input type="hidden" name="totale[]" value="{$commande->totale}" />
+										<input type="hidden" name="total[]" value="{$commande->total}" />
 									</div>
 									<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
 									<div class="etat">

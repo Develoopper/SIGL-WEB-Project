@@ -78,7 +78,7 @@
 						if (isset($_GET["erreur"]) && $_GET["erreur"] == 1)
 							echo "* L'utilisateur n'éxiste pas";
 						if (isset($_GET["erreur"]) && $_GET["erreur"] == 2)
-							echo "mot de passe incorrect";
+							echo "* Mot de passe incorrect";
 					?>
 				</div>
 

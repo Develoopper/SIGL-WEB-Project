@@ -38,7 +38,7 @@
 						Quantité
 					</h6>
 					<h6 class="ms-4">
-						Sous totale
+						Sous total
 					</h6>
 				</div>
 			</div>
@@ -87,8 +87,8 @@
 				?>
 
 				<div style="width: 100%" class="d-flex flex-column align-items-end">
-					<h6 class="me-3 mt-3">Totale : <b class="ms-3" id="totale"></b> <b>DH</b></h6>
-					<input type="hidden" id="totaleInput" name="montant" value="" />
+					<h6 class="me-3 mt-3">Total : <b class="ms-3" id="total"></b> <b>DH</b></h6>
+					<input type="hidden" id="totalInput" name="montant" value="" />
 					<div class="d-flex">
 						<a href="./" class="text-light" style="text-decoration: none;">
 							<button type="button" class="btn btn-outline-dark mt-3 me-2" style="width: 250px">Poursuivre vos achats</button>
@@ -116,12 +116,12 @@
 			// Calculer les prix par quantites
 			calculerPrixQte();
 
-			// Calculer le totale
-			calculerTotale();
+			// Calculer le total
+			calculerTotal();
 		});
 
-		$("#totale").on("change", function() {
-			$("#totaleInput").attr("value", $(this).html());
+		$("#total").on("change", function() {
+			$("#totalInput").attr("value", $(this).html());
 		})
 
 		$("a[name=delete]").click(
@@ -148,7 +148,7 @@
 								$(this).remove();
 								$("#nbreItemsPanier").html(data.length);
 							}
-							calculerTotale();
+							calculerTotal();
 						});
 					}
 				});
@@ -188,7 +188,7 @@
 // 					if (data == "login")
 // 						window.location.href = "login";
 // 					else {
-// 						var url = "livraison?dateCmd=" + today + "&etatCmd=en Attente&montant=" + $("#totale").html() + "&produitsCommandes[]=" + encodeURI(produitsCommandes);
+// 						var url = "livraison?dateCmd=" + today + "&etatCmd=en Attente&montant=" + $("#total").html() + "&produitsCommandes[]=" + encodeURI(produitsCommandes);
 // 						window.location.href = url;
 // // 						$.ajax({
 // // 							url: "http://localhost:5050/SIGL-WEB-Project/postToLivraison",
@@ -197,7 +197,7 @@
 // // 								data : {
 // // 									dateCmd: today,
 // // 									etatCmd: "en Attente",
-// // 									montant: $("#totale").html(),
+// // 									montant: $("#total").html(),
 // // 									produitsCommandes: produitsCommandes
 // // 								}
 // // 							},

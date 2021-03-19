@@ -10,20 +10,20 @@ function calculerPrixQte() {
     });
 }
 
-function calculerTotale() {
-    var totale = 0;
+function calculerTotal() {
+    var total = 0;
 
     $("b[name=prixQte]").each( function() {
-        totale += parseFloat($(this).html());
+        total += parseFloat($(this).html());
     });
 
-    $("#totale").html(totale);
-    $("#totaleInput").val(totale);
+    $("#total").html(total);
+    $("#totalInput").val(total);
 }
 
 $("h6[name=qte]").bind('DOMSubtreeModified', function () {
     calculerPrixQte();
-    calculerTotale();
+    calculerTotal();
 });
 
 $("a[name=increment]").on("click", function () {
