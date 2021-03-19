@@ -4,7 +4,7 @@
     <numCommande>1</numCommande>
     <libelle>commande1</libelle>
     <dateCommande>17/03/2021</dateCommande>
-    <etat>En attente</etat>
+    <etat>annulé</etat>
     <montant>2348</montant>
   </commande>
   <commande login="7f720bdd61099c18f3fb859a1c035a03">
@@ -47,6 +47,20 @@
     <libelle>commande7</libelle>
     <dateCommande>19/03/2021</dateCommande>
     <etat>validé</etat>
+    <montant>476</montant>
+  </commande>
+  <commande login="7f720bdd61099c18f3fb859a1c035a03">
+    <numCommande>8</numCommande>
+    <libelle>commande8</libelle>
+    <dateCommande>19/03/2021</dateCommande>
+    <etat>En attente</etat>
+    <montant>476</montant>
+  </commande>
+  <commande login="7f720bdd61099c18f3fb859a1c035a03">
+    <numCommande>9</numCommande>
+    <libelle>commande9</libelle>
+    <dateCommande>19/03/2021</dateCommande>
+    <etat>En attente</etat>
     <montant>476</montant>
   </commande>
 </commandes>

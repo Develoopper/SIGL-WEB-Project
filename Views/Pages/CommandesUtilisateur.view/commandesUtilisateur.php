@@ -16,7 +16,8 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 	<!-- JQuery library -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
-	<title>Panier</title>
+	<title>Mes commandes</title>
+
 	<style>
 		body {
 			font-family: Montserrat;
@@ -62,47 +63,50 @@
 
 			<div class="mx-5" style="width: 900px">
 				<?php
-				foreach ($commandes as $commande) {
-					echo <<<HTML
-						<a href="enAttente?idCommande={$commande->numCommande}">
-							<input type="hidden" name="numCommande[]" value="{$commande->numCommande}"/>
-							<div class="d-flex justify-content-between rounded p-2 bg-white text-dark border border-secondary mb-3 commandes" id="{$commande->numCommande}">
-								<div class="d-flex align-items-center justify-content-between">
-									<div class="me-3">
-										<h6 class="text-truncate" name="numCommande">{$commande->numCommande}</h6>
+					foreach ($commandes as $commande) {
+						echo <<<HTML
+							<a href="enAttente?idCommande={$commande->numCommande}">
+								<input type="hidden" name="numCommande[]" value="{$commande->numCommande}"/>
+								<div class="d-flex justify-content-between rounded p-2 bg-white text-dark border border-secondary mb-3 commandes" id="{$commande->numCommande}">
+									<div class="d-flex align-items-center justify-content-between">
+										<div class="me-3">
+											<h6 class="text-truncate" name="numCommande">{$commande->numCommande}</h6>
+										</div>
+										<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
+										<div class="ms-3">
+											<h6 class="text-truncate" name="dateCommande">{$commande->dateCommande}</h6>
+										</div>
 									</div>
-									<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
-									<div class="ms-3">
-										<h6 class="text-truncate" name="dateCommande">{$commande->dateCommande}</h6>
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
+										<div class="d-flex mx-2">
+											<h6 class="mx-3 mb-0" name="total">{$commande->montant}</h6>
+											<b>DH</b>
+											<input type="hidden" name="total[]" value="{$commande->total}" />
+										</div>
+										<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
+										<div class="etat">
+											<h6 class="mx-4 mb-0">
+												<b name="etat">{$commande->etat}</b>
+											</h6>
+										</div>
+										<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
 									</div>
 								</div>
-								<div class="d-flex justify-content-between align-items-center">
-									<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
-									<div class="d-flex mx-2">
-										<h6 class="mx-3 mb-0" name="total">{$commande->montant}</h6>
-										<b>DH</b>
-										<input type="hidden" name="total[]" value="{$commande->total}" />
-									</div>
-									<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
-									<div class="etat">
-										<h6 class="mx-4 mb-0">
-											<b name="etat">{$commande->etat}</b>
-										</h6>
-									</div>
-									<div class="bg-secondary" style="height: 60px; width: 1px;"></div>
-								</div>
-							</div>
-						</a>
-					HTML;
-				}
+							</a>
+						HTML;
+					}
 				?>
 			</div>
 		</div>
 	</div>
 
 
-		<!-- Footer -->
-		<?php Component("Footer", []); ?>
+	<!-- Footer -->
+	<?php Component("Footer", []); ?>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

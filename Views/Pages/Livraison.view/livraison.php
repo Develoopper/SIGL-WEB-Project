@@ -90,7 +90,6 @@
 			// 	produitsCommandes.push({qte: qte, refProduit: refProduit});
 			// });
 
-
 			$.ajax({
 				url: "http://localhost:5050/SIGL-WEB-Project/addCommande",
 				data: {
@@ -109,7 +108,7 @@
 				success: function (data) {
 					var page = data.split(" ")[0];
 					var param = data.split(" ")[1];
-					window.location.href = page + "?idCommande=" + param ;
+					window.location.href = page + "?idCommande=" + param;
 				},
 				error: function () {
 					console.log("*****");

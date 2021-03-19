@@ -55,4 +55,24 @@
     <produit>6</produit>
     <qte>1</qte>
   </ligneCommande>
+  <ligneCommande>
+    <commande>8</commande>
+    <produit>8</produit>
+    <qte>3</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>8</commande>
+    <produit>6</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>9</commande>
+    <produit>8</produit>
+    <qte>3</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>9</commande>
+    <produit>6</produit>
+    <qte>1</qte>
+  </ligneCommande>
 </ligneCommades>
