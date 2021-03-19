@@ -29,31 +29,34 @@
     }
 
     public static function getOne($where) {
-        $xml = parent::load_xml("commandes");
+      $xml = parent::load_xml("commandes");
 
-        $cmds_list = array();
+      $cmds_list = array();
+
+      foreach($xml->children() as $cmd) {
 
         $valide = true;
-        foreach($xml->children() as $cmd){
 
-            foreach($where as $filter){
-                $filterBy = $filter["filterBy"];
-                $operator = $filter["opt"];
-                $filterValue = $filter["filterValue"];
+        foreach($where as $filter) {
+          $filterBy = $filter["filterBy"];
+          $operator = $filter["opt"];
+          $filterValue = $filter["filterValue"];
 
-                if($operator == "like" && !(str_contains($cmd->libelle, $filterValue)))
-                  $valide = false;
-                if($operator == "equal" && !($cmd->{$filterBy} == $filterValue || $cmd->attributes()["login"] == $filterValue))
-                  $valide = false;
-
-            }
-
-            if($valide)
-              $cmds_list[] = new Commande_Model($cmd->numCommande, $cmd->libelle, $cmd->dateCommande, $cmd->etat, $cmd->montant, $cmd->attributes()["login"]);
+          if($operator == "like" && !(str_contains($cmd->libelle, $filterValue)))
+            $valide = false;
+          if($operator == "equal" && !($cmd->{$filterBy} == $filterValue || $cmd->attributes()[$filterBy] == $filterValue))
+            $valide = false;
 
         }
-        if(!isset($cmds_list)) return "Pas de commande avec cette signature.";
-        return $cmds_list;
+
+        if($valide)
+          array_push($cmds_list, new Commande_Model($cmd->numCommande, $cmd->libelle, $cmd->dateCommande, $cmd->etat, $cmd->montant, $cmd->attributes()["login"]));
+      }
+
+      if(!isset($cmds_list))
+        return "Pas de commande avec cette signature.";
+
+      return $cmds_list;
     }
 
     public static function getAll() {
@@ -121,10 +124,13 @@
       else
         return "Vous devez entrer un numero de commande.";
     }
+
   }
+  $commandes = Commande_Model::getOne([
+		["filterBy" => "login", "opt" => "equal", "filterValue" => "7f720bdd61099c18f3fb859a1c035a03"]
+	]);
+  // var_dump($commandes);
 
   // $obj = new Commande_Model("", "", "date", "etatCmd", "dateCmd", "montant","login");
   // $res = $obj->create();
   // echo $res;
-
-?>
