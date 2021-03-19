@@ -32,12 +32,11 @@
 	<?php Component("AdminNavBar",  ["utilisateur" => $utilisateur]); ?>
 
 	<div class="jquery-script-clear"></div>
-  </div>
   <div class="mx-3 mt-5">
     <table class="table table-striped table-bordered" id="table">
       <thead class="text-light" style="background-color: #343a40;">
         <tr>
-          <th scope="col" class="text-truncate">Login</th>
+          <th scope="col" class="text-truncate" style="display: none">Login</th>
           <th scope="col">Nom</th>
           <th scope="col">Prenom</th>
           <th scope="col" class="text-truncate">Mdp</th>
@@ -52,7 +51,7 @@
           foreach (Utilisateur_Model::getAll() as $utilisateur) {
             echo <<<HTML
               <tr>
-                <td class="text-truncate" style="max-width: 150px">$utilisateur->login</td>
+                <td class="text-truncate" style="max-width: 150px; display: none">$utilisateur->login</td>
                 <td class="text-truncate" style="max-width: 100px">$utilisateur->nom</td>
                 <td class="text-truncate" style="max-width: 100px">$utilisateur->prenom</td>
                 <td class="text-truncate" style="max-width: 100px">$utilisateur->mp</td>

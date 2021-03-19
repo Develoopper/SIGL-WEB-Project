@@ -33,7 +33,6 @@
 
 
 	<div class="jquery-script-clear"></div>
-  </div>
   <div class="mx-3 mt-5">
     <table class="table table-striped table-bordered" id="table">
       <thead class="text-light" style="background-color: #343a40;">
@@ -49,10 +48,11 @@
       <tbody>
         <?php
           foreach (Commande_Model::getAll() as $commande) {
+						$utilisateur = Utilisateur_Model::getOne([["filterBy" => "login", "opt" => "equal", "filterValue" => (string)$commande->login]])[0];
 						echo <<<HTML
 							<tr>
 								<td name="numCommande">$commande->numCommande</td>
-								<td>$commande->login</td>
+								<td>$utilisateur->nom $utilisateur->prenom</td>
 								<td>$commande->dateCommande</td>
 								<td name="etat">$commande->etat</td>
 								<td>$commande->montant</td>

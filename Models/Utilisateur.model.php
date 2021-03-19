@@ -39,7 +39,7 @@
     }
 
     public static function getOne($where) {
-      $xml = parent::load_xml("utilisateurs") or die("Erreur de recupération des utilisateurs.");
+      $xml = parent::load_xml("utilisateurs");
 
       $utilisateurs_list = array();
 
