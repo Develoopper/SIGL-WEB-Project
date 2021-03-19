@@ -9,25 +9,25 @@
 				<?php
 				foreach (Categorie_Model::getAll() as $categorie) {
 					echo <<<HTML
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									$categorie->libelle
-								</a>
-								<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-						HTML;
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								$categorie->libelle
+							</a>
+							<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
+					HTML;
 
 					foreach (SousCategorie_Model::getOne([
 						["filterBy" => "categorie", "opt" => "equal", "filterValue" => (int)($categorie->id)]
 					]) as $sousCategorie) {
 						echo <<<HTML
-								<li><a class="dropdown-item" href="products?id=$sousCategorie->id">$sousCategorie->libelle</a></li>
-							HTML;
+							<li><a class="dropdown-item" href="products?id=$sousCategorie->id">$sousCategorie->libelle</a></li>
+						HTML;
 					}
 
 					echo <<<HTML
-								</ul>
-							</li>
-						HTML;
+							</ul>
+						</li>
+					HTML;
 				}
 				?>
 			</ul>
@@ -43,32 +43,32 @@
 
 					if ($utilisateur->type == "admin") {
 						echo <<<HTML
-									<a href="adminProduits" class="d-flex align-items-center text-dark" style="text-decoration: none;">
-									<i class="material-icons mx-1" style="font-size: 30px;">dashboard</i>
-									<span class="me-1">Dashboard</span>
-									</a>
-							HTML;
+							<a href="adminProduits" class="d-flex align-items-center text-dark" style="text-decoration: none;">
+								<i class="material-icons mx-1" style="font-size: 30px;">dashboard</i>
+								<span class="me-1">Dashboard</span>
+							</a>
+						HTML;
 					}
 
 					echo <<<HTML
-							<div class="dropdown">
-								<a href="#" class="nav-link dropdown-toggle d-flex align-items-center mx-3 text-dark" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
-									<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
-									<span class="me-1" id="bonjourUtilisateur">Bienvenue $utilisateur->prenom</span>
-								</a>
-								<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-									<li><a class="dropdown-item" href='logOut'>Se déconnecter</a></li>
-									<li><a class="dropdown-item" href='commandesUtilisateur'>Mes commandes</a></li>
-								</ul>
-							</div>
-						HTML;
+						<div class="dropdown">
+							<a href="#" class="nav-link dropdown-toggle d-flex align-items-center mx-3 text-dark" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
+								<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
+								<span class="me-1" id="bonjourUtilisateur">Bienvenue $utilisateur->prenom</span>
+							</a>
+							<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href='logOut'>Se déconnecter</a></li>
+								<li><a class="dropdown-item" href='commandesUtilisateur'>Mes commandes</a></li>
+							</ul>
+						</div>
+					HTML;
 				} else {
 					echo <<<HTML
-							<a href="login" class="d-flex align-items-center mx-3 text-dark" style="text-decoration: none;">
-								<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
-								<span class="me-1">Compte</span>
-							</a>
-						HTML;
+						<a href="login" class="d-flex align-items-center mx-3 text-dark" style="text-decoration: none;">
+							<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
+							<span class="me-1">Compte</span>
+						</a>
+					HTML;
 				}
 				?>
 
