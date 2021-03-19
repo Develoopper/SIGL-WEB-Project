@@ -33,7 +33,7 @@
 						<span style="white-space: initial; font-size: 15px;" class="mb-4">
 							Categorie: <b id="categorie"><?php echo $sousCategorie->libelle ?> - <?php echo $categorie->libelle; ?></b>
 							</span><br>
-						<span style="white-space: initial; font-size: 15px;" >Marque: <b id="marque"><?php echo $produit->marque; ?></b></span>
+						<span style="white-space: initial; font-size: 15px;">Marque: <b id="marque"><?php echo $produit->marque; ?></b></span>
 					</div>
 					<h2 style="font-family: 'Segoe UI'"><b id="prix"><?php echo $produit->prix; ?> DH</b></h2>
 						<button type="button" class="btn btn-dark d-flex justify-content-center align-items-center" style="width: 100%;" id="addToCart">

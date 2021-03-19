@@ -80,7 +80,7 @@ class Utilisateur_Controller extends Controller {
   public static function patch() {
     header('Content-Type: text/json');
     $data = $_POST["data"];
-    $res = Utilisateur_Model::update($data["login"], new Produit_Model($data["login"], $data["nom"], $data["prenom"], $data["mp"], $data["email"], $data["type"], "", $data["tele"]));
+    $res = Utilisateur_Model::update($data["login"], new Utilisateur_Model($data["login"], $data["nom"], $data["prenom"], $data["mp"], $data["email"], $data["type"], $data["adresse"], $data["tele"]));
     echo json_encode($res);
   }
 
