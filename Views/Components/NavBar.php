@@ -40,12 +40,15 @@
 
 				<?php
 				if (isset($_SESSION["login"])) {
-					echo <<<HTML
+
+					if ($utilisateur->type == "admin") {
+						echo <<<HTML
 									<a href="adminProduits" class="d-flex align-items-center text-dark" style="text-decoration: none;">
 									<i class="material-icons mx-1" style="font-size: 30px;">dashboard</i>
 									<span class="me-1">Dashboard</span>
 									</a>
 							HTML;
+					}
 
 					echo <<<HTML
 							<div class="dropdown">
