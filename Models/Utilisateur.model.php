@@ -28,6 +28,8 @@
     public static function getAll() {
       $xml = parent::load_xml("utilisateurs");
 
+      $utilisateurs_list = array();
+
       foreach ($xml->children() as $utilisateur)
         $utilisateurs_list[] = new Utilisateur_Model($utilisateur->login, $utilisateur->nom, $utilisateur->prenom, $utilisateur->mp, $utilisateur->email, $utilisateur->type, $utilisateur->adresse, $utilisateur->tele);
 
@@ -37,22 +39,24 @@
     public static function getOne($where) {
       $xml = parent::load_xml("utilisateurs") or die("Erreur de recupération des utilisateurs.");
 
-        foreach ($xml->children() as $utilisateur) {
-          foreach ($where as $filter) {
-            $filterBy = $filter["filterBy"];
-            $operator = $filter["opt"];
-            $filterValue = $filter["filterValue"];
+      $utilisateurs_list = array();
 
-            if ($operator == "equal" && $utilisateur->{$filterBy} == $filterValue) {
-              $utilisateurs_list[] = new Utilisateur_Model($utilisateur->login, $utilisateur->nom, $utilisateur->prenom, $utilisateur->mp, $utilisateur->email, $utilisateur->type, $utilisateur->adresse, $utilisateur->tele);
-            }
+      foreach ($xml->children() as $utilisateur) {
+        foreach ($where as $filter) {
+          $filterBy = $filter["filterBy"];
+          $operator = $filter["opt"];
+          $filterValue = $filter["filterValue"];
+
+          if ($operator == "equal" && $utilisateur->{$filterBy} == $filterValue) {
+            $utilisateurs_list[] = new Utilisateur_Model($utilisateur->login, $utilisateur->nom, $utilisateur->prenom, $utilisateur->mp, $utilisateur->email, $utilisateur->type, $utilisateur->adresse, $utilisateur->tele);
           }
         }
+      }
 
-        if (!isset($utilisateurs_list))
-          return "Pas d'utilisateur avec cette signature.";
+      if (!isset($utilisateurs_list))
+        return "Pas d'utilisateur avec cette signature.";
 
-        return $utilisateurs_list;
+      return $utilisateurs_list;
     }
 
     public function create() {
@@ -84,7 +88,7 @@
 
       $utilisateur->nom = $newUtilisateur->nom;
       $utilisateur->prenom = $newUtilisateur->prenom;
-      $utilisateur->mp = $newUtilisateur->mp;
+      $utilisateur->mp = hash("sha256", $newUtilisateur->mp);
       $utilisateur->email = $newUtilisateur->email;
       $utilisateur->type = $newUtilisateur->type;
       $utilisateur->adresse = $newUtilisateur->adresse;

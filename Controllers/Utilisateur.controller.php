@@ -3,10 +3,7 @@ class Utilisateur_Controller extends Controller {
 
   public static function logOut() {
     unset($_SESSION['login']);
-    setcookie("login", "", array(
-      'expires' => time() - 3600,
-      'samesite' => 'None' // None || Lax  || Strict
-    ));
+    setcookie("login", "");
     header("Location: ./");
   }
 
@@ -24,7 +21,7 @@ class Utilisateur_Controller extends Controller {
           setcookie("login", $_SESSION['login'], array(
             'expires' => time() + 60 * 60 * 60,
             'httponly' => true,    // or false
-            'samesite' => 'None' // None || Lax  || Strict
+            'samesite' => 'Lax' // None || Lax  || Strict
           ));
 
           if ($utilisateurs[0]->type == "admin")
@@ -46,6 +43,7 @@ class Utilisateur_Controller extends Controller {
       $utilisateurs = Utilisateur_Model::getOne([
         ["filterBy" => "email", "opt" => "equal", "filterValue" => $_POST["emailIns"]]
       ]);
+
       if (!is_array($utilisateurs)) {
         $newUtilisateur = new Utilisateur_Model("", $_POST["nom"], $_POST["prenom"], $_POST["mpIns"], $_POST["emailIns"], "client", "", $_POST["telephone"]);
         if ($newUtilisateur->create())

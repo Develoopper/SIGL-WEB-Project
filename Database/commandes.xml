@@ -11,7 +11,7 @@
     <numCommande>2</numCommande>
     <libelle>commande2</libelle>
     <dateCommande>17/03/2021</dateCommande>
-    <etat>validé</etat>
+    <etat>annulé</etat>
     <montant>2348</montant>
   </commande>
   <commande login="7f720bdd61099c18f3fb859a1c035a03">

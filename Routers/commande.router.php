@@ -16,7 +16,7 @@
 	});
 
 	Route::get("testeCommande", "Auth", function() {
-		echo Commande_Controller::testeCommande();
+		Commande_Controller::testeCommande();
 	});
 
 ?>
