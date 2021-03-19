@@ -17,7 +17,7 @@
     ]);
   });
 
-   Route::set("enAttente", function() {
+  Route::set("enAttente", function() {
     Controller::CreateView("EnAttente", []);
   });
 

@@ -1,5 +1,6 @@
 <?php
   // include 'Models/Model.php';
+  include "Classes/Cryptographie.php";
   class Utilisateur_Model extends Model {
 
     public $login;
@@ -31,7 +32,7 @@
       $utilisateurs_list = array();
 
       foreach ($xml->children() as $utilisateur)
-        $utilisateurs_list[] = new Utilisateur_Model($utilisateur->login, $utilisateur->nom, $utilisateur->prenom, $utilisateur->mp, $utilisateur->email, $utilisateur->type, $utilisateur->adresse, $utilisateur->tele);
+        $utilisateurs_list[] = new Utilisateur_Model($utilisateur->login, $utilisateur->nom, $utilisateur->prenom, MyEncryption::decrypt((string)$utilisateur->mp), $utilisateur->email, $utilisateur->type, $utilisateur->adresse, $utilisateur->tele);
 
       return $utilisateurs_list;
     }
@@ -48,7 +49,7 @@
           $filterValue = $filter["filterValue"];
 
           if ($operator == "equal" && $utilisateur->{$filterBy} == $filterValue) {
-            $utilisateurs_list[] = new Utilisateur_Model($utilisateur->login, $utilisateur->nom, $utilisateur->prenom, $utilisateur->mp, $utilisateur->email, $utilisateur->type, $utilisateur->adresse, $utilisateur->tele);
+            $utilisateurs_list[] = new Utilisateur_Model($utilisateur->login, $utilisateur->nom, $utilisateur->prenom, MyEncryption::decrypt((string)$utilisateur->mp), $utilisateur->email, $utilisateur->type, $utilisateur->adresse, $utilisateur->tele);
           }
         }
       }
@@ -68,7 +69,7 @@
         $utilisateur->addChild("login", $this->login);
         $utilisateur->addChild("nom", $this->nom);
         $utilisateur->addChild("prenom", $this->prenom);
-        $utilisateur->addChild("mp", hash("sha256", $this->mp));
+        $utilisateur->addChild("mp", MyEncryption::encrypt((string)$this->mp));
         $utilisateur->addChild("email", $this->email);
         $utilisateur->addChild("type", $this->type);
         $utilisateur->addChild("adresse", $this->adresse);
@@ -88,7 +89,7 @@
 
       $utilisateur->nom = $newUtilisateur->nom;
       $utilisateur->prenom = $newUtilisateur->prenom;
-      $utilisateur->mp = $newUtilisateur->mp;
+      $utilisateur->mp = MyEncryption::encrypt((string)$newUtilisateur->mp);
       $utilisateur->email = $newUtilisateur->email;
       $utilisateur->type = $newUtilisateur->type;
       $utilisateur->adresse = $newUtilisateur->adresse;
