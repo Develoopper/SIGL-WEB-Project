@@ -32,7 +32,6 @@
 	<?php Component("AdminNavBar", ["utilisateur" => $utilisateur]); ?>
 
 	<div class="jquery-script-clear"></div>
-  </div>
   <div class="mx-3 mt-5">
     <table class="table table-striped table-bordered" id="table">
       <thead class="text-light" style="background-color: #343a40;">

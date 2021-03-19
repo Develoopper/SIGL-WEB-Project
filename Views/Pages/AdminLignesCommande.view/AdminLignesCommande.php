@@ -33,35 +33,32 @@
 
 
 	<div class="jquery-script-clear"></div>
-  </div>
-  <div class="mx-3 mt-5">
-    <table class="table table-striped table-bordered" id="table">
-      <thead class="text-light" style="background-color: #343a40;">
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Commande</th>
-          <th scope="col">Produit</th>
-          <th scope="col">Qte</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-          foreach (LigneCommande_Model::getOne([
+	<div class="mx-3 mt-5">
+		<table class="table table-striped table-bordered" id="table">
+			<thead class="text-light" style="background-color: #343a40;">
+				<tr>
+					<th scope="col">Commande</th>
+					<th scope="col">Produit</th>
+					<th scope="col">Qte</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+					foreach (LigneCommande_Model::getOne([
 						["filterBy" => "commande", "opt" => "equal", "filterValue" => $_GET["numCommande"]]
 					]) as $ligneCommande) {
-			echo <<<HTML
-				<tr>
-					<td name="numCommande">$ligneCommande->id</td>
-					<td>$ligneCommande->commande</td>
-					<td>$ligneCommande->produit</td>
-					<td name="etat">$ligneCommande->qte</td>
-				</tr>
-			HTML;
-          }
-        ?>
-      </tbody>
-    </table>
-  </div>
+						echo <<<HTML
+							<tr>
+								<td>$ligneCommande->commande</td>
+								<td>$ligneCommande->produit</td>
+								<td name="etat">$ligneCommande->qte</td>
+							</tr>
+						HTML;
+						}
+				?>
+			</tbody>
+		</table>
+	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 	<script>
