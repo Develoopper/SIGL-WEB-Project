@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-	<title>Document</title>
+	<title>Payement</title>
 	<style>
 		<?php include "payement.css"; ?>
 	</style>
@@ -20,69 +20,7 @@
 	<!-- Nav bar -->
 	<?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count(unserialize($_COOKIE["panier"]))]); ?>
 
-	<!-- Formulaires -->
-	<div class="d-flex justify-content-center align-items-center mt-3">
-		<!-- S'inscrire -->
-		<div class="d-flex border flex-column align-items-center me-5 p-4 bg-light" style="border-radius: 10px;">
-			<h3 class="mb-5">S'inscrire</h3>
-			<form action="" method="post">
-				<div class="d-flex justify-content-between">
-					<div class="mb-3">
-						<label for="exampleFormControlInput1" class="form-label">Nom</label>
-						<input type="email" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="nom">
-					</div>
-					<div class="mb-3">
-						<label for="exampleFormControlInput1" class="form-label">Prénom</label>
-						<input type="email" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="prénom">
-					</div>
-				</div>
-				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">E-mail</label>
-					<input type="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
-				</div>
-				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">Téléphone</label>
-					<input type="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="téléphone">
-				</div>
-				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
-					<input type="password" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe">
-				</div>
-				<div class="form-check mb-4">
-					<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-					<label class="form-check-label" for="flexCheckDefault">
-						J'ai lu et j'accepte les <a href="#" class="link-dark">Conditions générales de vente</a>
-					</label>
-				</div>
-				<button type="button" class="btn btn-dark" style="width: 100%">S'inscrire</button>
-			</form>
-		</div>
 
-		<!-- Se connecter -->
-		<div class="d-flex border flex-column align-items-center p-4 bg-light" style="border-radius: 10px;">
-			<h3 class="mb-5">Se connecter</h3>
-			<form action="" method="post">
-				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">E-mail</label>
-					<input type="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
-				</div>
-				<div class="mb-3">
-					<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
-					<input type="password" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe">
-				</div>
-				<div class="d-flex justify-content-between">
-					<div class="form-check mb-4">
-						<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-						<label class="form-check-label" for="flexCheckDefault">
-							Rester connecté
-						</label>
-					</div>
-					<a href="#" class="link-dark">Mot de passe oublié ?</a>
-				</div>
-				<button type="button" class="btn btn-dark" style="width: 100%">Se connecter</button>
-			</form>
-		</div>
-	</div>
 
 	<!-- Footer -->
 	<?php include "Views/Components/Footer.php"; ?>

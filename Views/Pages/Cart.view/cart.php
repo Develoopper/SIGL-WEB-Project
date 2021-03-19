@@ -87,7 +87,7 @@
 				?>
 
 				<div style="width: 100%" class="d-flex flex-column align-items-end">
-					<h6 class="me-3 mt-3">Totale : <b class="ms-3" id="totale"></b> <b>DH</b></h6>
+					<h6 class="me-3 mt-3">Total : <b class="ms-3" id="totale"></b> <b>DH</b></h6>
 					<input type="hidden" id="totaleInput" name="montant" value="" />
 					<div class="d-flex">
 						<a href="./" class="text-light" style="text-decoration: none;">

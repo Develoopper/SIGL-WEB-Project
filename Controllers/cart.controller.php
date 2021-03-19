@@ -9,10 +9,7 @@ class Cart_Controller extends Controller{
 			$_SESSION['panier'] = array();
 			return true;
 		} else {
-			setcookie("panier", serialize($_SESSION["panier"]), array(
-				'expires' => time() + 48 * 60 * 60 * 60,
-				'samesite' => 'Lax' // None || Lax  || Strict
-			));
+			setcookie("panier", serialize($_SESSION["panier"]));
 			return true;
 		}
 

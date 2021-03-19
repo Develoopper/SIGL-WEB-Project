@@ -19,6 +19,11 @@
     <!-- Nav bar -->
     <?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count(unserialize($_COOKIE["panier"]))]); ?>
 
+    <?php
+      setcookie("panier", "");
+      unset($_SESSION["panier"]);
+    ?>
+
     <div class="d-flex align-content-center justify-content-center">
         <div class="col-6 mt-5 d-flex align-content-center justify-content-center" style="height: 100px;">
             <div class="me-3">
@@ -39,7 +44,6 @@
 
   <script>
     <?php include "home.js"; ?>
-
       setInterval(() => {
          $.ajax({
           url: "http://localhost:5050/SIGL-WEB-Project/testeCommande",
