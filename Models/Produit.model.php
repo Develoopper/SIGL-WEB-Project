@@ -92,10 +92,8 @@
       $xml = parent::load_xml("produits");
 
       $products_list = array();
-      $i = 0;
 
       foreach ($xml->children() as $product) {
-        $i++;
         $valide = true;
 
         foreach ($where as $filter) {
@@ -104,10 +102,10 @@
           $operator = $filter["opt"];
           $filterValue = $filter["filterValue"];
 
-          if ($operator == "like" && !(is_numeric(stripos($product->{$filterBy}, $filterValue))))
+          if ($operator == "like" && !(is_numeric(stripos($product->{$filterBy}, $filterValue)) || $filterValue == ""))
             $valide = false;
 
-          if ($operator == "equal" && !(($product->{$filterBy} == $filterValue || $product->attributes()[$filterBy] == $filterValue)))
+          if ($operator == "equal" && !($product->{$filterBy} == $filterValue || $product->attributes()[$filterBy] == $filterValue))
             $valide = false;
 
           if ($operator == "gt" && !((float)$product->prix > $filterValue))

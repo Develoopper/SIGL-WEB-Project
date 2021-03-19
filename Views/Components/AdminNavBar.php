@@ -25,10 +25,6 @@
 			</ul>
 
 			<div class="d-flex align-items-center justify-content-between" style="font-size: 15px;">
-				<a href="adminProduits" class="d-flex align-items-center text-dark" style="text-decoration: none;">
-					<i class="material-icons mx-1" style="font-size: 30px;">dashboard</i>
-					<span class="me-1">Dashboard</span>
-				</a>
 
 				<div class="dropdown">
 					<a href="#" class="nav-link dropdown-toggle d-flex align-items-center mx-3 text-dark" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">

@@ -88,7 +88,7 @@
 
       $utilisateur->nom = $newUtilisateur->nom;
       $utilisateur->prenom = $newUtilisateur->prenom;
-      $utilisateur->mp = hash("sha256", $newUtilisateur->mp);
+      $utilisateur->mp = $newUtilisateur->mp;
       $utilisateur->email = $newUtilisateur->email;
       $utilisateur->type = $newUtilisateur->type;
       $utilisateur->adresse = $newUtilisateur->adresse;

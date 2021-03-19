@@ -39,8 +39,8 @@
 			<div class="row d-flex ms-2" id="container">
 				<?php
 				// echo var_dump($products);
-					foreach ($products as $product) {
-						echo <<<HTML
+				foreach ($products as $product) {
+					echo <<<HTML
 							<div class="col-3 card shadow-effect p-0 me-4 mb-4" style="width: 200px; height: 270px; border: none;">
 								<a href="product?id=$product->refProduit" style="text-decoration: none;" class="text-dark">
 									<img src='$product->img'style="height: 200px; width: 200px" class="card-img-top" alt="">
@@ -51,7 +51,7 @@
 								</a>
 							</div>
 						HTML;
-					}
+				}
 				?>
 			</div>
 
@@ -71,18 +71,31 @@
 				values: [0, 2000],
 				slide: function(event, ui) {
 					$("#prix").val(ui.values[0] + " DH - " + ui.values[1] + " DH");
-					$("#prix").trigger("input", { prixMin: ui.values[0], prixMax: ui.values[1] });
+					$("#prix").trigger("input", {
+						prixMin: ui.values[0],
+						prixMax: ui.values[1]
+					});
 				}
 			});
 			$("#prix").val($("#slider-range").slider("values", 0) + " DH - " + $("#slider-range").slider("values", 1) + " DH");
 		});
 
-		$("[name=filtre]").on("input", function (e, { prixMin, prixMax } = { prixMin: 0, prixMax: 2000 }) {
+		$("[name=filtre]").on("input", function(e, {
+			prixMin,
+			prixMax
+		} = {
+			prixMin: 0,
+			prixMax: 2000
+		}) {
 			if (prixMin == 0 && prixMax == 2000) {
 				prixMin = $("#slider-range").slider("values", 0);
 				prixMax = $("#slider-range").slider("values", 1);
 			}
-
+			// response.writeHead(200,
+         	// {
+			// 	"Content-Type": "application/json",
+			// 	"Access-Control-Allow-Origin": "http://localhost:5050"
+        	// });
 			$.ajax({
 				url: "http://localhost:5050/SIGL-WEB-Project/products",
 				data: {
@@ -95,10 +108,11 @@
 						sousCategorie: "<?php echo $_GET["id"]; ?>"
 					}
 				},
-				dataType: "json",
+
+				dataType: 'json',
 				type: "POST",
 				// header: { method: "PATCH" },
-				success: function (data) {
+				success: function(data) {
 					console.log("*****", data);
 					var html = "";
 					data.forEach(produit => {
@@ -115,12 +129,15 @@
 						`;
 					});
 					$("#container").html(html);
+				},
+				error: function(error) {
+					console.log("erreur", error);
 				}
 			})
 		});
 
 		$(document).ready(function() {
-      $("#slider-range").children("span").css("border-radius", "50px");
+			$("#slider-range").children("span").css("border-radius", "50px");
 		});
 	</script>
 

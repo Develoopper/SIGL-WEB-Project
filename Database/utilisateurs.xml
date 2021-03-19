@@ -4,7 +4,7 @@
     <login>7f720bdd61099c18f3fb859a1c035a03</login>
     <nom>SALEM</nom>
     <prenom>Mohammed</prenom>
-    <mp>8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92</mp>
+    <mp>123456</mp>
     <email>salemmed266@gmail.com</email>
     <type>admin</type>
     <adresse>adesse2</adresse>
@@ -17,7 +17,17 @@
     <mp>8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92</mp>
     <email>okhalfi2000@gmail.com</email>
     <type>client</type>
-    <adresse/>
+    <adresse>adresse3</adresse>
     <tele>0708036640</tele>
+  </utilisateur>
+  <utilisateur>
+    <login>9747</login>
+    <nom>ELABDERRAHMANI</nom>
+    <prenom>ABDELLATIF</prenom>
+    <mp>15e2b0d3c33891ebb0f1ef609ec419420c20e320ce94c65fbc8c3312448eb225</mp>
+    <email>elabderrahmani@yahoo.com</email>
+    <type>admin</type>
+    <adresse>adresse3</adresse>
+    <tele>0625147858</tele>
   </utilisateur>
 </utilisateurs>
