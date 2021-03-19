@@ -57,8 +57,8 @@
 								<span class="me-1" id="bonjourUtilisateur">Bienvenue $utilisateur->prenom</span>
 							</a>
 							<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href='logOut'>Se déconnecter</a></li>
 								<li><a class="dropdown-item" href='commandesUtilisateur'>Mes commandes</a></li>
+								<li><a class="dropdown-item" href='logOut'>Se déconnecter</a></li>
 							</ul>
 						</div>
 					HTML;
