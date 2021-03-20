@@ -18,7 +18,7 @@
     <numCommande>21</numCommande>
     <libelle>commande21</libelle>
     <dateCommande>17/03/2021</dateCommande>
-    <etat>validé</etat>
+    <etat>payée</etat>
     <montant>159</montant>
   </commande>
   <commande login="09746a4a912d660a6b5213a7ae1b7227">
@@ -32,7 +32,7 @@
     <numCommande>5</numCommande>
     <libelle>commande5</libelle>
     <dateCommande>18/03/2021</dateCommande>
-    <etat>validé</etat>
+    <etat>payée</etat>
     <montant>204</montant>
   </commande>
   <commande login="09746a4a912d660a6b5213a7ae1b7227">
@@ -67,7 +67,7 @@
     <numCommande>10</numCommande>
     <libelle>commande10</libelle>
     <dateCommande>19/03/2021</dateCommande>
-    <etat>validé</etat>
+    <etat>payée</etat>
     <montant>65</montant>
   </commande>
   <commande login="09746a4a912d660a6b5213a7ae1b7227">

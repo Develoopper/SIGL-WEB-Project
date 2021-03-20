@@ -36,6 +36,7 @@
         <div id="smart-button-container" class="pt-5">
           <div style="text-align: center;">
             <div id="paypal-button-container"></div>
+            <a href="./" ><button id="toHome" class="btn btn-dark">Retourner a la page d'accueil</button></a>
           </div>
         </div>
     </div>
@@ -52,6 +53,7 @@
 
     $("#iconContainer").hide();
     $("#paypal-button-container").hide();
+    $("#toHome").hide();
     var total = "";
     var afficher_payment = false;
 
@@ -86,6 +88,11 @@
           }
           if(data["etat"][0] == "En attente")
             message = "Notre chère client " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> +  ", votre Commande est en cours de traitement.";
+          if(data["etat"][0] == "payée") {
+            message = "Félicitation, " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + " votre paiement a été éffectué avec succès."
+            $("#iconContainer").show();
+            clearInterval(interval);
+          }
           $("#message").html(message);
         },
         error: function () {
@@ -139,7 +146,7 @@
               dataType: "json",
               type: "POST",
               success: function (data) {
-                window.location.href = "./";
+                $("#toHome").show();
               }
             });
           });
