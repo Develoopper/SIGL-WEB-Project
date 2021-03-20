@@ -22,7 +22,7 @@
 		<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
 
 		<!-- Formulaires -->
-		<div class="d-flex justify-content-center align-items-center mt-3">
+		<div class="d-flex justify-content-center align-items-center mt-3 mb-5">
 			<!-- S'inscrire -->
 			<div class="d-flex border flex-column align-items-center me-5 p-4 bg-light" style="border-radius: 10px;">
 				<h3 class="mb-5">S'inscrire</h3>
@@ -86,7 +86,7 @@
 				</form>
 			</div>
 		</div>
-		
+
 	</div>
 
 	<!-- Footer -->
