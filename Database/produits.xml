@@ -136,30 +136,6 @@
     <marque/>
     <dateAjout>20/03/2021</dateAjout>
   </produit>
-  <produit sousCategorie="10">
-    <refProduit>19</refProduit>
-    <libelle>Montre électronique LED carrée de mode sportive couleur verte</libelle>
-    <prix>39</prix>
-    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/22/265973/1.jpg?3233</img>
-    <marque/>
-    <dateAjout>20/03/2021</dateAjout>
-  </produit>
-  <produit sousCategorie="10">
-    <refProduit>20</refProduit>
-    <libelle>Montre électronique LED carrée de mode sportive couleur orange</libelle>
-    <prix>39</prix>
-    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/72/265973/1.jpg?3233</img>
-    <marque/>
-    <dateAjout>20/03/2021</dateAjout>
-  </produit>
-  <produit sousCategorie="10">
-    <refProduit>21</refProduit>
-    <libelle>Montre électronique LED carrée de mode sportive couleur bleu</libelle>
-    <prix>39</prix>
-    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/12/265973/1.jpg?3233</img>
-    <marque/>
-    <dateAjout>20/03/2021</dateAjout>
-  </produit>
   <produit sousCategorie="1">
     <refProduit>22</refProduit>
     <libelle>Mini Focus Montre Pour Hommes</libelle>
