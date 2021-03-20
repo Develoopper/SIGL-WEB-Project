@@ -24,4 +24,16 @@
     <id>6</id>
     <libelle>Echarpes</libelle>
   </sousCategorie>
+  <sousCategorie categorie="3">
+    <id>7</id>
+    <libelle>Bijoux</libelle>
+  </sousCategorie>
+  <sousCategorie categorie="4">
+    <id>9</id>
+    <libelle>Casquettes</libelle>
+  </sousCategorie>
+  <sousCategorie categorie="4">
+    <id>10</id>
+    <libelle>Montres</libelle>
+  </sousCategorie>
 </sousCategories>

@@ -96,4 +96,12 @@
     <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/49/408733/1.jpg?8797</img>
     <dateAjout>21/02/2021</dateAjout>
   </produit>
+  <produit sousCategorie="9">
+    <refProduit>14</refProduit>
+    <libelle>Casquette Noir</libelle>
+    <prix>44</prix>
+    <img>https://ma.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/34/020722/1.jpg?9337</img>
+    <marque/>
+    <dateAjout>20/03/2021</dateAjout>
+  </produit>
 </produits>

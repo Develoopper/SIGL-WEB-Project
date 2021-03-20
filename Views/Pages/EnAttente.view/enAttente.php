@@ -90,7 +90,7 @@
           if(data["etat"][0] == "En attente")
             message = "Notre chère client " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> +  ", votre Commande est en cours de traitement.";
           if(data["etat"][0] == "payée") {
-            message = "Félicitation, " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + " votre paiement a été éffectué avec succès."
+            message = "Félicitation, " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + "<br> votre paiement a été éffectué avec succès."
             $("#iconContainer").show();
             clearInterval(interval);
           }
