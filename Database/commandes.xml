@@ -63,4 +63,11 @@
     <etat>En attente</etat>
     <montant>476</montant>
   </commande>
+  <commande login="7f720bdd61099c18f3fb859a1c035a03">
+    <numCommande>10</numCommande>
+    <libelle>commande10</libelle>
+    <dateCommande>19/03/2021</dateCommande>
+    <etat>validé</etat>
+    <montant>65</montant>
+  </commande>
 </commandes>

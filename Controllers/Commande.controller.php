@@ -30,7 +30,7 @@
         ["filterBy" => "numCommande", "opt" => "equal", "filterValue" => $idCommande]
       ])[0];
 
-			echo json_encode($commande->etat);
+			echo json_encode(["etat" => $commande->etat, "total" => $commande->montant]);
     }
 
     public static function patch() {
