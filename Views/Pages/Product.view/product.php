@@ -19,31 +19,34 @@
 </head>
 
 <body>
-	<!-- Nav bar -->
-	<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
+	<div style="min-height: calc(100vh - 155px);">
+		<!-- Nav bar -->
+		<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
 
-	<div class="d-flex justify-content-center">
-		<div class="mx-3 my-4 p-3 bg-light" style="border-radius: 10px; font-size: 13px;">
+		<div class="d-flex justify-content-center">
+			<div class="mx-3 my-4 p-3 bg-light" style="border-radius: 10px; font-size: 13px;">
 
-			<div class="d-flex rounded p-2 text-dark" name="refProduit" id="<?php echo $produit->refProduit ?>" style="width: 900px">
-				<img id="img" src="<?php echo $produit->img; ?>" class="me-3 rounded border" style="height: 350px; width: 350px" alt="...">
-				<div class="d-flex flex-column justify-content-around">
-					<div>
-						<h4 style="white-space: initial" id="libelle"><?php echo $produit->libelle; ?></h4>
-						<span style="white-space: initial; font-size: 15px;" class="mb-4">
-							Categorie: <b id="categorie"><?php echo $sousCategorie->libelle ?> - <?php echo $categorie->libelle; ?></b>
-							</span><br>
-						<span style="white-space: initial; font-size: 15px;">Marque: <b id="marque"><?php echo $produit->marque; ?></b></span>
+				<div class="d-flex rounded p-2 text-dark" name="refProduit" id="<?php echo $produit->refProduit ?>" style="width: 900px">
+					<img id="img" src="<?php echo $produit->img; ?>" class="me-3 rounded border" style="height: 350px; width: 350px" alt="...">
+					<div class="d-flex flex-column justify-content-around">
+						<div>
+							<h4 style="white-space: initial" id="libelle"><?php echo $produit->libelle; ?></h4>
+							<span style="white-space: initial; font-size: 15px;" class="mb-4">
+								Categorie: <b id="categorie"><?php echo $sousCategorie->libelle ?> - <?php echo $categorie->libelle; ?></b>
+								</span><br>
+							<span style="white-space: initial; font-size: 15px;">Marque: <b id="marque"><?php echo $produit->marque; ?></b></span>
+						</div>
+						<h2 style="font-family: 'Segoe UI'"><b id="prix"><?php echo $produit->prix; ?> DH</b></h2>
+							<button type="button" class="btn btn-dark d-flex justify-content-center align-items-center" style="width: 100%;" id="addToCart">
+								<i class="material-icons me-2" style="font-size: 30px;">add_shopping_cart</i>
+								Ajouter au panier
+							</button>
 					</div>
-					<h2 style="font-family: 'Segoe UI'"><b id="prix"><?php echo $produit->prix; ?> DH</b></h2>
-						<button type="button" class="btn btn-dark d-flex justify-content-center align-items-center" style="width: 100%;" id="addToCart">
-							<i class="material-icons me-2" style="font-size: 30px;">add_shopping_cart</i>
-							Ajouter au panier
-						</button>
 				</div>
-			</div>
 
+			</div>
 		</div>
+		
 	</div>
 
 	<!-- Footer -->
