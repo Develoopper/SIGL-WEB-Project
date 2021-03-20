@@ -17,12 +17,9 @@
 </head>
 
 <body>
-<<<<<<< HEAD
 	<div>
 		<!-- Nav bar -->
 		<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
-=======
->>>>>>> 39f32cf3d5cdbeefba6669247341460ac53d27c5
 
 	<!-- Nav bar -->
 	<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
@@ -36,24 +33,24 @@
 				<div class="d-flex justify-content-between">
 					<div class="mb-3">
 						<label class="form-label">Nom*</label>
-						<input type="text" name="nom" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="nom">
+						<input type="text" name="nom" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="nom" required>
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Prénom*</label>
-						<input type="text" name="prenom" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="prénom">
+						<input type="text" name="prenom" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="prénom" required>
 					</div>
 				</div>
 				<div class="mb-3">
 					<label class="form-label">E-mail*</label>
-					<input type="email" name="emailIns" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
+					<input type="email" name="emailIns" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail" required>
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Téléphone*</label>
-					<input type="telephone" name="telephone" style="width: 450px" class="form-control" placeholder="téléphone">
+					<input type="tel" name="telephone" style="width: 450px" class="form-control" placeholder="téléphone" required>
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Mot de passe*</label>
-					<input type="password" name="mpIns" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe">
+					<input type="password" name="mpIns" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe" required>
 				</div>
 				<div class="mb-3">
 					<?php
@@ -73,11 +70,11 @@
 			<form action="signIn" method="post">
 				<div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">E-mail</label>
-					<input type="email"  name="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
+					<input type="email"  name="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail" required>
 				</div>
 				<div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
-					<input type="password" name="mp" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe">
+					<input type="password" name="mp" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe" required>
 				</div>
 				<div class="d-flex justify-content-between mb-3">
 					<?php
