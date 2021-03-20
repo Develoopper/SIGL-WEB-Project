@@ -25,20 +25,20 @@
     ?>
 
     <div class="d-flex flex-column centre">
-        <div class="d-flex align-items-center justify-content-center flex-row-container" style="height: 130px;">
-          <div class="me-3 flex-row-item" id="iconContainer">
-            <i class="fas fa-check-circle" id="icon" style="font-size: 120px;"></i>
-          </div>
-          <div class="flex-row-item" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px;" id="message"></div>
+      <div class="d-flex align-items-center justify-content-center flex-row-container" style="height: 130px;">
+        <div class="me-3 flex-row-item" id="iconContainer">
+          <i class="fas fa-check-circle" id="icon" style="font-size: 120px;"></i>
         </div>
+        <div class="flex-row-item" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px;" id="message"></div>
+      </div>
 
-        <!-- <div id="paypal-button"></div> -->
-        <div id="smart-button-container" class="pt-5">
-          <div style="text-align: center;">
-            <div id="paypal-button-container"></div>
-            <a href="./" ><button id="toHome" class="btn btn-dark">Retourner a la page d'accueil</button></a>
-          </div>
+      <!-- <div id="paypal-button"></div> -->
+      <div id="smart-button-container" class="pt-5">
+        <div style="text-align: center;">
+          <div id="paypal-button-container"></div>
+          <a href="./" ><button id="toHome" class="btn btn-dark">Retourner a la page d'accueil</button></a>
         </div>
+      </div>
     </div>
 
     <!-- Footer -->
@@ -58,6 +58,7 @@
     var afficher_payment = false;
 
     var interval = setInterval(() => {
+
       $.ajax({
         url: "http://localhost:5050/SIGL-WEB-Project/testeCommande",
         data: {
