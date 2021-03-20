@@ -115,4 +115,14 @@
     <produit>6</produit>
     <qte>1</qte>
   </ligneCommande>
+  <ligneCommande>
+    <commande>15</commande>
+    <produit>10</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>15</commande>
+    <produit>11</produit>
+    <qte>1</qte>
+  </ligneCommande>
 </ligneCommades>
