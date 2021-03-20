@@ -18,7 +18,7 @@
 
 <body>
 	<!-- Nav bar -->
-	<?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count(unserialize($_COOKIE["panier"]))]); ?>
+	<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
 
 	<!-- Footer -->
 	<?php include "Views/Components/Footer.php"; ?>

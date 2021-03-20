@@ -18,11 +18,7 @@ class Utilisateur_Controller extends Controller {
       if (is_array($utilisateurs)) {
         if ((string)MyEncryption::encrypt($utilisateurs[0]->mp) == (string)MyEncryption::encrypt($_POST["mp"])) {
           $_SESSION["login"] = (string)$utilisateurs[0]->login;
-          setcookie("login", $_SESSION['login'], array(
-            'expires' => time() + 60 * 60 * 60,
-            'httponly' => true,    // or false
-            'samesite' => 'None' // None || Lax  || Strict
-          ));
+          setcookie("login", $_SESSION['login'], time() + 60 * 60 * 60);
 
           if ($utilisateurs[0]->type == "admin")
             header('Location: adminProduits');

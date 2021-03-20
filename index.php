@@ -17,6 +17,9 @@
   if (isset($_COOKIE["login"]))
     $_SESSION["login"] = $_COOKIE["login"];
 
+  if (isset($_COOKIE["panier"]))
+    $_SESSION["panier"] = $_COOKIE["panier"];
+
   function Component($fileName, $variables) {
     extract($variables);
     require_once "Views/Components/".$fileName.".php";

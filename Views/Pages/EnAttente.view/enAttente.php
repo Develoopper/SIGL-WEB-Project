@@ -17,10 +17,10 @@
 </head>
 <body>
     <!-- Nav bar -->
-    <?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count(unserialize($_COOKIE["panier"]))]); ?>
+    <?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
 
     <?php
-      setcookie("panier", "");
+      setcookie("panier", "", time() - 3600);
       unset($_SESSION["panier"]);
     ?>
 

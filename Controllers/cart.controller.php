@@ -7,20 +7,13 @@ class Cart_Controller extends Controller{
 
 		if (!isset($_SESSION['panier'])) {
 			$_SESSION['panier'] = array();
-			return true;
-		} else {
-			setcookie("panier", serialize($_SESSION["panier"]));
-			return true;
 		}
 
 		if (isset($_COOKIE["panier"])) {
 			$_SESSION['panier'] = unserialize($_COOKIE["panier"]);
 			return true;
 		} else {
-			setcookie("panier", serialize($_SESSION["panier"]), array(
-				'expires' => time() + 48 * 60 * 60 * 60,
-				'samesite' => 'None' // None || Lax  || Strict
-			));
+			setcookie("panier", serialize($_SESSION["panier"]), time() + 48 * 60 * 60 * 60);
 			return true;
 		}
 
@@ -30,7 +23,7 @@ class Cart_Controller extends Controller{
 	public static function checkProduct($refProduit) {
 		$present = false;
 
-		foreach (unserialize($_COOKIE['panier']) as $produit) {
+		foreach ($_SESSION['panier'] as $produit) {
 			if ($produit["refProduit"] == $refProduit) {
 				$present = true;
 				break;
@@ -49,10 +42,7 @@ class Cart_Controller extends Controller{
 
 		if (self::checkProduct($produitObj->refProduit) == false) {
 			array_push($_SESSION['panier'], $tabProduits);
-			setcookie("panier", serialize($_SESSION["panier"]), array(
-				'expires' => time() + 48 * 60 * 60 * 60,
-				'samesite' => 'None' // None || Lax  || Strict
-			));
+			setcookie("panier", serialize($_SESSION["panier"]), time() + 48 * 60 * 60 * 60);
 			return json_encode(count($_SESSION['panier']));
 		} else {
 			for ($i = 0; $i < count($_SESSION['panier']); $i++) {
@@ -60,11 +50,8 @@ class Cart_Controller extends Controller{
 					$_SESSION['panier'][$i]["qte"]++;
 				}
 			}
-			setcookie("panier", serialize($_SESSION["panier"]), array(
-				'expires' => time() + 48 * 60 * 60 * 60,
-				'samesite' => 'None' // None || Lax  || Strict
-			));
-			return json_encode(count(unserialize($_COOKIE['panier'])));
+			setcookie("panier", serialize($_SESSION["panier"]), time() + 48 * 60 * 60 * 60);
+			return json_encode(count($_SESSION['panier']));
 		}
 
 		return false;
@@ -86,10 +73,7 @@ class Cart_Controller extends Controller{
 		}
 
 		$_SESSION['panier'] = $panier_tmp;
-		setcookie("panier", serialize($_SESSION['panier']), array(
-			'expires' => time() + 48 * 60 * 60 * 60,
-			'samesite' => 'None' // None || Lax  || Strict
-		));
+		setcookie("panier", serialize($_SESSION['panier']), time() + 48 * 60 * 60 * 60);
 
 		unset($panier_tmp);
 		return json_encode($_SESSION['panier']);

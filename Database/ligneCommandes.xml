@@ -80,4 +80,39 @@
     <produit>2</produit>
     <qte>1</qte>
   </ligneCommande>
+  <ligneCommande>
+    <commande>11</commande>
+    <produit>6</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>11</commande>
+    <produit>8</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>12</commande>
+    <produit>6</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>12</commande>
+    <produit>8</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>13</commande>
+    <produit>6</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>13</commande>
+    <produit>8</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>14</commande>
+    <produit>6</produit>
+    <qte>1</qte>
+  </ligneCommande>
 </ligneCommades>

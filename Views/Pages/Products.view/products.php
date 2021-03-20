@@ -20,7 +20,7 @@
 <body>
 	<div style="min-height: calc(100vh - 155px);">
 		<!-- Nav bar -->
-		<?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count(unserialize($_COOKIE["panier"]))]); ?>
+		<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
 
 		<div class="row d-flex my-4 px-5">
 			<div class="col bg-light text-dark rounded p-3 py-4" style="min-width: 350px; max-width: 350px;">

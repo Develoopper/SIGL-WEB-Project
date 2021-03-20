@@ -26,7 +26,7 @@
 <body>
 	<div style="min-height: calc(100vh - 155px);">
 		<!-- NavBar -->
-		<?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count(unserialize($_COOKIE["panier"]))]); ?>
+		<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
 
 		<!-- Commandes d'utilisateur -->
 		<!-- <div class="d-flex flex-column align-items-center me-5 p-4 bg-light" style="border-radius: 10px;"> -->

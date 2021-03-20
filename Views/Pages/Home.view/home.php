@@ -38,7 +38,7 @@
 </head>
 <body>
   <!-- Nav bar -->
-  <?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count(unserialize($_COOKIE["panier"]))]); ?>
+  <?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
 
   <!-- Slider -->
   <div id="carouselExampleCaptions" data-bs-interval="3000" class="carousel carousel-dark slide" data-bs-ride="carousel">

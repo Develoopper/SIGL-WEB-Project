@@ -12,7 +12,7 @@
         ])[0];
         extract(["utilisateur" => $utilisateur]);
 	    }
-
+      Cart_Controller::createCart();
       require_once "Views/Pages/$view_name.view/".lcfirst($view_name).".php";
     }
   }

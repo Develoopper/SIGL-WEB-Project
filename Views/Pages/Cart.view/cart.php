@@ -21,7 +21,7 @@
 <body>
 	<div style="min-height: calc(100vh - 155px);">
 		<!-- NavBar -->
-		<?php Component("NavBar", ["utilisateur" => $utilisateur, "nbreProductPanier" => count(unserialize($_COOKIE["panier"]))]); ?>
+		<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
 
 		<!-- Panier -->
 		<!-- <div class="d-flex flex-column align-items-center me-5 p-4 bg-light" style="border-radius: 10px;"> -->
@@ -47,8 +47,8 @@
 				<div class="mx-5" style="width: 900px">
 					<form method='GET' action="livraison">
 					<?php
-						if (isset($_COOKIE["panier"])) {
-							$produits = unserialize($_COOKIE["panier"]);
+						if (isset($_SESSION['panier'])) {
+							$produits = $_SESSION["panier"];
 							foreach ($produits as $produit) {
 								echo <<<HTML
 									<a href="product?id={$produit['refProduit']}">
@@ -107,7 +107,7 @@
 		</form>
 
 	</div>
-	
+
 	<!-- Footer -->
 	<?php Component("Footer", []); ?>
 
