@@ -38,6 +38,17 @@
       return $utilisateurs_list;
     }
 
+    protected static function searchUtilisateurInXML($login, $xml){
+      $exist = false;
+      foreach($xml->children() as $element){
+        if($element->login == $login){
+          $exist = true;
+          $foundElement = $element;
+        }
+      }
+      return [$exist, @$foundElement];
+    }
+
     public static function getOne($where) {
       $xml = parent::load_xml("utilisateurs");
 
@@ -63,7 +74,7 @@
 
     public function create() {
       $xml = parent::load_xml("utilisateurs");
-      $exist = parent::searchInXML($this->login, $xml)[0];
+      $exist = self::searchUtilisateurInXML($this->login, $xml)[0];
 
       if (!$exist) {
         $utilisateur = $xml->addChild("utilisateur");

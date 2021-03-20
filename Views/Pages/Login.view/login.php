@@ -18,9 +18,6 @@
 
 <body>
 	<div>
-		<!-- Nav bar -->
-		<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
-
 	<!-- Nav bar -->
 	<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
 
