@@ -34,7 +34,7 @@
 			<div class="mx-3 my-4 p-3 bg-light" style="border-radius: 10px; font-size: 13px;">
 				<h3 class="mb-3 ms-4">Mes commandes</h3>
 
-				<div class="d-flex justify-content-between align-items-center p-2 px-3 mx-5">
+				<div class="d-flex justify-content-around align-items-center p-2 px-1 mx-5">
 					<h6 class="me-1">
 						N°
 					</h6>
@@ -54,7 +54,9 @@
 						foreach ($commandes as $commande) {
 							echo <<<HTML
 								<a href="enAttente?idCommande={$commande->numCommande}">
-									<div class="d-flex justify-content-around align-items-center rounded p-2 bg-white text-dark border border-secondary mb-3 commandes" id="{$commande->numCommande}">
+									<div class="d-flex justify-content-between align-items-center rounded p-2 bg-white text-dark border border-secondary mb-3 commandes" id="{$commande->numCommande}">
+										<div></div>
+
 										<h6 class="text-truncate">{$commande->numCommande}</h6>
 
 										<div class="bg-secondary" style="height: 50px; width: 1px;"></div>
@@ -68,6 +70,8 @@
 										<div class="bg-secondary" style="height: 50px; width: 1px;"></div>
 										
 										<h6>{$commande->etat}</h6>
+										
+										<div></div>
 									</div>
 								</a>
 							HTML;
