@@ -104,4 +104,108 @@
     <marque/>
     <dateAjout>20/03/2021</dateAjout>
   </produit>
+  <produit sousCategorie="10">
+    <refProduit>15</refProduit>
+    <libelle>Montre électronique LED carrée de mode sportive couleur blanche</libelle>
+    <prix>39</prix>
+    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/52/265973/1.jpg?3233</img>
+    <marque/>
+    <dateAjout>20/03/2021</dateAjout>
+  </produit>
+  <produit sousCategorie="9">
+    <refProduit>16</refProduit>
+    <libelle>Kpop Casquette Noir</libelle>
+    <prix>59</prix>
+    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/17/199892/1.jpg?0107</img>
+    <marque/>
+    <dateAjout>20/03/2021</dateAjout>
+  </produit>
+  <produit sousCategorie="9">
+    <refProduit>17</refProduit>
+    <libelle>Casquette de Baseball réglable légère et décontractée, Hommes Femmes Chapeau de Soleil de Sport en Plein air</libelle>
+    <prix>65</prix>
+    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/80/648783/1.jpg?9689</img>
+    <marque/>
+    <dateAjout>20/03/2021</dateAjout>
+  </produit>
+  <produit sousCategorie="9">
+    <refProduit>18</refProduit>
+    <libelle>Cap Casquette Marijuana - COTTON 100% ( Noir )</libelle>
+    <prix>59</prix>
+    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/87/250293/1.jpg?0211</img>
+    <marque/>
+    <dateAjout>20/03/2021</dateAjout>
+  </produit>
+  <produit sousCategorie="10">
+    <refProduit>19</refProduit>
+    <libelle>Montre électronique LED carrée de mode sportive couleur verte</libelle>
+    <prix>39</prix>
+    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/22/265973/1.jpg?3233</img>
+    <marque/>
+    <dateAjout>20/03/2021</dateAjout>
+  </produit>
+  <produit sousCategorie="10">
+    <refProduit>20</refProduit>
+    <libelle>Montre électronique LED carrée de mode sportive couleur orange</libelle>
+    <prix>39</prix>
+    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/72/265973/1.jpg?3233</img>
+    <marque/>
+    <dateAjout>20/03/2021</dateAjout>
+  </produit>
+  <produit sousCategorie="10">
+    <refProduit>21</refProduit>
+    <libelle>Montre électronique LED carrée de mode sportive couleur bleu</libelle>
+    <prix>39</prix>
+    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/12/265973/1.jpg?3233</img>
+    <marque/>
+    <dateAjout>20/03/2021</dateAjout>
+  </produit>
+  <produit sousCategorie="1">
+    <refProduit>22</refProduit>
+    <libelle>Mini Focus Montre Pour Hommes</libelle>
+    <prix>219</prix>
+    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/06/443122/1.jpg?3360</img>
+    <marque>Mini Focus</marque>
+    <dateAjout>20/03/2021</dateAjout>
+  </produit>
+  <produit sousCategorie="1">
+    <refProduit>23</refProduit>
+    <libelle>Megir Montre Chronographe - G</libelle>
+    <prix>299</prix>
+    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/96/527422/1.jpg?1348</img>
+    <marque>Megir</marque>
+    <dateAjout>20/03/2021</dateAjout>
+  </produit>
+  <produit sousCategorie="1">
+    <refProduit>24</refProduit>
+    <libelle>Megir Montre pour Hommes 2063</libelle>
+    <prix>239</prix>
+    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/92/869572/1.jpg?1951</img>
+    <marque>Megir</marque>
+    <dateAjout>20/03/2021</dateAjout>
+  </produit>
+  <produit sousCategorie="1">
+    <refProduit>25</refProduit>
+    <libelle>Naviforce Top Luxury Brand Watch Fashion Sports Men Quartz Watches Digital Dual Display Wristwatch Male NF9153</libelle>
+    <prix>169</prix>
+    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/71/911282/1.jpg?1940</img>
+    <marque>Naviforce</marque>
+    <dateAjout>20/03/2021</dateAjout>
+  </produit>
+  <produit sousCategorie="2">
+    <refProduit>26</refProduit>
+    <libelle>Portefeuille Miniwallet anti détournement de données des cartes RFID Bleu Marine</libelle>
+    <prix>79</prix>
+    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/51/686333/1.jpg?5447</img>
+    <marque/>
+    <dateAjout>20/03/2021</dateAjout>
+  </produit>
+  <produit sousCategorie="2">
+    <refProduit>27</refProduit>
+    <libelle>Portefeuille et cartes polyvalent élégant avec Mécanisme de sécurité RFID Marron</libelle>
+    <prix>75</prix>
+    <img>https://ma.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/60/907853/1.jpg?4474</img>
+    <marque/>
+    <dateAjout>20/03/2021</dateAjout>
+  </produit>
 </produits>
