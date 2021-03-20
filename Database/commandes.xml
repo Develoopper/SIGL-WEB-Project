@@ -105,4 +105,18 @@
     <etat>annulé</etat>
     <montant>97</montant>
   </commande>
+  <commande login="7f720bdd61099c18f3fb859a1c035a03">
+    <numCommande>16</numCommande>
+    <libelle>commande16</libelle>
+    <dateCommande>20/03/2021</dateCommande>
+    <etat>En attente</etat>
+    <montant>526</montant>
+  </commande>
+  <commande login="7f720bdd61099c18f3fb859a1c035a03">
+    <numCommande>17</numCommande>
+    <libelle>commande17</libelle>
+    <dateCommande>20/03/2021</dateCommande>
+    <etat>validé</etat>
+    <montant>526</montant>
+  </commande>
 </commandes>

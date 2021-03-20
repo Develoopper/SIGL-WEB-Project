@@ -125,4 +125,54 @@
     <produit>11</produit>
     <qte>1</qte>
   </ligneCommande>
+  <ligneCommande>
+    <commande>16</commande>
+    <produit>11</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>16</commande>
+    <produit>2</produit>
+    <qte>2</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>16</commande>
+    <produit>6</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>16</commande>
+    <produit>3</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>16</commande>
+    <produit>8</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>17</commande>
+    <produit>11</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>17</commande>
+    <produit>2</produit>
+    <qte>2</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>17</commande>
+    <produit>6</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>17</commande>
+    <produit>3</produit>
+    <qte>1</qte>
+  </ligneCommande>
+  <ligneCommande>
+    <commande>17</commande>
+    <produit>8</produit>
+    <qte>1</qte>
+  </ligneCommande>
 </ligneCommades>

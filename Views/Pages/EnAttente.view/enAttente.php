@@ -51,11 +51,14 @@
   <script>
     <?php include "home.js"; ?>
 
-    $("#iconContainer").hide();
-    $("#paypal-button-container").hide();
-    $("#toHome").hide();
     var total = "";
     var afficher_payment = false;
+
+    $(document).ready(function () {
+      $("#iconContainer").hide();
+      $("#paypal-button-container").hide();
+      $("#toHome").hide();
+    });
 
     var interval = setInterval(() => {
 
