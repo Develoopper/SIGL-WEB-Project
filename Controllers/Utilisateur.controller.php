@@ -21,7 +21,7 @@ class Utilisateur_Controller extends Controller {
           setcookie("login", $_SESSION['login'], array(
             'expires' => time() + 60 * 60 * 60,
             'httponly' => true,    // or false
-            'samesite' => 'Lax' // None || Lax  || Strict
+            'samesite' => 'None' // None || Lax  || Strict
           ));
 
           if ($utilisateurs[0]->type == "admin")

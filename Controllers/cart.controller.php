@@ -19,7 +19,7 @@ class Cart_Controller extends Controller{
 		} else {
 			setcookie("panier", serialize($_SESSION["panier"]), array(
 				'expires' => time() + 48 * 60 * 60 * 60,
-				'samesite' => 'Lax' // None || Lax  || Strict
+				'samesite' => 'None' // None || Lax  || Strict
 			));
 			return true;
 		}
@@ -51,7 +51,7 @@ class Cart_Controller extends Controller{
 			array_push($_SESSION['panier'], $tabProduits);
 			setcookie("panier", serialize($_SESSION["panier"]), array(
 				'expires' => time() + 48 * 60 * 60 * 60,
-				'samesite' => 'Lax' // None || Lax  || Strict
+				'samesite' => 'None' // None || Lax  || Strict
 			));
 			return json_encode(count($_SESSION['panier']));
 		} else {
@@ -62,7 +62,7 @@ class Cart_Controller extends Controller{
 			}
 			setcookie("panier", serialize($_SESSION["panier"]), array(
 				'expires' => time() + 48 * 60 * 60 * 60,
-				'samesite' => 'Lax' // None || Lax  || Strict
+				'samesite' => 'None' // None || Lax  || Strict
 			));
 			return json_encode(count(unserialize($_COOKIE['panier'])));
 		}
@@ -88,56 +88,13 @@ class Cart_Controller extends Controller{
 		$_SESSION['panier'] = $panier_tmp;
 		setcookie("panier", serialize($_SESSION['panier']), array(
 			'expires' => time() + 48 * 60 * 60 * 60,
-			'samesite' => 'Lax' // None || Lax  || Strict
+			'samesite' => 'None' // None || Lax  || Strict
 		));
 
 		unset($panier_tmp);
 		return json_encode($_SESSION['panier']);
 	}
 
-	public static function UpdateProduct($ref_article, $qte) {
-		/* On compte le nombre d'articles différents dans le panier */
-		$nb_articles = count($_SESSION['panier']['id_article']);
-		/* On initialise la variable de retour */
-		$ajoute = false;
-		/* On parcoure le tableau de session pour modifier l'article précis. */
-		$i = 0;
-		for ($i = 0; $i < $nb_articles; $i++) {
-			if ($ref_article == $_SESSION['panier']['id_article'][$i]) {
-				$_SESSION['panier']['qte'][$i] = $qte;
-				$ajoute = true;
-			}
-		}
-
-		return $ajoute;
-	}
-
-
-	public static function getTotal() {
-		/* On initialise le montant */
-		$montant = 0;
-		/* Comptage des articles du panier */
-		$nb_articles = count($_SESSION['panier']['id_article']);
-		/* On va calculer le total par article */
-		for ($i = 0; $i < $nb_articles; $i++) {
-			$montant += $_SESSION['panier']['qte'][$i] * $_SESSION['panier']['prix'][$i];
-		}
-		/* On retourne le résultat */
-		return $montant;
-	}
-
-	public static function getQte() {
-		/* On initialise le montant */
-		$qte = 0;
-		/* Comptage des articles du panier */
-		$nb_articles = count($_SESSION['panier']['id_article']);
-		/* On va calculer le total par article */
-		for ($i = 0; $i < $nb_articles; $i++) {
-			$qte += $_SESSION['panier']['qte'][$i];
-		}
-		/* On retourne le résultat */
-		return $qte;
-	}
 
 	public static function getNbreProducts() {
 		$nbreProduits = count($_SESSION['panier']);
