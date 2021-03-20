@@ -1,6 +1,6 @@
 <?php
   function PreventAuth() {
-    if (isset($_COOKIE['login']) && $_GET["url"] == "login") {
+    if (isset($_SESSION['login']) && $_GET["url"] == "login") {
       header("Location: ./");
       return false;
     }

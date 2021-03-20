@@ -75,4 +75,9 @@
     <produit>6</produit>
     <qte>1</qte>
   </ligneCommande>
+  <ligneCommande>
+    <commande>10</commande>
+    <produit>2</produit>
+    <qte>1</qte>
+  </ligneCommande>
 </ligneCommades>

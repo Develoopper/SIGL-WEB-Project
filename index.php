@@ -14,6 +14,9 @@
       require_once "./Models/".explode("_", $class_name)[0].".model.php";
   });
 
+  if (isset($_COOKIE["login"]))
+    $_SESSION["login"] = $_COOKIE["login"];
+
   function Component($fileName, $variables) {
     extract($variables);
     require_once "Views/Components/".$fileName.".php";
