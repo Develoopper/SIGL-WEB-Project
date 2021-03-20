@@ -17,50 +17,37 @@
 </head>
 
 <body>
-	<div style="min-height: calc(100vh - 155px);">
-		<!-- Nav bar -->
-		<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
 
-		<!-- Formulaires -->
-		<div class="d-flex justify-content-center align-items-center mt-3 mb-5">
-			<!-- S'inscrire -->
-			<div class="d-flex border flex-column align-items-center me-5 p-4 bg-light" style="border-radius: 10px;">
-				<h3 class="mb-5">S'inscrire</h3>
-				<form action="signUp" method="post">
-					<div class="d-flex justify-content-between">
-						<div class="mb-3">
-							<label class="form-label">Nom*</label>
-							<input type="text" name="nom" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="nom">
-						</div>
-						<div class="mb-3">
-							<label class="form-label">Prénom*</label>
-							<input type="text" name="prenom" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="prénom">
-						</div>
-					</div>
-					<div class="mb-3">
-						<label class="form-label">E-mail*</label>
-						<input type="email" name="emailIns" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
-					</div>
+	<!-- Nav bar -->
+	<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
+
+	<!-- Formulaires -->
+	<div class="d-flex justify-content-center align-items-center mt-3 mb-5">
+		<!-- S'inscrire -->
+		<div class="d-flex border flex-column align-items-center me-5 p-4 bg-light" style="border-radius: 10px;">
+			<h3 class="mb-5">S'inscrire</h3>
+			<form action="signUp" method="post">
+				<div class="d-flex justify-content-between">
 					<div class="mb-3">
 						<label class="form-label">Nom*</label>
-						<input type="text" name="nom" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="nom" required>
+						<input type="text" name="nom" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="nom">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Prénom*</label>
-						<input type="text" name="prenom" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="prénom" required>
+						<input type="text" name="prenom" style="width: 210px" class="form-control" id="exampleFormControlInput1" placeholder="prénom">
 					</div>
 				</div>
 				<div class="mb-3">
 					<label class="form-label">E-mail*</label>
-					<input type="email" name="emailIns" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail" required>
+					<input type="email" name="emailIns" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Téléphone*</label>
-					<input type="tel" name="telephone" style="width: 450px" class="form-control" placeholder="téléphone" required>
+					<input type="telephone" name="telephone" style="width: 450px" class="form-control" placeholder="téléphone">
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Mot de passe*</label>
-					<input type="password" name="mpIns" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe" required>
+					<input type="password" name="mpIns" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe">
 				</div>
 				<div class="mb-3">
 					<?php
@@ -70,22 +57,21 @@
 					?>
 				</div>
 
-					<button type="submit" class="btn btn-dark" style="width: 100%">S'inscrire</button>
-				</form>
-			</div>
+				<button type="submit" class="btn btn-dark" style="width: 100%">S'inscrire</button>
+			</form>
+		</div>
 
-<<<<<<< HEAD
 		<!-- Se connecter -->
 		<div class="d-flex border flex-column align-items-center p-4 bg-light" style="border-radius: 10px;">
 			<h3 class="mb-5">Se connecter</h3>
 			<form action="signIn" method="post">
 				<div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">E-mail</label>
-					<input type="email"  name="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail" required>
+					<input type="email"  name="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
 				</div>
 				<div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
-					<input type="password" name="mp" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe" required>
+					<input type="password" name="mp" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe">
 				</div>
 				<div class="d-flex justify-content-between mb-3">
 					<?php
@@ -95,34 +81,10 @@
 							echo "* Mot de passe incorrect";
 					?>
 				</div>
-=======
-			<!-- Se connecter -->
-			<div class="d-flex border flex-column align-items-center p-4 bg-light" style="border-radius: 10px;">
-				<h3 class="mb-5">Se connecter</h3>
-				<form action="signIn" method="post">
-					<div class="mb-3">
-						<label for="exampleFormControlInput1" class="form-label">E-mail</label>
-						<input type="email"  name="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail">
-					</div>
-					<div class="mb-3">
-						<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
-						<input type="password" name="mp" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="mot de passe">
-					</div>
-					<div class="d-flex justify-content-between mb-3">
-						<?php
-							if (isset($_GET["erreur"]) && $_GET["erreur"] == 1)
-								echo "* L'utilisateur n'éxiste pas";
-							if (isset($_GET["erreur"]) && $_GET["erreur"] == 2)
-								echo "* Mot de passe incorrect";
-						?>
-					</div>
->>>>>>> c54cdda609219d3e0f3e92759a18514296034939
 
-					<button type="submit" class="btn btn-dark" style="width: 100%">Se connecter</button>
-				</form>
-			</div>
+				<button type="submit" class="btn btn-dark" style="width: 100%">Se connecter</button>
+			</form>
 		</div>
-
 	</div>
 
 	<!-- Footer -->
