@@ -43,7 +43,7 @@
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Téléphone*</label>
-					<input type="telephone" name="telephone" style="width: 450px" class="form-control" placeholder="téléphone" required>
+					<input type="tel" name="telephone" style="width: 450px" class="form-control" placeholder="téléphone" required>
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Mot de passe*</label>

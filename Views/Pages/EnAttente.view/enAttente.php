@@ -36,7 +36,7 @@
       <div id="smart-button-container" class="pt-5">
         <div style="text-align: center;">
           <div id="paypal-button-container"></div>
-          <a href="./" ><button id="toHome" class="btn btn-dark">Retourner a la page d'accueil</button></a>
+          <a href="./" ><button id="toHome" class="btn btn-dark" style="display:none;">Retourner a la page d'accueil</button></a>
         </div>
       </div>
     </div>
@@ -101,6 +101,7 @@
           if(data["etat"][0] == "payée") {
             message = "Félicitation, " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + "<br> votre paiement a été éffectué avec succès."
             $("#iconContainer").show();
+            $("#toHome").show();
             clearInterval(interval);
           }
           $("#message").html(message);
