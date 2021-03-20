@@ -17,10 +17,6 @@
     <libelle>Bijoux</libelle>
   </sousCategorie>
   <sousCategorie categorie="1">
-    <id>5</id>
-    <libelle>Lunettes</libelle>
-  </sousCategorie>
-  <sousCategorie categorie="1">
     <id>6</id>
     <libelle>Echarpes</libelle>
   </sousCategorie>
