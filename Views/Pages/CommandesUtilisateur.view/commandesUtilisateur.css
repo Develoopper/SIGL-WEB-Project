@@ -1,0 +1,14 @@
+body {
+  font-family: Montserrat;
+  font-size: 15px;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color:black;
+}

@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container-fluid mx-3">
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +27,7 @@
 
 				<div class="dropdown">
 					<a href="#" class="nav-link dropdown-toggle d-flex align-items-center mx-3 text-dark" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
-						<i class="material-icons mx-1" style="font-size: 30px;">account_circle</i>
+						<i class="material-icons mx-1 text-dark" style="font-size: 30px;">account_circle</i>
 						<span class="me-1"id="bonjourUtilisateur"><?php echo "Bienvenue " . $utilisateur->prenom ;?></span>
 					</a>
 					<ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
