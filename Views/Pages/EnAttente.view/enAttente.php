@@ -9,10 +9,10 @@
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing Script">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-  <title>Home</title>
+  <title>EnAttente</title>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
   <style>
-    <?php include "home.css"; ?>
+    <?php include "enAttente.css"; ?>
   </style>
 </head>
 <body>
@@ -24,15 +24,16 @@
       unset($_SESSION["panier"]);
     ?>
 
-    <div class="d-flex flex-column ">
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="me-3">
-            <i class="fas fa-check-circle" style="font-size: 120px;"></i>
+    <div class="d-flex flex-column centre">
+        <div class="d-flex align-items-center justify-content-center flex-row-container" style="height: 130px;">
+          <div class="me-3 flex-row-item" id="iconContainer">
+            <i class="fas fa-check-circle" id="icon" style="font-size: 120px;"></i>
           </div>
-          <div class="" id="message"></div>
+          <div class="flex-row-item" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px;" id="message"></div>
         </div>
+
         <!-- <div id="paypal-button"></div> -->
-        <div id="smart-button-container">
+        <div id="smart-button-container" class="pt-5">
           <div style="text-align: center;">
             <div id="paypal-button-container"></div>
           </div>
@@ -40,7 +41,7 @@
     </div>
 
     <!-- Footer -->
-    <?php // Component("Footer", []); ?>
+    <?php Component("Footer", []); ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -49,44 +50,53 @@
   <script>
     <?php include "home.js"; ?>
 
+    $("#iconContainer").hide();
     $("#paypal-button-container").hide();
     var total = "";
     var afficher_payment = false;
 
     var interval = setInterval(() => {
       $.ajax({
-      url: "http://localhost:5050/SIGL-WEB-Project/testeCommande",
-      data: {
-        method: "GET",
+        url: "http://localhost:5050/SIGL-WEB-Project/testeCommande",
         data: {
-          idCommande: <?php echo $_GET["idCommande"]; ?>,
+          method: "GET",
+          data: {
+            idCommande: <?php echo $_GET["idCommande"]; ?>,
+          }
+        },
+        dataType: "json",
+        type: "POST",
+        success: function (data) {
+          console.log(data);
+          var message = "";
+          if (data["etat"][0] == "validé") {
+            message = "Notre chère client " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + " </br>Votre commande est validée.";
+            afficher_payment = true;
+            window.total = data["total"][0];
+            afficherPayement();
+          }
+          if(data["etat"][0] == "annulé") {
+            message = "Notre chère client " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + " </br>Votre commande a été annulée. ";
+            $("#icon").removeClass('fas');
+            $("#icon").removeClass('fa-check-circle');
+            $("#icon").addClass('fa');
+            $("#icon").addClass('fa-window-close');
+            $("#iconContainer").show();
+            clearInterval(interval);
+          }
+          if(data["etat"][0] == "En attente")
+            message = "Notre chère client " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> +  ", votre Commande est en cours de traitement.";
+          $("#message").html(message);
+        },
+        error: function () {
+          console.log("*****");
         }
-      },
-      dataType: "json",
-      type: "POST",
-      success: function (data) {
-        console.log(data);
-        var message = "";
-        if (data["etat"][0] == "validé") {
-          message = "Notre chère client " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + " </br>Votre commande est validée.";
-          afficher_payment = true;
-          window.total = data["total"][0];
-          afficherPayement();
-        }
-        if(data["etat"][0] == "annulé")
-          message = "Notre chère client " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + " </br>Votre commande a été annulée. ";
-        if(data["etat"][0] == "En attente")
-          message = "Votre Commande est en cours de traitement.";
-        $("#message").html(message);
-      },
-      error: function () {
-        console.log("*****");
-      }
-      });
-    }, 1000);
+        });
+    }, 300);
 
     function afficherPayement() {
       if (window.afficher_payment && !$("#paypal-button-container").is(":visible")) {
+        $("#iconContainer").show();
         $("#paypal-button-container").show();
         initPayPalButton();
         clearInterval(interval);
@@ -117,6 +127,21 @@
           return actions.order.capture().then(function(details) {
             $("#message").html("Félicitation, " + details.payer.name.given_name + " votre paiement a été éffectué avec succès.");
             $("#paypal-button-container").hide();
+            $.ajax({
+              url: "http://localhost:5050/SIGL-WEB-Project/commandes",
+              data: {
+                method: "PATCH",
+                data: {
+                  numCommande: <?php echo $_GET["idCommande"]; ?>,
+                  etat: "payée"
+                }
+              },
+              dataType: "json",
+              type: "POST",
+              success: function (data) {
+                window.location.href = "./";
+              }
+            });
           });
         },
 

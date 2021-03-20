@@ -1,0 +1,22 @@
+/* .centre {
+  position: fixed;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+.centre {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 200px;
+    margin-top: -100px ;/* half of you height */
+    margin-left: -200px; /* half of you width */
+}
+
+footer {
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+}
