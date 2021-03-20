@@ -46,7 +46,7 @@
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Téléphone*</label>
-					<input type="tel" name="telephone" style="width: 450px" class="form-control" placeholder="téléphone" required>
+					<input type="tel" name="telephone" pattern="((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}" style="width: 450px" class="form-control" placeholder="téléphone" required>
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Mot de passe*</label>
