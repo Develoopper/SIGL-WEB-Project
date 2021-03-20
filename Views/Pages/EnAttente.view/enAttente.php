@@ -58,8 +58,6 @@
     var afficher_payment = false;
 
     var interval = setInterval(() => {
-      if (total == "")
-
 
       $.ajax({
         url: "http://localhost:5050/SIGL-WEB-Project/testeCommande",
