@@ -17,7 +17,7 @@
 </head>
 
 <body>
-	<div style="min-height: calc(100vh - 155px);">
+	<div>
 		<!-- Nav bar -->
 		<?php Component("NavBar", ["utilisateur" => $utilisateur]); ?>
 
