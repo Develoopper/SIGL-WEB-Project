@@ -87,13 +87,14 @@
             $("#iconContainer").show();
             clearInterval(interval);
           }
-          if(data["etat"][0] == "En attente")
+          if(data["etat"][0] == "En attente") {
             message = "Notre chère client " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> +  ", </br>votre Commande est en cours de traitement..";
             $("#icon").removeClass('fas');
             $("#icon").removeClass('fa-check-circle');
             $("#icon").addClass('fas');
             $("#icon").addClass('fa-hourglass-half');
             $("#iconContainer").show();
+          }
           if(data["etat"][0] == "payée") {
             message = "Félicitation, " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + "<br> votre paiement a été éffectué avec succès."
             $("#iconContainer").show();
