@@ -68,7 +68,7 @@
         console.log(data);
         var message = "";
         if (data["etat"][0] == "validé") {
-          message = "Notre chère client " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + " </br>Votre commande est validée </br> Vous allez la recevoir au plutart après 48h.";
+          message = "Notre chère client " + <?php echo "'" .$utilisateur->nom . " " . $utilisateur->prenom . "'" ;?> + " </br>Votre commande est validée.";
           afficher_payment = true;
           window.total = data["total"][0];
           afficherPayement();
@@ -115,7 +115,7 @@
 
         onApprove: function(data, actions) {
           return actions.order.capture().then(function(details) {
-            $("#message").html("Félicitation, " + details.payer.name.given_name + " votre paiement a été éffectué avec succès");
+            $("#message").html("Félicitation, " + details.payer.name.given_name + " votre paiement a été éffectué avec succès.");
             $("#paypal-button-container").hide();
           });
         },

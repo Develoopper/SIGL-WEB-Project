@@ -56,21 +56,13 @@
 								<a href="enAttente?idCommande={$commande->numCommande}">
 									<div class="d-flex justify-content-between align-items-center rounded p-2 bg-white text-dark border border-secondary mb-3 commandes" id="{$commande->numCommande}">
 										<div></div>
-
 										<h6 class="text-truncate">{$commande->numCommande}</h6>
-
 										<div class="bg-secondary" style="height: 50px; width: 1px;"></div>
-										
 										<h6 class="text-truncate">{$commande->dateCommande}</h6>
-
 										<div class="bg-secondary" style="height: 50px; width: 1px;"></div>
-										
 										<h6 name="total">{$commande->montant} DH</h6>
-
 										<div class="bg-secondary" style="height: 50px; width: 1px;"></div>
-										
 										<h6>{$commande->etat}</h6>
-										
 										<div></div>
 									</div>
 								</a>
@@ -82,7 +74,7 @@
 		</div>
 
 	</div>
-	
+
 	<!-- Footer -->
 	<?php Component("Footer", []); ?>
 
