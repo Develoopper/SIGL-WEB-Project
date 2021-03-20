@@ -99,7 +99,7 @@
           console.log("*****");
         }
         });
-    }, 300);
+    }, 100);
 
     function afficherPayement() {
       if (window.afficher_payment && !$("#paypal-button-container").is(":visible")) {
