@@ -3,120 +3,29 @@
   <commande login="7f720bdd61099c18f3fb859a1c035a03">
     <numCommande>1</numCommande>
     <libelle>commande1</libelle>
-    <dateCommande>17/03/2021</dateCommande>
-    <etat>validé</etat>
-    <montant>2348</montant>
+    <dateCommande>26/03/2021</dateCommande>
+    <etat>En attente</etat>
+    <montant>127</montant>
   </commande>
   <commande login="7f720bdd61099c18f3fb859a1c035a03">
     <numCommande>2</numCommande>
     <libelle>commande2</libelle>
-    <dateCommande>17/03/2021</dateCommande>
-    <etat>annulé</etat>
-    <montant>2348</montant>
+    <dateCommande>26/03/2021</dateCommande>
+    <etat>En attente</etat>
+    <montant>215</montant>
   </commande>
   <commande login="7f720bdd61099c18f3fb859a1c035a03">
-    <numCommande>21</numCommande>
-    <libelle>commande21</libelle>
-    <dateCommande>17/03/2021</dateCommande>
-    <etat>payée</etat>
-    <montant>159</montant>
+    <numCommande>3</numCommande>
+    <libelle>commande3</libelle>
+    <dateCommande>26/03/2021</dateCommande>
+    <etat>En attente</etat>
+    <montant>215</montant>
   </commande>
-  <commande login="09746a4a912d660a6b5213a7ae1b7227">
+  <commande login="7f720bdd61099c18f3fb859a1c035a03">
     <numCommande>4</numCommande>
     <libelle>commande4</libelle>
-    <dateCommande>18/03/2021</dateCommande>
-    <etat>validé</etat>
-    <montant>204</montant>
-  </commande>
-  <commande login="7f720bdd61099c18f3fb859a1c035a03">
-    <numCommande>5</numCommande>
-    <libelle>commande5</libelle>
-    <dateCommande>18/03/2021</dateCommande>
-    <etat>payée</etat>
-    <montant>204</montant>
-  </commande>
-  <commande login="09746a4a912d660a6b5213a7ae1b7227">
-    <numCommande>6</numCommande>
-    <libelle>commande6</libelle>
-    <dateCommande>19/03/2021</dateCommande>
-    <etat>validé</etat>
-    <montant>417</montant>
-  </commande>
-  <commande login="09746a4a912d660a6b5213a7ae1b7227">
-    <numCommande>7</numCommande>
-    <libelle>commande7</libelle>
-    <dateCommande>19/03/2021</dateCommande>
-    <etat>validé</etat>
-    <montant>476</montant>
-  </commande>
-  <commande login="7f720bdd61099c18f3fb859a1c035a03">
-    <numCommande>8</numCommande>
-    <libelle>commande8</libelle>
-    <dateCommande>19/03/2021</dateCommande>
+    <dateCommande>26/03/2021</dateCommande>
     <etat>En attente</etat>
-    <montant>476</montant>
-  </commande>
-  <commande login="7f720bdd61099c18f3fb859a1c035a03">
-    <numCommande>9</numCommande>
-    <libelle>commande9</libelle>
-    <dateCommande>19/03/2021</dateCommande>
-    <etat>En attente</etat>
-    <montant>476</montant>
-  </commande>
-  <commande login="7f720bdd61099c18f3fb859a1c035a03">
-    <numCommande>10</numCommande>
-    <libelle>commande10</libelle>
-    <dateCommande>19/03/2021</dateCommande>
-    <etat>payée</etat>
-    <montant>65</montant>
-  </commande>
-  <commande login="09746a4a912d660a6b5213a7ae1b7227">
-    <numCommande>11</numCommande>
-    <libelle>commande11</libelle>
-    <dateCommande>20/03/2021</dateCommande>
-    <etat>En attente</etat>
-    <montant>198</montant>
-  </commande>
-  <commande login="09746a4a912d660a6b5213a7ae1b7227">
-    <numCommande>12</numCommande>
-    <libelle>commande12</libelle>
-    <dateCommande>20/03/2021</dateCommande>
-    <etat>En attente</etat>
-    <montant>198</montant>
-  </commande>
-  <commande login="09746a4a912d660a6b5213a7ae1b7227">
-    <numCommande>13</numCommande>
-    <libelle>commande13</libelle>
-    <dateCommande>20/03/2021</dateCommande>
-    <etat>validé</etat>
-    <montant>198</montant>
-  </commande>
-  <commande login="09746a4a912d660a6b5213a7ae1b7227">
-    <numCommande>14</numCommande>
-    <libelle>commande14</libelle>
-    <dateCommande>20/03/2021</dateCommande>
-    <etat>validé</etat>
-    <montant>59</montant>
-  </commande>
-  <commande login="09746a4a912d660a6b5213a7ae1b7227">
-    <numCommande>15</numCommande>
-    <libelle>commande15</libelle>
-    <dateCommande>20/03/2021</dateCommande>
-    <etat>annulé</etat>
-    <montant>97</montant>
-  </commande>
-  <commande login="7f720bdd61099c18f3fb859a1c035a03">
-    <numCommande>16</numCommande>
-    <libelle>commande16</libelle>
-    <dateCommande>20/03/2021</dateCommande>
-    <etat>En attente</etat>
-    <montant>526</montant>
-  </commande>
-  <commande login="7f720bdd61099c18f3fb859a1c035a03">
-    <numCommande>17</numCommande>
-    <libelle>commande17</libelle>
-    <dateCommande>20/03/2021</dateCommande>
-    <etat>validé</etat>
-    <montant>526</montant>
+    <montant>215</montant>
   </commande>
 </commandes>

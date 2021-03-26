@@ -28,13 +28,43 @@ $("h6[name=qte]").bind('DOMSubtreeModified', function () {
 
 $("a[name=increment]").on("click", function () {
     var number = parseFloat($(this).prev("input").prev("h6[name=qte]").html());
+    var refProduit = $(this).parents("div.produits").first().attr("id");
     number++;
+    // $.ajax({
+    //     url: "http://localhost:5050/SIGL-WEB-Project/updateQte",
+    //     data: {
+    //         method: "PATCH",
+    //         data: {refProduit : refProduit, qte : number}
+    //     },
+    //     dataType: "json",
+    //     type: "POST",
+    //     success: function (data) {
+    //         console.log(data);
+    //     }
+    // });
     $(this).prev("input").prev("h6[name=qte]").html(number);
+    $(this).prev("input").val(number);
+    console.log($(this).prev("input").val());
 });
 
 $("a[name=decrement]").on("click", function() {
     var number = parseFloat($(this).next("h6[name=qte]").html());
+    var refProduit = $(this).parents("div.produits").first().attr("id");
     if (number > 1)
         number--;
+    // $.ajax({
+    //     url: "http://localhost:5050/SIGL-WEB-Project/updateQte",
+    //     data: {
+    //         method: "PATCH",
+    //         data: {refProduit : refProduit, qte : number}
+    //     },
+    //     dataType: "json",
+    //     type: "POST",
+    //     success: function (data) {
+    //         console.log(data);
+    //     }
+    // });
     $(this).next("h6[name=qte]").html(number);
+    $(this).next('h6').next("input").val(number);
+    console.log($(this).next('h6').next("input").val());
 });

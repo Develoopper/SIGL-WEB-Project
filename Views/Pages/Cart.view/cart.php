@@ -129,12 +129,12 @@
 
 		$("a[name=delete]").click(
 			function (){
-				$refProduit = $(this).parents(".produits").attr("id");
+				refProduit = $(this).parents(".produits").attr("id");
 				$.ajax({
 					url: "http://localhost:5050/SIGL-WEB-Project/deleteFromCart",
 					data: {
 						method: "DELETE",
-						data: {refProduit : $refProduit}
+						data: {refProduit : refProduit}
 					},
 					dataType: "json",
 					type: "POST",

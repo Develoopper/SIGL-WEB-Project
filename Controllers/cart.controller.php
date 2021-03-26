@@ -33,6 +33,18 @@ class Cart_Controller extends Controller{
 		return $present;
 	}
 
+	public static function updateQte() {
+    	header('Content-Type: text/json');
+		$refProduit = $_POST["data"]["refProduit"];
+		$qte = $_POST["data"]["qte"];
+		foreach ($_SESSION['panier'] as $produit) {
+			if ($produit["refProduit"] == $refProduit) {
+				$produit["qte"] = $qte;
+			}
+		}
+		echo $qte;
+	}
+
 	public static function addProduct($produit) {
     	header('Content-Type: text/json');
 

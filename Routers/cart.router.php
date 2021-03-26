@@ -5,6 +5,10 @@
             echo Cart_Controller::addProduct($_POST["data"]);
     });
 
+    Route::patch("updateQte", function() {
+        Cart_Controller::updateQte($_POST["data"]);
+    });
+
     Route::delete("deleteFromCart", function() {
         if (Cart_Controller::createCart())
             echo Cart_Controller::deleteProduct($_POST["data"]);

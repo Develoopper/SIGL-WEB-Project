@@ -81,8 +81,8 @@
 			today = dd + '/' + mm + '/' + yyyy;
 
 			var produitsCommandes = new Array();
-			var produitsQte = <?php echo json_encode($_GET["qte"])?>;
-			var produitsRef = <?php echo json_encode($_GET["refProduit"])?>;
+			var produitsQte = <?php echo json_encode($_GET["qte"]); ?>;
+			var produitsRef = <?php echo json_encode($_GET["refProduit"]); ?>;
 			console.log(produitsRef);
 
 			for (var j = 0; j < produitsQte.length; j++)
@@ -101,8 +101,8 @@
 					data: {
 						dateCmd: today,
 						etatCmd:  "En attente",
-						montant: <?php echo "'" . $_GET["montant"] . "'"?>,
-						login: <?php echo "'" . $utilisateur->login . "'" ?>,
+						montant: <?php echo "'" . $_GET["montant"] . "'"; ?>,
+						login: <?php echo "'" . $utilisateur->login . "'"; ?>,
 						adresse: $("#adresse").val(),
 						produitsCommandes: produitsCommandes
 					}
