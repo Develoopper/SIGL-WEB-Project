@@ -39,11 +39,11 @@
 				</div>
 				<div class="mb-3">
 					<label class="form-label">E-mail*</label>
-					<input type="email" name="emailIns" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail" required>
+					<input type="email" name="emailIns" pattern="^[a-zA-Z0-9]{6,}@[a-z]{1,10}\.[a-z]{1,5}$" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail" required>
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Téléphone*</label>
-					<input type="tel" name="telephone" pattern="((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}" style="width: 450px" class="form-control" placeholder="téléphone" required>
+					<input type="tel" name="telephone" placeholder="0788888888" pattern="^0[6-7]{1}[0-9]{8}$" style="width: 450px" class="form-control" required>
 				</div>
 				<div class="mb-3">
 					<label class="form-label">Mot de passe*</label>
@@ -52,7 +52,9 @@
 				<div class="mb-3">
 					<?php
 						if (isset($_GET["exist"])) {
-							echo "utilisateur exist déjà";
+							echo "Utilisateur exist déjà.";
+						} else if (isset($_GET["signed"])) {
+							echo "Inscription réussite.";
 						}
 					?>
 				</div>
@@ -67,7 +69,7 @@
 			<form action="signIn" method="post">
 				<div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">E-mail</label>
-					<input type="email"  name="email" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail" required>
+					<input type="email"  name="email" pattern="^[a-zA-Z0-9]{6,}@[a-z]{1,10}\.[a-z]{1,5}$" style="width: 450px" class="form-control" id="exampleFormControlInput1" placeholder="e-mail" required>
 				</div>
 				<div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">Mot de passe</label>

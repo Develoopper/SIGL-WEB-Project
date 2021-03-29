@@ -39,7 +39,7 @@
 										<label style="margin-left: 15px;" for="nom" class="form-label">Nom* </label>
 									</div>
 									<div class="mb-3 col-6 form-floating">
-										<input type="text" id="numTel" class="form-control" value="<?php echo $utilisateur->tele ;?>" placeholder="Entrer votre numéro de télephone" required>
+										<input type="tel" id="numTel" class="form-control" placeholder="0788888888" pattern="^0[6-7]{1}[0-9]{8}$" value="<?php echo $utilisateur->tele ;?>" placeholder="Entrer votre numéro de télephone" required>
 										<label style="margin-left: 15px;" for="numTel" class="form-label">Numéro de télephone* </label>
 									</div>
 									<div class="mb-3 col-6 form-floating">

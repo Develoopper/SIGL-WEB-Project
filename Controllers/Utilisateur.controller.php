@@ -43,7 +43,7 @@ class Utilisateur_Controller extends Controller {
       if (is_string($utilisateurs) || (is_array($utilisateurs) && count($utilisateurs) == 0)) {
         $newUtilisateur = new Utilisateur_Model("", $_POST["nom"], $_POST["prenom"], $_POST["mpIns"], $_POST["emailIns"], "client", "", $_POST["telephone"]);
         if ($newUtilisateur->create())
-          header("Location: login");
+          header("Location: login?signed=1");
       } else {
         header("Location: login?exist=1");
       }

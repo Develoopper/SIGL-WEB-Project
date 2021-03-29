@@ -18,6 +18,8 @@
   });
 
   Route::set("enAttente", function() {
+    unset($_SESSION["panier"]);
+    setcookie("panier", "");
     Controller::CreateView("EnAttente", []);
   });
 
